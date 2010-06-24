@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2010, Cloudsmith Inc and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xD;Contributors:&#xA;- Cloudsmith Inc - initial API and implementation.&#xD;"
+    modelDirectory="/com.cloudsmith.publish/src" modelPluginID="com.cloudsmith.publish"
+    modelName="Publish" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.b3.backend/model/B3Backend.genmodel#//b3backend ../../org.eclipse.b3.build/model/B3Build.genmodel#//build ../../org.eclipse.b3.p2/model/p2.genmodel#//p2">
+  <foreignModel>publish.ecore</foreignModel>
+  <genPackages prefix="Publish" basePackage="com.cloudsmith" disposableProviderFactory="true"
+      ecorePackage="publish.ecore#/">
+    <genClasses image="false" ecoreClass="publish.ecore#//IP2Publishable">
+      <genOperations ecoreOperation="publish.ecore#//IP2Publishable/publish"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="publish.ecore#//RPM"/>
+    <genClasses image="false" ecoreClass="publish.ecore#//GEM"/>
+    <genClasses image="false" ecoreClass="publish.ecore#//INativeTouchpoint"/>
+    <genClasses image="false" ecoreClass="publish.ecore#//IRPMTouchpoint">
+      <genOperations ecoreOperation="publish.ecore#//IRPMTouchpoint/installRPM"/>
+      <genOperations ecoreOperation="publish.ecore#//IRPMTouchpoint/uninstallRPM"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="publish.ecore#//IGEMTouchpoint"/>
+    <genClasses ecoreClass="publish.ecore#//Publisher">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference publish.ecore#//Publisher/published"/>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/id">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/id/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/singleton">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/singleton/flag"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/version">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/version/version"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/copyright">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/copyright/copyrightText"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/copyrightURL">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/copyrightURL/url"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/license">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/license/licenseText"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/licenseURL">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/licenseURL/url"/>
+      </genOperations>
+      <genOperations ecoreOperation="publish.ecore#//Publisher/runtimeLDAPFilter">
+        <genParameters ecoreParameter="publish.ecore#//Publisher/runtimeLDAPFilter/filter"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

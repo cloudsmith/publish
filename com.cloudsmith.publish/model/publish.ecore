@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="publish"
+    nsURI="http://com.cloudsmith.publish/1.0" nsPrefix="">
+  <eClassifiers xsi:type="ecore:EClass" name="IP2Publishable" abstract="true" interface="true"
+      eSuperTypes="../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit">
+    <eOperations name="publish" eType="ecore:EDataType ../../org.eclipse.b3.build/model/B3Build.ecore#//B3BuilderJob"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RPM" abstract="true" interface="true"
+      eSuperTypes="#//IP2Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GEM" abstract="true" interface="true"
+      eSuperTypes="#//IP2Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NativeActions" eSuperTypes="#//ActionPackage #//INativeActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IRPMActions" abstract="true" interface="true">
+    <eOperations name="installRPM"/>
+    <eOperations name="uninstallRPM"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
+    <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
+      <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
+    </eOperations>
+    <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
+      <eParameters name="iuURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="zipURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.build/model/B3Build.ecore#//Version"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyrightText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyrightURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runtimeFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="properties">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Map">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//PublisherAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenInstalling" eType="#//PublisherAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUninstalling" eType="#//PublisherAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenConfiguring" eType="#//PublisherAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUnconfiguring" eType="#//PublisherAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//Capability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//RequiredCapability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequires" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//RequiredCapability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PublisherAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//ActionParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionPackage" lowerBound="1"
+        eType="#//ActionPackage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionPackage" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="INativeActions" abstract="true" interface="true">
+    <eOperations name="link" eType="#//PublisherAction">
+      <eParameters name="targetDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="linkTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="linkName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="force" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="unZip" eType="#//PublisherAction">
+      <eParameters name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="cleanupZip" eType="#//PublisherAction">
+      <eParameters name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="copy" eType="#//PublisherAction">
+      <eParameters name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="overwrite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="cleanupCopy" eType="#//PublisherAction">
+      <eParameters name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="mkdir" eType="#//PublisherAction">
+      <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="rmdir" eType="#//PublisherAction">
+      <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="remove" eType="#//PublisherAction">
+      <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="chmod" eType="#//PublisherAction">
+      <eParameters name="targetDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="targetFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="permissions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RPMActions" eSuperTypes="#//ActionPackage #//IRPMActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RPMPublisher" eSuperTypes="#//Publisher #//IRPMActions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RPMInstallDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IGEMActions" abstract="true" interface="true">
+    <eOperations name="installGEM"/>
+    <eOperations name="uninstallGEM"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GEMPublisher" eSuperTypes="#//Publisher #//IGEMActions"/>
+</ecore:EPackage>
