@@ -17,10 +17,10 @@ import com.cloudsmith.publish.PublisherAction;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.b3.build.build.BuildSet;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Capability;
-import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;

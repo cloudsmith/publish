@@ -12,10 +12,10 @@ package com.cloudsmith.publish;
 
 import java.util.Map;
 
-import org.eclipse.b3.build.build.BuildSet;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Capability;
-import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.Version;
 
@@ -117,7 +117,7 @@ public interface Publisher extends INativeActions {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see com.cloudsmith.publish.PublishPackage#getPublisher_Version()
-	 * @model dataType="org.eclipse.b3.build.build.Version"
+	 * @model dataType="org.eclipse.b3.build.Version"
 	 * @generated
 	 */
 	Version getVersion();

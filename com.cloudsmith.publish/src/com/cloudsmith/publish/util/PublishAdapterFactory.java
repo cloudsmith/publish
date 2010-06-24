@@ -15,11 +15,11 @@ import com.cloudsmith.publish.*;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
-import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Capability;
-import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
-import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
-import org.eclipse.b3.build.build.VersionedCapability;
+import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.Capability;
+import org.eclipse.b3.build.IProvidedCapabilityContainer;
+import org.eclipse.b3.build.IRequiredCapabilityContainer;
+import org.eclipse.b3.build.VersionedCapability;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;

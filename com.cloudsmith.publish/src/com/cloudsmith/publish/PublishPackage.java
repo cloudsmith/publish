@@ -10,7 +10,7 @@
  */
 package com.cloudsmith.publish;
 
-import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.B3BuildPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;

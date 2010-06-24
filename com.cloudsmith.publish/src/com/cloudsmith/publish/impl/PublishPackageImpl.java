@@ -26,7 +26,8 @@ import com.cloudsmith.publish.Publisher;
 import com.cloudsmith.publish.PublisherAction;
 import com.cloudsmith.publish.RPMActions;
 import com.cloudsmith.publish.RPMPublisher;
-import org.eclipse.b3.build.build.B3BuildPackage;
+
+import org.eclipse.b3.build.B3BuildPackage;
 
 import org.eclipse.b3.p2.P2Package;
 

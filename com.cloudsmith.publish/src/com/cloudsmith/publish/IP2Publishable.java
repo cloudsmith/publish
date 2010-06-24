@@ -10,7 +10,7 @@
  */
 package com.cloudsmith.publish;
 
-import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.BuildUnit;
 
 import org.eclipse.b3.build.core.B3BuilderJob;
 
@@ -28,7 +28,7 @@ public interface IP2Publishable extends BuildUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.b3.build.build.B3BuilderJob"
+	 * @model dataType="org.eclipse.b3.build.B3BuilderJob"
 	 * @generated
 	 */
 	B3BuilderJob publish();
