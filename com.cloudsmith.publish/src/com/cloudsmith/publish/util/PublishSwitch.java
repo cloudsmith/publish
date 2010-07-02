@@ -297,6 +297,13 @@ public class PublishSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case PublishPackage.REPOSITORY_PUBLISHER: {
+			RepositoryPublisher repositoryPublisher = (RepositoryPublisher) theEObject;
+			T result = caseRepositoryPublisher(repositoryPublisher);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -539,6 +546,21 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseRepositoryDefinition(RepositoryDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryPublisher(RepositoryPublisher object) {
 		return null;
 	}
 

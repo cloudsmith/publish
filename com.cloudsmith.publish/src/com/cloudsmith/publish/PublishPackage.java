@@ -1703,6 +1703,25 @@ public interface PublishPackage extends EPackage {
 	int REPOSITORY_DEFINITION_FEATURE_COUNT = IP2_PUBLISHABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RepositoryPublisherImpl <em>Repository Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.cloudsmith.publish.impl.RepositoryPublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryPublisher()
+	 * @generated
+	 */
+	int REPOSITORY_PUBLISHER = 16;
+
+	/**
+	 * The number of structural features of the '<em>Repository Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_PUBLISHER_FEATURE_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2138,6 +2157,16 @@ public interface PublishPackage extends EPackage {
 	EClass getRepositoryDefinition();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RepositoryPublisher <em>Repository Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Repository Publisher</em>'.
+	 * @see com.cloudsmith.publish.RepositoryPublisher
+	 * @generated
+	 */
+	EClass getRepositoryPublisher();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2531,6 +2560,16 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPOSITORY_DEFINITION = eINSTANCE.getRepositoryDefinition();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RepositoryPublisherImpl <em>Repository Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.cloudsmith.publish.impl.RepositoryPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryPublisher()
+		 * @generated
+		 */
+		EClass REPOSITORY_PUBLISHER = eINSTANCE.getRepositoryPublisher();
 
 	}
 

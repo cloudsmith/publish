@@ -8,6 +8,7 @@ import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publisher;
 import com.cloudsmith.publish.RPMActions;
 import com.cloudsmith.publish.RPMPublisher;
+import com.cloudsmith.publish.RepositoryPublisher;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 
@@ -40,6 +41,10 @@ public class PublishModule extends AbstractModule {
 		bind(GEMPublisher.class).toProvider(
 				publishModelProvider(GEMPublisher.class, PublishPackage.Literals.GEM_PUBLISHER));
 	}
+	protected void bindRepositoryPublisher() {
+		bind(RepositoryPublisher.class).toProvider(
+				publishModelProvider(RepositoryPublisher.class, PublishPackage.Literals.REPOSITORY_PUBLISHER));
+	}
 
 	@Override
 	protected void configure() {
@@ -51,6 +56,8 @@ public class PublishModule extends AbstractModule {
 
 		bindGEMPublisher();
 		bindGEMActions();
+		
+		bindRepositoryPublisher();
 	}
 
 

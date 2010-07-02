@@ -28,6 +28,7 @@ import com.cloudsmith.publish.RPMActions;
 import com.cloudsmith.publish.RPMPublisher;
 
 import com.cloudsmith.publish.RepositoryDefinition;
+import com.cloudsmith.publish.RepositoryPublisher;
 import org.eclipse.b3.build.B3BuildPackage;
 
 import org.eclipse.b3.p2.P2Package;
@@ -159,6 +160,13 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	private EClass repositoryDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repositoryPublisherEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -608,6 +616,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRepositoryPublisher() {
+		return repositoryPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PublishFactory getPublishFactory() {
 		return (PublishFactory) getEFactoryInstance();
 	}
@@ -689,6 +706,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		gemPublisherEClass = createEClass(GEM_PUBLISHER);
 
 		repositoryDefinitionEClass = createEClass(REPOSITORY_DEFINITION);
+
+		repositoryPublisherEClass = createEClass(REPOSITORY_PUBLISHER);
 	}
 
 	/**
@@ -1006,6 +1025,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(repositoryDefinitionEClass, RepositoryDefinition.class,
 				"RepositoryDefinition", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(repositoryPublisherEClass, RepositoryPublisher.class,
+				"RepositoryPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(repositoryPublisherEClass,
+				theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

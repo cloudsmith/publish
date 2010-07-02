@@ -164,6 +164,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRepositoryPublisher(RepositoryPublisher object) {
+			return createRepositoryPublisherAdapter();
+		}
+
+		@Override
 		public Adapter caseINamedValue(INamedValue object) {
 			return createINamedValueAdapter();
 		}
@@ -440,6 +445,20 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRepositoryDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.RepositoryPublisher <em>Repository Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.RepositoryPublisher
+	 * @generated
+	 */
+	public Adapter createRepositoryPublisherAdapter() {
 		return null;
 	}
 

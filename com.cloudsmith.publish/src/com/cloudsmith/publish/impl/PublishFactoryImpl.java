@@ -78,6 +78,8 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 			return createRPMPublisher();
 		case PublishPackage.GEM_PUBLISHER:
 			return createGEMPublisher();
+		case PublishPackage.REPOSITORY_PUBLISHER:
+			return createRepositoryPublisher();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -152,6 +154,16 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public GEMPublisher createGEMPublisher() {
 		GEMPublisherImpl gemPublisher = new GEMPublisherImpl();
 		return gemPublisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepositoryPublisher createRepositoryPublisher() {
+		RepositoryPublisherImpl repositoryPublisher = new RepositoryPublisherImpl();
+		return repositoryPublisher;
 	}
 
 	/**
