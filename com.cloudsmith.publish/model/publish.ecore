@@ -39,7 +39,6 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//PublisherAction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whenInstalling" eType="#//PublisherAction"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whenUninstalling" eType="#//PublisherAction"
@@ -122,4 +121,6 @@
     <eOperations name="uninstallGEM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMPublisher" eSuperTypes="#//Publisher #//IGEMActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryDefinition" abstract="true"
+      interface="true" eSuperTypes="#//IP2Publishable"/>
 </ecore:EPackage>

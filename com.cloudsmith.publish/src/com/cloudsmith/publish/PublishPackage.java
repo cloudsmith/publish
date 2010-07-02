@@ -904,22 +904,13 @@ public interface PublishPackage extends EPackage {
 	int PUBLISHER__PROPERTIES = INATIVE_ACTIONS_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PUBLISHER__EREFERENCE0 = INATIVE_ACTIONS_FEATURE_COUNT + 9;
-
-	/**
 	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__WHEN_INSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 10;
+	int PUBLISHER__WHEN_INSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference.
@@ -928,7 +919,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__WHEN_UNINSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 11;
+	int PUBLISHER__WHEN_UNINSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference.
@@ -937,7 +928,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__WHEN_CONFIGURING = INATIVE_ACTIONS_FEATURE_COUNT + 12;
+	int PUBLISHER__WHEN_CONFIGURING = INATIVE_ACTIONS_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference.
@@ -946,7 +937,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__WHEN_UNCONFIGURING = INATIVE_ACTIONS_FEATURE_COUNT + 13;
+	int PUBLISHER__WHEN_UNCONFIGURING = INATIVE_ACTIONS_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -955,7 +946,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__NAME = INATIVE_ACTIONS_FEATURE_COUNT + 14;
+	int PUBLISHER__NAME = INATIVE_ACTIONS_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
@@ -964,7 +955,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__UNIT = INATIVE_ACTIONS_FEATURE_COUNT + 15;
+	int PUBLISHER__UNIT = INATIVE_ACTIONS_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Provides</b></em>' reference list.
@@ -973,7 +964,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__PROVIDES = INATIVE_ACTIONS_FEATURE_COUNT + 16;
+	int PUBLISHER__PROVIDES = INATIVE_ACTIONS_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Requires</b></em>' reference list.
@@ -982,7 +973,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__REQUIRES = INATIVE_ACTIONS_FEATURE_COUNT + 17;
+	int PUBLISHER__REQUIRES = INATIVE_ACTIONS_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
@@ -991,7 +982,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__META_REQUIRES = INATIVE_ACTIONS_FEATURE_COUNT + 18;
+	int PUBLISHER__META_REQUIRES = INATIVE_ACTIONS_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Publisher</em>' class.
@@ -1000,7 +991,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER_FEATURE_COUNT = INATIVE_ACTIONS_FEATURE_COUNT + 19;
+	int PUBLISHER_FEATURE_COUNT = INATIVE_ACTIONS_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
@@ -1203,15 +1194,6 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
-
-	/**
-	 * The feature id for the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RPM_PUBLISHER__EREFERENCE0 = PUBLISHER__EREFERENCE0;
 
 	/**
 	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
@@ -1423,15 +1405,6 @@ public interface PublishPackage extends EPackage {
 	int GEM_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
 
 	/**
-	 * The feature id for the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEM_PUBLISHER__EREFERENCE0 = PUBLISHER__EREFERENCE0;
-
-	/**
 	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1520,6 +1493,214 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.cloudsmith.publish.RepositoryDefinition
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryDefinition()
+	 * @generated
+	 */
+	int REPOSITORY_DEFINITION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__NAME = IP2_PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__NAME_SPACE = IP2_PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__COND_EXPR = IP2_PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__VERSION = IP2_PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__FUNCTIONS = IP2_PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__REQUIRED_CAPABILITIES = IP2_PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__PROVIDED_CAPABILITIES = IP2_PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__BUILDERS = IP2_PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__DOCUMENTATION = IP2_PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__EXECUTION_MODE = IP2_PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__META_REQUIRED_CAPABILITIES = IP2_PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__IMPLEMENTS = IP2_PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__CONCERNS = IP2_PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__DEFAULT_PROPERTIES = IP2_PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__SYNCHRONIZATIONS = IP2_PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__REPOSITORIES = IP2_PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__CONTAINERS = IP2_PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__PROPERTY_SETS = IP2_PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__SOURCE_LOCATION = IP2_PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__OUTPUT_LOCATION = IP2_PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__PROVIDERS = IP2_PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The number of structural features of the '<em>Repository Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION_FEATURE_COUNT = IP2_PUBLISHABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}'.
@@ -1689,17 +1870,6 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPublisher_Properties();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.cloudsmith.publish.Publisher#getEReference0 <em>EReference0</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>EReference0</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getEReference0()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_EReference0();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getWhenInstalling <em>When Installing</em>}'.
@@ -1958,6 +2128,16 @@ public interface PublishPackage extends EPackage {
 	EClass getGEMPublisher();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Repository Definition</em>'.
+	 * @see com.cloudsmith.publish.RepositoryDefinition
+	 * @generated
+	 */
+	EClass getRepositoryDefinition();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2124,15 +2304,6 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PUBLISHER__PROPERTIES = eINSTANCE.getPublisher_Properties();
-
-		/**
-		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__EREFERENCE0 = eINSTANCE
-				.getPublisher_EReference0();
 
 		/**
 		 * The meta object literal for the '<em><b>When Installing</b></em>' containment reference feature.
@@ -2350,6 +2521,16 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GEM_PUBLISHER = eINSTANCE.getGEMPublisher();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.cloudsmith.publish.RepositoryDefinition
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryDefinition()
+		 * @generated
+		 */
+		EClass REPOSITORY_DEFINITION = eINSTANCE.getRepositoryDefinition();
 
 	}
 

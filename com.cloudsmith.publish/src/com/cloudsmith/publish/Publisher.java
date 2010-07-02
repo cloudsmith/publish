@@ -36,7 +36,6 @@ import org.eclipse.equinox.p2.metadata.Version;
  *   <li>{@link com.cloudsmith.publish.Publisher#getLicenseURL <em>License URL</em>}</li>
  *   <li>{@link com.cloudsmith.publish.Publisher#getRuntimeFilter <em>Runtime Filter</em>}</li>
  *   <li>{@link com.cloudsmith.publish.Publisher#getProperties <em>Properties</em>}</li>
- *   <li>{@link com.cloudsmith.publish.Publisher#getEReference0 <em>EReference0</em>}</li>
  *   <li>{@link com.cloudsmith.publish.Publisher#getWhenInstalling <em>When Installing</em>}</li>
  *   <li>{@link com.cloudsmith.publish.Publisher#getWhenUninstalling <em>When Uninstalling</em>}</li>
  *   <li>{@link com.cloudsmith.publish.Publisher#getWhenConfiguring <em>When Configuring</em>}</li>
@@ -287,32 +286,6 @@ public interface Publisher extends INativeActions {
 	 * @generated
 	 */
 	void setProperties(Map<String, String> value);
-
-	/**
-	 * Returns the value of the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EReference0</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference0</em>' reference.
-	 * @see #setEReference0(PublisherAction)
-	 * @see com.cloudsmith.publish.PublishPackage#getPublisher_EReference0()
-	 * @model
-	 * @generated
-	 */
-	PublisherAction getEReference0();
-
-	/**
-	 * Sets the value of the '{@link com.cloudsmith.publish.Publisher#getEReference0 <em>EReference0</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EReference0</em>' reference.
-	 * @see #getEReference0()
-	 * @generated
-	 */
-	void setEReference0(PublisherAction value);
 
 	/**
 	 * Returns the value of the '<em><b>When Installing</b></em>' containment reference.

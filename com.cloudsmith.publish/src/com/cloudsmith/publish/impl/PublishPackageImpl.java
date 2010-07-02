@@ -27,6 +27,7 @@ import com.cloudsmith.publish.PublisherAction;
 import com.cloudsmith.publish.RPMActions;
 import com.cloudsmith.publish.RPMPublisher;
 
+import com.cloudsmith.publish.RepositoryDefinition;
 import org.eclipse.b3.build.B3BuildPackage;
 
 import org.eclipse.b3.p2.P2Package;
@@ -151,6 +152,13 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	private EClass gemPublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repositoryDefinitionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -370,7 +378,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPublisher_EReference0() {
+	public EReference getPublisher_WhenInstalling() {
 		return (EReference) publisherEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -379,7 +387,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPublisher_WhenInstalling() {
+	public EReference getPublisher_WhenUninstalling() {
 		return (EReference) publisherEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -388,7 +396,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPublisher_WhenUninstalling() {
+	public EReference getPublisher_WhenConfiguring() {
 		return (EReference) publisherEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -397,7 +405,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPublisher_WhenConfiguring() {
+	public EReference getPublisher_WhenUnconfiguring() {
 		return (EReference) publisherEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -406,17 +414,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPublisher_WhenUnconfiguring() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPublisher_Name() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(14);
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -425,7 +424,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	public EReference getPublisher_Unit() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(15);
+		return (EReference) publisherEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -434,7 +433,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	public EReference getPublisher_Provides() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(16);
+		return (EReference) publisherEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -443,7 +442,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	public EReference getPublisher_Requires() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(17);
+		return (EReference) publisherEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -452,7 +451,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * @generated
 	 */
 	public EReference getPublisher_MetaRequires() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(18);
+		return (EReference) publisherEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -600,6 +599,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRepositoryDefinition() {
+		return repositoryDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PublishFactory getPublishFactory() {
 		return (PublishFactory) getEFactoryInstance();
 	}
@@ -646,7 +654,6 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		createEAttribute(publisherEClass, PUBLISHER__LICENSE_URL);
 		createEAttribute(publisherEClass, PUBLISHER__RUNTIME_FILTER);
 		createEAttribute(publisherEClass, PUBLISHER__PROPERTIES);
-		createEReference(publisherEClass, PUBLISHER__EREFERENCE0);
 		createEReference(publisherEClass, PUBLISHER__WHEN_INSTALLING);
 		createEReference(publisherEClass, PUBLISHER__WHEN_UNINSTALLING);
 		createEReference(publisherEClass, PUBLISHER__WHEN_CONFIGURING);
@@ -680,6 +687,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		igemActionsEClass = createEClass(IGEM_ACTIONS);
 
 		gemPublisherEClass = createEClass(GEM_PUBLISHER);
+
+		repositoryDefinitionEClass = createEClass(REPOSITORY_DEFINITION);
 	}
 
 	/**
@@ -732,6 +741,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		rpmPublisherEClass.getESuperTypes().add(this.getIRPMActions());
 		gemPublisherEClass.getESuperTypes().add(this.getPublisher());
 		gemPublisherEClass.getESuperTypes().add(this.getIGEMActions());
+		repositoryDefinitionEClass.getESuperTypes().add(
+				this.getIP2Publishable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(ip2PublishableEClass, IP2Publishable.class,
@@ -805,11 +816,6 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEAttribute(getPublisher_Properties(), g1, "properties", null, 0, 1,
 				Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_EReference0(), this.getPublisherAction(),
-				null, "EReference0", null, 0, 1, Publisher.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEReference(getPublisher_WhenInstalling(),
 				this.getPublisherAction(), null, "whenInstalling", null, 0, 1,
 				Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -996,6 +1002,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		initEClass(gemPublisherEClass, GEMPublisher.class, "GEMPublisher",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(repositoryDefinitionEClass, RepositoryDefinition.class,
+				"RepositoryDefinition", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

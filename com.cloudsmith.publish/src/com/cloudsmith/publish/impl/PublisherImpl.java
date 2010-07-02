@@ -50,7 +50,6 @@ import org.eclipse.equinox.p2.metadata.Version;
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getLicenseURL <em>License URL</em>}</li>
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getRuntimeFilter <em>Runtime Filter</em>}</li>
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getEReference0 <em>EReference0</em>}</li>
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getWhenInstalling <em>When Installing</em>}</li>
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getWhenUninstalling <em>When Uninstalling</em>}</li>
  *   <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getWhenConfiguring <em>When Configuring</em>}</li>
@@ -219,15 +218,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @ordered
 	 */
 	protected Map<String, String> properties;
-	/**
-	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEReference0()
-	 * @generated
-	 * @ordered
-	 */
-	protected PublisherAction eReference0;
 	/**
 	 * The cached value of the '{@link #getWhenInstalling() <em>When Installing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -542,48 +532,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					PublishPackage.PUBLISHER__PROPERTIES, oldProperties,
 					properties));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PublisherAction getEReference0() {
-		if (eReference0 != null && eReference0.eIsProxy()) {
-			InternalEObject oldEReference0 = (InternalEObject) eReference0;
-			eReference0 = (PublisherAction) eResolveProxy(oldEReference0);
-			if (eReference0 != oldEReference0) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PublishPackage.PUBLISHER__EREFERENCE0,
-							oldEReference0, eReference0));
-			}
-		}
-		return eReference0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PublisherAction basicGetEReference0() {
-		return eReference0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEReference0(PublisherAction newEReference0) {
-		PublisherAction oldEReference0 = eReference0;
-		eReference0 = newEReference0;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PublishPackage.PUBLISHER__EREFERENCE0, oldEReference0,
-					eReference0));
 	}
 
 	/**
@@ -1091,10 +1039,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 			return getRuntimeFilter();
 		case PublishPackage.PUBLISHER__PROPERTIES:
 			return getProperties();
-		case PublishPackage.PUBLISHER__EREFERENCE0:
-			if (resolve)
-				return getEReference0();
-			return basicGetEReference0();
 		case PublishPackage.PUBLISHER__WHEN_INSTALLING:
 			return getWhenInstalling();
 		case PublishPackage.PUBLISHER__WHEN_UNINSTALLING:
@@ -1154,9 +1098,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 			return;
 		case PublishPackage.PUBLISHER__PROPERTIES:
 			setProperties((Map<String, String>) newValue);
-			return;
-		case PublishPackage.PUBLISHER__EREFERENCE0:
-			setEReference0((PublisherAction) newValue);
 			return;
 		case PublishPackage.PUBLISHER__WHEN_INSTALLING:
 			setWhenInstalling((PublisherAction) newValue);
@@ -1229,9 +1170,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 		case PublishPackage.PUBLISHER__PROPERTIES:
 			setProperties((Map<String, String>) null);
 			return;
-		case PublishPackage.PUBLISHER__EREFERENCE0:
-			setEReference0((PublisherAction) null);
-			return;
 		case PublishPackage.PUBLISHER__WHEN_INSTALLING:
 			setWhenInstalling((PublisherAction) null);
 			return;
@@ -1295,8 +1233,6 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 					: !RUNTIME_FILTER_EDEFAULT.equals(runtimeFilter);
 		case PublishPackage.PUBLISHER__PROPERTIES:
 			return properties != null;
-		case PublishPackage.PUBLISHER__EREFERENCE0:
-			return eReference0 != null;
 		case PublishPackage.PUBLISHER__WHEN_INSTALLING:
 			return whenInstalling != null;
 		case PublishPackage.PUBLISHER__WHEN_UNINSTALLING:

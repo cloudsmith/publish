@@ -274,6 +274,29 @@ public class PublishSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case PublishPackage.REPOSITORY_DEFINITION: {
+			RepositoryDefinition repositoryDefinition = (RepositoryDefinition) theEObject;
+			T result = caseRepositoryDefinition(repositoryDefinition);
+			if (result == null)
+				result = caseIP2Publishable(repositoryDefinition);
+			if (result == null)
+				result = caseBuildUnit(repositoryDefinition);
+			if (result == null)
+				result = caseVersionedCapability(repositoryDefinition);
+			if (result == null)
+				result = caseBFunctionContainer(repositoryDefinition);
+			if (result == null)
+				result = caseIRequiredCapabilityContainer(repositoryDefinition);
+			if (result == null)
+				result = caseIProvidedCapabilityContainer(repositoryDefinition);
+			if (result == null)
+				result = caseCapability(repositoryDefinition);
+			if (result == null)
+				result = caseINamedValue(repositoryDefinition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -501,6 +524,21 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseGEMPublisher(GEMPublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryDefinition(RepositoryDefinition object) {
 		return null;
 	}
 
