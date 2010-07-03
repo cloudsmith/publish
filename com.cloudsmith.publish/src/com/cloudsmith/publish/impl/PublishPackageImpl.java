@@ -882,15 +882,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		EOperation op = addEOperation(publisherEClass,
 				theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(publisherEClass, theB3BuildPackage.getBuildSet(),
 				"write", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "iuURI", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "zipURI", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(publisherActionEClass, PublisherAction.class,
 				"PublisherAction", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1033,6 +1033,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		op = addEOperation(repositoryPublisherEClass,
 				theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 

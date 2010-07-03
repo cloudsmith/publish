@@ -19,11 +19,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
-      <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
+      <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
     </eOperations>
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
-      <eParameters name="iuURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="zipURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
+      <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -125,6 +125,7 @@
       interface="true" eSuperTypes="#//IP2Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryPublisher">
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
+      <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
       <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
   </eClassifiers>

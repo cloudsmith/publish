@@ -12,6 +12,7 @@ package com.cloudsmith.publish;
 
 import org.eclipse.b3.build.BuildSet;
 
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -31,6 +32,6 @@ public interface RepositoryPublisher extends EObject {
 	 * @model
 	 * @generated
 	 */
-	BuildSet write(BuildSet output);
+	BuildSet write(BuildUnit unit, BuildSet output);
 
 } // RepositoryPublisher

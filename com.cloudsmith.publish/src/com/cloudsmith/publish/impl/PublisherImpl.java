@@ -874,7 +874,7 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BuildSet write(BuildSet output) {
+	public BuildSet write(BuildUnit unit) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -885,7 +885,7 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BuildSet write(String iuURI, String zipURI) {
+	public BuildSet write(BuildUnit unit, BuildSet output) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

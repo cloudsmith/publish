@@ -497,7 +497,7 @@ public interface Publisher extends INativeActions {
 	 * @model
 	 * @generated
 	 */
-	BuildSet write(BuildSet output);
+	BuildSet write(BuildUnit unit);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,6 +505,6 @@ public interface Publisher extends INativeActions {
 	 * @model
 	 * @generated
 	 */
-	BuildSet write(String iuURI, String zipURI);
+	BuildSet write(BuildUnit unit, BuildSet output);
 
 } // Publisher

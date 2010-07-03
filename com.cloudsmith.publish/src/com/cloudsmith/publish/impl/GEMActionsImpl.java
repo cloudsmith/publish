@@ -15,8 +15,6 @@ import com.cloudsmith.publish.PublishPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>GEM Actions</b></em>'.

@@ -156,14 +156,6 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pTnL44X-Ed-vP7bE7skxjw"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_pTnL5IX-Ed-vP7bE7skxjw" type="5002">
-      <children xmi:type="notation:Node" xmi:id="_pTpoJIX-Ed-vP7bE7skxjw" type="2002">
-        <element xmi:type="ecore:EOperation" href="publish.ecore#//Publisher/write"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_pTpoJYX-Ed-vP7bE7skxjw"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_pTqPMIX-Ed-vP7bE7skxjw" type="2002">
-        <element xmi:type="ecore:EOperation" href="publish.ecore#//Publisher/write.1"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_pTqPMYX-Ed-vP7bE7skxjw"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pTnL5YX-Ed-vP7bE7skxjw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pTnL5oX-Ed-vP7bE7skxjw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pTnL54X-Ed-vP7bE7skxjw"/>

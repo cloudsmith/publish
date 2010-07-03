@@ -10,14 +10,9 @@
  */
 package com.cloudsmith.publish.impl;
 
-import com.cloudsmith.publish.ConfigurePhase;
 import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.RPMInstallPhase;
 import com.cloudsmith.publish.RPMPublisher;
 import org.eclipse.emf.common.notify.Notification;
-import com.cloudsmith.publish.RPMUninstallPhase;
-import com.cloudsmith.publish.UnconfigurePhase;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
