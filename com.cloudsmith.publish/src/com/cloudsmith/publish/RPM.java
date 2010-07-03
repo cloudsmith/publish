@@ -14,8 +14,8 @@ package com.cloudsmith.publish;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>RPM</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getRPM()
  * @model interface="true" abstract="true"
  * @generated

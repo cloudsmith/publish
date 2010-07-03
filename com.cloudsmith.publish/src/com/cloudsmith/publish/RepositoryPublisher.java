@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Repository Publisher</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getRepositoryPublisher()
  * @model
  * @generated
@@ -29,6 +29,7 @@ public interface RepositoryPublisher extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */

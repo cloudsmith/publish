@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>INative Touchpoint</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getINativeTouchpoint()
  * @model interface="true" abstract="true"
  * @generated

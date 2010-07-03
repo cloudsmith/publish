@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IGEM Actions</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getIGEMActions()
  * @model interface="true" abstract="true"
  * @generated
@@ -26,17 +26,19 @@ public interface IGEMActions extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
-	void installGEM();
+	PublisherAction installGEM();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
-	void uninstallGEM();
+	PublisherAction uninstallGEM();
 
 } // IGEMActions

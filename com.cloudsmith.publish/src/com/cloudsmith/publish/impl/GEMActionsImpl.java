@@ -13,6 +13,7 @@ package com.cloudsmith.publish.impl;
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.PublishPackage;
 
+import com.cloudsmith.publish.PublisherAction;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -21,13 +22,16 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
+	public static final String NAME = "com.cloudsmith.touchpoint.gem";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected GEMActionsImpl() {
@@ -37,6 +41,7 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -44,12 +49,18 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 		return PublishPackage.Literals.GEM_ACTIONS;
 	}
 
+	@Override
+	public String getName() {
+		return NAME;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void installGEM() {
+	public PublisherAction installGEM() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -58,12 +69,12 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void uninstallGEM() {
+	public PublisherAction uninstallGEM() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-
-} //GEMActionsImpl
+} // GEMActionsImpl

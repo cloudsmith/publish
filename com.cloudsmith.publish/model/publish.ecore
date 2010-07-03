@@ -13,8 +13,8 @@
       eSuperTypes="#//IP2Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeActions" eSuperTypes="#//ActionPackage #//INativeActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="IRPMActions" abstract="true" interface="true">
-    <eOperations name="installRPM"/>
-    <eOperations name="uninstallRPM"/>
+    <eOperations name="installRPM" eType="#//PublisherAction"/>
+    <eOperations name="uninstallRPM" eType="#//PublisherAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
@@ -39,14 +39,14 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="whenInstalling" eType="#//PublisherAction"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUninstalling" eType="#//PublisherAction"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="whenConfiguring" eType="#//PublisherAction"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUnconfiguring" eType="#//PublisherAction"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenInstalling" upperBound="-1"
+        eType="#//PublisherAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUninstalling" upperBound="-1"
+        eType="#//PublisherAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenConfiguring" upperBound="-1"
+        eType="#//PublisherAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenUnconfiguring" upperBound="-1"
+        eType="#//PublisherAction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
@@ -117,8 +117,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RPMInstallDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IGEMActions" abstract="true" interface="true">
-    <eOperations name="installGEM"/>
-    <eOperations name="uninstallGEM"/>
+    <eOperations name="installGEM" eType="#//PublisherAction"/>
+    <eOperations name="uninstallGEM" eType="#//PublisherAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMPublisher" eSuperTypes="#//Publisher #//IGEMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDefinition" abstract="true"

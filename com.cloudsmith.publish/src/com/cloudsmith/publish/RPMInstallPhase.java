@@ -14,8 +14,8 @@ package com.cloudsmith.publish;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>RPM Install Phase</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getRPMInstallPhase()
  * @model
  * @generated

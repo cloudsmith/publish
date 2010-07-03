@@ -13,6 +13,7 @@ package com.cloudsmith.publish.impl;
 import com.cloudsmith.publish.GEMPublisher;
 import com.cloudsmith.publish.PublishPackage;
 
+import com.cloudsmith.publish.PublisherAction;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -21,13 +22,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected GEMPublisherImpl() {
@@ -37,6 +39,7 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -47,9 +50,10 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void installGEM() {
+	public PublisherAction installGEM() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -58,12 +62,13 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void uninstallGEM() {
+	public PublisherAction uninstallGEM() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-} //GEMPublisherImpl
+} // GEMPublisherImpl

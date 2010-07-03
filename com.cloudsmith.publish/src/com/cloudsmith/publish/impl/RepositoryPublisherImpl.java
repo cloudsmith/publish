@@ -55,14 +55,14 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class RepositoryPublisherImpl extends EObjectImpl implements
-		RepositoryPublisher {
+public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepositoryPublisherImpl() {
@@ -72,6 +72,7 @@ public class RepositoryPublisherImpl extends EObjectImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -82,14 +83,14 @@ public class RepositoryPublisherImpl extends EObjectImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	public BuildSet write(BuildUnit unit, BuildSet output) {
 		// Each of the files in output should be a p2 repository model written to file.
 		// The result is a new file
 
-		P2Package p2Package = P2Package.eINSTANCE;
 		P2Factory p2Factory = P2Factory.eINSTANCE;
 
 		// pick up calling context from thread local storage
@@ -104,10 +105,8 @@ public class RepositoryPublisherImpl extends EObjectImpl implements
 		resultResource.getContents().clear();
 
 		// Create a MDR in the new file, and give it a location
-		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) p2Factory
-				.createMetadataRepository();
-		java.net.URI resultMDRURI = java.net.URI
-				.create("file:/tmp/PublishTest/");
+		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) p2Factory.createMetadataRepository();
+		java.net.URI resultMDRURI = java.net.URI.create("file:/tmp/PublishTest/");
 		mdr.setLocation(resultMDRURI);
 		resultResource.getContents().add(mdr);
 		// get the list to add all aggregated IUs to
@@ -116,36 +115,38 @@ public class RepositoryPublisherImpl extends EObjectImpl implements
 		// Aggregate all IUs in all of the input
 		//
 		PathIterator pItor = output.getPathIterator();
-		while (pItor.hasNext()) {
+		while(pItor.hasNext()) {
 			// Convert java.net.URI to EMF URI
 			URI uri = URI.createURI(pItor.next().toString());
 			// Load the input p2 model resource
 			Resource r = resourceSet.getResource(uri, true);
 			List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
 			TreeIterator<EObject> treeItor = r.getAllContents();
-			while (treeItor.hasNext()) {
+			while(treeItor.hasNext()) {
 				EObject e = treeItor.next();
-				if (e instanceof InstallableUnit)
+				if(e instanceof InstallableUnit)
 					toBeCopied.add((InstallableUnitImpl) e);
 			}
-			// TODO: is it required to copy first? 
+			// TODO: is it required to copy first?
 			resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
 		}
 		try {
 			resultResource.save(null);
-		} catch (IOException e) {
+		}
+		catch(IOException e) {
 			System.err.print("Could not save resulting p2 model\n");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// Write the MDR in p2 repo format
-		IMetadataRepositoryManager mdrMgr = P2Utils
-				.getRepositoryManager(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
-			IProgressMonitor monitor = ctx != null ? ctx.getProgressMonitor()
+			IProgressMonitor monitor = ctx != null
+					? ctx.getProgressMonitor()
 					: new NullProgressMonitor();
 			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
-		} catch (CoreException e) {
+		}
+		catch(CoreException e) {
 			System.err.print("Could not save resulting mdr repository\n");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -159,4 +160,4 @@ public class RepositoryPublisherImpl extends EObjectImpl implements
 		return bs;
 	}
 
-} //RepositoryPublisherImpl
+} // RepositoryPublisherImpl

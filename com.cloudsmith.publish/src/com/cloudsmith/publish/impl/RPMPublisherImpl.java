@@ -11,7 +11,11 @@
 package com.cloudsmith.publish.impl;
 
 import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.PublisherAction;
 import com.cloudsmith.publish.RPMPublisher;
+
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -23,10 +27,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.cloudsmith.publish.impl.RPMPublisherImpl#getRPMInstallDir <em>RPM Install Dir</em>}</li>
+ * <li>{@link com.cloudsmith.publish.impl.RPMPublisherImpl#getRPMInstallDir <em>RPM Install Dir</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
@@ -34,15 +38,18 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * The default value of the '{@link #getRPMInstallDir() <em>RPM Install Dir</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRPMInstallDir()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String RPM_INSTALL_DIR_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getRPMInstallDir() <em>RPM Install Dir</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRPMInstallDir()
 	 * @generated
 	 * @ordered
@@ -52,6 +59,7 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RPMPublisherImpl() {
@@ -61,6 +69,55 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
+				return getRPMInstallDir();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
+				return RPM_INSTALL_DIR_EDEFAULT == null
+						? rpmInstallDir != null
+						: !RPM_INSTALL_DIR_EDEFAULT.equals(rpmInstallDir);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
+				setRPMInstallDir((String) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -71,6 +128,23 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
+				setRPMInstallDir(RPM_INSTALL_DIR_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getRPMInstallDir() {
@@ -80,106 +154,38 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction installRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRPMInstallDir(String newRPMInstallDir) {
 		String oldRPMInstallDir = rpmInstallDir;
 		rpmInstallDir = newRPMInstallDir;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR,
-					oldRPMInstallDir, rpmInstallDir));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR, oldRPMInstallDir, rpmInstallDir));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void installRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void uninstallRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
-			return getRPMInstallDir();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
-			setRPMInstallDir((String) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
-			setRPMInstallDir(RPM_INSTALL_DIR_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
-			return RPM_INSTALL_DIR_EDEFAULT == null ? rpmInstallDir != null
-					: !RPM_INSTALL_DIR_EDEFAULT.equals(rpmInstallDir);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
+		if(eIsProxy())
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
@@ -189,4 +195,24 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 		return result.toString();
 	}
 
-} //RPMPublisherImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction uninstallRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public BuildSet write(BuildUnit unit) {
+		BuildSet bs = super.write(unit); // sets all of the defaults, returns empty? BuildSet
+
+		getWhenInstalling().add(installRPM());
+		getWhenUninstalling().add(uninstallRPM());
+		return bs;
+	}
+} // RPMPublisherImpl

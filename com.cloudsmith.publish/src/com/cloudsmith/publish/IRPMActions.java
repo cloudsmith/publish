@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IRPM Actions</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getIRPMActions()
  * @model interface="true" abstract="true"
  * @generated
@@ -26,17 +26,19 @@ public interface IRPMActions extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
-	void installRPM();
+	PublisherAction installRPM();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
-	void uninstallRPM();
+	PublisherAction uninstallRPM();
 
 } // IRPMActions

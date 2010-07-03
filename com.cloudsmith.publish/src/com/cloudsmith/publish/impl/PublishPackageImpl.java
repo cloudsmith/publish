@@ -46,12 +46,14 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass ip2PublishableEClass = null;
@@ -59,6 +61,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass rpmEClass = null;
@@ -66,6 +69,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass gemEClass = null;
@@ -73,6 +77,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass nativeActionsEClass = null;
@@ -80,6 +85,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass irpmActionsEClass = null;
@@ -87,6 +93,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass gemActionsEClass = null;
@@ -94,6 +101,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass publisherEClass = null;
@@ -101,6 +109,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass publisherActionEClass = null;
@@ -108,6 +117,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass actionParameterEClass = null;
@@ -115,6 +125,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass actionPackageEClass = null;
@@ -122,6 +133,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass iNativeActionsEClass = null;
@@ -129,6 +141,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass rpmActionsEClass = null;
@@ -136,6 +149,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass rpmPublisherEClass = null;
@@ -143,6 +157,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass igemActionsEClass = null;
@@ -150,6 +165,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass gemPublisherEClass = null;
@@ -157,6 +173,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass repositoryDefinitionEClass = null;
@@ -164,32 +181,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass repositoryPublisherEClass = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.cloudsmith.publish.PublishPackage#eNS_URI
-	 * @see #init()
-	 * @generated
-	 */
-	private PublishPackageImpl() {
-		super(eNS_URI, PublishFactory.eINSTANCE);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -197,24 +197,23 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link PublishPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link PublishPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead,
+	 * they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static PublishPackage init() {
-		if (isInited)
-			return (PublishPackage) EPackage.Registry.INSTANCE
-					.getEPackage(PublishPackage.eNS_URI);
+		if(isInited)
+			return (PublishPackage) EPackage.Registry.INSTANCE.getEPackage(PublishPackage.eNS_URI);
 
 		// Obtain or create and register package
-		PublishPackageImpl thePublishPackage = (PublishPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof PublishPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI) : new PublishPackageImpl());
+		PublishPackageImpl thePublishPackage = (PublishPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PublishPackageImpl
+				? EPackage.Registry.INSTANCE.get(eNS_URI)
+				: new PublishPackageImpl());
 
 		isInited = true;
 
@@ -232,419 +231,53 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		thePublishPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(PublishPackage.eNS_URI,
-				thePublishPackage);
+		EPackage.Registry.INSTANCE.put(PublishPackage.eNS_URI, thePublishPackage);
 		return thePublishPackage;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIP2Publishable() {
-		return ip2PublishableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRPM() {
-		return rpmEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGEM() {
-		return gemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNativeActions() {
-		return nativeActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIRPMActions() {
-		return irpmActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGEMActions() {
-		return gemActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPublisher() {
-		return publisherEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_Id() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_Singleton() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_Version() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_CopyrightText() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_CopyrightURL() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_LicenseText() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_LicenseURL() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_RuntimeFilter() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_Properties() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_WhenInstalling() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_WhenUninstalling() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_WhenConfiguring() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_WhenUnconfiguring() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisher_Name() {
-		return (EAttribute) publisherEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_Unit() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_Provides() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_Requires() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisher_MetaRequires() {
-		return (EReference) publisherEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPublisherAction() {
-		return publisherActionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPublisherAction_Name() {
-		return (EAttribute) publisherActionEClass.getEStructuralFeatures().get(
-				0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisherAction_Parameters() {
-		return (EReference) publisherActionEClass.getEStructuralFeatures().get(
-				1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPublisherAction_ActionPackage() {
-		return (EReference) publisherActionEClass.getEStructuralFeatures().get(
-				2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getActionParameter() {
-		return actionParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getActionParameter_Name() {
-		return (EAttribute) actionParameterEClass.getEStructuralFeatures().get(
-				0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getActionParameter_Value() {
-		return (EAttribute) actionParameterEClass.getEStructuralFeatures().get(
-				1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getActionPackage() {
-		return actionPackageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getActionPackage_Name() {
-		return (EAttribute) actionPackageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getINativeActions() {
-		return iNativeActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRPMActions() {
-		return rpmActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRPMPublisher() {
-		return rpmPublisherEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRPMPublisher_RPMInstallDir() {
-		return (EAttribute) rpmPublisherEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIGEMActions() {
-		return igemActionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGEMPublisher() {
-		return gemPublisherEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRepositoryDefinition() {
-		return repositoryDefinitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRepositoryPublisher() {
-		return repositoryPublisherEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PublishFactory getPublishFactory() {
-		return (PublishFactory) getEFactoryInstance();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private boolean isInitialized = false;
+
+	/**
+	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package
+	 * package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
+	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see com.cloudsmith.publish.PublishPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
+	private PublishPackageImpl() {
+		super(eNS_URI, PublishFactory.eINSTANCE);
+	}
+
+	/**
+	 * Creates the meta-model objects for the package. This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if(isCreated)
 			return;
 		isCreated = true;
 
@@ -684,8 +317,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		publisherActionEClass = createEClass(PUBLISHER_ACTION);
 		createEAttribute(publisherActionEClass, PUBLISHER_ACTION__NAME);
 		createEReference(publisherActionEClass, PUBLISHER_ACTION__PARAMETERS);
-		createEReference(publisherActionEClass,
-				PUBLISHER_ACTION__ACTION_PACKAGE);
+		createEReference(publisherActionEClass, PUBLISHER_ACTION__ACTION_PACKAGE);
 
 		actionParameterEClass = createEClass(ACTION_PARAMETER);
 		createEAttribute(actionParameterEClass, ACTION_PARAMETER__NAME);
@@ -713,19 +345,443 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private boolean isInitialized = false;
+	public EClass getActionPackage() {
+		return actionPackageEClass;
+	}
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getActionPackage_Name() {
+		return (EAttribute) actionPackageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getActionParameter() {
+		return actionParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getActionParameter_Name() {
+		return (EAttribute) actionParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getActionParameter_Value() {
+		return (EAttribute) actionParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getGEM() {
+		return gemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getGEMActions() {
+		return gemActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getGEMPublisher() {
+		return gemPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIGEMActions() {
+		return igemActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getINativeActions() {
+		return iNativeActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIP2Publishable() {
+		return ip2PublishableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIRPMActions() {
+		return irpmActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getNativeActions() {
+		return nativeActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPublisher() {
+		return publisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_CopyrightText() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_CopyrightURL() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_Id() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_LicenseText() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_LicenseURL() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_MetaRequires() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_Name() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_Properties() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_Provides() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_Requires() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_RuntimeFilter() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_Singleton() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_Unit() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisher_Version() {
+		return (EAttribute) publisherEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_WhenConfiguring() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_WhenInstalling() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_WhenUnconfiguring() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_WhenUninstalling() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPublisherAction() {
+		return publisherActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisherAction_ActionPackage() {
+		return (EReference) publisherActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getPublisherAction_Name() {
+		return (EAttribute) publisherActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisherAction_Parameters() {
+		return (EReference) publisherActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublishFactory getPublishFactory() {
+		return (PublishFactory) getEFactoryInstance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRepositoryDefinition() {
+		return repositoryDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRepositoryPublisher() {
+		return repositoryPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRPM() {
+		return rpmEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRPMActions() {
+		return rpmActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRPMPublisher() {
+		return rpmPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRPMPublisher_RPMInstallDir() {
+		return (EAttribute) rpmPublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if(isInitialized)
 			return;
 		isInitialized = true;
 
@@ -735,18 +791,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		B3BuildPackage theB3BuildPackage = (B3BuildPackage) EPackage.Registry.INSTANCE
-				.getEPackage(B3BuildPackage.eNS_URI);
-		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE
-				.getEPackage(P2Package.eNS_URI);
+		B3BuildPackage theB3BuildPackage = (B3BuildPackage) EPackage.Registry.INSTANCE.getEPackage(B3BuildPackage.eNS_URI);
+		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		ip2PublishableEClass.getESuperTypes().add(
-				theB3BuildPackage.getBuildUnit());
+		ip2PublishableEClass.getESuperTypes().add(theB3BuildPackage.getBuildUnit());
 		rpmEClass.getESuperTypes().add(this.getIP2Publishable());
 		gemEClass.getESuperTypes().add(this.getIP2Publishable());
 		nativeActionsEClass.getESuperTypes().add(this.getActionPackage());
@@ -760,286 +813,224 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		rpmPublisherEClass.getESuperTypes().add(this.getIRPMActions());
 		gemPublisherEClass.getESuperTypes().add(this.getPublisher());
 		gemPublisherEClass.getESuperTypes().add(this.getIGEMActions());
-		repositoryDefinitionEClass.getESuperTypes().add(
-				this.getIP2Publishable());
+		repositoryDefinitionEClass.getESuperTypes().add(this.getIP2Publishable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(ip2PublishableEClass, IP2Publishable.class,
-				"IP2Publishable", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			ip2PublishableEClass, IP2Publishable.class, "IP2Publishable", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(ip2PublishableEClass,
-				theB3BuildPackage.getB3BuilderJob(), "publish", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(ip2PublishableEClass, theB3BuildPackage.getB3BuilderJob(), "publish", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(rpmEClass, com.cloudsmith.publish.RPM.class, "RPM",
-				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			rpmEClass, com.cloudsmith.publish.RPM.class, "RPM", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(gemEClass, com.cloudsmith.publish.GEM.class, "GEM",
-				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			gemEClass, com.cloudsmith.publish.GEM.class, "GEM", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(nativeActionsEClass, NativeActions.class, "NativeActions",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			nativeActionsEClass, NativeActions.class, "NativeActions", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(irpmActionsEClass, IRPMActions.class, "IRPMActions",
-				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			irpmActionsEClass, IRPMActions.class, "IRPMActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(irpmActionsEClass, null, "installRPM", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(irpmActionsEClass, null, "uninstallRPM", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(gemActionsEClass, GEMActions.class, "GEMActions",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			gemActionsEClass, GEMActions.class, "GEMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(publisherEClass, Publisher.class, "Publisher", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPublisher_Id(), ecorePackage.getEString(), "id",
-				null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPublisher_Singleton(), ecorePackage.getEBoolean(),
-				"singleton", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_Version(), theB3BuildPackage.getVersion(),
-				"version", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_CopyrightText(), ecorePackage.getEString(),
-				"copyrightText", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_CopyrightURL(), ecorePackage.getEString(),
-				"copyrightURL", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_LicenseText(), ecorePackage.getEString(),
-				"licenseText", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_LicenseURL(), ecorePackage.getEString(),
-				"licenseURL", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_RuntimeFilter(), ecorePackage.getEString(),
-				"runtimeFilter", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			publisherEClass, Publisher.class, "Publisher", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getPublisher_Id(), ecorePackage.getEString(), "id", null, 0, 1, Publisher.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_Singleton(), ecorePackage.getEBoolean(), "singleton", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_Version(), theB3BuildPackage.getVersion(), "version", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_CopyrightText(), ecorePackage.getEString(), "copyrightText", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_CopyrightURL(), ecorePackage.getEString(), "copyrightURL", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_LicenseText(), ecorePackage.getEString(), "licenseText", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_LicenseURL(), ecorePackage.getEString(), "licenseURL", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_RuntimeFilter(), ecorePackage.getEString(), "runtimeFilter", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(theP2Package.getMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getPublisher_Properties(), g1, "properties", null, 0, 1,
-				Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_WhenInstalling(),
-				this.getPublisherAction(), null, "whenInstalling", null, 0, 1,
-				Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_WhenUninstalling(),
-				this.getPublisherAction(), null, "whenUninstalling", null, 0,
-				1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_WhenConfiguring(),
-				this.getPublisherAction(), null, "whenConfiguring", null, 0, 1,
-				Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_WhenUnconfiguring(),
-				this.getPublisherAction(), null, "whenUnconfiguring", null, 0,
-				1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_Name(), ecorePackage.getEString(), "name",
-				null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getPublisher_Unit(), theB3BuildPackage.getBuildUnit(),
-				null, "unit", null, 0, 1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_Provides(),
-				theB3BuildPackage.getCapability(), null, "provides", null, 0,
-				-1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_Requires(),
-				theB3BuildPackage.getRequiredCapability(), null, "requires",
-				null, 0, -1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisher_MetaRequires(),
-				theB3BuildPackage.getRequiredCapability(), null,
-				"metaRequires", null, 0, -1, Publisher.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_Properties(), g1, "properties", null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_WhenInstalling(), this.getPublisherAction(), null, "whenInstalling", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_WhenUninstalling(), this.getPublisherAction(), null, "whenUninstalling", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_WhenConfiguring(), this.getPublisherAction(), null, "whenConfiguring", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_WhenUnconfiguring(), this.getPublisherAction(), null, "whenUnconfiguring", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisher_Name(), ecorePackage.getEString(), "name", null, 0, 1, Publisher.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_Unit(), theB3BuildPackage.getBuildUnit(), null, "unit", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_Provides(), theB3BuildPackage.getCapability(), null, "provides", null, 0, -1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_Requires(), theB3BuildPackage.getRequiredCapability(), null, "requires", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_MetaRequires(), theB3BuildPackage.getRequiredCapability(), null, "metaRequires", null, 0, -1,
+			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(publisherEClass,
-				theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(
+			publisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(publisherEClass, theB3BuildPackage.getBuildSet(),
-				"write", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(publisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(publisherActionEClass, PublisherAction.class,
-				"PublisherAction", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPublisherAction_Name(), ecorePackage.getEString(),
-				"name", null, 1, 1, PublisherAction.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisherAction_Parameters(),
-				this.getActionParameter(), null, "parameters", null, 0, -1,
-				PublisherAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPublisherAction_ActionPackage(),
-				this.getActionPackage(), null, "actionPackage", null, 1, 1,
-				PublisherAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			publisherActionEClass, PublisherAction.class, "PublisherAction", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getPublisherAction_Name(), ecorePackage.getEString(), "name", null, 1, 1, PublisherAction.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisherAction_Parameters(), this.getActionParameter(), null, "parameters", null, 0, -1,
+			PublisherAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisherAction_ActionPackage(), this.getActionPackage(), null, "actionPackage", null, 1, 1,
+			PublisherAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionParameterEClass, ActionParameter.class,
-				"ActionParameter", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionParameter_Name(), ecorePackage.getEString(),
-				"name", null, 0, 1, ActionParameter.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActionParameter_Value(), ecorePackage.getEString(),
-				"value", null, 0, 1, ActionParameter.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(
+			actionParameterEClass, ActionParameter.class, "ActionParameter", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getActionParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionParameter.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getActionParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, ActionParameter.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionPackageEClass, ActionPackage.class, "ActionPackage",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getActionPackage_Name(), ecorePackage.getEString(),
-				"name", null, 1, 1, ActionPackage.class, IS_TRANSIENT,
-				IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				IS_DERIVED, IS_ORDERED);
+		initEClass(
+			actionPackageEClass, ActionPackage.class, "ActionPackage", IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getActionPackage_Name(), ecorePackage.getEString(), "name", null, 1, 1, ActionPackage.class, IS_TRANSIENT,
+			IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(iNativeActionsEClass, INativeActions.class,
-				"INativeActions", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			iNativeActionsEClass, INativeActions.class, "INativeActions", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"link", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "targetDir", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "linkTarget", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "linkName", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "force", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "link", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "targetDir", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "linkTarget", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "linkName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "force", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"unZip", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "unZip", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"cleanupZip", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "cleanupZip", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"copy", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "overwrite", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "overwrite", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"cleanupCopy", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "cleanupCopy", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "target", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"mkdir", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "mkdir", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"rmdir", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "rmdir", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"remove", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(),
-				"chmod", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "targetDir", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "targetFile", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "permissions", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "options", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "chmod", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "targetDir", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "targetFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "permissions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "options", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(rpmActionsEClass, RPMActions.class, "RPMActions",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			rpmActionsEClass, RPMActions.class, "RPMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(rpmPublisherEClass, RPMPublisher.class, "RPMPublisher",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRPMPublisher_RPMInstallDir(),
-				ecorePackage.getEString(), "RPMInstallDir", null, 0, 1,
-				RPMPublisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			rpmPublisherEClass, RPMPublisher.class, "RPMPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getRPMPublisher_RPMInstallDir(), ecorePackage.getEString(), "RPMInstallDir", null, 0, 1,
+			RPMPublisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(igemActionsEClass, IGEMActions.class, "IGEMActions",
-				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			igemActionsEClass, IGEMActions.class, "IGEMActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(igemActionsEClass, null, "installGEM", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(igemActionsEClass, this.getPublisherAction(), "installGEM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(igemActionsEClass, null, "uninstallGEM", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEOperation(igemActionsEClass, this.getPublisherAction(), "uninstallGEM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(gemPublisherEClass, GEMPublisher.class, "GEMPublisher",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			gemPublisherEClass, GEMPublisher.class, "GEMPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(repositoryDefinitionEClass, RepositoryDefinition.class,
-				"RepositoryDefinition", IS_ABSTRACT, IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			repositoryDefinitionEClass, RepositoryDefinition.class, "RepositoryDefinition", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(repositoryPublisherEClass, RepositoryPublisher.class,
-				"RepositoryPublisher", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			repositoryPublisherEClass, RepositoryPublisher.class, "RepositoryPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(repositoryPublisherEClass,
-				theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(
+			repositoryPublisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //PublishPackageImpl
+} // PublishPackageImpl

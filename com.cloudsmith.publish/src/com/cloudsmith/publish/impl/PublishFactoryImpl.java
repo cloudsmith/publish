@@ -24,23 +24,37 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static PublishPackage getPackage() {
+		return PublishPackage.eINSTANCE;
+	}
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static PublishFactory init() {
 		try {
-			PublishFactory thePublishFactory = (PublishFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://com.cloudsmith.publish/1.0");
-			if (thePublishFactory != null) {
+			PublishFactory thePublishFactory = (PublishFactory) EPackage.Registry.INSTANCE.getEFactory("http://com.cloudsmith.publish/1.0");
+			if(thePublishFactory != null) {
 				return thePublishFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PublishFactoryImpl();
@@ -50,6 +64,7 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PublishFactoryImpl() {
@@ -59,66 +74,37 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-		case PublishPackage.NATIVE_ACTIONS:
-			return createNativeActions();
-		case PublishPackage.GEM_ACTIONS:
-			return createGEMActions();
-		case PublishPackage.PUBLISHER_ACTION:
-			return createPublisherAction();
-		case PublishPackage.ACTION_PARAMETER:
-			return createActionParameter();
-		case PublishPackage.RPM_ACTIONS:
-			return createRPMActions();
-		case PublishPackage.RPM_PUBLISHER:
-			return createRPMPublisher();
-		case PublishPackage.GEM_PUBLISHER:
-			return createGEMPublisher();
-		case PublishPackage.REPOSITORY_PUBLISHER:
-			return createRepositoryPublisher();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName()
-					+ "' is not a valid classifier");
+		switch(eClass.getClassifierID()) {
+			case PublishPackage.NATIVE_ACTIONS:
+				return createNativeActions();
+			case PublishPackage.GEM_ACTIONS:
+				return createGEMActions();
+			case PublishPackage.PUBLISHER_ACTION:
+				return createPublisherAction();
+			case PublishPackage.ACTION_PARAMETER:
+				return createActionParameter();
+			case PublishPackage.RPM_ACTIONS:
+				return createRPMActions();
+			case PublishPackage.RPM_PUBLISHER:
+				return createRPMPublisher();
+			case PublishPackage.GEM_PUBLISHER:
+				return createGEMPublisher();
+			case PublishPackage.REPOSITORY_PUBLISHER:
+				return createRepositoryPublisher();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NativeActions createNativeActions() {
-		NativeActionsImpl nativeActions = new NativeActionsImpl();
-		return nativeActions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GEMActions createGEMActions() {
-		GEMActionsImpl gemActions = new GEMActionsImpl();
-		return gemActions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PublisherAction createPublisherAction() {
-		PublisherActionImpl publisherAction = new PublisherActionImpl();
-		return publisherAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ActionParameter createActionParameter() {
@@ -129,26 +115,18 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public RPMActions createRPMActions() {
-		RPMActionsImpl rpmActions = new RPMActionsImpl();
-		return rpmActions;
+	public GEMActions createGEMActions() {
+		GEMActionsImpl gemActions = new GEMActionsImpl();
+		return gemActions;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RPMPublisher createRPMPublisher() {
-		RPMPublisherImpl rpmPublisher = new RPMPublisherImpl();
-		return rpmPublisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public GEMPublisher createGEMPublisher() {
@@ -159,6 +137,29 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NativeActions createNativeActions() {
+		NativeActionsImpl nativeActions = new NativeActionsImpl();
+		return nativeActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction createPublisherAction() {
+		PublisherActionImpl publisherAction = new PublisherActionImpl();
+		return publisherAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RepositoryPublisher createRepositoryPublisher() {
@@ -169,21 +170,33 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RPMActions createRPMActions() {
+		RPMActionsImpl rpmActions = new RPMActionsImpl();
+		return rpmActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RPMPublisher createRPMPublisher() {
+		RPMPublisherImpl rpmPublisher = new RPMPublisherImpl();
+		return rpmPublisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PublishPackage getPublishPackage() {
 		return (PublishPackage) getEPackage();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
-	@Deprecated
-	public static PublishPackage getPackage() {
-		return PublishPackage.eINSTANCE;
-	}
-
-} //PublishFactoryImpl
+} // PublishFactoryImpl

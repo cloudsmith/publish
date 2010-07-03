@@ -22,21 +22,451 @@ import org.eclipse.emf.ecore.EReference;
  * The <b>Package</b> for the model.
  * It contains accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see com.cloudsmith.publish.PublishFactory
  * @model kind="package"
  * @generated
  */
 public interface PublishPackage extends EPackage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * Defines literals for the meta objects that represent
+	 * <ul>
+	 * <li>each class,</li>
+	 * <li>each feature of each class,</li>
+	 * <li>each enum,</li>
+	 * <li>and each data type</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IP2Publishable
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIP2Publishable()
+		 * @generated
+		 */
+		EClass IP2_PUBLISHABLE = eINSTANCE.getIP2Publishable();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.RPM <em>RPM</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.RPM
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPM()
+		 * @generated
+		 */
+		EClass RPM = eINSTANCE.getRPM();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.GEM <em>GEM</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.GEM
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEM()
+		 * @generated
+		 */
+		EClass GEM = eINSTANCE.getGEM();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.NativeActionsImpl <em>Native Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.NativeActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNativeActions()
+		 * @generated
+		 */
+		EClass NATIVE_ACTIONS = eINSTANCE.getNativeActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IRPMActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIRPMActions()
+		 * @generated
+		 */
+		EClass IRPM_ACTIONS = eINSTANCE.getIRPMActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.GEMActionsImpl <em>GEM Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.GEMActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMActions()
+		 * @generated
+		 */
+		EClass GEM_ACTIONS = eINSTANCE.getGEMActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PublisherImpl <em>Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.PublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisher()
+		 * @generated
+		 */
+		EClass PUBLISHER = eINSTANCE.getPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__ID = eINSTANCE.getPublisher_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Singleton</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__SINGLETON = eINSTANCE.getPublisher_Singleton();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__VERSION = eINSTANCE.getPublisher_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Copyright Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__COPYRIGHT_TEXT = eINSTANCE.getPublisher_CopyrightText();
+
+		/**
+		 * The meta object literal for the '<em><b>Copyright URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__COPYRIGHT_URL = eINSTANCE.getPublisher_CopyrightURL();
+
+		/**
+		 * The meta object literal for the '<em><b>License Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__LICENSE_TEXT = eINSTANCE.getPublisher_LicenseText();
+
+		/**
+		 * The meta object literal for the '<em><b>License URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__LICENSE_URL = eINSTANCE.getPublisher_LicenseURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Runtime Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__RUNTIME_FILTER = eINSTANCE.getPublisher_RuntimeFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__PROPERTIES = eINSTANCE.getPublisher_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>When Installing</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__WHEN_INSTALLING = eINSTANCE.getPublisher_WhenInstalling();
+
+		/**
+		 * The meta object literal for the '<em><b>When Uninstalling</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__WHEN_UNINSTALLING = eINSTANCE.getPublisher_WhenUninstalling();
+
+		/**
+		 * The meta object literal for the '<em><b>When Configuring</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__WHEN_CONFIGURING = eINSTANCE.getPublisher_WhenConfiguring();
+
+		/**
+		 * The meta object literal for the '<em><b>When Unconfiguring</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__WHEN_UNCONFIGURING = eINSTANCE.getPublisher_WhenUnconfiguring();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER__NAME = eINSTANCE.getPublisher_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__UNIT = eINSTANCE.getPublisher_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__PROVIDES = eINSTANCE.getPublisher_Provides();
+
+		/**
+		 * The meta object literal for the '<em><b>Requires</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__REQUIRES = eINSTANCE.getPublisher_Requires();
+
+		/**
+		 * The meta object literal for the '<em><b>Meta Requires</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__META_REQUIRES = eINSTANCE.getPublisher_MetaRequires();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.PublisherActionImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisherAction()
+		 * @generated
+		 */
+		EClass PUBLISHER_ACTION = eINSTANCE.getPublisherAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER_ACTION__NAME = eINSTANCE.getPublisherAction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER_ACTION__PARAMETERS = eINSTANCE.getPublisherAction_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Package</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER_ACTION__ACTION_PACKAGE = eINSTANCE.getPublisherAction_ActionPackage();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ActionParameterImpl <em>Action Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.ActionParameterImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionParameter()
+		 * @generated
+		 */
+		EClass ACTION_PARAMETER = eINSTANCE.getActionParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ACTION_PARAMETER__NAME = eINSTANCE.getActionParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ACTION_PARAMETER__VALUE = eINSTANCE.getActionParameter_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ActionPackageImpl <em>Action Package</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.ActionPackageImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionPackage()
+		 * @generated
+		 */
+		EClass ACTION_PACKAGE = eINSTANCE.getActionPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ACTION_PACKAGE__NAME = eINSTANCE.getActionPackage_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.INativeActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getINativeActions()
+		 * @generated
+		 */
+		EClass INATIVE_ACTIONS = eINSTANCE.getINativeActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RPMActionsImpl <em>RPM Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.RPMActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMActions()
+		 * @generated
+		 */
+		EClass RPM_ACTIONS = eINSTANCE.getRPMActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RPMPublisherImpl <em>RPM Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.RPMPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMPublisher()
+		 * @generated
+		 */
+		EClass RPM_PUBLISHER = eINSTANCE.getRPMPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>RPM Install Dir</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute RPM_PUBLISHER__RPM_INSTALL_DIR = eINSTANCE.getRPMPublisher_RPMInstallDir();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IGEMActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIGEMActions()
+		 * @generated
+		 */
+		EClass IGEM_ACTIONS = eINSTANCE.getIGEMActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.GEMPublisherImpl <em>GEM Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.GEMPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMPublisher()
+		 * @generated
+		 */
+		EClass GEM_PUBLISHER = eINSTANCE.getGEMPublisher();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.RepositoryDefinition
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryDefinition()
+		 * @generated
+		 */
+		EClass REPOSITORY_DEFINITION = eINSTANCE.getRepositoryDefinition();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RepositoryPublisherImpl <em>Repository Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.RepositoryPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryPublisher()
+		 * @generated
+		 */
+		EClass REPOSITORY_PUBLISHER = eINSTANCE.getRepositoryPublisher();
+
+	}
+
+	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "publish";
@@ -45,6 +475,7 @@ public interface PublishPackage extends EPackage {
 	 * The package namespace URI.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://com.cloudsmith.publish/1.0";
@@ -53,6 +484,7 @@ public interface PublishPackage extends EPackage {
 	 * The package namespace name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "";
@@ -61,15 +493,16 @@ public interface PublishPackage extends EPackage {
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	PublishPackage eINSTANCE = com.cloudsmith.publish.impl.PublishPackageImpl
-			.init();
+	PublishPackage eINSTANCE = com.cloudsmith.publish.impl.PublishPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.IP2Publishable
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIP2Publishable()
 	 * @generated
@@ -80,6 +513,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -89,6 +523,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -98,6 +533,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -107,6 +543,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -116,6 +553,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -125,6 +563,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -134,6 +573,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -143,6 +583,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -152,6 +593,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -161,6 +603,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -170,6 +613,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -179,6 +623,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -188,6 +633,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -197,6 +643,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -206,6 +653,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -215,6 +663,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -224,6 +673,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -233,6 +683,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -242,6 +693,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -251,6 +703,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -260,6 +713,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -269,6 +723,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>IP2 Publishable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -278,6 +733,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.RPM <em>RPM</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.RPM
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPM()
 	 * @generated
@@ -288,6 +744,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -297,6 +754,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -306,6 +764,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -315,6 +774,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -324,6 +784,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -333,6 +794,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -342,6 +804,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -351,6 +814,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -360,6 +824,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -369,6 +834,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -378,6 +844,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -387,6 +854,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -396,6 +864,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -405,6 +874,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -414,6 +884,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -423,6 +894,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -432,6 +904,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -441,6 +914,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -450,6 +924,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -459,6 +934,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -468,6 +944,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -477,6 +954,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>RPM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -486,6 +964,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.GEM <em>GEM</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.GEM
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEM()
 	 * @generated
@@ -496,6 +975,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -505,6 +985,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -514,6 +995,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -523,6 +1005,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -532,6 +1015,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -541,6 +1025,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -550,6 +1035,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -559,6 +1045,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -568,6 +1055,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -577,6 +1065,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -586,6 +1075,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -595,6 +1085,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -604,6 +1095,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -613,6 +1105,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -622,6 +1115,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -631,6 +1125,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -640,6 +1135,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -649,6 +1145,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -658,6 +1155,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -667,6 +1165,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -676,6 +1175,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -685,6 +1185,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>GEM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -694,6 +1195,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.ActionPackageImpl <em>Action Package</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.ActionPackageImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionPackage()
 	 * @generated
@@ -704,6 +1206,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -713,6 +1216,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Action Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -722,6 +1226,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.NativeActionsImpl <em>Native Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.NativeActionsImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNativeActions()
 	 * @generated
@@ -732,6 +1237,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -741,6 +1247,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Native Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -750,6 +1257,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.IRPMActions
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIRPMActions()
 	 * @generated
@@ -760,6 +1268,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>IRPM Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -769,6 +1278,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.GEMActionsImpl <em>GEM Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.GEMActionsImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMActions()
 	 * @generated
@@ -779,6 +1289,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -788,6 +1299,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>GEM Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -797,6 +1309,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PublisherImpl <em>Publisher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.PublisherImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisher()
 	 * @generated
@@ -807,6 +1320,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.INativeActions
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getINativeActions()
 	 * @generated
@@ -817,6 +1331,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>INative Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -826,6 +1341,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -835,6 +1351,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -844,6 +1361,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -853,6 +1371,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -862,6 +1381,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -871,6 +1391,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -880,6 +1401,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -889,6 +1411,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -898,42 +1421,47 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Properties</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PUBLISHER__PROPERTIES = INATIVE_ACTIONS_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PUBLISHER__WHEN_INSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PUBLISHER__WHEN_UNINSTALLING = INATIVE_ACTIONS_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PUBLISHER__WHEN_CONFIGURING = INATIVE_ACTIONS_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -943,6 +1471,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -952,6 +1481,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -961,6 +1491,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provides</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -970,6 +1501,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -979,6 +1511,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -988,6 +1521,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -997,6 +1531,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.PublisherActionImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisherAction()
 	 * @generated
@@ -1007,6 +1542,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1016,6 +1552,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1025,6 +1562,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Action Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1034,6 +1572,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Publisher Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1043,6 +1582,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.ActionParameterImpl <em>Action Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.ActionParameterImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionParameter()
 	 * @generated
@@ -1053,6 +1593,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1062,6 +1603,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1071,6 +1613,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Action Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1080,6 +1623,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RPMActionsImpl <em>RPM Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.RPMActionsImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMActions()
 	 * @generated
@@ -1090,6 +1634,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1099,6 +1644,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>RPM Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1108,6 +1654,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RPMPublisherImpl <em>RPM Publisher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.RPMPublisherImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMPublisher()
 	 * @generated
@@ -1118,6 +1665,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1127,6 +1675,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1136,6 +1685,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1145,6 +1695,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1154,6 +1705,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1163,6 +1715,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1172,6 +1725,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1181,6 +1735,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1190,42 +1745,47 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Properties</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
 
 	/**
-	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
 
 	/**
-	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
 
 	/**
-	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
 
 	/**
-	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1235,6 +1795,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1244,6 +1805,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1253,6 +1815,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provides</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1262,6 +1825,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1271,6 +1835,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1280,6 +1845,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>RPM Install Dir</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1289,6 +1855,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>RPM Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1298,6 +1865,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.IGEMActions
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIGEMActions()
 	 * @generated
@@ -1308,6 +1876,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>IGEM Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1317,6 +1886,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.GEMPublisherImpl <em>GEM Publisher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.GEMPublisherImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMPublisher()
 	 * @generated
@@ -1327,6 +1897,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1336,6 +1907,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1345,6 +1917,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1354,6 +1927,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1363,6 +1937,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1372,6 +1947,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1381,6 +1957,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>License URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1390,6 +1967,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1399,42 +1977,47 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Properties</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int GEM_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
 
 	/**
-	 * The feature id for the '<em><b>When Installing</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int GEM_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
 
 	/**
-	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int GEM_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
 
 	/**
-	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int GEM_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
 
 	/**
-	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference.
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1444,6 +2027,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1453,6 +2037,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1462,6 +2047,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provides</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1471,6 +2057,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1480,6 +2067,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1489,6 +2077,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>GEM Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1498,6 +2087,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.RepositoryDefinition
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryDefinition()
 	 * @generated
@@ -1508,6 +2098,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1517,6 +2108,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1526,6 +2118,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1535,6 +2128,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1544,6 +2138,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1553,6 +2148,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1562,6 +2158,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1571,6 +2168,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1580,6 +2178,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1589,6 +2188,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1598,6 +2198,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1607,6 +2208,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1616,6 +2218,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1625,6 +2228,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1634,6 +2238,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1643,6 +2248,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1652,6 +2258,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1661,6 +2268,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1670,6 +2278,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1679,6 +2288,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1688,6 +2298,7 @@ public interface PublishPackage extends EPackage {
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1697,6 +2308,7 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Repository Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1706,6 +2318,7 @@ public interface PublishPackage extends EPackage {
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RepositoryPublisherImpl <em>Repository Publisher</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see com.cloudsmith.publish.impl.RepositoryPublisherImpl
 	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryPublisher()
 	 * @generated
@@ -1716,326 +2329,40 @@ public interface PublishPackage extends EPackage {
 	 * The number of structural features of the '<em>Repository Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int REPOSITORY_PUBLISHER_FEATURE_COUNT = 0;
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IP2 Publishable</em>'.
-	 * @see com.cloudsmith.publish.IP2Publishable
+	 * 
+	 * @return the meta object for class '<em>Action Package</em>'.
+	 * @see com.cloudsmith.publish.ActionPackage
 	 * @generated
 	 */
-	EClass getIP2Publishable();
+	EClass getActionPackage();
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPM <em>RPM</em>}'.
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.ActionPackage#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>RPM</em>'.
-	 * @see com.cloudsmith.publish.RPM
-	 * @generated
-	 */
-	EClass getRPM();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEM <em>GEM</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>GEM</em>'.
-	 * @see com.cloudsmith.publish.GEM
-	 * @generated
-	 */
-	EClass getGEM();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Native Actions</em>'.
-	 * @see com.cloudsmith.publish.NativeActions
-	 * @generated
-	 */
-	EClass getNativeActions();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IRPM Actions</em>'.
-	 * @see com.cloudsmith.publish.IRPMActions
-	 * @generated
-	 */
-	EClass getIRPMActions();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEMActions <em>GEM Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>GEM Actions</em>'.
-	 * @see com.cloudsmith.publish.GEMActions
-	 * @generated
-	 */
-	EClass getGEMActions();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.Publisher <em>Publisher</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Publisher</em>'.
-	 * @see com.cloudsmith.publish.Publisher
-	 * @generated
-	 */
-	EClass getPublisher();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getId()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#isSingleton <em>Singleton</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Singleton</em>'.
-	 * @see com.cloudsmith.publish.Publisher#isSingleton()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_Singleton();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getVersion()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_Version();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getCopyrightText <em>Copyright Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Copyright Text</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getCopyrightText()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_CopyrightText();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getCopyrightURL <em>Copyright URL</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Copyright URL</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getCopyrightURL()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_CopyrightURL();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getLicenseText <em>License Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>License Text</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getLicenseText()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_LicenseText();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getLicenseURL <em>License URL</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>License URL</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getLicenseURL()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_LicenseURL();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getRuntimeFilter <em>Runtime Filter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Runtime Filter</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getRuntimeFilter()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_RuntimeFilter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Properties</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getProperties()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EAttribute getPublisher_Properties();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getWhenInstalling <em>When Installing</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>When Installing</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getWhenInstalling()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_WhenInstalling();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getWhenUninstalling <em>When Uninstalling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>When Uninstalling</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getWhenUninstalling()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_WhenUninstalling();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getWhenConfiguring <em>When Configuring</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>When Configuring</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getWhenConfiguring()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_WhenConfiguring();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getWhenUnconfiguring <em>When Unconfiguring</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>When Unconfiguring</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getWhenUnconfiguring()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_WhenUnconfiguring();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getName()
-	 * @see #getPublisher()
+	 * @see com.cloudsmith.publish.ActionPackage#getName()
+	 * @see #getActionPackage()
 	 * @generated
 	 */
-	EAttribute getPublisher_Name();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.cloudsmith.publish.Publisher#getUnit <em>Unit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Unit</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getUnit()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_Unit();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getProvides <em>Provides</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provides</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getProvides()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_Provides();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getRequires <em>Requires</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Requires</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getRequires()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_Requires();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getMetaRequires <em>Meta Requires</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Meta Requires</em>'.
-	 * @see com.cloudsmith.publish.Publisher#getMetaRequires()
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	EReference getPublisher_MetaRequires();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.PublisherAction <em>Publisher Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Publisher Action</em>'.
-	 * @see com.cloudsmith.publish.PublisherAction
-	 * @generated
-	 */
-	EClass getPublisherAction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.PublisherAction#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.cloudsmith.publish.PublisherAction#getName()
-	 * @see #getPublisherAction()
-	 * @generated
-	 */
-	EAttribute getPublisherAction_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.PublisherAction#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.cloudsmith.publish.PublisherAction#getParameters()
-	 * @see #getPublisherAction()
-	 * @generated
-	 */
-	EReference getPublisherAction_Parameters();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.cloudsmith.publish.PublisherAction#getActionPackage <em>Action Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Action Package</em>'.
-	 * @see com.cloudsmith.publish.PublisherAction#getActionPackage()
-	 * @see #getPublisherAction()
-	 * @generated
-	 */
-	EReference getPublisherAction_ActionPackage();
+	EAttribute getActionPackage_Name();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionParameter <em>Action Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Action Parameter</em>'.
 	 * @see com.cloudsmith.publish.ActionParameter
 	 * @generated
@@ -2046,6 +2373,7 @@ public interface PublishPackage extends EPackage {
 	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.ActionParameter#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
 	 * @see com.cloudsmith.publish.ActionParameter#getName()
 	 * @see #getActionParameter()
@@ -2057,6 +2385,7 @@ public interface PublishPackage extends EPackage {
 	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.ActionParameter#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see com.cloudsmith.publish.ActionParameter#getValue()
 	 * @see #getActionParameter()
@@ -2065,81 +2394,32 @@ public interface PublishPackage extends EPackage {
 	EAttribute getActionParameter_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEM <em>GEM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action Package</em>'.
-	 * @see com.cloudsmith.publish.ActionPackage
+	 * 
+	 * @return the meta object for class '<em>GEM</em>'.
+	 * @see com.cloudsmith.publish.GEM
 	 * @generated
 	 */
-	EClass getActionPackage();
+	EClass getGEM();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.ActionPackage#getName <em>Name</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEMActions <em>GEM Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.cloudsmith.publish.ActionPackage#getName()
-	 * @see #getActionPackage()
+	 * 
+	 * @return the meta object for class '<em>GEM Actions</em>'.
+	 * @see com.cloudsmith.publish.GEMActions
 	 * @generated
 	 */
-	EAttribute getActionPackage_Name();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>INative Actions</em>'.
-	 * @see com.cloudsmith.publish.INativeActions
-	 * @generated
-	 */
-	EClass getINativeActions();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPMActions <em>RPM Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>RPM Actions</em>'.
-	 * @see com.cloudsmith.publish.RPMActions
-	 * @generated
-	 */
-	EClass getRPMActions();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPMPublisher <em>RPM Publisher</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>RPM Publisher</em>'.
-	 * @see com.cloudsmith.publish.RPMPublisher
-	 * @generated
-	 */
-	EClass getRPMPublisher();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.RPMPublisher#getRPMInstallDir <em>RPM Install Dir</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>RPM Install Dir</em>'.
-	 * @see com.cloudsmith.publish.RPMPublisher#getRPMInstallDir()
-	 * @see #getRPMPublisher()
-	 * @generated
-	 */
-	EAttribute getRPMPublisher_RPMInstallDir();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IGEM Actions</em>'.
-	 * @see com.cloudsmith.publish.IGEMActions
-	 * @generated
-	 */
-	EClass getIGEMActions();
+	EClass getGEMActions();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEMPublisher <em>GEM Publisher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>GEM Publisher</em>'.
 	 * @see com.cloudsmith.publish.GEMPublisher
 	 * @generated
@@ -2147,9 +2427,353 @@ public interface PublishPackage extends EPackage {
 	EClass getGEMPublisher();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IGEM Actions</em>'.
+	 * @see com.cloudsmith.publish.IGEMActions
+	 * @generated
+	 */
+	EClass getIGEMActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>INative Actions</em>'.
+	 * @see com.cloudsmith.publish.INativeActions
+	 * @generated
+	 */
+	EClass getINativeActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IP2 Publishable</em>'.
+	 * @see com.cloudsmith.publish.IP2Publishable
+	 * @generated
+	 */
+	EClass getIP2Publishable();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IRPM Actions</em>'.
+	 * @see com.cloudsmith.publish.IRPMActions
+	 * @generated
+	 */
+	EClass getIRPMActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Native Actions</em>'.
+	 * @see com.cloudsmith.publish.NativeActions
+	 * @generated
+	 */
+	EClass getNativeActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Publisher <em>Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Publisher</em>'.
+	 * @see com.cloudsmith.publish.Publisher
+	 * @generated
+	 */
+	EClass getPublisher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getCopyrightText <em>Copyright Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Copyright Text</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getCopyrightText()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_CopyrightText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getCopyrightURL <em>Copyright URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Copyright URL</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getCopyrightURL()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_CopyrightURL();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getId()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getLicenseText <em>License Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>License Text</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getLicenseText()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_LicenseText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getLicenseURL <em>License URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>License URL</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getLicenseURL()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_LicenseURL();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getMetaRequires <em>Meta Requires</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Meta Requires</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getMetaRequires()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_MetaRequires();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getName()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Properties</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getProperties()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_Properties();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getProvides <em>Provides</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Provides</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getProvides()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_Provides();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.cloudsmith.publish.Publisher#getRequires <em>Requires</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Requires</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getRequires()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_Requires();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getRuntimeFilter <em>Runtime Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Runtime Filter</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getRuntimeFilter()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_RuntimeFilter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#isSingleton <em>Singleton</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Singleton</em>'.
+	 * @see com.cloudsmith.publish.Publisher#isSingleton()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_Singleton();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.cloudsmith.publish.Publisher#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getUnit()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_Unit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getVersion()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_Version();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.Publisher#getWhenConfiguring
+	 * <em>When Configuring</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>When Configuring</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getWhenConfiguring()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_WhenConfiguring();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.Publisher#getWhenInstalling <em>When Installing</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>When Installing</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getWhenInstalling()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_WhenInstalling();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.Publisher#getWhenUnconfiguring
+	 * <em>When Unconfiguring</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>When Unconfiguring</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getWhenUnconfiguring()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_WhenUnconfiguring();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.Publisher#getWhenUninstalling
+	 * <em>When Uninstalling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>When Uninstalling</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getWhenUninstalling()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_WhenUninstalling();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PublisherAction <em>Publisher Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Publisher Action</em>'.
+	 * @see com.cloudsmith.publish.PublisherAction
+	 * @generated
+	 */
+	EClass getPublisherAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.cloudsmith.publish.PublisherAction#getActionPackage <em>Action Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Action Package</em>'.
+	 * @see com.cloudsmith.publish.PublisherAction#getActionPackage()
+	 * @see #getPublisherAction()
+	 * @generated
+	 */
+	EReference getPublisherAction_ActionPackage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.PublisherAction#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.cloudsmith.publish.PublisherAction#getName()
+	 * @see #getPublisherAction()
+	 * @generated
+	 */
+	EAttribute getPublisherAction_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.PublisherAction#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.cloudsmith.publish.PublisherAction#getParameters()
+	 * @see #getPublisherAction()
+	 * @generated
+	 */
+	EReference getPublisherAction_Parameters();
+
+	/**
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the factory that creates the instances of the model.
+	 * @generated
+	 */
+	PublishFactory getPublishFactory();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Repository Definition</em>'.
 	 * @see com.cloudsmith.publish.RepositoryDefinition
 	 * @generated
@@ -2160,6 +2784,7 @@ public interface PublishPackage extends EPackage {
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.RepositoryPublisher <em>Repository Publisher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Repository Publisher</em>'.
 	 * @see com.cloudsmith.publish.RepositoryPublisher
 	 * @generated
@@ -2167,410 +2792,48 @@ public interface PublishPackage extends EPackage {
 	EClass getRepositoryPublisher();
 
 	/**
-	 * Returns the factory that creates the instances of the model.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPM <em>RPM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the factory that creates the instances of the model.
+	 * 
+	 * @return the meta object for class '<em>RPM</em>'.
+	 * @see com.cloudsmith.publish.RPM
 	 * @generated
 	 */
-	PublishFactory getPublishFactory();
+	EClass getRPM();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPMActions <em>RPM Actions</em>}'.
 	 * <!-- begin-user-doc -->
-	 * Defines literals for the meta objects that represent
-	 * <ul>
-	 *   <li>each class,</li>
-	 *   <li>each feature of each class,</li>
-	 *   <li>each enum,</li>
-	 *   <li>and each data type</li>
-	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>RPM Actions</em>'.
+	 * @see com.cloudsmith.publish.RPMActions
 	 * @generated
 	 */
-	interface Literals {
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.IP2Publishable
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIP2Publishable()
-		 * @generated
-		 */
-		EClass IP2_PUBLISHABLE = eINSTANCE.getIP2Publishable();
+	EClass getRPMActions();
 
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.RPM <em>RPM</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.RPM
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPM()
-		 * @generated
-		 */
-		EClass RPM = eINSTANCE.getRPM();
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RPMPublisher <em>RPM Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>RPM Publisher</em>'.
+	 * @see com.cloudsmith.publish.RPMPublisher
+	 * @generated
+	 */
+	EClass getRPMPublisher();
 
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.GEM <em>GEM</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.GEM
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEM()
-		 * @generated
-		 */
-		EClass GEM = eINSTANCE.getGEM();
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.RPMPublisher#getRPMInstallDir <em>RPM Install Dir</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>RPM Install Dir</em>'.
+	 * @see com.cloudsmith.publish.RPMPublisher#getRPMInstallDir()
+	 * @see #getRPMPublisher()
+	 * @generated
+	 */
+	EAttribute getRPMPublisher_RPMInstallDir();
 
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.NativeActionsImpl <em>Native Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.NativeActionsImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNativeActions()
-		 * @generated
-		 */
-		EClass NATIVE_ACTIONS = eINSTANCE.getNativeActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.IRPMActions
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIRPMActions()
-		 * @generated
-		 */
-		EClass IRPM_ACTIONS = eINSTANCE.getIRPMActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.GEMActionsImpl <em>GEM Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.GEMActionsImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMActions()
-		 * @generated
-		 */
-		EClass GEM_ACTIONS = eINSTANCE.getGEMActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PublisherImpl <em>Publisher</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.PublisherImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisher()
-		 * @generated
-		 */
-		EClass PUBLISHER = eINSTANCE.getPublisher();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__ID = eINSTANCE.getPublisher_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Singleton</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__SINGLETON = eINSTANCE.getPublisher_Singleton();
-
-		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__VERSION = eINSTANCE.getPublisher_Version();
-
-		/**
-		 * The meta object literal for the '<em><b>Copyright Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__COPYRIGHT_TEXT = eINSTANCE
-				.getPublisher_CopyrightText();
-
-		/**
-		 * The meta object literal for the '<em><b>Copyright URL</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__COPYRIGHT_URL = eINSTANCE
-				.getPublisher_CopyrightURL();
-
-		/**
-		 * The meta object literal for the '<em><b>License Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__LICENSE_TEXT = eINSTANCE
-				.getPublisher_LicenseText();
-
-		/**
-		 * The meta object literal for the '<em><b>License URL</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__LICENSE_URL = eINSTANCE.getPublisher_LicenseURL();
-
-		/**
-		 * The meta object literal for the '<em><b>Runtime Filter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__RUNTIME_FILTER = eINSTANCE
-				.getPublisher_RuntimeFilter();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__PROPERTIES = eINSTANCE.getPublisher_Properties();
-
-		/**
-		 * The meta object literal for the '<em><b>When Installing</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__WHEN_INSTALLING = eINSTANCE
-				.getPublisher_WhenInstalling();
-
-		/**
-		 * The meta object literal for the '<em><b>When Uninstalling</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__WHEN_UNINSTALLING = eINSTANCE
-				.getPublisher_WhenUninstalling();
-
-		/**
-		 * The meta object literal for the '<em><b>When Configuring</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__WHEN_CONFIGURING = eINSTANCE
-				.getPublisher_WhenConfiguring();
-
-		/**
-		 * The meta object literal for the '<em><b>When Unconfiguring</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__WHEN_UNCONFIGURING = eINSTANCE
-				.getPublisher_WhenUnconfiguring();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER__NAME = eINSTANCE.getPublisher_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__UNIT = eINSTANCE.getPublisher_Unit();
-
-		/**
-		 * The meta object literal for the '<em><b>Provides</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__PROVIDES = eINSTANCE.getPublisher_Provides();
-
-		/**
-		 * The meta object literal for the '<em><b>Requires</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__REQUIRES = eINSTANCE.getPublisher_Requires();
-
-		/**
-		 * The meta object literal for the '<em><b>Meta Requires</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER__META_REQUIRES = eINSTANCE
-				.getPublisher_MetaRequires();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.PublisherActionImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPublisherAction()
-		 * @generated
-		 */
-		EClass PUBLISHER_ACTION = eINSTANCE.getPublisherAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PUBLISHER_ACTION__NAME = eINSTANCE.getPublisherAction_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER_ACTION__PARAMETERS = eINSTANCE
-				.getPublisherAction_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Action Package</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PUBLISHER_ACTION__ACTION_PACKAGE = eINSTANCE
-				.getPublisherAction_ActionPackage();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ActionParameterImpl <em>Action Parameter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.ActionParameterImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionParameter()
-		 * @generated
-		 */
-		EClass ACTION_PARAMETER = eINSTANCE.getActionParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_PARAMETER__NAME = eINSTANCE.getActionParameter_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_PARAMETER__VALUE = eINSTANCE
-				.getActionParameter_Value();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ActionPackageImpl <em>Action Package</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.ActionPackageImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getActionPackage()
-		 * @generated
-		 */
-		EClass ACTION_PACKAGE = eINSTANCE.getActionPackage();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION_PACKAGE__NAME = eINSTANCE.getActionPackage_Name();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.INativeActions
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getINativeActions()
-		 * @generated
-		 */
-		EClass INATIVE_ACTIONS = eINSTANCE.getINativeActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RPMActionsImpl <em>RPM Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.RPMActionsImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMActions()
-		 * @generated
-		 */
-		EClass RPM_ACTIONS = eINSTANCE.getRPMActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RPMPublisherImpl <em>RPM Publisher</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.RPMPublisherImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRPMPublisher()
-		 * @generated
-		 */
-		EClass RPM_PUBLISHER = eINSTANCE.getRPMPublisher();
-
-		/**
-		 * The meta object literal for the '<em><b>RPM Install Dir</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RPM_PUBLISHER__RPM_INSTALL_DIR = eINSTANCE
-				.getRPMPublisher_RPMInstallDir();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.IGEMActions
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIGEMActions()
-		 * @generated
-		 */
-		EClass IGEM_ACTIONS = eINSTANCE.getIGEMActions();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.GEMPublisherImpl <em>GEM Publisher</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.GEMPublisherImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getGEMPublisher()
-		 * @generated
-		 */
-		EClass GEM_PUBLISHER = eINSTANCE.getGEMPublisher();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.RepositoryDefinition
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryDefinition()
-		 * @generated
-		 */
-		EClass REPOSITORY_DEFINITION = eINSTANCE.getRepositoryDefinition();
-
-		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RepositoryPublisherImpl <em>Repository Publisher</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.cloudsmith.publish.impl.RepositoryPublisherImpl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRepositoryPublisher()
-		 * @generated
-		 */
-		EClass REPOSITORY_PUBLISHER = eINSTANCE.getRepositoryPublisher();
-
-	}
-
-} //PublishPackage
+} // PublishPackage

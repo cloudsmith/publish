@@ -14,8 +14,8 @@ package com.cloudsmith.publish;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>RPM Uninstall Phase</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getRPMUninstallPhase()
  * @model
  * @generated

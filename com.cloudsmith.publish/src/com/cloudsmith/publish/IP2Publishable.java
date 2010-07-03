@@ -18,8 +18,8 @@ import org.eclipse.b3.build.core.B3BuilderJob;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IP2 Publishable</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.cloudsmith.publish.PublishPackage#getIP2Publishable()
  * @model interface="true" abstract="true"
  * @generated
@@ -28,6 +28,7 @@ public interface IP2Publishable extends BuildUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model dataType="org.eclipse.b3.build.B3BuilderJob"
 	 * @generated
 	 */
