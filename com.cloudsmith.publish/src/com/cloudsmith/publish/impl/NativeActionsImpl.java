@@ -48,17 +48,6 @@ public class NativeActionsImpl extends ActionPackageImpl implements NativeAction
 		super();
 	}
 
-	private void assertNotNull(String parameterName, Object value) {
-		if(value == null)
-			throw new IllegalArgumentException("The parameter " + parameterName + " can not be null.");
-	}
-
-	private void assertNotNullOrEmpty(String parameterName, String value) {
-		assertNotNull(parameterName, value);
-		if(value.length() < 1)
-			throw new IllegalArgumentException("The parameter " + parameterName + " can not be an empty string.");
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

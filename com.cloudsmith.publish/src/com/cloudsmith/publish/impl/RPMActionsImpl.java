@@ -61,8 +61,9 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 */
 	public PublisherAction installFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setActionPackage(this);
 		a.setName("installFromCSource");
+
+		a.setActionPackage(this);
 		return a;
 	}
 
@@ -73,8 +74,9 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 */
 	public PublisherAction uninstallFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setActionPackage(this);
 		a.setName("uninstallFromCSource");
+
+		a.setActionPackage(this);
 		return a;
 	}
 } // RPMActionsImpl

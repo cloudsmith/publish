@@ -453,6 +453,15 @@ public interface PublishPackage extends EPackage {
 		EAttribute RPM_PUBLISHER__RPM_INSTALL_DIR = eINSTANCE.getRPMPublisher_RPMInstallDir();
 
 		/**
+		 * The meta object literal for the '<em><b>Rpm Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference RPM_PUBLISHER__RPM_ACTIONS = eINSTANCE.getRPMPublisher_RpmActions();
+
+		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -473,6 +482,15 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GEM_PUBLISHER = eINSTANCE.getGEMPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Gem Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference GEM_PUBLISHER__GEM_ACTIONS = eINSTANCE.getGEMPublisher_GemActions();
 
 		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
@@ -506,6 +524,15 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RUBY_PUBLISHER = eINSTANCE.getRubyPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Ruby Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference RUBY_PUBLISHER__RUBY_ACTIONS = eINSTANCE.getRubyPublisher_RubyActions();
 
 		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}' class.
@@ -2011,6 +2038,16 @@ public interface PublishPackage extends EPackage {
 	int RPM_PUBLISHER__RPM_INSTALL_DIR = PUBLISHER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rpm Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM_PUBLISHER__RPM_ACTIONS = PUBLISHER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>RPM Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2018,7 +2055,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RPM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
+	int RPM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}' class.
@@ -2253,6 +2290,16 @@ public interface PublishPackage extends EPackage {
 	int GEM_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Gem Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM_PUBLISHER__GEM_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>GEM Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2260,7 +2307,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 0;
+	int GEM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.RepositoryDefinition <em>Repository Definition</em>}' class.
@@ -2726,6 +2773,16 @@ public interface PublishPackage extends EPackage {
 	int RUBY_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Ruby Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__RUBY_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Ruby Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2733,7 +2790,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUBY_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 0;
+	int RUBY_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}' class.
@@ -2899,6 +2956,18 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGEMPublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.GEMPublisher#getGemActions <em>Gem Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Gem Actions</em>'.
+	 * @see com.cloudsmith.publish.GEMPublisher#getGemActions()
+	 * @see #getGEMPublisher()
+	 * @generated
+	 */
+	EReference getGEMPublisher_GemActions();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}'.
@@ -3346,6 +3415,18 @@ public interface PublishPackage extends EPackage {
 	EClass getRPMPublisher();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.RPMPublisher#getRpmActions <em>Rpm Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Rpm Actions</em>'.
+	 * @see com.cloudsmith.publish.RPMPublisher#getRpmActions()
+	 * @see #getRPMPublisher()
+	 * @generated
+	 */
+	EReference getRPMPublisher_RpmActions();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.RPMPublisher#getRPMInstallDir <em>RPM Install Dir</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3378,5 +3459,17 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRubyPublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.RubyPublisher#getRubyActions <em>Ruby Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Ruby Actions</em>'.
+	 * @see com.cloudsmith.publish.RubyPublisher#getRubyActions()
+	 * @see #getRubyPublisher()
+	 * @generated
+	 */
+	EReference getRubyPublisher_RubyActions();
 
 } // PublishPackage

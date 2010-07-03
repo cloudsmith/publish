@@ -19,6 +19,7 @@ package com.cloudsmith.publish;
  * The following features are supported:
  * <ul>
  * <li>{@link com.cloudsmith.publish.RPMPublisher#getRPMInstallDir <em>RPM Install Dir</em>}</li>
+ * <li>{@link com.cloudsmith.publish.RPMPublisher#getRpmActions <em>Rpm Actions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -27,6 +28,21 @@ package com.cloudsmith.publish;
  * @generated
  */
 public interface RPMPublisher extends Publisher, IRPMActions {
+	/**
+	 * Returns the value of the '<em><b>Rpm Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rpm Actions</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Rpm Actions</em>' containment reference.
+	 * @see com.cloudsmith.publish.PublishPackage#getRPMPublisher_RpmActions()
+	 * @model containment="true" changeable="false"
+	 * @generated
+	 */
+	RPMActions getRpmActions();
+
 	/**
 	 * Returns the value of the '<em><b>RPM Install Dir</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -124,12 +124,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="RPMActions" eSuperTypes="#//ActionPackage #//IRPMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="RPMPublisher" eSuperTypes="#//Publisher #//IRPMActions">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RPMInstallDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rpmActions" eType="#//RPMActions"
+        changeable="false" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IGEMActions" abstract="true" interface="true">
     <eOperations name="installGEM" eType="#//PublisherAction"/>
     <eOperations name="uninstallGEM" eType="#//PublisherAction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GEMPublisher" eSuperTypes="#//Publisher #//IGEMActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GEMPublisher" eSuperTypes="#//Publisher #//IGEMActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gemActions" eType="#//GEMActions"
+        changeable="false" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDefinition" abstract="true"
       interface="true" eSuperTypes="#//IP2Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryPublisher">
@@ -138,7 +143,10 @@
       <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RubyPublisher" eSuperTypes="#//Publisher #//IRubyActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RubyPublisher" eSuperTypes="#//Publisher #//IRubyActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rubyActions" eType="#//RubyActions"
+        changeable="false" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRubyActions" abstract="true" interface="true">
     <eOperations name="installRubyEnterpriseFromCSource" eType="#//PublisherAction"/>
     <eOperations name="uninstallRubyEnterpriseFromCSource" eType="#//PublisherAction"/>

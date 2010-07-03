@@ -363,16 +363,19 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		rpmPublisherEClass = createEClass(RPM_PUBLISHER);
 		createEAttribute(rpmPublisherEClass, RPM_PUBLISHER__RPM_INSTALL_DIR);
+		createEReference(rpmPublisherEClass, RPM_PUBLISHER__RPM_ACTIONS);
 
 		igemActionsEClass = createEClass(IGEM_ACTIONS);
 
 		gemPublisherEClass = createEClass(GEM_PUBLISHER);
+		createEReference(gemPublisherEClass, GEM_PUBLISHER__GEM_ACTIONS);
 
 		repositoryDefinitionEClass = createEClass(REPOSITORY_DEFINITION);
 
 		repositoryPublisherEClass = createEClass(REPOSITORY_PUBLISHER);
 
 		rubyPublisherEClass = createEClass(RUBY_PUBLISHER);
+		createEReference(rubyPublisherEClass, RUBY_PUBLISHER__RUBY_ACTIONS);
 
 		iRubyActionsEClass = createEClass(IRUBY_ACTIONS);
 
@@ -467,6 +470,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EClass getGEMPublisher() {
 		return gemPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getGEMPublisher_GemActions() {
+		return (EReference) gemPublisherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -855,6 +868,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getRPMPublisher_RpmActions() {
+		return (EReference) rpmPublisherEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getRPMPublisher_RPMInstallDir() {
 		return (EAttribute) rpmPublisherEClass.getEStructuralFeatures().get(0);
 	}
@@ -877,6 +900,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EClass getRubyPublisher() {
 		return rubyPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRubyPublisher_RubyActions() {
+		return (EReference) rubyPublisherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1130,6 +1163,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			getRPMPublisher_RPMInstallDir(), ecorePackage.getEString(), "RPMInstallDir", null, 0, 1,
 			RPMPublisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getRPMPublisher_RpmActions(), this.getRPMActions(), null, "rpmActions", null, 0, 1, RPMPublisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			igemActionsEClass, IGEMActions.class, "IGEMActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1141,6 +1178,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			gemPublisherEClass, GEMPublisher.class, "GEMPublisher", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getGEMPublisher_GemActions(), this.getGEMActions(), null, "gemActions", null, 0, 1, GEMPublisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			repositoryDefinitionEClass, RepositoryDefinition.class, "RepositoryDefinition", IS_ABSTRACT, IS_INTERFACE,
@@ -1158,6 +1199,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			rubyPublisherEClass, RubyPublisher.class, "RubyPublisher", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRubyPublisher_RubyActions(), this.getRubyActions(), null, "rubyActions", null, 0, 1,
+			RubyPublisher.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			iRubyActionsEClass, IRubyActions.class, "IRubyActions", IS_ABSTRACT, IS_INTERFACE,

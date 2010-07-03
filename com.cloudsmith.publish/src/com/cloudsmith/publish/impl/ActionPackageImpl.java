@@ -65,6 +65,17 @@ public abstract class ActionPackageImpl extends EObjectImpl implements ActionPac
 		super();
 	}
 
+	protected void assertNotNull(String parameterName, Object value) {
+		if(value == null)
+			throw new IllegalArgumentException("The parameter " + parameterName + " can not be null.");
+	}
+
+	protected void assertNotNullOrEmpty(String parameterName, String value) {
+		assertNotNull(parameterName, value);
+		if(value.length() < 1)
+			throw new IllegalArgumentException("The parameter " + parameterName + " can not be an empty string.");
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -71,13 +71,15 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 	 * @generated NOT
 	 */
 	public PublisherAction installPassenger(String server) {
+		assertNotNullOrEmpty("server", server);
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
 		a.setName("installPassenger");
-		a.setActionPackage(this);
 		ActionParameter ap = PublishFactory.eINSTANCE.createActionParameter();
 		ap.setName("server");
 		ap.setValue(server);
 		a.getParameters().add(ap);
+
+		a.setActionPackage(this);
 		return a;
 	}
 
@@ -90,6 +92,7 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 	public PublisherAction installRubyEnterpriseFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
 		a.setName("installRubEnterpriseFromCSource");
+
 		a.setActionPackage(this);
 		return a;
 	}
@@ -101,13 +104,16 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 	 * @generated NOT
 	 */
 	public PublisherAction uninstallPassenger(String server) {
+		assertNotNullOrEmpty("server", server);
+
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
 		a.setName("uninstallPassenger");
-		a.setActionPackage(this);
 		ActionParameter ap = PublishFactory.eINSTANCE.createActionParameter();
 		ap.setName("server");
 		ap.setValue(server);
 		a.getParameters().add(ap);
+
+		a.setActionPackage(this);
 		return a;
 	}
 
@@ -120,6 +126,7 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 	public PublisherAction uninstallRubyEnterpriseFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
 		a.setName("installRubEnterpriseFromCSource");
+
 		a.setActionPackage(this);
 		return a;
 	}

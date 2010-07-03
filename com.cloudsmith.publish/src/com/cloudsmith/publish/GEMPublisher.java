@@ -15,10 +15,31 @@ package com.cloudsmith.publish;
  * A representation of the model object '<em><b>GEM Publisher</b></em>'.
  * <!-- end-user-doc -->
  * 
+ * <p>
+ * The following features are supported:
+ * <ul>
+ * <li>{@link com.cloudsmith.publish.GEMPublisher#getGemActions <em>Gem Actions</em>}</li>
+ * </ul>
+ * </p>
  * 
  * @see com.cloudsmith.publish.PublishPackage#getGEMPublisher()
  * @model
  * @generated
  */
 public interface GEMPublisher extends Publisher, IGEMActions {
+
+	/**
+	 * Returns the value of the '<em><b>Gem Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gem Actions</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Gem Actions</em>' containment reference.
+	 * @see com.cloudsmith.publish.PublishPackage#getGEMPublisher_GemActions()
+	 * @model containment="true" changeable="false"
+	 * @generated
+	 */
+	GEMActions getGemActions();
 } // GEMPublisher

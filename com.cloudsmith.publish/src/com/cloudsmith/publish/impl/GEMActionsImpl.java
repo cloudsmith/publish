@@ -13,6 +13,7 @@ package com.cloudsmith.publish.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import com.cloudsmith.publish.GEMActions;
+import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.PublisherAction;
 
@@ -61,23 +62,27 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction installGEM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setActionPackage(this);
+		a.setName("installGEM");
+		a.setActionPackage(this);
+		return a;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction uninstallGEM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setActionPackage(this);
+		a.setName("uninstallGEM");
+		a.setActionPackage(this);
+		return a;
 	}
 } // GEMActionsImpl

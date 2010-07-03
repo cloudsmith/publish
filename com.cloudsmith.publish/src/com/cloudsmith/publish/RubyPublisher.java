@@ -15,10 +15,31 @@ package com.cloudsmith.publish;
  * A representation of the model object '<em><b>Ruby Publisher</b></em>'.
  * <!-- end-user-doc -->
  * 
+ * <p>
+ * The following features are supported:
+ * <ul>
+ * <li>{@link com.cloudsmith.publish.RubyPublisher#getRubyActions <em>Ruby Actions</em>}</li>
+ * </ul>
+ * </p>
  * 
  * @see com.cloudsmith.publish.PublishPackage#getRubyPublisher()
  * @model
  * @generated
  */
 public interface RubyPublisher extends Publisher, IRubyActions {
+
+	/**
+	 * Returns the value of the '<em><b>Ruby Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ruby Actions</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Ruby Actions</em>' containment reference.
+	 * @see com.cloudsmith.publish.PublishPackage#getRubyPublisher_RubyActions()
+	 * @model containment="true" changeable="false"
+	 * @generated
+	 */
+	RubyActions getRubyActions();
 } // RubyPublisher
