@@ -14,15 +14,15 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>IRPM Actions</b></em>'.
+ * A representation of the model object '<em><b>IRuby Actions</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getIRPMActions()
+ * @see com.cloudsmith.publish.PublishPackage#getIRubyActions()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IRPMActions extends EObject {
+public interface IRubyActions extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +30,7 @@ public interface IRPMActions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	PublisherAction installFromCSource();
+	PublisherAction installPassenger(String server);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +39,24 @@ public interface IRPMActions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	PublisherAction uninstallFromCSource();
+	PublisherAction installRubyEnterpriseFromCSource();
 
-} // IRPMActions
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPassenger(String server);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallRubyEnterpriseFromCSource();
+
+} // IRubyActions

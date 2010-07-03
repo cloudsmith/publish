@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link com.cloudsmith.publish.ActionPackage#getName <em>Name</em>}</li>
+ * <li>{@link com.cloudsmith.publish.ActionPackage#getTouchPoint <em>Touch Point</em>}</li>
  * </ul>
  * </p>
  * 
@@ -43,5 +44,20 @@ public interface ActionPackage extends EObject {
 	 * @generated
 	 */
 	String getName();
+
+	/**
+	 * Returns the value of the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Touch Point</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Touch Point</em>' attribute.
+	 * @see com.cloudsmith.publish.PublishPackage#getActionPackage_TouchPoint()
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getTouchPoint();
 
 } // ActionPackage

@@ -288,6 +288,24 @@ public interface PublishPackage extends EPackage {
 		EReference PUBLISHER__META_REQUIRES = eINSTANCE.getPublisher_MetaRequires();
 
 		/**
+		 * The meta object literal for the '<em><b>Used Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__USED_PACKAGES = eINSTANCE.getPublisher_UsedPackages();
+
+		/**
+		 * The meta object literal for the '<em><b>Native Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PUBLISHER__NATIVE_ACTIONS = eINSTANCE.getPublisher_NativeActions();
+
+		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -324,6 +342,15 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PUBLISHER_ACTION__ACTION_PACKAGE = eINSTANCE.getPublisherAction_ActionPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute PUBLISHER_ACTION__QUALIFIED_NAME = eINSTANCE.getPublisherAction_QualifiedName();
 
 		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ActionParameterImpl <em>Action Parameter</em>}' class.
@@ -373,6 +400,15 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION_PACKAGE__NAME = eINSTANCE.getActionPackage_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Touch Point</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ACTION_PACKAGE__TOUCH_POINT = eINSTANCE.getActionPackage_TouchPoint();
 
 		/**
 		 * The meta object literal for the '{@link com.cloudsmith.publish.INativeActions <em>INative Actions</em>}' class.
@@ -459,6 +495,39 @@ public interface PublishPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPOSITORY_PUBLISHER = eINSTANCE.getRepositoryPublisher();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RubyPublisherImpl <em>Ruby Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.RubyPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRubyPublisher()
+		 * @generated
+		 */
+		EClass RUBY_PUBLISHER = eINSTANCE.getRubyPublisher();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IRubyActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIRubyActions()
+		 * @generated
+		 */
+		EClass IRUBY_ACTIONS = eINSTANCE.getIRubyActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.RubyActionsImpl <em>Ruby Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.RubyActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRubyActions()
+		 * @generated
+		 */
+		EClass RUBY_ACTIONS = eINSTANCE.getRubyActions();
 
 	}
 
@@ -1213,6 +1282,16 @@ public interface PublishPackage extends EPackage {
 	int ACTION_PACKAGE__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_PACKAGE__TOUCH_POINT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Action Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1220,7 +1299,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_PACKAGE_FEATURE_COUNT = 1;
+	int ACTION_PACKAGE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.NativeActionsImpl <em>Native Actions</em>}' class.
@@ -1242,6 +1321,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATIVE_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
 
 	/**
 	 * The number of structural features of the '<em>Native Actions</em>' class.
@@ -1294,6 +1383,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
 
 	/**
 	 * The number of structural features of the '<em>GEM Actions</em>' class.
@@ -1518,6 +1617,26 @@ public interface PublishPackage extends EPackage {
 	int PUBLISHER__META_REQUIRES = INATIVE_ACTIONS_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHER__USED_PACKAGES = INATIVE_ACTIONS_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHER__NATIVE_ACTIONS = INATIVE_ACTIONS_FEATURE_COUNT + 19;
+
+	/**
 	 * The number of structural features of the '<em>Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1525,7 +1644,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER_FEATURE_COUNT = INATIVE_ACTIONS_FEATURE_COUNT + 18;
+	int PUBLISHER_FEATURE_COUNT = INATIVE_ACTIONS_FEATURE_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PublisherActionImpl <em>Publisher Action</em>}' class.
@@ -1569,6 +1688,16 @@ public interface PublishPackage extends EPackage {
 	int PUBLISHER_ACTION__ACTION_PACKAGE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHER_ACTION__QUALIFIED_NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Publisher Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1576,7 +1705,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER_ACTION_FEATURE_COUNT = 3;
+	int PUBLISHER_ACTION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.cloudsmith.publish.impl.ActionParameterImpl <em>Action Parameter</em>}' class.
@@ -1639,6 +1768,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int RPM_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
 
 	/**
 	 * The number of structural features of the '<em>RPM Actions</em>' class.
@@ -1840,6 +1979,26 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int RPM_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
 
 	/**
 	 * The feature id for the '<em><b>RPM Install Dir</b></em>' attribute.
@@ -2072,6 +2231,26 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
 
 	/**
 	 * The number of structural features of the '<em>GEM Publisher</em>' class.
@@ -2336,6 +2515,289 @@ public interface PublishPackage extends EPackage {
 	int REPOSITORY_PUBLISHER_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RubyPublisherImpl <em>Ruby Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.RubyPublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRubyPublisher()
+	 * @generated
+	 */
+	int RUBY_PUBLISHER = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__ID = PUBLISHER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__SINGLETON = PUBLISHER__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__VERSION = PUBLISHER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__COPYRIGHT_TEXT = PUBLISHER__COPYRIGHT_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__COPYRIGHT_URL = PUBLISHER__COPYRIGHT_URL;
+
+	/**
+	 * The feature id for the '<em><b>License Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__LICENSE_TEXT = PUBLISHER__LICENSE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>License URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__LICENSE_URL = PUBLISHER__LICENSE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__RUNTIME_FILTER = PUBLISHER__RUNTIME_FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__WHEN_UNCONFIGURING = PUBLISHER__WHEN_UNCONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__NAME = PUBLISHER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__UNIT = PUBLISHER__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Provides</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__PROVIDES = PUBLISHER__PROVIDES;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__REQUIRES = PUBLISHER__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
+
+	/**
+	 * The number of structural features of the '<em>Ruby Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.IRubyActions
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIRubyActions()
+	 * @generated
+	 */
+	int IRUBY_ACTIONS = 18;
+
+	/**
+	 * The number of structural features of the '<em>IRuby Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IRUBY_ACTIONS_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.RubyActionsImpl <em>Ruby Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.RubyActionsImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getRubyActions()
+	 * @generated
+	 */
+	int RUBY_ACTIONS = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
+
+	/**
+	 * The number of structural features of the '<em>Ruby Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_ACTIONS_FEATURE_COUNT = ACTION_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2357,6 +2819,18 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getActionPackage_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.ActionPackage#getTouchPoint <em>Touch Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Touch Point</em>'.
+	 * @see com.cloudsmith.publish.ActionPackage#getTouchPoint()
+	 * @see #getActionPackage()
+	 * @generated
+	 */
+	EAttribute getActionPackage_TouchPoint();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionParameter <em>Action Parameter</em>}'.
@@ -2471,6 +2945,17 @@ public interface PublishPackage extends EPackage {
 	EClass getIRPMActions();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IRuby Actions</em>'.
+	 * @see com.cloudsmith.publish.IRubyActions
+	 * @generated
+	 */
+	EClass getIRubyActions();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2577,6 +3062,18 @@ public interface PublishPackage extends EPackage {
 	EAttribute getPublisher_Name();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.Publisher#getNativeActions <em>Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Native Actions</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getNativeActions()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_NativeActions();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2647,6 +3144,18 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPublisher_Unit();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.cloudsmith.publish.Publisher#getUsedPackages <em>Used Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Used Packages</em>'.
+	 * @see com.cloudsmith.publish.Publisher#getUsedPackages()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EReference getPublisher_UsedPackages();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.Publisher#getVersion <em>Version</em>}'.
@@ -2760,6 +3269,18 @@ public interface PublishPackage extends EPackage {
 	EReference getPublisherAction_Parameters();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.cloudsmith.publish.PublisherAction#getQualifiedName <em>Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Qualified Name</em>'.
+	 * @see com.cloudsmith.publish.PublisherAction#getQualifiedName()
+	 * @see #getPublisherAction()
+	 * @generated
+	 */
+	EAttribute getPublisherAction_QualifiedName();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2835,5 +3356,27 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRPMPublisher_RPMInstallDir();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RubyActions <em>Ruby Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Ruby Actions</em>'.
+	 * @see com.cloudsmith.publish.RubyActions
+	 * @generated
+	 */
+	EClass getRubyActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.RubyPublisher <em>Ruby Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Ruby Publisher</em>'.
+	 * @see com.cloudsmith.publish.RubyPublisher
+	 * @generated
+	 */
+	EClass getRubyPublisher();
 
 } // PublishPackage

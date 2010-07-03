@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link com.cloudsmith.publish.PublisherAction#getName <em>Name</em>}</li>
  * <li>{@link com.cloudsmith.publish.PublisherAction#getParameters <em>Parameters</em>}</li>
  * <li>{@link com.cloudsmith.publish.PublisherAction#getActionPackage <em>Action Package</em>}</li>
+ * <li>{@link com.cloudsmith.publish.PublisherAction#getQualifiedName <em>Qualified Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -82,6 +83,21 @@ public interface PublisherAction extends EObject {
 	 * @generated
 	 */
 	EList<ActionParameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Qualified Name</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Qualified Name</em>' attribute.
+	 * @see com.cloudsmith.publish.PublishPackage#getPublisherAction_QualifiedName()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getQualifiedName();
 
 	/**
 	 * Returns whether the value of the '{@link com.cloudsmith.publish.PublisherAction#getName <em>Name</em>}' attribute is set.

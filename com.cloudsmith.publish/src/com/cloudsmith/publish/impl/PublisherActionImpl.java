@@ -10,26 +10,22 @@
  */
 package com.cloudsmith.publish.impl;
 
-import com.cloudsmith.publish.ActionPackage;
-import com.cloudsmith.publish.ActionParameter;
-import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.PublisherAction;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.cloudsmith.publish.ActionPackage;
+import com.cloudsmith.publish.ActionParameter;
+import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.PublisherAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link com.cloudsmith.publish.impl.PublisherActionImpl#getName <em>Name</em>}</li>
  * <li>{@link com.cloudsmith.publish.impl.PublisherActionImpl#getParameters <em>Parameters</em>}</li>
  * <li>{@link com.cloudsmith.publish.impl.PublisherActionImpl#getActionPackage <em>Action Package</em>}</li>
+ * <li>{@link com.cloudsmith.publish.impl.PublisherActionImpl#getQualifiedName <em>Qualified Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -102,6 +99,17 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 	protected ActionPackage actionPackage;
 
 	/**
+	 * The default value of the '{@link #getQualifiedName() <em>Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -138,6 +146,8 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 				if(resolve)
 					return getActionPackage();
 				return basicGetActionPackage();
+			case PublishPackage.PUBLISHER_ACTION__QUALIFIED_NAME:
+				return getQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +182,10 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 				return parameters != null && !parameters.isEmpty();
 			case PublishPackage.PUBLISHER_ACTION__ACTION_PACKAGE:
 				return actionPackage != null;
+			case PublishPackage.PUBLISHER_ACTION__QUALIFIED_NAME:
+				return QUALIFIED_NAME_EDEFAULT == null
+						? getQualifiedName() != null
+						: !QUALIFIED_NAME_EDEFAULT.equals(getQualifiedName());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -275,6 +289,19 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 				ActionParameter.class, this, PublishPackage.PUBLISHER_ACTION__PARAMETERS);
 		}
 		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getQualifiedName() {
+		String s = getActionPackage().getName();
+		if(s == null || "".equals(s))
+			return getName();
+		return s + "." + getName();
 	}
 
 	/**

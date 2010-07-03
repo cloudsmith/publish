@@ -45,6 +45,8 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link com.cloudsmith.publish.Publisher#getProvides <em>Provides</em>}</li>
  * <li>{@link com.cloudsmith.publish.Publisher#getRequires <em>Requires</em>}</li>
  * <li>{@link com.cloudsmith.publish.Publisher#getMetaRequires <em>Meta Requires</em>}</li>
+ * <li>{@link com.cloudsmith.publish.Publisher#getUsedPackages <em>Used Packages</em>}</li>
+ * <li>{@link com.cloudsmith.publish.Publisher#getNativeActions <em>Native Actions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -166,6 +168,21 @@ public interface Publisher extends INativeActions {
 	String getName();
 
 	/**
+	 * Returns the value of the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Native Actions</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Native Actions</em>' containment reference.
+	 * @see com.cloudsmith.publish.PublishPackage#getPublisher_NativeActions()
+	 * @model containment="true" changeable="false"
+	 * @generated
+	 */
+	NativeActions getNativeActions();
+
+	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -244,6 +261,22 @@ public interface Publisher extends INativeActions {
 	 * @generated
 	 */
 	BuildUnit getUnit();
+
+	/**
+	 * Returns the value of the '<em><b>Used Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link com.cloudsmith.publish.ActionPackage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Used Packages</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Used Packages</em>' containment reference list.
+	 * @see com.cloudsmith.publish.PublishPackage#getPublisher_UsedPackages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActionPackage> getUsedPackages();
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.

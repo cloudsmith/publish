@@ -12,32 +12,27 @@ package com.cloudsmith.publish.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.PublisherAction;
+import com.cloudsmith.publish.RubyPublisher;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>GEM Actions</b></em>'.
+ * An implementation of the model object '<em><b>Ruby Publisher</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
  * @generated
  */
-public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
-	public static final String INTERNAL_NAME = "com.cloudsmith.touchpoint.gem";
-
-	// http://bugzilla.cloudsmith.com/show_bug.cgi?id=904
-	public static final String NAME = "";
-
+public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected GEMActionsImpl() {
+	protected RubyPublisherImpl() {
 		super();
 	}
 
@@ -49,12 +44,7 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PublishPackage.Literals.GEM_ACTIONS;
-	}
-
-	@Override
-	public String getName() {
-		return NAME;
+		return PublishPackage.Literals.RUBY_PUBLISHER;
 	}
 
 	/**
@@ -63,7 +53,7 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	 * 
 	 * @generated
 	 */
-	public PublisherAction installGEM() {
+	public PublisherAction installPassenger(String server) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -75,9 +65,34 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 	 * 
 	 * @generated
 	 */
-	public PublisherAction uninstallGEM() {
+	public PublisherAction installRubyEnterpriseFromCSource() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-} // GEMActionsImpl
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction uninstallPassenger(String server) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction uninstallRubyEnterpriseFromCSource() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} // RubyPublisherImpl

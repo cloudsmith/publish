@@ -10,12 +10,12 @@
  */
 package com.cloudsmith.publish.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.PublisherAction;
 import com.cloudsmith.publish.RPMActions;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>RPM Actions</b></em>'. <!-- end-user-doc -->
@@ -25,7 +25,10 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
-	public static final String NAME = "com.cloudsmith.touchpoint.rpm";
+	public static final String INTERNAL_NAME = "com.cloudsmith.touchpoint.rpm";
+
+	// http://bugzilla.cloudsmith.com/show_bug.cgi?id=904
+	public static final String NAME = "";
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -56,23 +59,22 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction installRPM() {
+	public PublisherAction installFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
 		a.setActionPackage(this);
-		a.setName("installRPM");
-		// EList<ActionParameter> params = a.getParameters();
-		// add parameters as needed
+		a.setName("installFromCSource");
 		return a;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public PublisherAction uninstallRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public PublisherAction uninstallFromCSource() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setActionPackage(this);
+		a.setName("uninstallFromCSource");
+		return a;
 	}
 } // RPMActionsImpl

@@ -13,8 +13,8 @@
       eSuperTypes="#//IP2Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeActions" eSuperTypes="#//ActionPackage #//INativeActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="IRPMActions" abstract="true" interface="true">
-    <eOperations name="installRPM" eType="#//PublisherAction"/>
-    <eOperations name="uninstallRPM" eType="#//PublisherAction"/>
+    <eOperations name="installFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="uninstallFromCSource" eType="#//PublisherAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
@@ -55,6 +55,10 @@
         eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//RequiredCapability"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequires" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//RequiredCapability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedPackages" upperBound="-1"
+        eType="#//ActionPackage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nativeActions" eType="#//NativeActions"
+        changeable="false" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PublisherAction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -63,6 +67,8 @@
         eType="#//ActionParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actionPackage" lowerBound="1"
         eType="#//ActionPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -71,6 +77,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ActionPackage" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="touchPoint" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="INativeActions" abstract="true" interface="true">
     <eOperations name="link" eType="#//PublisherAction">
@@ -129,4 +138,16 @@
       <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RubyPublisher" eSuperTypes="#//Publisher #//IRubyActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IRubyActions" abstract="true" interface="true">
+    <eOperations name="installRubyEnterpriseFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="uninstallRubyEnterpriseFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="installPassenger" eType="#//PublisherAction">
+      <eParameters name="server" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="uninstallPassenger" eType="#//PublisherAction">
+      <eParameters name="server" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RubyActions" eSuperTypes="#//ActionPackage #//IRubyActions"/>
 </ecore:EPackage>

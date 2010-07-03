@@ -10,10 +10,6 @@
  */
 package com.cloudsmith.publish.impl;
 
-import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.Publisher;
-
-import com.cloudsmith.publish.PublisherAction;
 import java.util.Collection;
 import java.util.Map;
 
@@ -27,19 +23,23 @@ import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.Version;
+
+import com.cloudsmith.publish.ActionPackage;
+import com.cloudsmith.publish.NativeActions;
+import com.cloudsmith.publish.PublishFactory;
+import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.Publisher;
+import com.cloudsmith.publish.PublisherAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +66,8 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getProvides <em>Provides</em>}</li>
  * <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getRequires <em>Requires</em>}</li>
  * <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getMetaRequires <em>Meta Requires</em>}</li>
+ * <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getUsedPackages <em>Used Packages</em>}</li>
+ * <li>{@link com.cloudsmith.publish.impl.PublisherImpl#getNativeActions <em>Native Actions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -370,6 +372,28 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	protected EList<RequiredCapability> metaRequires;
 
 	/**
+	 * The cached value of the '{@link #getUsedPackages() <em>Used Packages</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getUsedPackages()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActionPackage> usedPackages;
+
+	/**
+	 * The cached value of the '{@link #getNativeActions() <em>Native Actions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getNativeActions()
+	 * @generated
+	 * @ordered
+	 */
+	protected NativeActions nativeActions;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -395,46 +419,58 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * 
 	 * @generated
 	 */
-	public PublisherAction chmod(String targetDir, String targetFile, String permissions, String options) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public NotificationChain basicSetNativeActions(NativeActions newNativeActions, NotificationChain msgs) {
+		NativeActions oldNativeActions = nativeActions;
+		nativeActions = newNativeActions;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PublishPackage.PUBLISHER__NATIVE_ACTIONS, oldNativeActions, newNativeActions);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
+	 */
+	public PublisherAction chmod(String targetDir, String targetFile, String permissions, String options) {
+		return getNativeActions().chmod(targetDir, targetFile, permissions, options);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public PublisherAction cleanupCopy(String source, String target) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().cleanupCopy(source, target);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction cleanupZip(String source, String target) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().cleanupZip(source, target);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction copy(String source, String target, boolean overwrite) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().copy(source, target, overwrite);
 	}
 
 	/**
@@ -484,6 +520,10 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 				return getRequires();
 			case PublishPackage.PUBLISHER__META_REQUIRES:
 				return getMetaRequires();
+			case PublishPackage.PUBLISHER__USED_PACKAGES:
+				return getUsedPackages();
+			case PublishPackage.PUBLISHER__NATIVE_ACTIONS:
+				return getNativeActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -505,6 +545,10 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 				return ((InternalEList<?>) getWhenConfiguring()).basicRemove(otherEnd, msgs);
 			case PublishPackage.PUBLISHER__WHEN_UNCONFIGURING:
 				return ((InternalEList<?>) getWhenUnconfiguring()).basicRemove(otherEnd, msgs);
+			case PublishPackage.PUBLISHER__USED_PACKAGES:
+				return ((InternalEList<?>) getUsedPackages()).basicRemove(otherEnd, msgs);
+			case PublishPackage.PUBLISHER__NATIVE_ACTIONS:
+				return basicSetNativeActions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -570,6 +614,10 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 				return requires != null && !requires.isEmpty();
 			case PublishPackage.PUBLISHER__META_REQUIRES:
 				return metaRequires != null && !metaRequires.isEmpty();
+			case PublishPackage.PUBLISHER__USED_PACKAGES:
+				return usedPackages != null && !usedPackages.isEmpty();
+			case PublishPackage.PUBLISHER__NATIVE_ACTIONS:
+				return nativeActions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -644,6 +692,10 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 			case PublishPackage.PUBLISHER__META_REQUIRES:
 				getMetaRequires().clear();
 				getMetaRequires().addAll((Collection<? extends RequiredCapability>) newValue);
+				return;
+			case PublishPackage.PUBLISHER__USED_PACKAGES:
+				getUsedPackages().clear();
+				getUsedPackages().addAll((Collection<? extends ActionPackage>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -722,6 +774,9 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 				return;
 			case PublishPackage.PUBLISHER__META_REQUIRES:
 				getMetaRequires().clear();
+				return;
+			case PublishPackage.PUBLISHER__USED_PACKAGES:
+				getUsedPackages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -805,6 +860,21 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	public NativeActions getNativeActions() {
+		// create on demand and remember it being used
+		if(nativeActions == null) {
+			nativeActions = PublishFactory.eINSTANCE.createNativeActions();
+			getUsedPackages().add(nativeActions);
+		}
+		return nativeActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<String, String> getProperties() {
@@ -865,6 +935,20 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 			}
 		}
 		return unit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<ActionPackage> getUsedPackages() {
+		if(usedPackages == null) {
+			usedPackages = new EObjectContainmentEList<ActionPackage>(
+				ActionPackage.class, this, PublishPackage.PUBLISHER__USED_PACKAGES);
+		}
+		return usedPackages;
 	}
 
 	/**
@@ -947,48 +1031,40 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction link(String targetDir, String linkTarget, String linkName, boolean force) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().link(targetDir, linkTarget, linkName, force);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction mkdir(String path) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().mkdir(path);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction remove(String path) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().remove(path);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction rmdir(String path) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().rmdir(path);
 	}
 
 	/**
@@ -1224,12 +1300,10 @@ public abstract class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction unZip(String source, String target) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getNativeActions().unZip(source, target);
 	}
 
 	/**

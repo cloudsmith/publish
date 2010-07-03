@@ -318,6 +318,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IRuby Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IRuby Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIRubyActions(IRubyActions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Native Actions</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -450,6 +467,40 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseRPMPublisher(RPMPublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ruby Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ruby Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRubyActions(RubyActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ruby Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ruby Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRubyPublisher(RubyPublisher object) {
 		return null;
 	}
 
@@ -732,6 +783,37 @@ public class PublishSwitch<T> {
 			case PublishPackage.REPOSITORY_PUBLISHER: {
 				RepositoryPublisher repositoryPublisher = (RepositoryPublisher) theEObject;
 				T result = caseRepositoryPublisher(repositoryPublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.RUBY_PUBLISHER: {
+				RubyPublisher rubyPublisher = (RubyPublisher) theEObject;
+				T result = caseRubyPublisher(rubyPublisher);
+				if(result == null)
+					result = casePublisher(rubyPublisher);
+				if(result == null)
+					result = caseIRubyActions(rubyPublisher);
+				if(result == null)
+					result = caseINativeActions(rubyPublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.IRUBY_ACTIONS: {
+				IRubyActions iRubyActions = (IRubyActions) theEObject;
+				T result = caseIRubyActions(iRubyActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.RUBY_ACTIONS: {
+				RubyActions rubyActions = (RubyActions) theEObject;
+				T result = caseRubyActions(rubyActions);
+				if(result == null)
+					result = caseActionPackage(rubyActions);
+				if(result == null)
+					result = caseIRubyActions(rubyActions);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

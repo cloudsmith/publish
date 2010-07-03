@@ -10,15 +10,15 @@
  */
 package com.cloudsmith.publish.impl;
 
-import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.PublisherAction;
-import com.cloudsmith.publish.RPMPublisher;
-
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.PublisherAction;
+import com.cloudsmith.publish.RPMPublisher;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,7 +157,7 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated
 	 */
-	public PublisherAction installRPM() {
+	public PublisherAction installFromCSource() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -201,7 +201,7 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated
 	 */
-	public PublisherAction uninstallRPM() {
+	public PublisherAction uninstallFromCSource() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -211,8 +211,8 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	public BuildSet write(BuildUnit unit) {
 		BuildSet bs = super.write(unit); // sets all of the defaults, returns empty? BuildSet
 
-		getWhenInstalling().add(installRPM());
-		getWhenUninstalling().add(uninstallRPM());
+		getWhenInstalling().add(installFromCSource());
+		getWhenUninstalling().add(uninstallFromCSource());
 		return bs;
 	}
 } // RPMPublisherImpl

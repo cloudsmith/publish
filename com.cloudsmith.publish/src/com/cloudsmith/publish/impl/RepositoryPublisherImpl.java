@@ -26,7 +26,6 @@ import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.P2Factory;
-import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.util.P2Bridge;

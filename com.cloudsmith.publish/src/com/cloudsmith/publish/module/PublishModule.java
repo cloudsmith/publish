@@ -1,6 +1,7 @@
 package com.cloudsmith.publish.module;
 
 import org.eclipse.emf.ecore.EClass;
+
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
 import com.cloudsmith.publish.NativeActions;
@@ -9,6 +10,8 @@ import com.cloudsmith.publish.Publisher;
 import com.cloudsmith.publish.RPMActions;
 import com.cloudsmith.publish.RPMPublisher;
 import com.cloudsmith.publish.RepositoryPublisher;
+import com.cloudsmith.publish.RubyActions;
+import com.cloudsmith.publish.RubyPublisher;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 
@@ -45,6 +48,16 @@ public class PublishModule extends AbstractModule {
 			publishModelProvider(RPMPublisher.class, PublishPackage.Literals.RPM_PUBLISHER));
 	}
 
+	protected void bindRubyActions() {
+		bind(RubyActions.class).toProvider(
+			publishModelProvider(RubyActions.class, PublishPackage.Literals.RUBY_ACTIONS));
+	}
+
+	protected void bindRubyPublisher() {
+		bind(RubyPublisher.class).toProvider(
+			publishModelProvider(RubyPublisher.class, PublishPackage.Literals.RUBY_PUBLISHER));
+	}
+
 	@Override
 	protected void configure() {
 		bindNativeActions();
@@ -55,6 +68,9 @@ public class PublishModule extends AbstractModule {
 
 		bindGEMPublisher();
 		bindGEMActions();
+
+		bindRubyPublisher();
+		bindRubyActions();
 
 		bindRepositoryPublisher();
 	}

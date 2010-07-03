@@ -112,6 +112,26 @@ public interface PublishFactory extends EFactory {
 	RPMPublisher createRPMPublisher();
 
 	/**
+	 * Returns a new object of class '<em>Ruby Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Ruby Actions</em>'.
+	 * @generated
+	 */
+	RubyActions createRubyActions();
+
+	/**
+	 * Returns a new object of class '<em>Ruby Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Ruby Publisher</em>'.
+	 * @generated
+	 */
+	RubyPublisher createRubyPublisher();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

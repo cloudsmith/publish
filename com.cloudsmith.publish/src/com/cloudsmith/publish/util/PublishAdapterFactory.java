@@ -131,6 +131,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIRubyActions(IRubyActions object) {
+			return createIRubyActionsAdapter();
+		}
+
+		@Override
 		public Adapter caseNativeActions(NativeActions object) {
 			return createNativeActionsAdapter();
 		}
@@ -168,6 +173,16 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRPMPublisher(RPMPublisher object) {
 			return createRPMPublisherAdapter();
+		}
+
+		@Override
+		public Adapter caseRubyActions(RubyActions object) {
+			return createRubyActionsAdapter();
+		}
+
+		@Override
+		public Adapter caseRubyPublisher(RubyPublisher object) {
+			return createRubyPublisherAdapter();
 		}
 
 		@Override
@@ -451,6 +466,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IRubyActions <em>IRuby Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.IRubyActions
+	 * @generated
+	 */
+	public Adapter createIRubyActionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -567,6 +597,36 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRPMPublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.RubyActions <em>Ruby Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.RubyActions
+	 * @generated
+	 */
+	public Adapter createRubyActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.RubyPublisher <em>Ruby Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.RubyPublisher
+	 * @generated
+	 */
+	public Adapter createRubyPublisherAdapter() {
 		return null;
 	}
 

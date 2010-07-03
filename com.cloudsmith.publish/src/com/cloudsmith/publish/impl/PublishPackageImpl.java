@@ -18,6 +18,7 @@ import com.cloudsmith.publish.IGEMActions;
 import com.cloudsmith.publish.INativeActions;
 import com.cloudsmith.publish.IP2Publishable;
 import com.cloudsmith.publish.IRPMActions;
+import com.cloudsmith.publish.IRubyActions;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
@@ -29,6 +30,8 @@ import com.cloudsmith.publish.RPMPublisher;
 
 import com.cloudsmith.publish.RepositoryDefinition;
 import com.cloudsmith.publish.RepositoryPublisher;
+import com.cloudsmith.publish.RubyActions;
+import com.cloudsmith.publish.RubyPublisher;
 import org.eclipse.b3.build.B3BuildPackage;
 
 import org.eclipse.b3.p2.P2Package;
@@ -192,6 +195,30 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	private EClass rubyPublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iRubyActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass rubyActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -313,11 +340,14 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		createEReference(publisherEClass, PUBLISHER__PROVIDES);
 		createEReference(publisherEClass, PUBLISHER__REQUIRES);
 		createEReference(publisherEClass, PUBLISHER__META_REQUIRES);
+		createEReference(publisherEClass, PUBLISHER__USED_PACKAGES);
+		createEReference(publisherEClass, PUBLISHER__NATIVE_ACTIONS);
 
 		publisherActionEClass = createEClass(PUBLISHER_ACTION);
 		createEAttribute(publisherActionEClass, PUBLISHER_ACTION__NAME);
 		createEReference(publisherActionEClass, PUBLISHER_ACTION__PARAMETERS);
 		createEReference(publisherActionEClass, PUBLISHER_ACTION__ACTION_PACKAGE);
+		createEAttribute(publisherActionEClass, PUBLISHER_ACTION__QUALIFIED_NAME);
 
 		actionParameterEClass = createEClass(ACTION_PARAMETER);
 		createEAttribute(actionParameterEClass, ACTION_PARAMETER__NAME);
@@ -325,6 +355,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		actionPackageEClass = createEClass(ACTION_PACKAGE);
 		createEAttribute(actionPackageEClass, ACTION_PACKAGE__NAME);
+		createEAttribute(actionPackageEClass, ACTION_PACKAGE__TOUCH_POINT);
 
 		iNativeActionsEClass = createEClass(INATIVE_ACTIONS);
 
@@ -340,6 +371,12 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		repositoryDefinitionEClass = createEClass(REPOSITORY_DEFINITION);
 
 		repositoryPublisherEClass = createEClass(REPOSITORY_PUBLISHER);
+
+		rubyPublisherEClass = createEClass(RUBY_PUBLISHER);
+
+		iRubyActionsEClass = createEClass(IRUBY_ACTIONS);
+
+		rubyActionsEClass = createEClass(RUBY_ACTIONS);
 	}
 
 	/**
@@ -360,6 +397,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EAttribute getActionPackage_Name() {
 		return (EAttribute) actionPackageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getActionPackage_TouchPoint() {
+		return (EAttribute) actionPackageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -468,6 +515,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getIRubyActions() {
+		return iRubyActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getNativeActions() {
 		return nativeActionsEClass;
 	}
@@ -558,6 +615,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getPublisher_NativeActions() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getPublisher_Properties() {
 		return (EAttribute) publisherEClass.getEStructuralFeatures().get(8);
 	}
@@ -610,6 +677,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EReference getPublisher_Unit() {
 		return (EReference) publisherEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPublisher_UsedPackages() {
+		return (EReference) publisherEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -708,6 +785,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getPublisherAction_QualifiedName() {
+		return (EAttribute) publisherActionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public PublishFactory getPublishFactory() {
 		return (PublishFactory) getEFactoryInstance();
 	}
@@ -773,6 +860,26 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRubyActions() {
+		return rubyActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRubyPublisher() {
+		return rubyPublisherEClass;
+	}
+
+	/**
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
@@ -814,6 +921,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		gemPublisherEClass.getESuperTypes().add(this.getPublisher());
 		gemPublisherEClass.getESuperTypes().add(this.getIGEMActions());
 		repositoryDefinitionEClass.getESuperTypes().add(this.getIP2Publishable());
+		rubyPublisherEClass.getESuperTypes().add(this.getPublisher());
+		rubyPublisherEClass.getESuperTypes().add(this.getIRubyActions());
+		rubyActionsEClass.getESuperTypes().add(this.getActionPackage());
+		rubyActionsEClass.getESuperTypes().add(this.getIRubyActions());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -835,9 +946,9 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			irpmActionsEClass, IRPMActions.class, "IRPMActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			gemActionsEClass, GEMActions.class, "GEMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -911,6 +1022,14 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			getPublisher_MetaRequires(), theB3BuildPackage.getRequiredCapability(), null, "metaRequires", null, 0, -1,
 			Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_UsedPackages(), this.getActionPackage(), null, "usedPackages", null, 0, -1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getPublisher_NativeActions(), this.getNativeActions(), null, "nativeActions", null, 0, 1, Publisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
 			publisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -934,6 +1053,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			getPublisherAction_ActionPackage(), this.getActionPackage(), null, "actionPackage", null, 1, 1,
 			PublisherAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getPublisherAction_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1,
+			PublisherAction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			actionParameterEClass, ActionParameter.class, "ActionParameter", !IS_ABSTRACT, !IS_INTERFACE,
@@ -951,6 +1074,9 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEAttribute(
 			getActionPackage_Name(), ecorePackage.getEString(), "name", null, 1, 1, ActionPackage.class, IS_TRANSIENT,
 			IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getActionPackage_TouchPoint(), ecorePackage.getEString(), "touchPoint", null, 1, 1, ActionPackage.class,
+			IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			iNativeActionsEClass, INativeActions.class, "INativeActions", IS_ABSTRACT, IS_INTERFACE,
@@ -1028,6 +1154,34 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			repositoryPublisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3BuildPackage.getBuildSet(), "output", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			rubyPublisherEClass, RubyPublisher.class, "RubyPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			iRubyActionsEClass, IRubyActions.class, "IRubyActions", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(
+			iRubyActionsEClass, this.getPublisherAction(), "installRubyEnterpriseFromCSource", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
+
+		addEOperation(
+			iRubyActionsEClass, this.getPublisherAction(), "uninstallRubyEnterpriseFromCSource", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
+
+		op = addEOperation(
+			iRubyActionsEClass, this.getPublisherAction(), "installPassenger", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "server", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			iRubyActionsEClass, this.getPublisherAction(), "uninstallPassenger", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "server", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			rubyActionsEClass, RubyActions.class, "RubyActions", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
