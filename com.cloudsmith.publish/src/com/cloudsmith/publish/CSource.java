@@ -10,15 +10,17 @@
  */
 package com.cloudsmith.publish;
 
+import org.eclipse.b3.build.BuildUnit;
+
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>RPM</b></em>'.
+ * A representation of the model object '<em><b>CSource</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getRPM()
+ * @see com.cloudsmith.publish.PublishPackage#getCSource()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface RPM extends Publishable {
-} // RPM
+public interface CSource extends BuildUnit {
+} // CSource

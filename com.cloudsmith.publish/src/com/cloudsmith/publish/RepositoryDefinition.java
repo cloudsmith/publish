@@ -20,5 +20,5 @@ package com.cloudsmith.publish;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface RepositoryDefinition extends IP2Publishable {
+public interface RepositoryDefinition extends Publishable {
 } // RepositoryDefinition

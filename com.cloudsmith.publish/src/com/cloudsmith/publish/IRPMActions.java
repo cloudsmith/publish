@@ -39,6 +39,24 @@ public interface IRPMActions extends EObject {
 	 * @model
 	 * @generated
 	 */
+	PublisherAction installRPM();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
 	PublisherAction uninstallFromCSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallRPM();
 
 } // IRPMActions

@@ -10,28 +10,15 @@
  */
 package com.cloudsmith.publish;
 
-import org.eclipse.b3.build.BuildUnit;
-
-import org.eclipse.b3.build.core.B3BuilderJob;
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>IP2 Publishable</b></em>'.
+ * A representation of the model object '<em><b>Ruby Runtime</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getIP2Publishable()
+ * @see com.cloudsmith.publish.PublishPackage#getRubyRuntime()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IP2Publishable extends BuildUnit {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model dataType="org.eclipse.b3.build.B3BuilderJob"
-	 * @generated
-	 */
-	B3BuilderJob publish();
-
-} // IP2Publishable
+public interface RubyRuntime extends Publishable {
+} // RubyRuntime

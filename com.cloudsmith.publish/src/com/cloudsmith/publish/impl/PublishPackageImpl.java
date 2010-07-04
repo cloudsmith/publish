@@ -10,40 +10,38 @@
  */
 package com.cloudsmith.publish.impl;
 
-import com.cloudsmith.publish.ActionPackage;
-import com.cloudsmith.publish.ActionParameter;
-import com.cloudsmith.publish.GEMActions;
-import com.cloudsmith.publish.GEMPublisher;
-import com.cloudsmith.publish.IGEMActions;
-import com.cloudsmith.publish.INativeActions;
-import com.cloudsmith.publish.IP2Publishable;
-import com.cloudsmith.publish.IRPMActions;
-import com.cloudsmith.publish.IRubyActions;
-import com.cloudsmith.publish.NativeActions;
-import com.cloudsmith.publish.PublishFactory;
-import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.Publisher;
-
-import com.cloudsmith.publish.PublisherAction;
-import com.cloudsmith.publish.RPMActions;
-import com.cloudsmith.publish.RPMPublisher;
-
-import com.cloudsmith.publish.RepositoryDefinition;
-import com.cloudsmith.publish.RepositoryPublisher;
-import com.cloudsmith.publish.RubyActions;
-import com.cloudsmith.publish.RubyPublisher;
 import org.eclipse.b3.build.B3BuildPackage;
-
 import org.eclipse.b3.p2.P2Package;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.cloudsmith.publish.ActionPackage;
+import com.cloudsmith.publish.ActionParameter;
+import com.cloudsmith.publish.CSource;
+import com.cloudsmith.publish.GEMActions;
+import com.cloudsmith.publish.GEMPublisher;
+import com.cloudsmith.publish.IGEMActions;
+import com.cloudsmith.publish.INativeActions;
+import com.cloudsmith.publish.IRPMActions;
+import com.cloudsmith.publish.IRubyActions;
+import com.cloudsmith.publish.NativeActions;
+import com.cloudsmith.publish.PublishFactory;
+import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.Publishable;
+import com.cloudsmith.publish.Publisher;
+import com.cloudsmith.publish.PublisherAction;
+import com.cloudsmith.publish.RPMActions;
+import com.cloudsmith.publish.RPMPublisher;
+import com.cloudsmith.publish.RepositoryDefinition;
+import com.cloudsmith.publish.RepositoryPublisher;
+import com.cloudsmith.publish.RubyActions;
+import com.cloudsmith.publish.RubyPublisher;
+import com.cloudsmith.publish.RubyRuntime;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,7 +57,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	private EClass ip2PublishableEClass = null;
+	private EClass publishableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +217,22 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	private EClass rubyRuntimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass cSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -309,7 +323,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		ip2PublishableEClass = createEClass(IP2_PUBLISHABLE);
+		publishableEClass = createEClass(PUBLISHABLE);
 
 		rpmEClass = createEClass(RPM);
 
@@ -380,6 +394,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		iRubyActionsEClass = createEClass(IRUBY_ACTIONS);
 
 		rubyActionsEClass = createEClass(RUBY_ACTIONS);
+
+		rubyRuntimeEClass = createEClass(RUBY_RUNTIME);
+
+		cSourceEClass = createEClass(CSOURCE);
 	}
 
 	/**
@@ -448,6 +466,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getCSource() {
+		return cSourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getGEM() {
 		return gemEClass;
 	}
@@ -508,16 +536,6 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	public EClass getIP2Publishable() {
-		return ip2PublishableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EClass getIRPMActions() {
 		return irpmActionsEClass;
 	}
@@ -540,6 +558,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EClass getNativeActions() {
 		return nativeActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPublishable() {
+		return publishableEClass;
 	}
 
 	/**
@@ -913,6 +941,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getRubyRuntime() {
+		return rubyRuntimeEClass;
+	}
+
+	/**
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
@@ -939,9 +977,9 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		ip2PublishableEClass.getESuperTypes().add(theB3BuildPackage.getBuildUnit());
-		rpmEClass.getESuperTypes().add(this.getIP2Publishable());
-		gemEClass.getESuperTypes().add(this.getIP2Publishable());
+		publishableEClass.getESuperTypes().add(theB3BuildPackage.getBuildUnit());
+		rpmEClass.getESuperTypes().add(this.getPublishable());
+		gemEClass.getESuperTypes().add(this.getPublishable());
 		nativeActionsEClass.getESuperTypes().add(this.getActionPackage());
 		nativeActionsEClass.getESuperTypes().add(this.getINativeActions());
 		gemActionsEClass.getESuperTypes().add(this.getActionPackage());
@@ -953,18 +991,19 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		rpmPublisherEClass.getESuperTypes().add(this.getIRPMActions());
 		gemPublisherEClass.getESuperTypes().add(this.getPublisher());
 		gemPublisherEClass.getESuperTypes().add(this.getIGEMActions());
-		repositoryDefinitionEClass.getESuperTypes().add(this.getIP2Publishable());
+		repositoryDefinitionEClass.getESuperTypes().add(this.getPublishable());
 		rubyPublisherEClass.getESuperTypes().add(this.getPublisher());
 		rubyPublisherEClass.getESuperTypes().add(this.getIRubyActions());
 		rubyActionsEClass.getESuperTypes().add(this.getActionPackage());
 		rubyActionsEClass.getESuperTypes().add(this.getIRubyActions());
+		rubyRuntimeEClass.getESuperTypes().add(this.getPublishable());
+		cSourceEClass.getESuperTypes().add(theB3BuildPackage.getBuildUnit());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
-			ip2PublishableEClass, IP2Publishable.class, "IP2Publishable", IS_ABSTRACT, IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
+			publishableEClass, Publishable.class, "Publishable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(ip2PublishableEClass, theB3BuildPackage.getB3BuilderJob(), "publish", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(publishableEClass, theB3BuildPackage.getB3BuilderJob(), "publish", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			rpmEClass, com.cloudsmith.publish.RPM.class, "RPM", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -982,6 +1021,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			gemActionsEClass, GEMActions.class, "GEMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1227,6 +1270,11 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			rubyActionsEClass, RubyActions.class, "RubyActions", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			rubyRuntimeEClass, RubyRuntime.class, "RubyRuntime", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cSourceEClass, CSource.class, "CSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

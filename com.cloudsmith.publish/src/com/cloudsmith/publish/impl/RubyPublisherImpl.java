@@ -185,7 +185,9 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	 * @generated
 	 */
 	public PublisherAction uninstallRubyEnterpriseFromCSource() {
-		return getRubyActions().uninstallRubyEnterpriseFromCSource();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } // RubyPublisherImpl

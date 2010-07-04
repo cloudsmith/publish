@@ -237,6 +237,18 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated
 	 */
+	public PublisherAction installRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setRPMInstallDir(String newRPMInstallDir) {
 		String oldRPMInstallDir = rpmInstallDir;
 		rpmInstallDir = newRPMInstallDir;
@@ -271,6 +283,18 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 */
 	public PublisherAction uninstallFromCSource() {
 		return getRpmActions().installFromCSource();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction uninstallRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	@Override

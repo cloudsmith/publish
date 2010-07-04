@@ -20,5 +20,5 @@ package com.cloudsmith.publish;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface GEM extends IP2Publishable {
+public interface GEM extends Publishable {
 } // GEM

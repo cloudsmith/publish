@@ -148,6 +148,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>CSource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>CSource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCSource(CSource object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>GEM</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -250,23 +267,6 @@ public class PublishSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IP2 Publishable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IP2 Publishable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIP2Publishable(IP2Publishable object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -348,6 +348,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseNativeActions(NativeActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Publishable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Publishable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePublishable(Publishable object) {
 		return null;
 	}
 
@@ -505,6 +522,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ruby Runtime</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ruby Runtime</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRubyRuntime(RubyRuntime object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -580,23 +614,23 @@ public class PublishSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-			case PublishPackage.IP2_PUBLISHABLE: {
-				IP2Publishable ip2Publishable = (IP2Publishable) theEObject;
-				T result = caseIP2Publishable(ip2Publishable);
+			case PublishPackage.PUBLISHABLE: {
+				Publishable publishable = (Publishable) theEObject;
+				T result = casePublishable(publishable);
 				if(result == null)
-					result = caseBuildUnit(ip2Publishable);
+					result = caseBuildUnit(publishable);
 				if(result == null)
-					result = caseVersionedCapability(ip2Publishable);
+					result = caseVersionedCapability(publishable);
 				if(result == null)
-					result = caseBFunctionContainer(ip2Publishable);
+					result = caseBFunctionContainer(publishable);
 				if(result == null)
-					result = caseIRequiredCapabilityContainer(ip2Publishable);
+					result = caseIRequiredCapabilityContainer(publishable);
 				if(result == null)
-					result = caseIProvidedCapabilityContainer(ip2Publishable);
+					result = caseIProvidedCapabilityContainer(publishable);
 				if(result == null)
-					result = caseCapability(ip2Publishable);
+					result = caseCapability(publishable);
 				if(result == null)
-					result = caseINamedValue(ip2Publishable);
+					result = caseINamedValue(publishable);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -605,7 +639,7 @@ public class PublishSwitch<T> {
 				RPM rpm = (RPM) theEObject;
 				T result = caseRPM(rpm);
 				if(result == null)
-					result = caseIP2Publishable(rpm);
+					result = casePublishable(rpm);
 				if(result == null)
 					result = caseBuildUnit(rpm);
 				if(result == null)
@@ -628,7 +662,7 @@ public class PublishSwitch<T> {
 				GEM gem = (GEM) theEObject;
 				T result = caseGEM(gem);
 				if(result == null)
-					result = caseIP2Publishable(gem);
+					result = casePublishable(gem);
 				if(result == null)
 					result = caseBuildUnit(gem);
 				if(result == null)
@@ -761,7 +795,7 @@ public class PublishSwitch<T> {
 				RepositoryDefinition repositoryDefinition = (RepositoryDefinition) theEObject;
 				T result = caseRepositoryDefinition(repositoryDefinition);
 				if(result == null)
-					result = caseIP2Publishable(repositoryDefinition);
+					result = casePublishable(repositoryDefinition);
 				if(result == null)
 					result = caseBuildUnit(repositoryDefinition);
 				if(result == null)
@@ -814,6 +848,50 @@ public class PublishSwitch<T> {
 					result = caseActionPackage(rubyActions);
 				if(result == null)
 					result = caseIRubyActions(rubyActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.RUBY_RUNTIME: {
+				RubyRuntime rubyRuntime = (RubyRuntime) theEObject;
+				T result = caseRubyRuntime(rubyRuntime);
+				if(result == null)
+					result = casePublishable(rubyRuntime);
+				if(result == null)
+					result = caseBuildUnit(rubyRuntime);
+				if(result == null)
+					result = caseVersionedCapability(rubyRuntime);
+				if(result == null)
+					result = caseBFunctionContainer(rubyRuntime);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(rubyRuntime);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(rubyRuntime);
+				if(result == null)
+					result = caseCapability(rubyRuntime);
+				if(result == null)
+					result = caseINamedValue(rubyRuntime);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.CSOURCE: {
+				CSource cSource = (CSource) theEObject;
+				T result = caseCSource(cSource);
+				if(result == null)
+					result = caseBuildUnit(cSource);
+				if(result == null)
+					result = caseVersionedCapability(cSource);
+				if(result == null)
+					result = caseBFunctionContainer(cSource);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(cSource);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(cSource);
+				if(result == null)
+					result = caseCapability(cSource);
+				if(result == null)
+					result = caseINamedValue(cSource);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

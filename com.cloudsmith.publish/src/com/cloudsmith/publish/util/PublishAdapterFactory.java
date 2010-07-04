@@ -81,6 +81,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCSource(CSource object) {
+			return createCSourceAdapter();
+		}
+
+		@Override
 		public Adapter caseGEM(GEM object) {
 			return createGEMAdapter();
 		}
@@ -111,11 +116,6 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIP2Publishable(IP2Publishable object) {
-			return createIP2PublishableAdapter();
-		}
-
-		@Override
 		public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
 			return createIProvidedCapabilityContainerAdapter();
 		}
@@ -138,6 +138,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseNativeActions(NativeActions object) {
 			return createNativeActionsAdapter();
+		}
+
+		@Override
+		public Adapter casePublishable(Publishable object) {
+			return createPublishableAdapter();
 		}
 
 		@Override
@@ -183,6 +188,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRubyPublisher(RubyPublisher object) {
 			return createRubyPublisherAdapter();
+		}
+
+		@Override
+		public Adapter caseRubyRuntime(RubyRuntime object) {
+			return createRubyRuntimeAdapter();
 		}
 
 		@Override
@@ -301,6 +311,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.CSource <em>CSource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.CSource
+	 * @generated
+	 */
+	public Adapter createCSourceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.
@@ -404,21 +429,6 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IP2Publishable <em>IP2 Publishable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.cloudsmith.publish.IP2Publishable
-	 * @generated
-	 */
-	public Adapter createIP2PublishableAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
@@ -492,6 +502,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNativeActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Publishable <em>Publishable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Publishable
+	 * @generated
+	 */
+	public Adapter createPublishableAdapter() {
 		return null;
 	}
 
@@ -627,6 +652,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRubyPublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.RubyRuntime <em>Ruby Runtime</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.RubyRuntime
+	 * @generated
+	 */
+	public Adapter createRubyRuntimeAdapter() {
 		return null;
 	}
 

@@ -10,15 +10,28 @@
  */
 package com.cloudsmith.publish;
 
+import org.eclipse.b3.build.BuildUnit;
+
+import org.eclipse.b3.build.core.B3BuilderJob;
+
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>RPM</b></em>'.
+ * A representation of the model object '<em><b>Publishable</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getRPM()
+ * @see com.cloudsmith.publish.PublishPackage#getPublishable()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface RPM extends Publishable {
-} // RPM
+public interface Publishable extends BuildUnit {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model dataType="org.eclipse.b3.build.B3BuilderJob"
+	 * @generated
+	 */
+	B3BuilderJob publish();
+
+} // Publishable

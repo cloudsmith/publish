@@ -3,18 +3,20 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="publish"
     nsURI="http://com.cloudsmith.publish/1.0" nsPrefix="">
-  <eClassifiers xsi:type="ecore:EClass" name="IP2Publishable" abstract="true" interface="true"
+  <eClassifiers xsi:type="ecore:EClass" name="Publishable" abstract="true" interface="true"
       eSuperTypes="../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit">
     <eOperations name="publish" eType="ecore:EDataType ../../org.eclipse.b3.build/model/B3Build.ecore#//B3BuilderJob"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RPM" abstract="true" interface="true"
-      eSuperTypes="#//IP2Publishable"/>
+      eSuperTypes="#//Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="GEM" abstract="true" interface="true"
-      eSuperTypes="#//IP2Publishable"/>
+      eSuperTypes="#//Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeActions" eSuperTypes="#//ActionPackage #//INativeActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="IRPMActions" abstract="true" interface="true">
     <eOperations name="installFromCSource" eType="#//PublisherAction"/>
     <eOperations name="uninstallFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="installRPM" eType="#//PublisherAction"/>
+    <eOperations name="uninstallRPM" eType="#//PublisherAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
@@ -136,7 +138,7 @@
         changeable="false" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDefinition" abstract="true"
-      interface="true" eSuperTypes="#//IP2Publishable"/>
+      interface="true" eSuperTypes="#//Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryPublisher">
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
       <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
@@ -158,4 +160,8 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RubyActions" eSuperTypes="#//ActionPackage #//IRubyActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RubyRuntime" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CSource" abstract="true" interface="true"
+      eSuperTypes="../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
 </ecore:EPackage>

@@ -68,6 +68,18 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction installRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -78,5 +90,17 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 
 		a.setActionPackage(this);
 		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PublisherAction uninstallRPM() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 } // RPMActionsImpl
