@@ -73,7 +73,7 @@ import com.cloudsmith.publish.PublisherAction;
  * 
  * @generated
  */
-public abstract class PublisherImpl extends EObjectImpl implements Publisher {
+public class PublisherImpl extends EObjectImpl implements Publisher {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

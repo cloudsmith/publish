@@ -51,7 +51,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * </p>
  * 
  * @see com.cloudsmith.publish.PublishPackage#getPublisher()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Publisher extends INativeActions {

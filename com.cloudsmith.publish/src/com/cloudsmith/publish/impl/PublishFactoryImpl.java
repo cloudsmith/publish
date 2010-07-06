@@ -84,6 +84,8 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 				return createNativeActions();
 			case PublishPackage.GEM_ACTIONS:
 				return createGEMActions();
+			case PublishPackage.PUBLISHER:
+				return createPublisher();
 			case PublishPackage.PUBLISHER_ACTION:
 				return createPublisherAction();
 			case PublishPackage.ACTION_PARAMETER:
@@ -147,6 +149,17 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public NativeActions createNativeActions() {
 		NativeActionsImpl nativeActions = new NativeActionsImpl();
 		return nativeActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Publisher createPublisher() {
+		PublisherImpl publisher = new PublisherImpl();
+		return publisher;
 	}
 
 	/**

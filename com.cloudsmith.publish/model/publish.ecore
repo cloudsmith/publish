@@ -19,7 +19,7 @@
     <eOperations name="uninstallRPM" eType="#//PublisherAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GEMActions" eSuperTypes="#//ActionPackage #//IGEMActions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Publisher" abstract="true" eSuperTypes="#//INativeActions">
+  <eClassifiers xsi:type="ecore:EClass" name="Publisher" eSuperTypes="#//INativeActions">
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
       <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
     </eOperations>

@@ -59,7 +59,8 @@ public class PublishModule extends AbstractModule {
 	}
 
 	@Override
-	protected void configure() {
+	public void configure() {
+
 		bindGEMActions();
 		bindGEMPublisher();
 

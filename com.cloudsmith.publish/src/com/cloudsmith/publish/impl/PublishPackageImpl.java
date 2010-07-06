@@ -1030,7 +1030,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			gemActionsEClass, GEMActions.class, "GEMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
-			publisherEClass, Publisher.class, "Publisher", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			publisherEClass, Publisher.class, "Publisher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getPublisher_Id(), ecorePackage.getEString(), "id", null, 0, 1, Publisher.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

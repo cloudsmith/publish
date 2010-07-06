@@ -72,6 +72,16 @@ public interface PublishFactory extends EFactory {
 	NativeActions createNativeActions();
 
 	/**
+	 * Returns a new object of class '<em>Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Publisher</em>'.
+	 * @generated
+	 */
+	Publisher createPublisher();
+
+	/**
 	 * Returns a new object of class '<em>Publisher Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
