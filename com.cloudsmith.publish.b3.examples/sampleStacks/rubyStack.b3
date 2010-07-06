@@ -1,16 +1,24 @@
-import com.cloudsmith.publish.RPM;
-import com.cloudsmith.publish.GEM;
-import com.cloudsmith.publish.Publishable;
-import com.cloudsmith.publish.CSource;
+use com.cloudsmith.publish.RPM;
+use com.cloudsmith.publish.GEM;
+use com.cloudsmith.publish.Publishable;
+use com.cloudsmith.publish.CSource;
 
-import com.cloudsmith.publish.GEMPublisher;
-import com.cloudsmith.publish.RPMPublisher;
-import com.cloudsmith.publish.RubyRuntime;
-import com.cloudsmith.publish.RubyPublisher;
-import com.cloudsmith.publish.RepositoryDefinition;
-import com.cloudsmith.publish.RepositoryPublisher;
-import com.cloudsmith.publish.Publisher;
+use com.cloudsmith.publish.GEMPublisher;
+use com.cloudsmith.publish.RPMPublisher;
+use com.cloudsmith.publish.RubyRuntime;
+use com.cloudsmith.publish.RubyPublisher;
+use com.cloudsmith.publish.RepositoryDefinition;
+use com.cloudsmith.publish.RepositoryPublisher;
+use com.cloudsmith.publish.Publisher;
 
+use java.util.List;
+
+« This is the starting point for the current "resolve and run main action" available as a command from
+  the UI. To be replaced by its own command. »
+function main(List argv) {
+	with DefaultPublishing : { b3.runBuilder('Great Ruby Stack Repository', "publish"); };	
+}
+  
 « This concern declares how publishing should be done for the different types of units. 
 »
 concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
@@ -26,6 +34,9 @@ concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 	builder publish(Publishable unit) {
 		result : new Publisher().write(unit);
 	}
+	builder publish(RepositoryDefinition unit) {
+		result : new Publisher().write(unit);
+	}
 	« Builder that runs publish on everything that is required by the unit it operates on. »
 	builder publish(RepositoryDefinition unit) {
 		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
@@ -38,7 +49,7 @@ concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 »
 concern A_GEM_Needs_a_Ruby_Runtime {
 	unit-context { 
-	select-units: implements == GEM; 
+	select-units: is == GEM; 
 	modify-selected : { 
 		requires : { 
 			+capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; }; };
@@ -49,13 +60,13 @@ concern A_GEM_Needs_a_Ruby_Runtime {
 « This unit defines the repository itself. Requirements are satisfied, and the transitive closure
   of requirements is included in the published repository.
 »
-unit "Great Ruby Stack Repository" version 1.0.0 implements RepositoryDefinition {
-	requires : unit { name : "rubystack"; } as repoContent;	
+unit "Great Ruby Stack Repository" version 1.0.0 is RepositoryDefinition {
+	requires : unit { name : "rubystack"; version : [0.0.1, 2.0.0];} as repoContent;	
 }
 
 
 « Definition of a stack »
-unit rubystack version 1.0.0 implements Publishable {
+unit rubystack version 1.0.0 is Publishable {
 	requires : [
 		unit { name : "lamp4ruby"; version : 1.0.0 ; },
 		unit { name : "allgems"; version : 1.0.0 ; }
@@ -65,7 +76,7 @@ unit rubystack version 1.0.0 implements Publishable {
 « Nothing to install, just publish as a grouping.
   Uses osgi versioning.
 »
-unit lamp4ruby version 1.0.0 implements Publishable {
+unit lamp4ruby version 1.0.0 is Publishable {
 	default-properties {
 		${com.cloudsmith.stack.runtime.ruby.webserver} = "nginx"; 
 		} 
@@ -77,25 +88,25 @@ unit lamp4ruby version 1.0.0 implements Publishable {
 		];	
 }
 
-unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 implements RPM {	} 
-unit "MySQL-client-community" version rpm:5.1.48-1.rhel5.i386 implements RPM { } 
-unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 implements RPM { }
+unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM; 
+unit "MySQL-client-community" version rpm:5.1.48-1.rhel5.i386 is RPM; 
+unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 is RPM;
 
 « Note that 'ruby-enterprise' declares that it provides a ruby-runtime
 » 
-unit "ruby-enterprise" version rpm:1.8.7-2010.02 implements RubyRuntime, CSource {
+unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
 	provides : capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; };
 	
 	// installRubyEnterpriseFromCSource();installPassenger(server:nginx)
 	// uninstallPassenger(server:nginx);uninstallRubyEnterpriseFromCSource()
     // <artifact classifier="c-source" id="ruby-enterprise" version="format(&lt;[n:]a(d?a)*&gt;[-n[dS=!;]]):1.8.7-2010.02" /> 
 }
-unit libevent version rpm:1.4.14a-stable implements RPM, CSource { }
-unit memcached version rpm:1.4.5 implements RPM, CSource { }
-unit monit version rpm:5.1.1 implements RPM, CSource { }
+unit libevent version rpm:1.4.14a-stable is RPM, CSource { }
+unit memcached version rpm:1.4.5 is RPM, CSource { }
+unit monit version rpm:5.1.1 is RPM, CSource { }
 
 « Defines all gems as a convenient reusable unit »
-unit allgems version 1.0.0 implements Publishable {
+unit allgems version 1.0.0 is Publishable {
 	requires : [
 		unit { name : "activemerchant"; version : gem:1.5.1; },
 		unit { name : "addressable"; version : gem:2.1.1 ; },
@@ -117,21 +128,21 @@ unit allgems version 1.0.0 implements Publishable {
 		unit { name : "xml-simple"; version : gem:1.0.12 ; }
 		];		
 }
-unit activemerchant version gem:1.5.1 implements GEM { }
-unit addressable version gem:2.1.1 implements GEM { }
-unit builder version gem:2.1.2 implements GEM { }
-unit crack version gem:0.1.4 implements GEM {}
-unit daemons version gem:1.0.10 implements GEM { }
-unit delayed_job version gem:1.8.4 implements GEM { }
-unit formtastic version gem:0.9.7 implements GEM { }
-unit httparty version gem:0.5.0 implements GEM { }
-unit "lighthouse-api" version gem:1.1.0 implements GEM { }
-unit liquid version gem:2.0.0 implements GEM { }
-unit "little-plugger" version gem:1.1.1 implements GEM { }
-unit lockfile version gem:1.4.3 implements GEM { }
-unit logging version gem:1.2.3 implements GEM { }
-unit "mime-types" version gem:1.16 implements GEM { }
-unit "newrelic-amazon-ec2" version gem:0.6.2 implements GEM { }
-unit "rest-client" version gem:1.4.2 implements GEM { }
-unit sprockets version gem:1.0.2 implements GEM { }
-unit "xml-simple" version gem:1.0.12 implements GEM { }
+unit activemerchant version gem:1.5.1 is GEM;
+unit addressable version gem:2.1.1 is GEM;
+unit builder version gem:2.1.2 is GEM;
+unit crack version gem:0.1.4 is GEM;
+unit daemons version gem:1.0.10 is GEM;
+unit delayed_job version gem:1.8.4 is GEM;
+unit formtastic version gem:0.9.7 is GEM;
+unit httparty version gem:0.5.0 is GEM;
+unit "lighthouse-api" version gem:1.1.0 is GEM;
+unit liquid version gem:2.0.0 is GEM;
+unit "little-plugger" version gem:1.1.1 is GEM;
+unit lockfile version gem:1.4.3 is GEM;
+unit logging version gem:1.2.3 is GEM;
+unit "mime-types" version gem:1.16 is GEM;
+unit "newrelic-amazon-ec2" version gem:0.6.2 is GEM;
+unit "rest-client" version gem:1.4.2 is GEM;
+unit sprockets version gem:1.0.2 is GEM;
+unit "xml-simple" version gem:1.0.12 is GEM;
