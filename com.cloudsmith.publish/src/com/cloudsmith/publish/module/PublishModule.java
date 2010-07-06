@@ -60,19 +60,20 @@ public class PublishModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
+		bindGEMActions();
+		bindGEMPublisher();
+
 		bindNativeActions();
 		bindPublisher();
+
+		bindRepositoryPublisher();
 
 		bindRPMActions();
 		bindRPMPublisher();
 
-		bindGEMPublisher();
-		bindGEMActions();
-
 		bindRubyPublisher();
 		bindRubyActions();
 
-		bindRepositoryPublisher();
 	}
 
 	<T> Provider<T> publishModelProvider(Class<T> type, EClass eclass) {

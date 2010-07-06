@@ -22,6 +22,9 @@
    </extension>
    <extension
          point="org.eclipse.b3.backend.B3RuntimeModule">
+      <module
+            moduleClass="com.cloudsmith.publish.module.PublishModule">
+      </module>
    </extension>
 
 </plugin>
