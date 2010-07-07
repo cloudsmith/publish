@@ -12,6 +12,7 @@ package com.cloudsmith.publish.impl;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3OutputLocationProvider;
@@ -32,9 +33,18 @@ import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.b3.p2.impl.TouchpointDataImpl;
+import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
+import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
+import org.eclipse.b3.p2.util.P2Bridge;
+import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -49,10 +59,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.ITouchpointData;
+import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
+import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 import com.cloudsmith.publish.ActionPackage;
+import com.cloudsmith.publish.ActionParameter;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
@@ -726,17 +740,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.PUBLISHER__ID:
@@ -1115,48 +1118,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Sets values from unit (if not already set).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void setDefaultsFromUnit(BuildUnit unit) throws Throwable {
-		BExecutionContext ctx = B3ContextAccess.get();
-		EffectiveUnitFacade facade = unit.getEffectiveFacade(ctx);
-
-		// set defaults from the unit
-		setUnit(unit);
-
-		if(getVersion() == null)
-			setVersion(unit.getVersion());
-
-		// ID is name in p2 namespace, "name" is a property on an IU for "human readable"
-		if(getId() == null)
-			setId(unit.getName());
-
-		// Not needed, this is a property see cs issue #903
-		if(getName() == null) {
-			setName(unit.getName());
-		}
-		// REMEMBER: Modify requirements from UNIT to IU when creating IU metadata
-		if(getMetaRequires().size() == 0) {
-			for(EffectiveRequirementFacade effective : facade.getMetaRequiredCapabilities())
-				getMetaRequires().add(effective.getRequirement());
-		}
-
-		if(getRequires().size() == 0) {
-			for(EffectiveRequirementFacade effective : facade.getRequiredCapabilities())
-				getRequires().add(effective.getRequirement());
-		}
-		if(getProvides().size() == 0) {
-			for(EffectiveCapabilityFacade effective : facade.getProvidedCapabilities())
-				getProvides().add(effective.getProvidedCapability());
-		}
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1315,19 +1276,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	}
 
 	/**
-	 * Transforms a UNIT namespace to IIinstallableUnit.NAMESPECE_IU_ID and returns all others
-	 * verbatim.
-	 * 
-	 * @param namespace
-	 * @return
-	 */
-	protected String transformUnitNamespace(String namespace) {
-		if(B3BuildConstants.B3_NS_BUILDUNIT.equals(namespace))
-			return IInstallableUnit.NAMESPACE_IU_ID;
-		return namespace;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1387,7 +1335,18 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		// iu.setCopyright(ICopyright);
 		// iu.setFilter(IMatchExpression);
 		iu.setSingleton(this.isSingleton());
-		// iu.setTouchpointType(ITouchpointType);
+		ITouchpointType tpt;
+		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
+				getWhenUnconfiguring().size() > 0) {
+			TouchpointTypeImpl tpti = (TouchpointTypeImpl) p2Factory.createTouchpointType();
+			tpti.setId("org.eclipse.equinox.p2.osgi");
+			tpti.setVersion(Version.create("1.0.0"));
+			tpt = tpti;
+		}
+		else
+			tpt = ITouchpointType.NONE;
+
+		iu.setTouchpointType(tpt);
 		// iu.setTouchpointTypeGen(newTouchpointType)
 		// iu.setUpdateDescriptor(IUpdateDescriptor);
 
@@ -1451,7 +1410,18 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				iuRequirements.add(iuR);
 			}
 		}
-		iu.getTouchpointData();
+
+		if(iu.getTouchpointType() != ITouchpointType.NONE) {
+			List<ITouchpointData> tpd = iu.getTouchpointData();
+			TouchpointDataImpl tpdi = (TouchpointDataImpl) p2Factory.createTouchpointData();
+			tpd.add(tpdi);
+			EMap<String, ITouchpointInstruction> tpdm = tpdi.getInstructionMap();
+
+			generateInstructions(p2Factory, tpdm, "install", getWhenInstalling());
+			generateInstructions(p2Factory, tpdm, "uninstall", getWhenUninstalling());
+			generateInstructions(p2Factory, tpdm, "configure", getWhenConfiguring());
+			generateInstructions(p2Factory, tpdm, "unconfigure", getWhenUnconfiguring());
+		}
 
 		// Aggregate all IUs in all of the input
 		//
@@ -1480,18 +1450,19 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			e.printStackTrace();
 		}
 		// // Write the MDR in p2 repo format
-		// IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
-		// try {
-		// IProgressMonitor monitor = ctx != null
-		// ? ctx.getProgressMonitor()
-		// : new NullProgressMonitor();
-		// P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
-		// }
-		// catch(CoreException e) {
-		// System.err.print("Could not save resulting mdr repository\n");
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		try {
+			IProgressMonitor monitor = ctx != null
+					? ctx.getProgressMonitor()
+					: new NullProgressMonitor();
+			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
+		}
+		catch(CoreException e) {
+			System.err.print("Could not save resulting mdr repository\n");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// Return a BuildSet - to allow additional aggregation
 		BuildSet bs = B3BuildFactory.eINSTANCE.createBuildSet();
@@ -1512,6 +1483,107 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		// TODO: Fake write of output buildset...
 		return write(unit);
 		// throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.PUBLISHER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Sets values from unit (if not already set).
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void setDefaultsFromUnit(BuildUnit unit) throws Throwable {
+		BExecutionContext ctx = B3ContextAccess.get();
+		EffectiveUnitFacade facade = unit.getEffectiveFacade(ctx);
+
+		// set defaults from the unit
+		setUnit(unit);
+
+		if(getVersion() == null)
+			setVersion(unit.getVersion());
+
+		// ID is name in p2 namespace, "name" is a property on an IU for "human readable"
+		if(getId() == null)
+			setId(unit.getName());
+
+		// Not needed, this is a property see cs issue #903
+		if(getName() == null) {
+			setName(unit.getName());
+		}
+		// REMEMBER: Modify requirements from UNIT to IU when creating IU metadata
+		if(getMetaRequires().size() == 0) {
+			for(EffectiveRequirementFacade effective : facade.getMetaRequiredCapabilities())
+				getMetaRequires().add(effective.getRequirement());
+		}
+
+		if(getRequires().size() == 0) {
+			for(EffectiveRequirementFacade effective : facade.getRequiredCapabilities())
+				getRequires().add(effective.getRequirement());
+		}
+		if(getProvides().size() == 0) {
+			for(EffectiveCapabilityFacade effective : facade.getProvidedCapabilities())
+				getProvides().add(effective.getProvidedCapability());
+		}
+
+	}
+
+	/**
+	 * Transforms a UNIT namespace to IIinstallableUnit.NAMESPECE_IU_ID and returns all others
+	 * verbatim.
+	 * 
+	 * @param namespace
+	 * @return
+	 */
+	protected String transformUnitNamespace(String namespace) {
+		if(B3BuildConstants.B3_NS_BUILDUNIT.equals(namespace))
+			return IInstallableUnit.NAMESPACE_IU_ID;
+		return namespace;
+	}
+
+	private void generateInstructions(P2Factory p2Factory, EMap<String, ITouchpointInstruction> tpdm, String key,
+			EList<PublisherAction> actions) {
+		StringBuilder body = new StringBuilder();
+		boolean firstAction = true;
+
+		for(PublisherAction action : actions) {
+			if(firstAction)
+				firstAction = false;
+			else
+				body.append(';');
+
+			body.append(action.getQualifiedName());
+			body.append('(');
+			if(action.getParameters().size() > 0) {
+				boolean firstParam = true;
+				for(ActionParameter param : action.getParameters()) {
+					if(firstParam)
+						firstParam = false;
+					else
+						body.append(',');
+					body.append(param.getName());
+					body.append(':');
+					body.append(param.getValue());
+				}
+			}
+			body.append(')');
+		}
+
+		if(actions.size() > 0) {
+			TouchpointInstructionImpl instr = (TouchpointInstructionImpl) p2Factory.createTouchpointInstruction();
+			instr.setBody(body.toString());
+			tpdm.put(key, instr);
+		}
 	}
 
 } // PublisherImpl

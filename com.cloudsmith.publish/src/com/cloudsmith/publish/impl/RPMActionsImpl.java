@@ -39,16 +39,6 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RPM_ACTIONS;
-	}
-
 	@Override
 	public String getName() {
 		return NAME;
@@ -71,12 +61,14 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction installRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installRPM");
+
+		a.setActionPackage(this);
+		return a;
 	}
 
 	/**
@@ -96,11 +88,23 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction uninstallRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallRPM");
+
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RPM_ACTIONS;
 	}
 } // RPMActionsImpl

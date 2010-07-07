@@ -10,6 +10,8 @@
  */
 package com.cloudsmith.publish.impl;
 
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -126,17 +128,6 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.GEM_PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public GEMActions getGemActions() {
@@ -166,6 +157,27 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	 */
 	public PublisherAction uninstallGEM() {
 		return getGemActions().uninstallGEM();
+	}
+
+	@Override
+	public BuildSet write(BuildUnit unit) {
+		if(getWhenConfiguring().size() == 0)
+			getWhenConfiguring().add(installGEM());
+		if(getWhenUnconfiguring().size() == 0)
+			getWhenUnconfiguring().add(uninstallGEM());
+
+		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.GEM_PUBLISHER;
 	}
 
 } // GEMPublisherImpl

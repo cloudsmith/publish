@@ -10,6 +10,8 @@
  */
 package com.cloudsmith.publish.impl;
 
+import org.eclipse.b3.build.BuildSet;
+import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -126,17 +128,6 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RUBY_PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public RubyActions getRubyActions() {
@@ -182,12 +173,50 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction uninstallRubyEnterpriseFromCSource() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getRubyActions().uninstallRubyEnterpriseFromCSource();
+	}
+
+	@Override
+	public BuildSet write(BuildUnit unit) {
+		// TODO Remove this default
+		String server = "nginx";
+		/*
+		 * BExecutionContext ctx = B3ContextAccess.get();
+		 * EffectiveUnitFacade unitFacade;
+		 * try {
+		 * unitFacade = unit.getEffectiveFacade(ctx);
+		 * ctx = unitFacade.getContext();
+		 * server = (String) ctx.getValue("${com.cloudsmith.stack.runtime.ruby.webserver}");
+		 * }
+		 * catch(Throwable e) {
+		 * throw new Error(e.getMessage(), e);
+		 * }
+		 */
+
+		if(getWhenInstalling().size() == 0) {
+			getWhenInstalling().add(installRubyEnterpriseFromCSource());
+			getWhenInstalling().add(installPassenger(server));
+		}
+		if(getWhenUninstalling().size() == 0) {
+			getWhenUninstalling().add(uninstallRubyEnterpriseFromCSource());
+			getWhenUninstalling().add(uninstallPassenger(server));
+		}
+
+		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RUBY_PUBLISHER;
 	}
 
 } // RubyPublisherImpl

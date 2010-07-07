@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.cloudsmith.publish.CSource;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.PublisherAction;
@@ -176,17 +177,6 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RPM_PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
@@ -235,12 +225,10 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction installRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getRpmActions().installRPM();
 	}
 
 	/**
@@ -289,20 +277,35 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public PublisherAction uninstallRPM() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getRpmActions().uninstallRPM();
 	}
 
 	@Override
 	public BuildSet write(BuildUnit unit) {
-		BuildSet bs = super.write(unit); // sets all of the defaults, returns empty? BuildSet
+		boolean isSource = unit.getImplements().contains(CSource.class);
+		if(getWhenInstalling().size() == 0)
+			getWhenInstalling().add(isSource
+					? installFromCSource()
+					: installRPM());
+		if(getWhenUninstalling().size() == 0)
+			getWhenUninstalling().add(isSource
+					? uninstallFromCSource()
+					: uninstallRPM());
 
-		getWhenInstalling().add(installFromCSource());
-		getWhenUninstalling().add(uninstallFromCSource());
-		return bs;
+		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RPM_PUBLISHER;
 	}
 } // RPMPublisherImpl
