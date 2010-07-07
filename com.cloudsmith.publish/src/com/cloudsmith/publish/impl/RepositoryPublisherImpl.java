@@ -13,10 +13,6 @@ package com.cloudsmith.publish.impl;
 import java.io.IOException;
 import java.util.List;
 
-import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.RepositoryPublisher;
-import com.google.inject.internal.Lists;
-
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
@@ -28,25 +24,21 @@ import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
-import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.p2.util.P2Utils;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
+
+import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.RepositoryPublisher;
+import com.google.inject.internal.Lists;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,19 +129,19 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// Write the MDR in p2 repo format
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
-		try {
-			IProgressMonitor monitor = ctx != null
-					? ctx.getProgressMonitor()
-					: new NullProgressMonitor();
-			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
-		}
-		catch(CoreException e) {
-			System.err.print("Could not save resulting mdr repository\n");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// // Write the MDR in p2 repo format
+		// IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		// try {
+		// IProgressMonitor monitor = ctx != null
+		// ? ctx.getProgressMonitor()
+		// : new NullProgressMonitor();
+		// P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
+		// }
+		// catch(CoreException e) {
+		// System.err.print("Could not save resulting mdr repository\n");
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 
 		// Return a BuildSet - to allow additional aggregation
 		BuildSet bs = B3BuildFactory.eINSTANCE.createBuildSet();

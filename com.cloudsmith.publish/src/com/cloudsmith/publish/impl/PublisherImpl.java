@@ -10,29 +10,47 @@
  */
 package com.cloudsmith.publish.impl;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3OutputLocationProvider;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.RequiredCapability;
+import org.eclipse.b3.build.VersionedCapability;
+import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 import com.cloudsmith.publish.ActionPackage;
 import com.cloudsmith.publish.NativeActions;
@@ -1297,6 +1315,19 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	}
 
 	/**
+	 * Transforms a UNIT namespace to IIinstallableUnit.NAMESPECE_IU_ID and returns all others
+	 * verbatim.
+	 * 
+	 * @param namespace
+	 * @return
+	 */
+	protected String transformUnitNamespace(String namespace) {
+		if(B3BuildConstants.B3_NS_BUILDUNIT.equals(namespace))
+			return IInstallableUnit.NAMESPACE_IU_ID;
+		return namespace;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1308,14 +1339,167 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Publishes a unit as an IU.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @throws Throwable
+	 * 
+	 * @generated NOT
 	 */
 	public BuildSet write(BuildUnit unit) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Create a p2 model
+		P2Factory p2Factory = P2Factory.eINSTANCE;
+
+		// pick up calling context from thread local storage
+		BExecutionContext ctx = B3ContextAccess.get();
+
+		// Set up to be able to save to new file
+		ResourceSet resourceSet = new ResourceSetImpl();
+		// TODO: TEST OUTPUT to TMP
+		B3OutputLocationProvider locProvider = ctx.getInjector().getInstance(B3OutputLocationProvider.class);
+		java.net.URI outputLocation = locProvider.getFileURI(unit.getOutputLocation());
+
+		URI resultURI = URI.createURI("mdr.p2").resolve(URI.createURI(outputLocation.toString()));
+		Resource resultResource = resourceSet.createResource(resultURI);
+		resultResource.getContents().clear();
+
+		// Create a MDR in the new file, and give it a location
+		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) p2Factory.createMetadataRepository();
+
+		java.net.URI resultMDR_URI = outputLocation.resolve("content.xml");
+		// java.net.URI.create("file:/tmp/PublishTest/content.xml");
+		mdr.setLocation(resultMDR_URI);
+		mdr.setName("Component repo for component " + unit.getName());
+		// TODO: what type to use?
+		mdr.setType(IMetadataRepositoryManager.TYPE_SIMPLE_REPOSITORY);
+		mdr.setVersion("1.0.0");
+		resultResource.getContents().add(mdr);
+
+		// get the list to add the IU to
+		EList<IInstallableUnit> resultIUList = mdr.getInstallableUnits();
+
+		// create an IU
+		InstallableUnitImpl iu = (InstallableUnitImpl) p2Factory.createInstallableUnit();
+		iu.setId(unit.getName());
+		resultIUList.add(iu);
+
+		// Single value featurues of IU
+		// iu.setCopyright(ICopyright);
+		// iu.setFilter(IMatchExpression);
+		iu.setSingleton(this.isSingleton());
+		// iu.setTouchpointType(ITouchpointType);
+		// iu.setTouchpointTypeGen(newTouchpointType)
+		// iu.setUpdateDescriptor(IUpdateDescriptor);
+
+		iu.setVersion(unit.getVersion());
+
+		// iu.getArtifacts()
+		// iu.getFragments()
+		// iu.getLicenses();
+		iu.getMetaRequirements();
+
+		// effective facade required to get the advised and filtered info from the unit
+		//
+		EffectiveUnitFacade unitFacade;
+		try {
+			unitFacade = unit.getEffectiveFacade(ctx);
+		}
+		catch(Throwable e1) {
+			System.err.print("Could not get effective unit facade !!\n");
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			// TODO: Better fail...
+			return null;
+		}
+
+		// PROVIDED CAPABILITIES
+		{
+			final EList<IProvidedCapability> iuProvidedCapabilities = iu.getProvidedCapabilities();
+			// add self
+			ProvidedCapabilityImpl p = (ProvidedCapabilityImpl) P2Factory.eINSTANCE.createProvidedCapability();
+			p.setName(unit.getName());
+			p.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);
+			if(unit.getVersion() != null)
+				p.setVersion(unit.getVersion());
+			iuProvidedCapabilities.add(p);
+
+			// Add all other
+			for(Capability c : unit.getProvidedCapabilities()) {
+				p = (ProvidedCapabilityImpl) P2Factory.eINSTANCE.createProvidedCapability();
+				p.setName(c.getName());
+				p.setNamespace(c.getNameSpace());
+				if(c instanceof VersionedCapability)
+					p.setVersion(((VersionedCapability) c).getVersion());
+				iuProvidedCapabilities.add(p);
+			}
+		}
+		// REQUIREMENTS
+		{
+			final EList<IRequirement> iuRequirements = iu.getRequirements();
+			for(EffectiveRequirementFacade erf : unitFacade.getRequiredCapabilities()) {
+				RequiredCapability unitR = erf.getRequirement();
+				org.eclipse.b3.p2.impl.RequiredCapabilityImpl iuR = (org.eclipse.b3.p2.impl.RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
+				iuR.setMin(unitR.getMin());
+				iuR.setMax(unitR.getMax());
+				iuR.setGreedy(unitR.isGreedy());
+				iuR.setName(unitR.getName());
+				iuR.setNamespace(transformUnitNamespace(unitR.getNameSpace()));
+				// iuR.setFilter(newFilter)
+				if(unitR.getVersionRange() != null)
+					iuR.setRange(unitR.getVersionRange());
+
+				iuRequirements.add(iuR);
+			}
+		}
+		iu.getTouchpointData();
+
+		// Aggregate all IUs in all of the input
+		//
+		// PathIterator pItor = output.getPathIterator();
+		// while(pItor.hasNext()) {
+		// // Convert java.net.URI to EMF URI
+		// URI uri = URI.createURI(pItor.next().toString());
+		// // Load the input p2 model resource
+		// Resource r = resourceSet.getResource(uri, true);
+		// List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
+		// TreeIterator<EObject> treeItor = r.getAllContents();
+		// while(treeItor.hasNext()) {
+		// EObject e = treeItor.next();
+		// if(e instanceof InstallableUnit)
+		// toBeCopied.add((InstallableUnitImpl) e);
+		// }
+		// // TODO: is it required to copy first?
+		// resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
+		// }
+		try {
+			resultResource.save(null);
+		}
+		catch(IOException e) {
+			System.err.print("Could not save resulting p2 model\n");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// // Write the MDR in p2 repo format
+		// IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		// try {
+		// IProgressMonitor monitor = ctx != null
+		// ? ctx.getProgressMonitor()
+		// : new NullProgressMonitor();
+		// P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
+		// }
+		// catch(CoreException e) {
+		// System.err.print("Could not save resulting mdr repository\n");
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+
+		// Return a BuildSet - to allow additional aggregation
+		BuildSet bs = B3BuildFactory.eINSTANCE.createBuildSet();
+		PathVector pv = B3BuildFactory.eINSTANCE.createPathVector();
+		pv.setBasePath(java.net.URI.create(resultURI.toString()));
+		bs.getPathVectors().add(pv);
+		return bs;
+
 	}
 
 	/**
@@ -1325,9 +1509,9 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @generated
 	 */
 	public BuildSet write(BuildUnit unit, BuildSet output) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// TODO: Fake write of output buildset...
+		return write(unit);
+		// throw new UnsupportedOperationException();
 	}
 
 } // PublisherImpl
