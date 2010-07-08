@@ -1,22 +1,7 @@
-use com.cloudsmith.publish.RPM;
-use com.cloudsmith.publish.GEM;
-use com.cloudsmith.publish.Publishable;
-use com.cloudsmith.publish.CSource;
-
-use com.cloudsmith.publish.GEMPublisher;
-use com.cloudsmith.publish.RPMPublisher;
-use com.cloudsmith.publish.RubyRuntime;
-use com.cloudsmith.publish.RubyPublisher;
-use com.cloudsmith.publish.RepositoryDefinition;
-use com.cloudsmith.publish.RepositoryPublisher;
-use com.cloudsmith.publish.Publisher;
-
-use java.util.List;
-
 « This is the starting point for the current "resolve and run main action" available as a command from
   the UI. To be replaced by its own command. »
 function main(List argv) {
-	with DefaultPublishing : { b3.runBuilder('Great Ruby Stack Repository', "publish"); };	
+	with DefaultPublishing : { b3.resolveAndRunBuilder('Great Ruby Stack Repository', "publish"); };	
 }
   
 « This concern declares how publishing should be done for the different types of units. 
