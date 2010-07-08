@@ -26,5 +26,11 @@
             moduleClass="com.cloudsmith.publish.module.PublishModule">
       </module>
    </extension>
+   <extension
+         point="org.eclipse.b3.build.B3KludgeImport">
+      <exportprovider
+            clazz="com.cloudsmith.publish.b3export.UseThesePublisherInterfaces">
+      </exportprovider>
+   </extension>
 
 </plugin>

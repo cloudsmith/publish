@@ -10,8 +10,16 @@
  */
 package com.cloudsmith.publish.impl;
 
+import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3NoSuchVariableException;
+import org.eclipse.b3.backend.evaluator.B3ContextAccess;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
+import org.eclipse.b3.build.ResolutionInfo;
+import org.eclipse.b3.build.UnitResolutionInfo;
+import org.eclipse.b3.build.core.ResolutionInfoAdapterFactory;
+import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -128,6 +136,56 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RUBY_PUBLISHER;
+	}
+
+	/**
+	 * Returns the value of a property (on the form "a.b.c") as it was set when resolving the given unit.
+	 * If property was not set, then check the regular context (i.e. "now").
+	 * If no context is available (unit testing?) the property is looked up using system properties directly.
+	 * 
+	 * @param unit
+	 * @param property
+	 * @return
+	 */
+	private String getPropertyInTheContextUnitWasResolved(BuildUnit unit, String propertyName, String defaultValue) {
+		// need the context to get resolution scope key
+		BExecutionContext ctx = B3ContextAccess.get();
+		if(ctx != null) {
+			Object result = null;
+			try {
+				// Get the current resolution scope
+				IBuildUnitResolver scopeKey = ctx.getInjector().getInstance(IBuildUnitResolver.class);
+
+				// Get the resolution info associated with the unit
+				ResolutionInfo rinfo = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit).getAssociatedInfo(scopeKey);
+				if(rinfo.getStatus().isOK() && rinfo instanceof UnitResolutionInfo) {
+					UnitResolutionInfo urinfo = (UnitResolutionInfo) rinfo;
+					ctx = urinfo.getContext();
+					result = ctx.getValue("${" + propertyName + "}");
+				}
+			}
+			catch(B3NoSuchVariableException e) {
+				result = null;
+			}
+			catch(B3EngineException e) {
+				return null;
+			}
+			return (result == null || !(result instanceof String))
+					? defaultValue
+					: (String) result;
+		}
+		return System.getProperty(propertyName, defaultValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public RubyActions getRubyActions() {
@@ -195,7 +253,8 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 		 * throw new Error(e.getMessage(), e);
 		 * }
 		 */
-
+		// TODO: change "BROKEN" to wanted Ÿber-default... (useful while testing to keep it like this)
+		server = getPropertyInTheContextUnitWasResolved(unit, "com.cloudsmith.stack.runtime.ruby.webserver", "BROKEN");
 		if(getWhenInstalling().size() == 0) {
 			getWhenInstalling().add(installRubyEnterpriseFromCSource());
 			getWhenInstalling().add(installPassenger(server));
@@ -206,17 +265,6 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 		}
 
 		return super.write(unit);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RUBY_PUBLISHER;
 	}
 
 } // RubyPublisherImpl

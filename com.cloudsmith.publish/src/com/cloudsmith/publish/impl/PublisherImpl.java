@@ -1362,6 +1362,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		EffectiveUnitFacade unitFacade;
 		try {
 			unitFacade = unit.getEffectiveFacade(ctx);
+			unitFacade.getContext();
 		}
 		catch(Throwable e1) {
 			System.err.print("Could not get effective unit facade !!\n");
