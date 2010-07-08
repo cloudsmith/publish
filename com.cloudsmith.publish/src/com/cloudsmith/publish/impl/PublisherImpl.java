@@ -36,11 +36,6 @@ import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.b3.p2.impl.TouchpointDataImpl;
 import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
-import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.p2.util.P2Utils;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -1447,20 +1442,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		}
 		catch(IOException e) {
 			System.err.print("Could not save resulting p2 model\n");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// // Write the MDR in p2 repo format
-
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
-		try {
-			IProgressMonitor monitor = ctx != null
-					? ctx.getProgressMonitor()
-					: new NullProgressMonitor();
-			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
-		}
-		catch(CoreException e) {
-			System.err.print("Could not save resulting mdr repository\n");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
