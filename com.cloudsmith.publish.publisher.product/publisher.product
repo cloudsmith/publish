@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Publisher" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+
+   <launcher name="publisher">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.cloudsmith.publish.publisher.product" version="1.0.0.qualifier"/>
+   </features>
+
+   <configurations>
+      <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="4" />
+   </configurations>
+
+</product>
