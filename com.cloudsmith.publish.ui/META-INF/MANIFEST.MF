@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.ui,
  org.eclipse.b3.beelang.ui,
  org.eclipse.b3.core,
- com.cloudsmith.publish
+ com.cloudsmith.publish,
+ org.eclipse.b3.build.ui;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5

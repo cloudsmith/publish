@@ -4,36 +4,36 @@
 <extension
        point="org.eclipse.ui.commands">
     <command
-          description="Runs Create Repository"
-          id="com.cloudsmith.publish.ui.execute"
-          name="Run Create Repository">
+          description="Generates Repositories for all defined units"
+          id="com.cloudsmith.publish.ui.generateRepositories"
+          name="Generate Repositories">
     </command>
- </extension>
- <extension
-       point="org.eclipse.ui.handlers">
-    <handler
-          class="com.cloudsmith.publish.ui.commands.ExecuteHandler"
-          commandId="com.cloudsmith.publish.ui.execute">
-    </handler>
  </extension>
  <extension
        point="org.eclipse.ui.menus">
     <menuContribution
-          locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+          allPopups="false"
+          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
        <command
-             commandId="com.cloudsmith.publish.ui.execute"
-             label="Run Create Repository"
+             commandId="com.cloudsmith.publish.ui.generateRepositories"
+             label="Generate Repositories"
              style="push">
-          <visibleWhen
-                checkEnabled="false">
-             <iterate>
-                <adapt
-                      type="org.eclipse.b3.build.BeeModel">
-                </adapt>
-             </iterate>
-          </visibleWhen>
        </command>
     </menuContribution>
+ </extension>
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="com.cloudsmith.publish.ui.commands.GenerateRepositoriesHandler"
+          commandId="com.cloudsmith.publish.ui.generateRepositories">
+                    <visibleWhen
+                checkEnabled="false">
+			    <with variable="activeEditorId">
+			        <equals value="org.eclipse.b3.BeeLang"/>
+			    </with>
+              </visibleWhen>
+          
+    </handler>
  </extension>
 
 </plugin>
