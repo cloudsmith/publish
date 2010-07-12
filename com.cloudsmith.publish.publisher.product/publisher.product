@@ -25,7 +25,6 @@
    <vm>
    </vm>
 
-
    <plugins>
    </plugins>
 
@@ -35,6 +34,7 @@
 
    <configurations>
       <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="4" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
    </configurations>
 
 </product>
