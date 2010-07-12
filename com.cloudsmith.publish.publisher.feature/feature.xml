@@ -724,12 +724,6 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.eclipse.search"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="org.eclipse.swt"
          download-size="0"
          install-size="0"
@@ -962,6 +956,27 @@
 
    <plugin
          id="com.cloudsmith.publish.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.b3.build.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.search"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.log"
          download-size="0"
          install-size="0"
          version="0.0.0"
