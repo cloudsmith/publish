@@ -1,0 +1,44 @@
+« This is the starting point for the current "resolve and run main action" available as a command from
+  the UI. To be replaced by its own command. »
+function main(List argv) {
+	with DefaultPublishing : { b3.resolveAndRunBuilder(argv[0], argv[1]); };	
+}
+  
+« This concern declares how publishing should be done for the different types of units. 
+»
+concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
+	builder publish(RPM unit) {
+		result : new RPMPublisher().write(unit);
+	}
+	builder publish(GEM unit) {
+		result : new GEMPublisher().write(unit);
+	}
+	builder publish(RubyRuntime unit) {
+		result : new RubyPublisher().write(unit);
+	}
+	builder publish(Publishable unit) {
+		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
+		result : new Publisher().write(unit);
+	}
+//	builder publish(RepositoryDefinition unit) {
+//		result : new Publisher().write(unit);
+//	}
+	« Builder that runs publish on everything that is required by the unit it operates on. »
+	builder publish(RepositoryDefinition unit) {
+		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
+		result :  new RepositoryPublisher.write(unit, input);
+	}
+}
+
+« This concern declares that all GEM units need a Ruby Runtime.
+  Using this concern reduces the amount of declaration in each GEM.
+»
+concern A_GEM_Needs_a_Ruby_Runtime {
+	unit-context { 
+	select-units: is == GEM; 
+	modify-selected : { 
+		requires : { 
+			+capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; }; };
+		};
+	}
+}
