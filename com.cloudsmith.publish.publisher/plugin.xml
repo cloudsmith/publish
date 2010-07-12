@@ -24,6 +24,7 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
+               id="publisher.file"
                label="File">
             <command
                   commandId="org.eclipse.ui.edit.text.openLocalFile"
@@ -55,17 +56,60 @@
             </command>
          </menu>
          <menu
+               id="publisher.run"
                label="Run">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeEditorId">
+                  <equals
+                        value="org.eclipse.b3.BeeLang">
+                  </equals>
+               </with>
+            </visibleWhen>
             <command
-                  commandId="org.eclipse.ui.file.exit"
-                  label="Create Repository">
+                  commandId="com.cloudsmith.publish.ui.generateRepositories"
+                  label="Generate Repositories">
             </command>
          </menu>
-         <control
-               class="com.cloudsmith.publish.publisher.WorkbenchWindowControlContribution1">
-         </control>
       </menuContribution>
    </extension>
+   
+      <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               standalone="false"
+               minimized="false"
+               relative="org.eclipse.ui.editorss"
+               relationship="bottom"
+               id="org.eclipse.ui.console.ConsoleView">
+         </view>
+         <view
+               id="org.eclipse.ui.views.ContentOutline"
+               minimized="false"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               standalone="false">
+         </view>
+         <view
+               id="org.eclipse.pde.runtime.LogView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.console.ConsoleView"
+               standalone="false">
+         </view>
+         <view
+               id="org.eclipse.ui.views.ProblemView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.console.ConsoleView"
+               standalone="false">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
    <extension
          id="product"
          point="org.eclipse.core.runtime.products">
@@ -76,6 +120,25 @@
                name="appName" value="Publisher">
          </property>
       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="publisher.disable.search.menu"
+            name="Disable Search menu">
+         <enabledWhen>
+            <with
+                  variable="activeEditorId">
+               <equals
+                     value="non.existent.editor">
+               </equals>
+            </with>
+         </enabledWhen>
+      </activity>
+      <activityPatternBinding
+            activityId="publisher.disable.search.menu"
+            pattern="org\.eclipse\.search.*">
+      </activityPatternBinding>
    </extension>
 
 </plugin>
