@@ -12,6 +12,7 @@ package com.cloudsmith.publish.impl;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -30,14 +31,18 @@ import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
+import org.eclipse.b3.p2.impl.ArtifactRepositoryImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl;
 import org.eclipse.b3.p2.impl.TouchpointDataImpl;
 import org.eclipse.b3.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.b3.p2.impl.TouchpointTypeImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
@@ -50,6 +55,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
@@ -58,6 +64,8 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 import com.cloudsmith.publish.ActionPackage;
@@ -1302,7 +1310,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		B3OutputLocationProvider locProvider = ctx.getInjector().getInstance(B3OutputLocationProvider.class);
 		java.net.URI outputLocation = locProvider.getFileURI(unit.getOutputLocation());
 
-		URI resultURI = URI.createURI("mdr.p2").resolve(URI.createURI(outputLocation.toString()));
+		URI resultURI = URI.createURI("repository.p2").resolve(URI.createURI(outputLocation.toString()));
 		Resource resultResource = resourceSet.createResource(resultURI);
 		resultResource.getContents().clear();
 
@@ -1407,6 +1415,18 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			}
 		}
 
+		// ARTIFACTS
+		ArtifactKeyImpl ak = null;
+		if(unit.getSourceLocation() != null && !"resource".equals(unit.getSourceLocation().getScheme())) {
+			ak = (ArtifactKeyImpl) p2Factory.createArtifactKey();
+			ak.setClassifier("binary");
+			ak.setId(unit.getName());
+			ak.setVersion(unit.getVersion());
+
+			// add a copy since we need the object once more in the artifact repository
+			iu.getArtifacts().add(EcoreUtil.copy(ak));
+		}
+
 		if(iu.getTouchpointType() != ITouchpointType.NONE) {
 			List<ITouchpointData> tpd = iu.getTouchpointData();
 			TouchpointDataImpl tpdi = (TouchpointDataImpl) p2Factory.createTouchpointData();
@@ -1419,24 +1439,24 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			generateInstructions(p2Factory, tpdm, "unconfigure", getWhenUnconfiguring());
 		}
 
-		// Aggregate all IUs in all of the input
-		//
-		// PathIterator pItor = output.getPathIterator();
-		// while(pItor.hasNext()) {
-		// // Convert java.net.URI to EMF URI
-		// URI uri = URI.createURI(pItor.next().toString());
-		// // Load the input p2 model resource
-		// Resource r = resourceSet.getResource(uri, true);
-		// List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
-		// TreeIterator<EObject> treeItor = r.getAllContents();
-		// while(treeItor.hasNext()) {
-		// EObject e = treeItor.next();
-		// if(e instanceof InstallableUnit)
-		// toBeCopied.add((InstallableUnitImpl) e);
-		// }
-		// // TODO: is it required to copy first?
-		// resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
-		// }
+		// Create an AR in the new file, and give it a location
+		ArtifactRepositoryImpl ar = (ArtifactRepositoryImpl) p2Factory.createArtifactRepository();
+
+		java.net.URI resultAR_URI = outputLocation.resolve("artifacts.xml");
+		ar.setLocation(resultAR_URI);
+		ar.setName("Artifact repo for component " + unit.getName());
+		// TODO: what type to use?
+		ar.setType(IArtifactRepositoryManager.TYPE_SIMPLE_REPOSITORY);
+		ar.setVersion("1.0.0");
+		resultResource.getContents().add(ar);
+
+		if(ak != null) {
+			SimpleArtifactDescriptorImpl ad = (SimpleArtifactDescriptorImpl) p2Factory.createSimpleArtifactDescriptor();
+			ad.setArtifactKey(ak);
+			ad.getRepositoryPropertyMap().put("artifact.reference", unit.getSourceLocation().toString());
+			ar.getArtifactMap().put(ak, new BasicEList<IArtifactDescriptor>(Collections.singletonList(ad)));
+		}
+
 		try {
 			resultResource.save(null);
 		}

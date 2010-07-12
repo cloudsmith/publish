@@ -12,6 +12,7 @@ package com.cloudsmith.publish.impl;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
@@ -21,8 +22,11 @@ import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.core.PathIterator;
-import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.b3.p2.ArtifactRepository;
+import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
+import org.eclipse.b3.p2.impl.ArtifactRepositoryImpl;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.util.P2Bridge;
@@ -30,8 +34,9 @@ import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -40,7 +45,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 import com.cloudsmith.publish.PublishPackage;
@@ -98,9 +107,22 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		mdr.setLocation(resultMDRURI);
 		mdr.setType(IMetadataRepositoryManager.TYPE_SIMPLE_REPOSITORY);
 		mdr.setVersion("1.0.0");
+		mdr.setProperty(IRepository.PROP_COMPRESSED, "true");
 		resultResource.getContents().add(mdr);
 		// get the list to add all aggregated IUs to
 		EList<IInstallableUnit> resultIUList = mdr.getInstallableUnits();
+
+		// Create an AR in the new file, and give it a location
+		ArtifactRepositoryImpl ar = (ArtifactRepositoryImpl) p2Factory.createArtifactRepository();
+		java.net.URI resultARURI = java.net.URI.create("file:/tmp/PublishTest/");
+		ar.setName(unit.getName());
+		ar.setLocation(resultARURI);
+		ar.setType(IArtifactRepositoryManager.TYPE_SIMPLE_REPOSITORY);
+		ar.setVersion("1.0.0");
+		ar.setProperty(IRepository.PROP_COMPRESSED, "true");
+		resultResource.getContents().add(mdr);
+		// get the list to add all aggregated artifacts to
+		EMap<IArtifactKey, EList<IArtifactDescriptor>> resultArtifactMap = ar.getArtifactMap();
 
 		// Aggregate all IUs in all of the input
 		//
@@ -118,27 +140,49 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 			URI uri = URI.createURI(pItor.next().toString());
 			// Load the input p2 model resource
 			Resource r = resourceSet.getResource(uri, true);
-			List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
-			TreeIterator<EObject> treeItor = r.getAllContents();
-			while(treeItor.hasNext()) {
-				EObject e = treeItor.next();
-				if(e instanceof InstallableUnit)
-					toBeCopied.add((InstallableUnitImpl) e);
+			for(EObject obj : r.getContents()) {
+				if(obj instanceof MetadataRepository) {
+					MetadataRepository mdrModel = (MetadataRepository) obj;
+					List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
+					// TODO: is it required to copy first?
+					for(IInstallableUnit iu : mdrModel.getInstallableUnits())
+						toBeCopied.add((InstallableUnitImpl) iu);
+					resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
+				}
+				else if(obj instanceof ArtifactRepository) {
+					ArtifactRepository arModel = (ArtifactRepository) obj;
+					// TODO: is it required to copy first?
+					for(Map.Entry<IArtifactKey, EList<IArtifactDescriptor>> arEntry : arModel.getArtifactMap().entrySet()) {
+						resultArtifactMap.put(
+							EcoreUtil.copy((ArtifactKeyImpl) arEntry.getKey()), new BasicEList<IArtifactDescriptor>(
+								EcoreUtil.copyAll(arEntry.getValue())));
+					}
+				}
 			}
-			// TODO: is it required to copy first?
-			resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
 		}
+
+		IProgressMonitor monitor = ctx != null
+				? ctx.getProgressMonitor()
+				: new NullProgressMonitor();
 
 		// // Write the MDR in p2 repo format
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
-			IProgressMonitor monitor = ctx != null
-					? ctx.getProgressMonitor()
-					: new NullProgressMonitor();
 			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
 		}
 		catch(CoreException e) {
 			System.err.print("Could not save resulting mdr repository\n");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// // Write the AR in p2 repo format
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
+		try {
+			P2Bridge.exportFromModel(arMgr, ar, monitor);
+		}
+		catch(CoreException e) {
+			System.err.print("Could not save resulting ar repository\n");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
