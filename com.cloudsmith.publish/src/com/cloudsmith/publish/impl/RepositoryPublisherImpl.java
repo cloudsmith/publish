@@ -10,6 +10,7 @@
  */
 package com.cloudsmith.publish.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -96,15 +97,31 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 
 		// Set up the new file.
 		// TODO: TEST OUTPUT to TMP
-		URI resultURI = URI.createURI("file:/tmp/PublishTest/output.p2");
+		File tempOutput;
+		try {
+			tempOutput = File.createTempFile("b3output", ".p2");
+			tempOutput.deleteOnExit();
+		}
+		catch(IOException e) {
+			throw new Error(e.getMessage(), e);
+		}
+
+		URI resultURI = URI.createFileURI(tempOutput.getAbsolutePath());
 		Resource resultResource = resourceSet.createResource(resultURI);
 		resultResource.getContents().clear();
 
+		// TODO Get proper location
+		File resultRepoDir = new File("/tmp/PublishTest");
+		resultRepoDir.mkdirs();
+		if(!resultRepoDir.isDirectory())
+			throw new Error("Unable to access directory " + resultRepoDir.getAbsolutePath());
+
+		java.net.URI resultRepoURI = java.net.URI.create("file:/tmp/PublishTest/");
+
 		// Create a MDR in the new file, and give it a location
 		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) p2Factory.createMetadataRepository();
-		java.net.URI resultMDRURI = java.net.URI.create("file:/tmp/PublishTest/");
 		mdr.setName(unit.getName());
-		mdr.setLocation(resultMDRURI);
+		mdr.setLocation(resultRepoURI);
 		mdr.setType(IMetadataRepositoryManager.TYPE_SIMPLE_REPOSITORY);
 		mdr.setVersion("1.0.0");
 		mdr.setProperty(IRepository.PROP_COMPRESSED, "true");
@@ -114,9 +131,8 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 
 		// Create an AR in the new file, and give it a location
 		ArtifactRepositoryImpl ar = (ArtifactRepositoryImpl) p2Factory.createArtifactRepository();
-		java.net.URI resultARURI = java.net.URI.create("file:/tmp/PublishTest/");
 		ar.setName(unit.getName());
-		ar.setLocation(resultARURI);
+		ar.setLocation(resultRepoURI);
 		ar.setType(IArtifactRepositoryManager.TYPE_SIMPLE_REPOSITORY);
 		ar.setVersion("1.0.0");
 		ar.setProperty(IRepository.PROP_COMPRESSED, "true");
@@ -168,23 +184,21 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		// // Write the MDR in p2 repo format
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
-			P2Bridge.exportFromModel(mdrMgr, mdr, monitor);
+			P2Bridge.exportFromModel(mdrMgr, mdr, true, monitor);
 		}
 		catch(CoreException e) {
 			System.err.print("Could not save resulting mdr repository\n");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new Error(e.getMessage(), e);
 		}
 
 		// // Write the AR in p2 repo format
 		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
 		try {
-			P2Bridge.exportFromModel(arMgr, ar, monitor);
+			P2Bridge.exportFromModel(arMgr, ar, true, monitor);
 		}
 		catch(CoreException e) {
 			System.err.print("Could not save resulting ar repository\n");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new Error(e.getMessage(), e);
 		}
 
 		// Return a BuildSet - to allow additional aggregation
