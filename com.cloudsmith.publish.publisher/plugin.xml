@@ -147,18 +147,18 @@
             label="b3 Files"
             visible="true"
             id="com.cloudsmith.publish.publisher.actionSet.b3Files">
+           <action
+                 class="com.cloudsmith.publish.publisher.actions.Newb3FileAction"
+                 definitionId="publisher.newb3File"
+                 id="com.cloudsmith.publish.publisher.newb3File"
+                 label="New b3 file"
+                 style="push">
+           </action>
          <action
                definitionId="publisher.openb3Files"
                label="Open b3 Files"
                class="com.cloudsmith.publish.publisher.actions.OpenLocalb3FileAction"
                id="com.cloudsmith.publish.publisher.openb3Files">
-         </action>
-         <action
-               class="com.cloudsmith.publish.publisher.actions.Newb3FileAction"
-               definitionId="publisher.newb3File"
-               id="com.cloudsmith.publish.publisher.newb3File"
-               label="New b3 file"
-               style="push">
          </action>
       </actionSet>
    </extension>   
