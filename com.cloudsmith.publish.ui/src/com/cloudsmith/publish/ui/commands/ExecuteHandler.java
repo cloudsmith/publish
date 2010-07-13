@@ -26,7 +26,7 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 @Deprecated
 public class ExecuteHandler extends AbstractHandler {
 
-	@Override
+//	@Override
 	@SuppressWarnings("unchecked")
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final MessageConsole b3Console = BeeLangConsoleUtils.getBeeLangConsole();
@@ -41,7 +41,7 @@ public class ExecuteHandler extends AbstractHandler {
 			ContentOutlineNode node = nodes.get(0);
 			
 			IStatus result = node.getEObjectHandle().readOnly(new IUnitOfWork<IStatus, EObject>() {
-				@Override
+//				@Override
 				public IStatus exec(EObject state) throws Exception {
 					return new B3BuildEngine().run(new RunMainFunctionInModelOperation((BeeModel)state));
 				}});

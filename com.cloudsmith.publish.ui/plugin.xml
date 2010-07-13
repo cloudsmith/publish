@@ -20,6 +20,19 @@
              style="push">
        </command>
     </menuContribution>
+    <menuContribution
+          allPopups="false"
+          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
+       <command
+             commandId="org.eclipse.b3.ui.run.b3cmd"
+             label="Run Test CMD on current file"
+             style="push">
+          <parameter
+                name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
+                value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
+          </parameter>
+       </command>
+    </menuContribution>
  </extension>
  <extension
        point="org.eclipse.ui.handlers">

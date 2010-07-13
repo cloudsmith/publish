@@ -31,7 +31,7 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 	 * 
 	 * @see org.eclipse.b3.build.engine.IKludgyImportProvider#getImports()
 	 */
-	@Override
+	// @Override
 	public List<B3JavaImport> getImports() {
 		List<B3JavaImport> result = Lists.newArrayList();
 		B3JavaImport o = null;
