@@ -3,7 +3,6 @@
 
 <product name="Publisher" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -13,14 +12,12 @@
 
    <windowImages/>
 
-
    <launcher name="publisher">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
@@ -32,9 +29,5 @@
       <feature id="com.cloudsmith.publish.publisher.product" version="1.0.0.qualifier"/>
    </features>
 
-   <configurations>
-      <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="4" />
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
-   </configurations>
 
 </product>
