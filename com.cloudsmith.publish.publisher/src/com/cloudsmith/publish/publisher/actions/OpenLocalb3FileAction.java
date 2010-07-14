@@ -76,7 +76,7 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 		FileDialog dialog =  new FileDialog(window.getShell(), SWT.OPEN | SWT.MULTI);
 		dialog.setText(IDEWorkbenchMessages.OpenLocalFileAction_title);
 		dialog.setFilterPath(filterPath);
-		dialog.setFilterExtensions(new String[] {"*.b3", "*.*"});
+		dialog.setFilterExtensions(new String[] {"*.b3"});
 		dialog.open();
 		String[] names =  dialog.getFileNames();
 

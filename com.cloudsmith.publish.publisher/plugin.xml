@@ -72,25 +72,16 @@
                   visible="true">
             </separator>
             <command
-                  commandId="org.eclipse.ui.file.exit"
-                  label="Exit">
-            </command>
-         </menu>
-         <menu
-               id="publisher.run"
-               label="Run">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeEditorId">
-                  <equals
-                        value="org.eclipse.b3.BeeLang">
-                  </equals>
-               </with>
-            </visibleWhen>
-            <command
                   commandId="com.cloudsmith.publish.ui.generateRepositories"
                   label="Publish Repository">
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.separator04"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.file.exit"
+                  label="Exit">
             </command>
          </menu>
       </menuContribution>
@@ -114,20 +105,6 @@
                relative="org.eclipse.ui.editorss"
                standalone="false">
          </view>
-         <view
-               id="org.eclipse.ui.views.ProblemView"
-               minimized="false"
-               relationship="stack"
-               relative="org.eclipse.ui.console.ConsoleView"
-               standalone="false">
-         </view>
-         <view
-               id="org.eclipse.pde.runtime.LogView"
-               minimized="false"
-               relationship="stack"
-               relative="org.eclipse.ui.console.ConsoleView"
-               standalone="false">
-         </view>
       </perspectiveExtension>
    </extension>
    
@@ -138,7 +115,7 @@
             application="com.cloudsmith.publish.publisher.application" name="Cloudsmith^Publisher"
             >
          <property
-               name="appName" value="Publisher">
+               name="appName" value="Cloudsmith^Publisher">
          </property>
       </product>
    </extension>
