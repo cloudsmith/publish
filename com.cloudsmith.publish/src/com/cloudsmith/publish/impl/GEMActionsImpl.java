@@ -42,6 +42,17 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.GEM_ACTIONS;
+	}
+
 	@Override
 	public String getName() {
 		return NAME;
@@ -71,16 +82,5 @@ public class GEMActionsImpl extends ActionPackageImpl implements GEMActions {
 		a.setName("uninstallGEM");
 		a.setActionPackage(this);
 		return a;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.GEM_ACTIONS;
 	}
 } // GEMActionsImpl

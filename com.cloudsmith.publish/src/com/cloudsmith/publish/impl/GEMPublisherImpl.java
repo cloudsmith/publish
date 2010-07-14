@@ -128,6 +128,17 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.GEM_PUBLISHER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public GEMActions getGemActions() {
@@ -167,17 +178,6 @@ public class GEMPublisherImpl extends PublisherImpl implements GEMPublisher {
 			getWhenUnconfiguring().add(uninstallGEM());
 
 		return super.write(unit);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.GEM_PUBLISHER;
 	}
 
 } // GEMPublisherImpl

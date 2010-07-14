@@ -25,7 +25,7 @@
     </eOperations>
     <eOperations name="write" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet">
       <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
-      <eParameters name="output" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
+      <eParameters name="data" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

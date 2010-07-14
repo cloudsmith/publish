@@ -522,6 +522,6 @@ public interface Publisher extends INativeActions {
 	 * @model
 	 * @generated
 	 */
-	BuildSet write(BuildUnit unit, BuildSet output);
+	BuildSet write(BuildUnit unit, BuildSet data);
 
 } // Publisher

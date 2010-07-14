@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
@@ -81,10 +80,21 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.REPOSITORY_PUBLISHER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @throws IOException
 	 * @generated NOT
 	 */
-	public BuildSet write(BuildUnit unit, BuildSet output) {
+	public BuildSet write(BuildUnit unit, BuildSet input) {
 		// Each of the files in output should be a p2 repository model written to file.
 		// The result is a new file
 
@@ -140,15 +150,15 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		// get the list to add all aggregated artifacts to
 		EMap<IArtifactKey, EList<IArtifactDescriptor>> resultArtifactMap = ar.getArtifactMap();
 
-		// Aggregate all IUs in all of the input
-		//
-		BuildSet input;
-		try {
-			input = (BuildSet) B3ContextAccess.get().getValue("input");
-		}
-		catch(B3EngineException e) {
-			throw new Error(e.getMessage(), e);
-		}
+		// // Aggregate all IUs in all of the input
+		// //
+		// BuildSet input;
+		// try {
+		// input = (BuildSet) ctx.getValue("input");
+		// }
+		// catch(B3EngineException e) {
+		// throw new Error(e.getMessage(), e);
+		// }
 
 		PathIterator pItor = input.getPathIterator();
 		while(pItor.hasNext()) {
@@ -207,17 +217,6 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		pv.setBasePath(java.net.URI.create(resultURI.toString()));
 		bs.getPathVectors().add(pv);
 		return bs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.REPOSITORY_PUBLISHER;
 	}
 
 } // RepositoryPublisherImpl
