@@ -32,10 +32,23 @@
             </command>
             <command
                   commandId="publisher.openb3Files"
-                  label="Open b3 File...">
+                  label="Open...">
             </command>
             <separator
-                  name="com.cloudsmith.publish.publisher.separator1"
+                  name="com.cloudsmith.publish.publisher.separator01"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.file.close"
+                  label="Close">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.file.closeAll"
+                  label="Close All"
+                  style="push">
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.separator02"
                   visible="true">
             </separator>
             <command
@@ -46,8 +59,16 @@
                   commandId="org.eclipse.ui.file.saveAs"
                   label="Save As...">
             </command>
+            <command
+                  commandId="org.eclipse.ui.file.saveAll"
+                  label="Save All">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.file.revert"
+                  label="Revert">
+            </command>
             <separator
-                  name="com.cloudsmith.publish.publisher.separator2"
+                  name="com.cloudsmith.publish.publisher.separator03"
                   visible="true">
             </separator>
             <command
@@ -69,7 +90,7 @@
             </visibleWhen>
             <command
                   commandId="com.cloudsmith.publish.ui.generateRepositories"
-                  label="Generate Repositories">
+                  label="Publish Repository">
             </command>
          </menu>
       </menuContribution>
@@ -114,7 +135,7 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="com.cloudsmith.publish.publisher.application" name="Publisher"
+            application="com.cloudsmith.publish.publisher.application" name="Cloudsmith^Publisher"
             >
          <property
                name="appName" value="Publisher">
