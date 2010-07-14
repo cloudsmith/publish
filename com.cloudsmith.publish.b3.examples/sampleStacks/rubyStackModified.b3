@@ -18,7 +18,7 @@ concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 	}
 	builder publish(Publishable unit) {
 		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
-		result : new Publisher().write(unit);
+		result : new Publisher().write(unit, input);
 	}
 	« Builder that runs publish on everything that is required by the unit it operates on. »
 	builder publish(RepositoryDefinition unit) {
