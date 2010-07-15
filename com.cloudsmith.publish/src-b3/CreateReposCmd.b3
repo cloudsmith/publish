@@ -1,18 +1,21 @@
-« 
+use com.cloudsmith.publish.RepositoryDefinition;
+
+/** 
   This is the starting point for the current "resolve and run main action" available as a command from
   the UI. To be replaced by its own command. 
-»
-function main_(List argv) {
-	with DefaultPublishing : {
-	print "in main_()";
-	main(argv); 
-//	b3.resolveAndRunBuilder(argv[0], argv[1]); 
-	};	
+*/
+function main(Map parameters) {
+	with DefaultPublishing : { 
+		val allDefined = b3.allDefinedUnits().select(u | u instanceof RepositoryDefinition);
+		if allDefined.size() != 1 then throw "File must contain one unit that 'is RepositoryDefinition'." endif;	
+		b3.resolveAndRunBuilder(
+			allDefined[0], 
+			"publish"); 
+	};		
 }
-function main(List argv) : throw "The Cmd did not find a main() in file it is acting on";
   
-« This concern declares how publishing should be done for the different types of units. 
-»
+/** This concern declares how publishing should be done for the different types of units. 
+*/
 concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 	builder publish(RPM unit) {
 		result : new RPMPublisher().write(unit);
@@ -27,16 +30,16 @@ concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
 		result : new Publisher().write(unit);
 	}
-	« Builder that runs publish on everything that is required by the unit it operates on. »
+	/** Builder that runs publish on everything that is required by the unit it operates on. */
 	builder publish(RepositoryDefinition unit) {
 		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
 		result :  new RepositoryPublisher.write(unit, input);
 	}
 }
 
-« This concern declares that all GEM units need a Ruby Runtime.
+/** This concern declares that all GEM units need a Ruby Runtime.
   Using this concern reduces the amount of declaration in each GEM.
-»
+*/
 concern A_GEM_Needs_a_Ruby_Runtime {
 	unit-context { 
 	select-units: is == GEM; 
