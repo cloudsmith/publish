@@ -92,10 +92,17 @@
       <perspectiveExtension
             targetID="*">
          <view
+               id="org.eclipse.ui.views.ProgressView"
+               minimized="false"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss"
+               standalone="false">
+         </view>
+         <view
                standalone="false"
                minimized="false"
-               relative="org.eclipse.ui.editorss"
-               relationship="bottom"
+               relative="org.eclipse.ui.views.ProgressView"
+               relationship="stack"
                id="org.eclipse.ui.console.ConsoleView">
          </view>
          <view

@@ -22,8 +22,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	}
 
 	@Override
-    protected void makeActions(IWorkbenchWindow window) {
-        register(ActionFactory.SAVE_AS.create(window));
-        register(ActionFactory.SAVE_ALL.create(window));
-    }
+	protected void makeActions(IWorkbenchWindow window) {
+		register(ActionFactory.SAVE_AS.create(window));
+		register(ActionFactory.SAVE_ALL.create(window));
+	}
 }

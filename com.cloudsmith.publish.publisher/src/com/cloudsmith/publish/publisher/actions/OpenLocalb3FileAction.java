@@ -21,9 +21,8 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 
 import com.cloudsmith.publish.publisher.ActionConstants;
 
-
 /**
- * Standard action for opening an editor on local file(s). 
+ * Standard action for opening an editor on local file(s).
  * <p>
  * This class may be instantiated; it is not intended to be subclassed.
  * </p>
@@ -31,6 +30,7 @@ import com.cloudsmith.publish.publisher.ActionConstants;
 public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowActionDelegate {
 
 	private IWorkbenchWindow window;
+
 	private String filterPath;
 
 	/**
@@ -40,77 +40,93 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 		setEnabled(true);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
 	public void dispose() {
-		window =  null;
-		filterPath =  null;
+		window = null;
+		filterPath = null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
 	public void init(IWorkbenchWindow window) {
-		this.window =  window;
-		filterPath =  System.getProperty("user.home"); //$NON-NLS-1$
+		this.window = window;
+		filterPath = System.getProperty("user.home"); //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.action.Action#run()
+	 */
+	@Override
+	public void run() {
+		FileDialog dialog = new FileDialog(window.getShell(), SWT.OPEN | SWT.MULTI);
+		dialog.setText(IDEWorkbenchMessages.OpenLocalFileAction_title);
+		dialog.setFilterPath(filterPath);
+		dialog.setFilterExtensions(new String[] { "*.b3" });
+		dialog.open();
+		String[] names = dialog.getFileNames();
+
+		if(names != null) {
+			filterPath = dialog.getFilterPath();
+
+			int numberOfFilesNotFound = 0;
+			StringBuffer notFound = new StringBuffer();
+			for(int i = 0; i < names.length; i++) {
+				IFileStore fileStore = EFS.getLocalFileSystem().getStore(new Path(filterPath));
+				fileStore = fileStore.getChild(names[i]);
+				IFileInfo fetchInfo = fileStore.fetchInfo();
+				if(!fetchInfo.isDirectory() && fetchInfo.exists()) {
+					IWorkbenchPage page = window.getActivePage();
+					try {
+						// open the editor on the file
+						page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
+					}
+					catch(PartInitException e) {
+						String msg = NLS.bind(
+							IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
+						IDEWorkbenchPlugin.log(msg, e.getStatus());
+						MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open b3 files", msg, SWT.SHEET);
+					}
+				}
+				else {
+					if(++numberOfFilesNotFound > 1)
+						notFound.append('\n');
+					notFound.append(fileStore.getName());
+				}
+			}
+
+			if(numberOfFilesNotFound > 0) {
+				String msgFmt = numberOfFilesNotFound == 1
+						? IDEWorkbenchMessages.OpenLocalFileAction_message_fileNotFound
+						: IDEWorkbenchMessages.OpenLocalFileAction_message_filesNotFound;
+				String msg = NLS.bind(msgFmt, notFound.toString());
+				MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open b3 files", msg, SWT.SHEET);
+			}
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
 		run();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
 	public void selectionChanged(IAction action, ISelection selection) {
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.action.Action#run()
-	 */
-	public void run() {
-		FileDialog dialog =  new FileDialog(window.getShell(), SWT.OPEN | SWT.MULTI);
-		dialog.setText(IDEWorkbenchMessages.OpenLocalFileAction_title);
-		dialog.setFilterPath(filterPath);
-		dialog.setFilterExtensions(new String[] {"*.b3"});
-		dialog.open();
-		String[] names =  dialog.getFileNames();
-
-		if (names != null) {
-			filterPath =  dialog.getFilterPath();
-
-			int numberOfFilesNotFound =  0;
-			StringBuffer notFound =  new StringBuffer();
-			for (int i =  0; i < names.length; i++) {
-				IFileStore fileStore =  EFS.getLocalFileSystem().getStore(new Path(filterPath));
-				fileStore =  fileStore.getChild(names[i]);
-				IFileInfo fetchInfo = fileStore.fetchInfo();
-				if (!fetchInfo.isDirectory() && fetchInfo.exists()) {
-					IWorkbenchPage page =  window.getActivePage();
-					try {
-				        // open the editor on the file
-				        page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
-					} catch (PartInitException e) {
-						String msg =  NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
-						IDEWorkbenchPlugin.log(msg,e.getStatus());
-						MessageDialog.open(MessageDialog.ERROR,window.getShell(), "Open b3 files", msg, SWT.SHEET);
-					}
-				} else {
-					if (++numberOfFilesNotFound > 1)
-						notFound.append('\n');
-					notFound.append(fileStore.getName());
-				}
-			}
-
-			if (numberOfFilesNotFound > 0) {
-				String msgFmt =  numberOfFilesNotFound == 1 ? IDEWorkbenchMessages.OpenLocalFileAction_message_fileNotFound : IDEWorkbenchMessages.OpenLocalFileAction_message_filesNotFound;
-				String msg =  NLS.bind(msgFmt, notFound.toString());
-				MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open b3 files", msg, SWT.SHEET);
-			}
-		}
 	}
 }
