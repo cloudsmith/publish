@@ -15,17 +15,8 @@
           allPopups="false"
           locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
        <command
-             commandId="com.cloudsmith.publish.ui.generateRepositories"
-             label="Generate Repositories"
-             style="push">
-       </command>
-    </menuContribution>
-    <menuContribution
-          allPopups="false"
-          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
-       <command
              commandId="org.eclipse.b3.ui.run.b3cmd"
-             label="Run Test CMD on current file"
+             label="Generate Repositories"
              style="push">
           <parameter
                 name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
