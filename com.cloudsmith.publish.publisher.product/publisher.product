@@ -29,5 +29,10 @@
       <feature id="com.cloudsmith.publish.publisher.product" version="1.0.0.qualifier"/>
    </features>
 
+   <configurations>
+      <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="0" />
+   </configurations>
 
 </product>
