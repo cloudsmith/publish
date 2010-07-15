@@ -1,5 +1,8 @@
 package com.cloudsmith.publish.publisher;
 
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -35,6 +38,13 @@ public class Activator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
+		
+		// save WS
+		IWorkspace ws = ResourcesPlugin.getWorkspace();
+		
+		if(ws != null)
+			ws.save(true, new NullProgressMonitor());
+
 		plugin = null;
 		super.stop(context);
 	}
