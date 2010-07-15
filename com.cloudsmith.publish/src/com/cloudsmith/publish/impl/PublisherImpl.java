@@ -64,6 +64,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
@@ -1511,7 +1512,8 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				// iuR.setFilter(newFilter)
 				if(unitR.getVersionRange() != null)
 					iuR.setRange(unitR.getVersionRange());
-
+				else
+					iuR.setRange(VersionRange.emptyRange);
 				iuRequirements.add(iuR);
 			}
 		}
