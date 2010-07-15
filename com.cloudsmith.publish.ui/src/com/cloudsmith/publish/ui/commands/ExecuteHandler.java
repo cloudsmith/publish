@@ -9,7 +9,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildEngine;
-import org.eclipse.b3.build.operations.RunMainFunctionInModelOperation;
+import org.eclipse.b3.build.operations.RunFunctionInModelOperation;
 import org.eclipse.b3.provisional.core.BuildException;
 import org.eclipse.b3.utils.BeeLangUtils;
 import org.eclipse.core.commands.AbstractHandler;
@@ -43,7 +43,7 @@ public class ExecuteHandler extends AbstractHandler {
 			IStatus result = node.getEObjectHandle().readOnly(new IUnitOfWork<IStatus, EObject>() {
 //				@Override
 				public IStatus exec(EObject state) throws Exception {
-					return new B3BuildEngine().run(new RunMainFunctionInModelOperation((BeeModel)state));
+					return new B3BuildEngine().run(new RunFunctionInModelOperation((BeeModel)state));
 				}});
 			
 			if(result.isOK()) {
