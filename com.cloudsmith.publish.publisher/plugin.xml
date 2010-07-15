@@ -72,8 +72,21 @@
                   visible="true">
             </separator>
             <command
-                  commandId="com.cloudsmith.publish.ui.generateRepositories"
+                  commandId="org.eclipse.b3.ui.run.b3cmd"
                   label="Publish Repository">
+               <parameter
+                     name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
+                     value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
+               </parameter>
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="org.eclipse.b3.BeeLang">
+                     </equals>
+                  </with>
+               </visibleWhen>
             </command>
             <separator
                   name="com.cloudsmith.publish.publisher.separator04"
@@ -84,6 +97,94 @@
                   label="Exit">
             </command>
          </menu>
+         <menu
+               id="publisher.edit"
+               label="Edit">
+            <command
+                  commandId="org.eclipse.ui.edit.undo"
+                  label="Undo"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.redo"
+                  label="Redo"
+                  style="push">
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.separator01"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.edit.cut"
+                  label="Cut"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.copy"
+                  label="Coopy"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.paste"
+                  label="Paste"
+                  style="push">
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.separator02"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.edit.delete"
+                  label="Delete"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.selectAll"
+                  label="Select All"
+                  style="push">
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.separator03"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.edit.findReplace"
+                  label="Find/Replace..."
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.findNext"
+                  label="Find Next"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.findPrevious"
+                  label="FindPrevious"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               id="publisher.help"
+               label="Help">
+            <command
+                  commandId="org.eclipse.ui.help.aboutAction"
+                  label="About"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="publisher.toolbar"
+               label="File">
+            <command
+                  commandId="publisher.newb3File"
+                  icon="icons/alt_window_16.gif"
+                  label="New"
+                  style="push">
+            </command>
+         </toolbar>
       </menuContribution>
    </extension>
    
@@ -91,20 +192,6 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="*">
-         <view
-               id="org.eclipse.ui.views.ProgressView"
-               minimized="false"
-               relationship="bottom"
-               relative="org.eclipse.ui.editorss"
-               standalone="false">
-         </view>
-         <view
-               standalone="false"
-               minimized="false"
-               relative="org.eclipse.ui.views.ProgressView"
-               relationship="stack"
-               id="org.eclipse.ui.console.ConsoleView">
-         </view>
          <view
                id="org.eclipse.ui.views.ContentOutline"
                minimized="false"
@@ -123,6 +210,10 @@
             >
          <property
                name="appName" value="Cloudsmith^Publisher">
+         </property>
+         <property
+               name="aboutText"
+               value="Cloudsmith^Publisher (c) 2010">
          </property>
       </product>
    </extension>

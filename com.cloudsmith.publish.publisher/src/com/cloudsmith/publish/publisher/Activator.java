@@ -39,6 +39,8 @@ public class Activator extends AbstractUIPlugin {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
+	private IWorkspace ws;
+
 	/**
 	 * The constructor
 	 */
@@ -54,6 +56,8 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+
+		ws = ResourcesPlugin.getWorkspace();
 	}
 
 	/*
@@ -65,8 +69,6 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 
 		// save WS
-		IWorkspace ws = ResourcesPlugin.getWorkspace();
-
 		if(ws != null)
 			ws.save(true, new NullProgressMonitor());
 
