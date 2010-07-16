@@ -1,7 +1,11 @@
 package com.cloudsmith.publish.publisher.actions;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
@@ -27,6 +31,35 @@ import com.cloudsmith.publish.publisher.Activator;
 
 public class Newb3FileAction extends Action implements IWorkbenchWindowActionDelegate {
 
+	public static final long copyStream(InputStream source, OutputStream dest, int bufferSize) throws IOException {
+		int bytes;
+		long total;
+		byte[] buffer;
+
+		buffer = new byte[bufferSize];
+		total = 0;
+		while((bytes = source.read(buffer)) != -1) {
+			// Technically, some read(byte[]) methods may return 0 and we cannot
+			// accept that as an indication of EOF.
+
+			if(bytes == 0) {
+				bytes = source.read();
+				if(bytes < 0)
+					break;
+				dest.write(bytes);
+				dest.flush();
+				++total;
+				continue;
+			}
+
+			dest.write(buffer, 0, bytes);
+			dest.flush();
+			total += bytes;
+		}
+
+		return total;
+	}
+
 	private IWorkbenchWindow window;
 
 	public void dispose() {
@@ -47,6 +80,41 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 			String msg = "Cannot create a temporary file";
 			IDEWorkbenchPlugin.log(msg, new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg, e));
 			MessageDialog.open(MessageDialog.ERROR, window.getShell(), "New b3", msg, SWT.SHEET);
+			return;
+		}
+
+		InputStream is = this.getClass().getResourceAsStream("/resources/newStackTemplate.b3");
+
+		try {
+			FileOutputStream fos = new FileOutputStream(newFile);
+
+			try {
+				copyStream(is, fos, 4096);
+			}
+			catch(IOException e) {
+				String msg = "Cannot copy template script to newly created file";
+				IDEWorkbenchPlugin.log(msg, new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg, e));
+				MessageDialog.open(MessageDialog.ERROR, window.getShell(), "New b3", msg, SWT.SHEET);
+				return;
+			}
+			finally {
+				try {
+					if(is != null)
+						is.close();
+
+					if(fos != null)
+						fos.close();
+				}
+				catch(IOException e) {
+					// ignore
+				}
+			}
+		}
+		catch(FileNotFoundException e) {
+			String msg = "Cannot find " + newFile.toString();
+			IDEWorkbenchPlugin.log(msg, new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg, e));
+			MessageDialog.open(MessageDialog.ERROR, window.getShell(), "New b3", msg, SWT.SHEET);
+			return;
 		}
 
 		IFileStore fileStore = EFS.getLocalFileSystem().fromLocalFile(newFile);
@@ -61,6 +129,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 				String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
 				IDEWorkbenchPlugin.log(msg, e.getStatus());
 				MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open b3 files", msg, SWT.SHEET);
+				return;
 			}
 		}
 	}
