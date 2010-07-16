@@ -1,77 +1,43 @@
 «
- Note: A repository definition file must have one unit that declares 'is Repository'.
+  A Repository is defined in terms of 'units'.
+  A 'unit' can have several types - declared with 'is'.
+  The Repository will contain all defined units.
   
- This unit defines the 'Great Ruby Stack Repository'. 
- Requirements are satisfied, and the transitive closure
- of requirements is included in the published repository.
+  NOTES:
+   - Text within 'french guilmots' contains documentation for the element it precedes.
+   - Files are in UTF-8.
+   - Documentation can be written using java-doc style comments as an alternative to using guilmots
+   - Versions can in general be written without surrounding quotes (""), but quotes are required
+   - for some versioning schemes.
+
+  This unit defines the 'Great Ruby Stack Repository'.
+  It will include all other units declared in this file.
+  (There can only be one 'RepositoryDefinition' in a file.)
 »
 unit "Great Ruby Stack Repository" version 1.0.0 is RepositoryDefinition {
+	
+	« 
+	  This 'default-properties' declaration declares that units that have a 
+	  runtime dependency on a webserver
+	  should be installed with support for 'nginx' unless this property is
+	  overridden by setting it on the command line when generating the repository, or
+	  by setting it explicitly in unit included in the repository.  
+	»
 	default-properties {
 		${com.cloudsmith.stack.runtime.ruby.webserver} = "nginx"; 
 		} 
-	requires : [
-		unit { name : "MySQL-server-community"; version : rpm:5.1.48-1.rhel5 ; },
-		unit { name : "ruby-enterprise"; version : rpm:1.8.7-2010.02 ; },
-		unit { name : "libevent"; version : rpm:1.4 ; },
-		unit { name : "memcached"; version : rpm:1.4.5 ; },
-		unit { name : "monit"; version : rpm:5.1.1 ; },
-		unit { name : "activemerchant"; version : gem:1.5.1; },
-		unit { name : "addressable"; version : gem:2.1.1 ; },
-		unit { name : "builder"; version : gem:2.1.2 ; },
-		unit { name : "crack"; version : gem:0.1.4 ; },
-		unit { name : "daemons"; version : gem:1.0.10 ; },
-		unit { name : "delayed_job"; version : gem:1.8.4 ; },
-		unit { name : "formtastic"; version : gem:0.9.7 ; },
-		unit { name : "httparty"; version : gem:0.5.0 ; },
-		unit { name : "lighthouse-api"; version : gem:1.1.0 ; },
-		unit { name : "liquid"; version : gem:2.0.0 ; },
-		unit { name : "little-plugger"; version : gem:1.1.1 ; },
-		unit { name : "lockfile"; version : gem:1.4.3 ; },
-		unit { name : "logging"; version : gem:1.2.3 ; },
-		unit { name : "mime-types"; version : gem:1.16 ; },
-		unit { name : "newrelic-amazon-ec2"; version : gem:0.6.2 ; },
-		unit { name : "rest-client"; version : gem:1.4.2 ; },
-		unit { name : "sprockets"; version : gem:1.0.2 ; },
-		unit { name : "xml-simple"; version : gem:1.0.12 ; }
-	];
-}
-
-
-/** Definition of a stack */
-unit rubystack version 1.0.0 is Publishable {
-	requires : [
-		unit { name : "lamp4ruby"; version : 1.0.0 ; },
-		unit { name : "allgems"; version : 1.0.0 ; }
-	];
-}
-
-/** Nothing to install, just publish as a grouping.
-  Uses osgi versioning.
-*/
-unit lamp4ruby version 1.0.0 is Publishable {
-	default-properties {
-		${com.cloudsmith.stack.runtime.ruby.webserver} = "nginx"; 
-		} 
-	requires : [
-		unit { name : "MySQL-server-community"; version : rpm:5.1.48-1.rhel5 ; },
-		unit { name : "ruby-enterprise"; version : rpm:1.8.7-2010.02 ; },
-		unit { name : "memcached"; version : rpm:1.4.5 ; },
-		unit { name : "monit"; version : rpm:5.1.1 ; }
-		];	
 }
 
 unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
 	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-server-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
 }
-unit "MySQL-client-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
-	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-client-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/"; 
-}
 unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
 	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-devel-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
 }
 
-/** Note that 'ruby-enterprise' declares that it provides a ruby-runtime
-*/ 
+« Note that 'ruby-enterprise' declares that it provides an abstract 'ruby-runtime'. This
+  makes it possible to include units of GEM type as they require such a capability.
+» 
 unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
 	provides : capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; version: 1.0.0; };
 	requires : unit { name : "MySQL-devel-community"; version : rpm:5.1.48-1.rhel5.i386; };
@@ -88,29 +54,6 @@ unit monit version rpm:5.1.1 is RPM, CSource {
 	source : "http://mmonit.com/monit/dist/monit-5.1.1.tar.gz";
 }
 
-/** Defines all gems as a convenient reusable unit */
-unit allgems version 1.0.0 is Publishable {
-	requires : [
-		unit { name : "activemerchant"; version : gem:1.5.1; },
-		unit { name : "addressable"; version : gem:2.1.1 ; },
-		unit { name : "builder"; version : gem:2.1.2 ; },
-		unit { name : "crack"; version : gem:0.1.4 ; },
-		unit { name : "daemons"; version : gem:1.0.10 ; },
-		unit { name : "delayed_job"; version : gem:1.8.4 ; },
-		unit { name : "formtastic"; version : gem:0.9.7 ; },
-		unit { name : "httparty"; version : gem:0.5.0 ; },
-		unit { name : "lighthouse-api"; version : gem:1.1.0 ; },
-		unit { name : "liquid"; version : gem:2.0.0 ; },
-		unit { name : "little-plugger"; version : gem:1.1.1 ; },
-		unit { name : "lockfile"; version : gem:1.4.3 ; },
-		unit { name : "logging"; version : gem:1.2.3 ; },
-		unit { name : "mime-types"; version : gem:1.16 ; },
-		unit { name : "newrelic-amazon-ec2"; version : gem:0.6.2 ; },
-		unit { name : "rest-client"; version : gem:1.4.2 ; },
-		unit { name : "sprockets"; version : gem:1.0.2 ; },
-		unit { name : "xml-simple"; version : gem:1.0.12 ; }
-		];		
-}
 unit activemerchant version gem:1.5.1 is GEM;
 unit addressable version gem:2.1.1 is GEM;
 unit builder version gem:2.1.2 is GEM;
