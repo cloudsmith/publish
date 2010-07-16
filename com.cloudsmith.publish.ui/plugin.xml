@@ -16,7 +16,7 @@
           locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
        <command
              commandId="org.eclipse.b3.ui.run.b3cmd"
-             label="Generate Repositories"
+             label="Publish Repository"
              style="push">
           <parameter
                 name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
