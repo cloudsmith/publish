@@ -16,7 +16,7 @@ function main(Map parameters) {
   
 /** This concern declares how publishing should be done for the different types of units. 
 */
-concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
+concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime, Repositories_Requires_Everything {
 	builder publish(RPM unit) {
 		result : new RPMPublisher().write(unit);
 	}
@@ -36,7 +36,18 @@ concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime {
 		result :  new RepositoryPublisher.write(unit, input);
 	}
 }
-
+« To reduce declaration in the Repository, it requires all other units by default.
+»
+concern Repositories_Requires_Everything {
+	unit-context {
+		select-units : is == RepositoryDefinition;
+		modify-selected :  {
+			select-required : {
+				+ capability { name-space ~= _; name ~= _; };
+			}  ;
+		}; 
+	}
+}
 /** This concern declares that all GEM units need a Ruby Runtime.
   Using this concern reduces the amount of declaration in each GEM.
 */
