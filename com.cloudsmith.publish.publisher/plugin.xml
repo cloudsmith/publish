@@ -180,9 +180,39 @@
                label="File">
             <command
                   commandId="publisher.newb3File"
-                  icon="icons/alt_window_16.gif"
+                  icon="icons/new.gif"
                   label="New"
                   style="push">
+            </command>
+            <command
+                  commandId="publisher.openb3Files"
+                  icon="icons/open.gif"
+                  label="Open..."
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.file.save"
+                  label="Save"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.b3.ui.run.b3cmd"
+                  icon="icons/publish.gif"
+                  label="Publish Repository"
+                  style="push">
+               <parameter
+                     name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
+                     value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
+               </parameter>
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeEditorId">
+                     <equals
+                           value="org.eclipse.b3.BeeLang">
+                     </equals>
+                  </with>
+               </visibleWhen>
             </command>
          </toolbar>
       </menuContribution>
@@ -220,8 +250,8 @@
    <extension
          point="org.eclipse.ui.activities">
       <activity
-            id="publisher.disable.search.menu"
-            name="Disable Search menu">
+            id="publisher.disable.actions"
+            name="Actions to disable">
          <enabledWhen>
             <with
                   variable="activeEditorId">
@@ -232,8 +262,8 @@
          </enabledWhen>
       </activity>
       <activityPatternBinding
-            activityId="publisher.disable.search.menu"
-            pattern="org\.eclipse\.search.*">
+            activityId="publisher.disable.actions"
+            pattern="org\.eclipse\.search.*|org\.eclipse\.ui\.edit\.text\.gotoLastEditPosition|org\.eclipse\.ui\.edit.*Annotation.*|org\.eclipse\.team.*|.*OpenDeclaration.*|org\.eclipse\.ui\.ide\.markers\.showInMenu|org\.eclipse\.ui\.navigate.*">
       </activityPatternBinding>
    </extension>
    
