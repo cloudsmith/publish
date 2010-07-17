@@ -78,3 +78,8 @@ unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
   - A Gem typically follows the 'gem:' version scheme (the gem 'rational policy')
 »
 unit activemerchant version gem:1.5.1 is GEM;
+
+« Included because it is required by 'ruby-enterprise' »
+unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
+	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-devel-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
+}
