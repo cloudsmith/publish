@@ -16,7 +16,10 @@ function main(Map parameters) {
   
 /** This concern declares how publishing should be done for the different types of units. 
 */
-concern DefaultPublishing extends A_GEM_Needs_a_Ruby_Runtime, Repositories_Requires_Everything {
+concern DefaultPublishing 
+	extends A_GEM_Needs_a_Ruby_Runtime,
+		A_RubyRuntime_provides_Runtime, 
+		Repositories_Requires_Everything {
 	builder publish(RPM unit) {
 		result : new RPMPublisher().write(unit);
 	}
@@ -57,6 +60,17 @@ concern A_GEM_Needs_a_Ruby_Runtime {
 	modify-selected : { 
 		requires : { 
 			+capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; }; };
+		};
+	}
+}
+
+concern A_RubyRuntime_provides_Runtime {
+	unit-context {
+		select-units: is == RubyRuntime;
+		modify-selected : {
+			provides :  {
+				+ capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; version: 1.0.0; };				
+			};
 		};
 	}
 }
