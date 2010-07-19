@@ -78,15 +78,6 @@
                      name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
                      value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
                </parameter>
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="activeEditorId">
-                     <equals
-                           value="org.eclipse.b3.BeeLang">
-                     </equals>
-                  </with>
-               </visibleWhen>
             </command>
             <separator
                   name="com.cloudsmith.publish.publisher.separator04"
@@ -163,6 +154,11 @@
                   style="push">
             </command>
          </menu>
+         <command
+               commandId="publisher.preferences"
+               label="Preferences"
+               style="push">
+         </command>
          <menu
                id="publisher.help"
                label="Help">
@@ -204,15 +200,6 @@
                      name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
                      value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
                </parameter>
-               <visibleWhen
-                     checkEnabled="false">
-                  <with
-                        variable="activeEditorId">
-                     <equals
-                           value="org.eclipse.b3.BeeLang">
-                     </equals>
-                  </with>
-               </visibleWhen>
             </command>
          </toolbar>
       </menuContribution>
@@ -263,7 +250,7 @@
       </activity>
       <activityPatternBinding
             activityId="publisher.disable.actions"
-            pattern="org\.eclipse\.search.*|org\.eclipse\.ui\.edit\.text\.gotoLastEditPosition|org\.eclipse\.ui\.edit.*Annotation.*|org\.eclipse\.team.*|.*OpenDeclaration.*|org\.eclipse\.ui\.ide\.markers\.showInMenu|org\.eclipse\.ui\.navigate.*">
+            pattern="org\.eclipse\.search.*|org\.eclipse\.ui\.edit\.text\.gotoLastEditPosition|org\.eclipse\.ui\.edit.*Annotation.*|org\.eclipse\.team.*|.*OpenDeclaration.*|org\.eclipse\.ui\.navigate.*">
       </activityPatternBinding>
    </extension>
    
@@ -287,7 +274,15 @@
                id="com.cloudsmith.publish.publisher.openb3Files">
          </action>
       </actionSet>
-   </extension>   
+   </extension>
+      <extension
+            point="org.eclipse.ui.commands">
+         <command
+               defaultHandler="com.cloudsmith.publish.publisher.actions.ShowReducedPreferencePageHandler"
+               id="publisher.preferences"
+               name="Preferences">
+         </command>
+      </extension>   
    
 
 </plugin>
