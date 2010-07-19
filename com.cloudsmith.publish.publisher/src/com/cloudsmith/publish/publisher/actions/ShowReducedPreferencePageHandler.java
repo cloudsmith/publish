@@ -26,7 +26,6 @@ public class ShowReducedPreferencePageHandler extends AbstractHandler {
 			"org.eclipse.b3.BeeLang.editor", "org.eclipse.b3.BeeLang", "org.eclipse.b3.BeeLang.templates",
 			"org.eclipse.b3.BeeLang.coloring", "org.eclipse.ui.preferencePages.GeneralTextEditor",
 			"org.eclipse.ui.editors.preferencePages.QuickDiff", "org.eclipse.ui.editors.preferencePages.Accessibility",
-			"org.eclipse.ui.editors.preferencePages.Spelling",
 			"org.eclipse.ui.editors.preferencePages.LinkedModePreferencePage" };
 
 	public final Object execute(final ExecutionEvent event) {
