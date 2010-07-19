@@ -1408,7 +1408,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 		// Set up to be able to save to new file
 		ResourceSet resourceSet = new ResourceSetImpl();
-		// TODO: TEST OUTPUT to TMP
+
 		B3OutputLocationProvider locProvider = ctx.getInjector().getInstance(B3OutputLocationProvider.class);
 		java.net.URI outputLocation = locProvider.getFileURI(unit.getOutputLocation());
 

@@ -18,7 +18,7 @@ import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.ResolutionInfo;
 import org.eclipse.b3.build.UnitResolutionInfo;
-import org.eclipse.b3.build.core.ResolutionInfoAdapterFactory;
+import org.eclipse.b3.build.core.adapters.ResolutionInfoAdapterFactory;
 import org.eclipse.b3.build.repository.IBuildUnitResolver;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

@@ -15,13 +15,14 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.core.B3OutputLocationProvider;
 import org.eclipse.b3.backend.evaluator.B3ContextAccess;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.PathVector;
-import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.b3.build.core.iterators.PathIterator;
 import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -116,22 +117,27 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 			throw new Error(e.getMessage(), e);
 		}
 
-		URI resultURI = URI.createFileURI(tempOutput.getAbsolutePath());
-		Resource resultResource = resourceSet.createResource(resultURI);
+		URI tempURI = URI.createFileURI(tempOutput.getAbsolutePath());
+		Resource resultResource = resourceSet.createResource(tempURI);
 		resultResource.getContents().clear();
 
+		// Get the output location for the unit
+		B3OutputLocationProvider locProvider = ctx.getInjector().getInstance(B3OutputLocationProvider.class);
+		java.net.URI outputURI = locProvider.getFileURI(unit.getOutputLocation());
+
 		// TODO Get proper location
-		File resultRepoDir = new File("/tmp/PublishTest");
+		// File resultRepoDir = new File("/tmp/PublishTest");
+		File resultRepoDir = new File(outputURI);
 		resultRepoDir.mkdirs();
 		if(!resultRepoDir.isDirectory())
 			throw new Error("Unable to access directory " + resultRepoDir.getAbsolutePath());
 
-		java.net.URI resultRepoURI = java.net.URI.create("file:/tmp/PublishTest/");
+		// java.net.URI resultRepoURI = java.net.URI.create("file:/tmp/PublishTest/");
 
 		// Create a MDR in the new file, and give it a location
 		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) p2Factory.createMetadataRepository();
 		mdr.setName(unit.getName());
-		mdr.setLocation(resultRepoURI);
+		mdr.setLocation(outputURI);
 		mdr.setType(IMetadataRepositoryManager.TYPE_SIMPLE_REPOSITORY);
 		mdr.setVersion("1.0.0");
 		mdr.setProperty(IRepository.PROP_COMPRESSED, "true");
@@ -142,23 +148,13 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		// Create an AR in the new file, and give it a location
 		ArtifactRepositoryImpl ar = (ArtifactRepositoryImpl) p2Factory.createArtifactRepository();
 		ar.setName(unit.getName());
-		ar.setLocation(resultRepoURI);
+		ar.setLocation(outputURI);
 		ar.setType(IArtifactRepositoryManager.TYPE_SIMPLE_REPOSITORY);
 		ar.setVersion("1.0.0");
 		ar.setProperty(IRepository.PROP_COMPRESSED, "true");
 		resultResource.getContents().add(mdr);
 		// get the list to add all aggregated artifacts to
 		EMap<IArtifactKey, EList<IArtifactDescriptor>> resultArtifactMap = ar.getArtifactMap();
-
-		// // Aggregate all IUs in all of the input
-		// //
-		// BuildSet input;
-		// try {
-		// input = (BuildSet) ctx.getValue("input");
-		// }
-		// catch(B3EngineException e) {
-		// throw new Error(e.getMessage(), e);
-		// }
 
 		PathIterator pItor = input.getPathIterator();
 		while(pItor.hasNext()) {
@@ -170,7 +166,6 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 				if(obj instanceof MetadataRepository) {
 					MetadataRepository mdrModel = (MetadataRepository) obj;
 					List<InstallableUnitImpl> toBeCopied = Lists.newArrayList();
-					// TODO: is it required to copy first?
 					for(IInstallableUnit iu : mdrModel.getInstallableUnits())
 						toBeCopied.add((InstallableUnitImpl) iu);
 					resultIUList.addAll(EcoreUtil.copyAll(toBeCopied));
@@ -211,10 +206,10 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 			throw new Error(e.getMessage(), e);
 		}
 
-		// Return a BuildSet - to allow additional aggregation
+		// Return a BuildSet (containing the outputURI where the repo in p2 form is found).
 		BuildSet bs = B3BuildFactory.eINSTANCE.createBuildSet();
 		PathVector pv = B3BuildFactory.eINSTANCE.createPathVector();
-		pv.setBasePath(java.net.URI.create(resultURI.toString()));
+		pv.setBasePath(outputURI);
 		bs.getPathVectors().add(pv);
 		return bs;
 	}
