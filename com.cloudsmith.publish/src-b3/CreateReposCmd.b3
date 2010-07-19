@@ -1,4 +1,6 @@
 use com.cloudsmith.publish.RepositoryDefinition;
+use org.eclipse.b3.build.BuildSet;
+use org.eclipse.b3.build.PathVector;
 
 /** 
   This is the starting point for the current "resolve and run main action" available as a command from
@@ -8,10 +10,12 @@ function main(Map parameters) {
 	with DefaultPublishing : { 
 		val allDefined = b3.allDefinedUnits().select(u | u instanceof RepositoryDefinition);
 		if allDefined.size() != 1 then throw "File must contain one unit that 'is RepositoryDefinition'." endif;	
-		b3.resolveAndRunBuilder(
+		BuildSet producedResult = b3.resolveAndRunBuilder(
 			allDefined[0], 
-			"publish"); 
-	};		
+			"publish");
+		PathVector basePath = (producedResult.getPathVectors()[0]);
+		INFO("Repository created in: %s".format(basePath.getBasePath()));
+	};
 }
   
 /** This concern declares how publishing should be done for the different types of units. 
