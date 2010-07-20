@@ -5,9 +5,7 @@
 	 <pathconvert property="equinox.launcher.jar">
 	   <first count="1">
 	     <sort>
-			<!-- Need to use director in version 3.5.2. Director 3.6 has a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=318114  -->
-	     	<!-- director 3.5.2 is here - http://download.eclipse.org/tools/buckminster/products/director_latest.zip -->
-	       <fileset dir="${director.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
+	       <fileset dir="${eclipse.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
 	       <reverse xmlns="antlib:org.apache.tools.ant.types.resources.comparators">
 	         <date/>
 	       </reverse>
@@ -31,6 +29,7 @@
 		<echo message="${equinox.launcher.jar}"/>
 		<echo message="${repository}"/>
 		<echo message="${destination}"/>
+		<echo message="${p2.os}, ${p2.ws}, ${p2.arch}"/>
 		<java jar="${equinox.launcher.jar}" fork="true" failonerror="true" >
 			<arg value="-application"/>
 			<arg value="org.eclipse.equinox.p2.director"/>
@@ -42,6 +41,12 @@
 			<arg value="${profile}"/>
 			<arg value="-i"/>
 			<arg value="${iu}"/>
+			<arg value="-p2.os"/>
+			<arg value="${p2.os}"/>
+			<arg value="-p2.ws"/>
+			<arg value="${p2.ws}"/>
+			<arg value="-p2.arch"/>
+			<arg value="${p2.arch}"/>
 			<!-- jvmarg value="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y"/ -->
 		</java>
 
