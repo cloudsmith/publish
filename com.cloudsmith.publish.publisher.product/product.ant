@@ -1,10 +1,13 @@
 <project>
 	<import file="${buckminster.pdetasks}"/>
+	<property name="director.home" value="c:/tmp/Publisher/director"/>
 
 	 <pathconvert property="equinox.launcher.jar">
 	   <first count="1">
 	     <sort>
-	       <fileset dir="${eclipse.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
+			<!-- Need to use director in version 3.5.2. Director 3.6 has a bug - https://bugs.eclipse.org/bugs/show_bug.cgi?id=318114  -->
+	     	<!-- director 3.5.2 is here - http://download.eclipse.org/tools/buckminster/products/director_latest.zip -->
+	       <fileset dir="${director.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
 	       <reverse xmlns="antlib:org.apache.tools.ant.types.resources.comparators">
 	         <date/>
 	       </reverse>
@@ -41,9 +44,6 @@
 			<arg value="${iu}"/>
 			<!-- jvmarg value="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y"/ -->
 		</java>
-
-		<!-- Overwrite the generated configuration file -->
-		<copy file="${buckminster.home}/config.ini" todir="${destination}/configuration" overwrite="true"/>
 
 		<!-- Copy needed platform specific fragments -->
 		<copy todir="${destination}/plugins">
