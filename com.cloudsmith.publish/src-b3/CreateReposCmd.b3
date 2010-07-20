@@ -27,6 +27,9 @@ concern DefaultPublishing
 	builder publish(RPM unit) {
 		result : new RPMPublisher().write(unit);
 	}
+	builder publish(Native unit) {
+		result : new NativePublisher().write(unit);
+	}
 	builder publish(GEM unit) {
 		result : new GEMPublisher().write(unit);
 	}
