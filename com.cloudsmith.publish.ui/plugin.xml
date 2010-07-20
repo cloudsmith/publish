@@ -39,5 +39,11 @@
           
     </handler>
  </extension>
+ <extension
+       point="org.eclipse.b3.beelang.ui.B3BeeLangUiModule">
+    <module
+          moduleClass="com.cloudsmith.publish.ui.module.PublishUiModule">
+    </module>
+ </extension>
 
 </plugin>

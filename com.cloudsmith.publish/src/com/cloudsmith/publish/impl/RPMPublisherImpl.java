@@ -229,8 +229,8 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction installFromCSource() {
-		return getRpmActions().installFromCSource();
+	public PublisherAction installRPM() {
+		return getRpmActions().installRPM();
 	}
 
 	/**
@@ -239,8 +239,8 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction installRPM() {
-		return getRpmActions().installRPM();
+	public PublisherAction installSRCRPM() {
+		return getRpmActions().installSRCRPM();
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction uninstallFromCSource() {
-		return getRpmActions().installFromCSource();
+	public PublisherAction uninstallRPM() {
+		return getRpmActions().uninstallRPM();
 	}
 
 	/**
@@ -291,26 +291,21 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction uninstallRPM() {
-		return getRpmActions().uninstallRPM();
+	public PublisherAction uninstallSRCRPM() {
+		return getRpmActions().uninstallSRCRPM();
 	}
 
 	@Override
 	public BuildSet write(BuildUnit unit) {
-		// HL- REVIEW NOTE: Changed to a better check
-		// There is a special interface for each unit, and better to check if it is CSource or
-		// a subtype thereof (C++ source :))
-		// WAS:
-		// boolean isSource = unit.getImplements().contains(CSource.class);
-
-		boolean isSource = CSource.class.isAssignableFrom(BuildUnitUtils.getBuildUnitInterface(unit));
+		boolean isSource = (unit instanceof CSource) ||
+				CSource.class.isAssignableFrom(BuildUnitUtils.getBuildUnitInterface(unit));
 		if(getWhenInstalling().size() == 0)
 			getWhenInstalling().add(isSource
-					? installFromCSource()
+					? installSRCRPM()
 					: installRPM());
 		if(getWhenUninstalling().size() == 0)
 			getWhenUninstalling().add(isSource
-					? uninstallFromCSource()
+					? uninstallSRCRPM()
 					: uninstallRPM());
 
 		return super.write(unit);

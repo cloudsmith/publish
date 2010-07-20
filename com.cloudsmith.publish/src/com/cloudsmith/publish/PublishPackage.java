@@ -578,6 +578,59 @@ public interface PublishPackage extends EPackage {
 		 */
 		EClass CSOURCE = eINSTANCE.getCSource();
 
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IExtNativeActions <em>IExt Native Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IExtNativeActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIExtNativeActions()
+		 * @generated
+		 */
+		EClass IEXT_NATIVE_ACTIONS = eINSTANCE.getIExtNativeActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.ExtNativeActionsImpl <em>Ext Native Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.ExtNativeActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getExtNativeActions()
+		 * @generated
+		 */
+		EClass EXT_NATIVE_ACTIONS = eINSTANCE.getExtNativeActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.NativePublisherImpl <em>Native Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.NativePublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNativePublisher()
+		 * @generated
+		 */
+		EClass NATIVE_PUBLISHER = eINSTANCE.getNativePublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Ext Native Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference NATIVE_PUBLISHER__EXT_NATIVE_ACTIONS = eINSTANCE.getNativePublisher_ExtNativeActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.Native <em>Native</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.Native
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNative()
+		 * @generated
+		 */
+		EClass NATIVE = eINSTANCE.getNative();
+
 	}
 
 	/**
@@ -686,6 +739,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int PUBLISHABLE__REQUIRED_CAPABILITIES = B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHABLE__REQUIRED_PREDICATES = B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -838,6 +901,16 @@ public interface PublishPackage extends EPackage {
 	int PUBLISHABLE__PROVIDERS = B3BuildPackage.BUILD_UNIT__PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHABLE__PARENT = B3BuildPackage.BUILD_UNIT__PARENT;
+
+	/**
 	 * The number of structural features of the '<em>Publishable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +990,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int RPM__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -1069,6 +1152,16 @@ public interface PublishPackage extends EPackage {
 	int RPM__PROVIDERS = PUBLISHABLE__PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM__PARENT = PUBLISHABLE__PARENT;
+
+	/**
 	 * The number of structural features of the '<em>RPM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1148,6 +1241,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -1298,6 +1401,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM__PARENT = PUBLISHABLE__PARENT;
 
 	/**
 	 * The number of structural features of the '<em>GEM</em>' class.
@@ -2403,6 +2516,16 @@ public interface PublishPackage extends EPackage {
 	int REPOSITORY_DEFINITION__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
 
 	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2551,6 +2674,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY_DEFINITION__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__PARENT = PUBLISHABLE__PARENT;
 
 	/**
 	 * The number of structural features of the '<em>Repository Definition</em>' class.
@@ -2948,6 +3081,16 @@ public interface PublishPackage extends EPackage {
 	int RUBY_RUNTIME__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
 
 	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_RUNTIME__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3098,6 +3241,16 @@ public interface PublishPackage extends EPackage {
 	int RUBY_RUNTIME__PROVIDERS = PUBLISHABLE__PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_RUNTIME__PARENT = PUBLISHABLE__PARENT;
+
+	/**
 	 * The number of structural features of the '<em>Ruby Runtime</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3177,6 +3330,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int CSOURCE__REQUIRED_CAPABILITIES = B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CSOURCE__REQUIRED_PREDICATES = B3BuildPackage.BUILD_UNIT__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -3329,6 +3492,16 @@ public interface PublishPackage extends EPackage {
 	int CSOURCE__PROVIDERS = B3BuildPackage.BUILD_UNIT__PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CSOURCE__PARENT = B3BuildPackage.BUILD_UNIT__PARENT;
+
+	/**
 	 * The number of structural features of the '<em>CSource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3337,6 +3510,550 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int CSOURCE_FEATURE_COUNT = B3BuildPackage.BUILD_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.IExtNativeActions <em>IExt Native Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.IExtNativeActions
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIExtNativeActions()
+	 * @generated
+	 */
+	int IEXT_NATIVE_ACTIONS = 22;
+
+	/**
+	 * The number of structural features of the '<em>IExt Native Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEXT_NATIVE_ACTIONS_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.ExtNativeActionsImpl <em>Ext Native Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.ExtNativeActionsImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getExtNativeActions()
+	 * @generated
+	 */
+	int EXT_NATIVE_ACTIONS = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXT_NATIVE_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXT_NATIVE_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
+
+	/**
+	 * The number of structural features of the '<em>Ext Native Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXT_NATIVE_ACTIONS_FEATURE_COUNT = ACTION_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.NativePublisherImpl <em>Native Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.NativePublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNativePublisher()
+	 * @generated
+	 */
+	int NATIVE_PUBLISHER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__ID = PUBLISHER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__SINGLETON = PUBLISHER__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__VERSION = PUBLISHER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__COPYRIGHT_TEXT = PUBLISHER__COPYRIGHT_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__COPYRIGHT_URL = PUBLISHER__COPYRIGHT_URL;
+
+	/**
+	 * The feature id for the '<em><b>License Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__LICENSE_TEXT = PUBLISHER__LICENSE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>License URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__LICENSE_URL = PUBLISHER__LICENSE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__RUNTIME_FILTER = PUBLISHER__RUNTIME_FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__WHEN_UNCONFIGURING = PUBLISHER__WHEN_UNCONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__NAME = PUBLISHER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__UNIT = PUBLISHER__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Provides</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__PROVIDES = PUBLISHER__PROVIDES;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__REQUIRES = PUBLISHER__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Ext Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER__EXT_NATIVE_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Native Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.Native <em>Native</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.Native
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getNative()
+	 * @generated
+	 */
+	int NATIVE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__NAME = PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__NAME_SPACE = PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__COND_EXPR = PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__VERSION = PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__FUNCTIONS = PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__BUILDERS = PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__DOCUMENTATION = PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__EXECUTION_MODE = PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__META_REQUIRED_CAPABILITIES = PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__IMPLEMENTS = PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__CONCERNS = PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__DEFAULT_PROPERTIES = PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__SYNCHRONIZATIONS = PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__REPOSITORIES = PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__CONTAINERS = PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__PROPERTY_SETS = PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__SOURCE_LOCATION = PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__OUTPUT_LOCATION = PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The number of structural features of the '<em>Native</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
@@ -3420,6 +4137,17 @@ public interface PublishPackage extends EPackage {
 	EClass getCSource();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.ExtNativeActions <em>Ext Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Ext Native Actions</em>'.
+	 * @see com.cloudsmith.publish.ExtNativeActions
+	 * @generated
+	 */
+	EClass getExtNativeActions();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.GEM <em>GEM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3463,6 +4191,17 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGEMPublisher_GemActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IExtNativeActions <em>IExt Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IExt Native Actions</em>'.
+	 * @see com.cloudsmith.publish.IExtNativeActions
+	 * @generated
+	 */
+	EClass getIExtNativeActions();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IGEMActions <em>IGEM Actions</em>}'.
@@ -3509,6 +4248,17 @@ public interface PublishPackage extends EPackage {
 	EClass getIRubyActions();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Native <em>Native</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Native</em>'.
+	 * @see com.cloudsmith.publish.Native
+	 * @generated
+	 */
+	EClass getNative();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3518,6 +4268,30 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNativeActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.NativePublisher <em>Native Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Native Publisher</em>'.
+	 * @see com.cloudsmith.publish.NativePublisher
+	 * @generated
+	 */
+	EClass getNativePublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.NativePublisher#getExtNativeActions
+	 * <em>Ext Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Ext Native Actions</em>'.
+	 * @see com.cloudsmith.publish.NativePublisher#getExtNativeActions()
+	 * @see #getNativePublisher()
+	 * @generated
+	 */
+	EReference getNativePublisher_ExtNativeActions();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.Publishable <em>Publishable</em>}'.

@@ -48,6 +48,9 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		o.setQualifiedName("com.cloudsmith.publish.CSource");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.Native");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.GEMPublisher");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
@@ -68,6 +71,9 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 
 		o.setQualifiedName("com.cloudsmith.publish.Publisher");
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+
+		o.setQualifiedName("com.cloudsmith.publish.NativePublisher");
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 
 		return result;

@@ -13,8 +13,8 @@
       eSuperTypes="#//Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeActions" eSuperTypes="#//ActionPackage #//INativeActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="IRPMActions" abstract="true" interface="true">
-    <eOperations name="installFromCSource" eType="#//PublisherAction"/>
-    <eOperations name="uninstallFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="installSRCRPM" eType="#//PublisherAction"/>
+    <eOperations name="uninstallSRCRPM" eType="#//PublisherAction"/>
     <eOperations name="installRPM" eType="#//PublisherAction"/>
     <eOperations name="uninstallRPM" eType="#//PublisherAction"/>
   </eClassifiers>
@@ -164,4 +164,15 @@
       eSuperTypes="#//Publishable"/>
   <eClassifiers xsi:type="ecore:EClass" name="CSource" abstract="true" interface="true"
       eSuperTypes="../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IExtNativeActions" abstract="true" interface="true">
+    <eOperations name="installFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="uninstallFromCSource" eType="#//PublisherAction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtNativeActions" eSuperTypes="#//ActionPackage #//IExtNativeActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NativePublisher" eSuperTypes="#//Publisher #//IExtNativeActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extNativeActions" eType="#//ExtNativeActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Native" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
 </ecore:EPackage>

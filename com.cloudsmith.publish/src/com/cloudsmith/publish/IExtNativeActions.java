@@ -14,15 +14,15 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>IRPM Actions</b></em>'.
+ * A representation of the model object '<em><b>IExt Native Actions</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getIRPMActions()
+ * @see com.cloudsmith.publish.PublishPackage#getIExtNativeActions()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IRPMActions extends EObject {
+public interface IExtNativeActions extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +30,7 @@ public interface IRPMActions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	PublisherAction installRPM();
+	PublisherAction installFromCSource();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,24 +39,6 @@ public interface IRPMActions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	PublisherAction installSRCRPM();
+	PublisherAction uninstallFromCSource();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	PublisherAction uninstallRPM();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	PublisherAction uninstallSRCRPM();
-
-} // IRPMActions
+} // IExtNativeActions

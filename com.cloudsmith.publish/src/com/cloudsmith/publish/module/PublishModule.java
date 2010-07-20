@@ -2,9 +2,11 @@ package com.cloudsmith.publish.module;
 
 import org.eclipse.emf.ecore.EClass;
 
+import com.cloudsmith.publish.ExtNativeActions;
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
 import com.cloudsmith.publish.NativeActions;
+import com.cloudsmith.publish.NativePublisher;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publisher;
 import com.cloudsmith.publish.RPMActions;
@@ -16,6 +18,11 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 
 public class PublishModule extends AbstractModule {
+	protected void bindExtNativeActions() {
+		bind(ExtNativeActions.class).toProvider(
+			publishModelProvider(ExtNativeActions.class, PublishPackage.Literals.EXT_NATIVE_ACTIONS));
+	}
+
 	protected void bindGEMActions() {
 		bind(GEMActions.class).toProvider(publishModelProvider(GEMActions.class, PublishPackage.Literals.GEM_ACTIONS));
 	}
@@ -28,6 +35,11 @@ public class PublishModule extends AbstractModule {
 	protected void bindNativeActions() {
 		bind(NativeActions.class).toProvider(
 			publishModelProvider(NativeActions.class, PublishPackage.Literals.NATIVE_ACTIONS));
+	}
+
+	protected void bindNativePublisher() {
+		bind(NativePublisher.class).toProvider(
+			publishModelProvider(NativePublisher.class, PublishPackage.Literals.NATIVE_PUBLISHER));
 	}
 
 	protected void bindPublisher() {
@@ -66,6 +78,9 @@ public class PublishModule extends AbstractModule {
 
 		bindNativeActions();
 		bindPublisher();
+
+		bindExtNativeActions();
+		bindNativePublisher();
 
 		bindRepositoryPublisher();
 

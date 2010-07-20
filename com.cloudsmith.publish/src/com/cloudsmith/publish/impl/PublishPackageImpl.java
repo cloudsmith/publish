@@ -23,13 +23,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import com.cloudsmith.publish.ActionPackage;
 import com.cloudsmith.publish.ActionParameter;
 import com.cloudsmith.publish.CSource;
+import com.cloudsmith.publish.ExtNativeActions;
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
+import com.cloudsmith.publish.IExtNativeActions;
 import com.cloudsmith.publish.IGEMActions;
 import com.cloudsmith.publish.INativeActions;
 import com.cloudsmith.publish.IRPMActions;
 import com.cloudsmith.publish.IRubyActions;
+import com.cloudsmith.publish.Native;
 import com.cloudsmith.publish.NativeActions;
+import com.cloudsmith.publish.NativePublisher;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publishable;
@@ -233,6 +237,38 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	private EClass iExtNativeActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass extNativeActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass nativePublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass nativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -398,6 +434,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		rubyRuntimeEClass = createEClass(RUBY_RUNTIME);
 
 		cSourceEClass = createEClass(CSOURCE);
+
+		iExtNativeActionsEClass = createEClass(IEXT_NATIVE_ACTIONS);
+
+		extNativeActionsEClass = createEClass(EXT_NATIVE_ACTIONS);
+
+		nativePublisherEClass = createEClass(NATIVE_PUBLISHER);
+		createEReference(nativePublisherEClass, NATIVE_PUBLISHER__EXT_NATIVE_ACTIONS);
+
+		nativeEClass = createEClass(NATIVE);
 	}
 
 	/**
@@ -476,6 +521,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getExtNativeActions() {
+		return extNativeActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getGEM() {
 		return gemEClass;
 	}
@@ -508,6 +563,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EReference getGEMPublisher_GemActions() {
 		return (EReference) gemPublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIExtNativeActions() {
+		return iExtNativeActionsEClass;
 	}
 
 	/**
@@ -556,8 +621,38 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getNative() {
+		return nativeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getNativeActions() {
 		return nativeActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getNativePublisher() {
+		return nativePublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getNativePublisher_ExtNativeActions() {
+		return (EReference) nativePublisherEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -998,6 +1093,11 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		rubyActionsEClass.getESuperTypes().add(this.getIRubyActions());
 		rubyRuntimeEClass.getESuperTypes().add(this.getPublishable());
 		cSourceEClass.getESuperTypes().add(theB3BuildPackage.getBuildUnit());
+		extNativeActionsEClass.getESuperTypes().add(this.getActionPackage());
+		extNativeActionsEClass.getESuperTypes().add(this.getIExtNativeActions());
+		nativePublisherEClass.getESuperTypes().add(this.getPublisher());
+		nativePublisherEClass.getESuperTypes().add(this.getIExtNativeActions());
+		nativeEClass.getESuperTypes().add(this.getPublishable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1018,9 +1118,9 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			irpmActionsEClass, IRPMActions.class, "IRPMActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installSRCRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(irpmActionsEClass, this.getPublisherAction(), "uninstallSRCRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(irpmActionsEClass, this.getPublisherAction(), "installRPM", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1275,6 +1375,30 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			rubyRuntimeEClass, RubyRuntime.class, "RubyRuntime", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cSourceEClass, CSource.class, "CSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			iExtNativeActionsEClass, IExtNativeActions.class, "IExtNativeActions", IS_ABSTRACT, IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(
+			iExtNativeActionsEClass, this.getPublisherAction(), "installFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			iExtNativeActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			extNativeActionsEClass, ExtNativeActions.class, "ExtNativeActions", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			nativePublisherEClass, NativePublisher.class, "NativePublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getNativePublisher_ExtNativeActions(), this.getExtNativeActions(), null, "extNativeActions", null, 0, 1,
+			NativePublisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nativeEClass, Native.class, "Native", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

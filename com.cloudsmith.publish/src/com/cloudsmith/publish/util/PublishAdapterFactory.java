@@ -86,6 +86,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseExtNativeActions(ExtNativeActions object) {
+			return createExtNativeActionsAdapter();
+		}
+
+		@Override
 		public Adapter caseGEM(GEM object) {
 			return createGEMAdapter();
 		}
@@ -98,6 +103,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseGEMPublisher(GEMPublisher object) {
 			return createGEMPublisherAdapter();
+		}
+
+		@Override
+		public Adapter caseIExtNativeActions(IExtNativeActions object) {
+			return createIExtNativeActionsAdapter();
 		}
 
 		@Override
@@ -136,8 +146,18 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseNative(Native object) {
+			return createNativeAdapter();
+		}
+
+		@Override
 		public Adapter caseNativeActions(NativeActions object) {
 			return createNativeActionsAdapter();
+		}
+
+		@Override
+		public Adapter caseNativePublisher(NativePublisher object) {
+			return createNativePublisherAdapter();
 		}
 
 		@Override
@@ -339,6 +359,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.ExtNativeActions <em>Ext Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.ExtNativeActions
+	 * @generated
+	 */
+	public Adapter createExtNativeActionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.GEMActions <em>GEM Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -380,6 +415,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGEMPublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IExtNativeActions <em>IExt Native Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.IExtNativeActions
+	 * @generated
+	 */
+	public Adapter createIExtNativeActionsAdapter() {
 		return null;
 	}
 
@@ -502,6 +552,36 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNativeActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Native <em>Native</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Native
+	 * @generated
+	 */
+	public Adapter createNativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.NativePublisher <em>Native Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.NativePublisher
+	 * @generated
+	 */
+	public Adapter createNativePublisherAdapter() {
 		return null;
 	}
 

@@ -12,43 +12,51 @@ package com.cloudsmith.publish.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import com.cloudsmith.publish.ExtNativeActions;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.PublisherAction;
-import com.cloudsmith.publish.RPMActions;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>RPM Actions</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Ext Native Actions</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
  * @generated
  */
-public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
-	public static final String INTERNAL_NAME = "com.cloudsmith.touchpoint.rpm";
+public class ExtNativeActionsImpl extends ActionPackageImpl implements ExtNativeActions {
 
 	// http://bugzilla.cloudsmith.com/show_bug.cgi?id=904
 	public static final String NAME = "";
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected RPMActionsImpl() {
+	protected ExtNativeActionsImpl() {
 		super();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RPM_ACTIONS;
+		return PublishPackage.Literals.EXT_NATIVE_ACTIONS;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.cloudsmith.publish.impl.ActionPackageImpl#getName()
+	 */
 	@Override
 	public String getName() {
 		return NAME;
@@ -60,22 +68,9 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction installRPM() {
+	public PublisherAction installFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("installRPM");
-
-		a.setActionPackage(this);
-		return a;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public PublisherAction installSRCRPM() {
-		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("installSRCRPM");
+		a.setName("installFromCSource");
 
 		a.setActionPackage(this);
 		return a;
@@ -87,24 +82,12 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 	 * 
 	 * @generated NOT
 	 */
-	public PublisherAction uninstallRPM() {
+	public PublisherAction uninstallFromCSource() {
 		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("uninstallRPM");
+		a.setName("uninstallFromCSource");
 
 		a.setActionPackage(this);
 		return a;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public PublisherAction uninstallSRCRPM() {
-		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("uninstallSRCRPM");
-
-		a.setActionPackage(this);
-		return a;
-	}
-} // RPMActionsImpl
+} // ExtNativeActionsImpl

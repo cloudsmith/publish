@@ -102,6 +102,10 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 				return createRubyPublisher();
 			case PublishPackage.RUBY_ACTIONS:
 				return createRubyActions();
+			case PublishPackage.EXT_NATIVE_ACTIONS:
+				return createExtNativeActions();
+			case PublishPackage.NATIVE_PUBLISHER:
+				return createNativePublisher();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,6 +120,17 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public ActionParameter createActionParameter() {
 		ActionParameterImpl actionParameter = new ActionParameterImpl();
 		return actionParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ExtNativeActions createExtNativeActions() {
+		ExtNativeActionsImpl extNativeActions = new ExtNativeActionsImpl();
+		return extNativeActions;
 	}
 
 	/**
@@ -149,6 +164,17 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public NativeActions createNativeActions() {
 		NativeActionsImpl nativeActions = new NativeActionsImpl();
 		return nativeActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NativePublisher createNativePublisher() {
+		NativePublisherImpl nativePublisher = new NativePublisherImpl();
+		return nativePublisher;
 	}
 
 	/**

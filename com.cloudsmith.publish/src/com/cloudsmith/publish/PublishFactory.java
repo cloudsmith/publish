@@ -42,6 +42,16 @@ public interface PublishFactory extends EFactory {
 	ActionParameter createActionParameter();
 
 	/**
+	 * Returns a new object of class '<em>Ext Native Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Ext Native Actions</em>'.
+	 * @generated
+	 */
+	ExtNativeActions createExtNativeActions();
+
+	/**
 	 * Returns a new object of class '<em>GEM Actions</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,6 +80,16 @@ public interface PublishFactory extends EFactory {
 	 * @generated
 	 */
 	NativeActions createNativeActions();
+
+	/**
+	 * Returns a new object of class '<em>Native Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Native Publisher</em>'.
+	 * @generated
+	 */
+	NativePublisher createNativePublisher();
 
 	/**
 	 * Returns a new object of class '<em>Publisher</em>'.

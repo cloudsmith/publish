@@ -165,6 +165,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ext Native Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ext Native Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtNativeActions(ExtNativeActions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>GEM</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -212,6 +229,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseGEMPublisher(GEMPublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IExt Native Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IExt Native Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIExtNativeActions(IExtNativeActions object) {
 		return null;
 	}
 
@@ -335,6 +369,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Native</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Native</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNative(Native object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Native Actions</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -348,6 +399,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseNativeActions(NativeActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Native Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Native Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNativePublisher(NativePublisher object) {
 		return null;
 	}
 
@@ -892,6 +960,60 @@ public class PublishSwitch<T> {
 					result = caseCapability(cSource);
 				if(result == null)
 					result = caseINamedValue(cSource);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.IEXT_NATIVE_ACTIONS: {
+				IExtNativeActions iExtNativeActions = (IExtNativeActions) theEObject;
+				T result = caseIExtNativeActions(iExtNativeActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.EXT_NATIVE_ACTIONS: {
+				ExtNativeActions extNativeActions = (ExtNativeActions) theEObject;
+				T result = caseExtNativeActions(extNativeActions);
+				if(result == null)
+					result = caseActionPackage(extNativeActions);
+				if(result == null)
+					result = caseIExtNativeActions(extNativeActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.NATIVE_PUBLISHER: {
+				NativePublisher nativePublisher = (NativePublisher) theEObject;
+				T result = caseNativePublisher(nativePublisher);
+				if(result == null)
+					result = casePublisher(nativePublisher);
+				if(result == null)
+					result = caseIExtNativeActions(nativePublisher);
+				if(result == null)
+					result = caseINativeActions(nativePublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.NATIVE: {
+				Native native_ = (Native) theEObject;
+				T result = caseNative(native_);
+				if(result == null)
+					result = casePublishable(native_);
+				if(result == null)
+					result = caseBuildUnit(native_);
+				if(result == null)
+					result = caseVersionedCapability(native_);
+				if(result == null)
+					result = caseBFunctionContainer(native_);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(native_);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(native_);
+				if(result == null)
+					result = caseCapability(native_);
+				if(result == null)
+					result = caseINamedValue(native_);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
