@@ -29,14 +29,7 @@
        point="org.eclipse.ui.handlers">
     <handler
           class="com.cloudsmith.publish.ui.commands.GenerateRepositoriesHandler"
-          commandId="com.cloudsmith.publish.ui.generateRepositories">
-                    <visibleWhen
-                checkEnabled="false">
-			    <with variable="activeEditorId">
-			        <equals value="org.eclipse.b3.BeeLang"/>
-			    </with>
-              </visibleWhen>
-          
+          commandId="com.cloudsmith.publish.ui.generateRepositories">          
     </handler>
  </extension>
  <extension
