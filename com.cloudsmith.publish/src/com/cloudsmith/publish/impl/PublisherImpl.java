@@ -16,8 +16,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.backend.core.B3OutputLocationProvider;
-import org.eclipse.b3.backend.evaluator.B3ContextAccess;
+import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.runtime.B3OutputLocationProvider;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.BuildSet;

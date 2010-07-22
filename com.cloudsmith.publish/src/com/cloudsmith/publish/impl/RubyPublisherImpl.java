@@ -10,9 +10,9 @@
  */
 package com.cloudsmith.publish.impl;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3NoSuchVariableException;
-import org.eclipse.b3.backend.evaluator.B3ContextAccess;
+import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
