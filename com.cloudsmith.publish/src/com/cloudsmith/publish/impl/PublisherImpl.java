@@ -429,6 +429,15 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 */
 	protected NativeActions nativeActions;
 
+	private static final String[] p2Schemes = new String[] { "http", "https", "file", "ftp", "ftps" };
+
+	protected static boolean isP2ArtifactScheme(String scheme) {
+		for(int i = 0; i < p2Schemes.length; i++)
+			if(p2Schemes[i].equals(scheme))
+				return true;
+		return false;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,6 +496,16 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 */
 	public PublisherAction cleanupCopy(String source, String target) {
 		return getNativeActions().cleanupCopy(source, target);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction cleanupFetch(String uri) {
+		return getNativeActions().cleanupFetch(uri);
 	}
 
 	/**
@@ -816,6 +835,26 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction exec(String... cmd) {
+		return getNativeActions().exec(cmd);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction fetch(String uri) {
+		return getNativeActions().fetch(uri);
 	}
 
 	private void generateInstructions(P2Factory p2Factory, EMap<String, ITouchpointInstruction> tpdm, String key,
@@ -1518,14 +1557,23 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 		// ARTIFACTS
 		ArtifactKeyImpl ak = null;
-		if(unit.getSourceLocation() != null && !"resource".equals(unit.getSourceLocation().getScheme())) {
-			ak = (ArtifactKeyImpl) p2Factory.createArtifactKey();
-			ak.setClassifier("blob");
-			ak.setId(unit.getName());
-			ak.setVersion(unit.getVersion());
+		if(unit.getSourceLocation() != null) {
+			if(isP2ArtifactScheme(unit.getSourceLocation().getScheme())) {
 
-			// add a copy since we need the object once more in the artifact repository
-			iu.getArtifacts().add(EcoreUtil.copy(ak));
+				ak = (ArtifactKeyImpl) p2Factory.createArtifactKey();
+				ak.setClassifier("blob");
+				ak.setId(unit.getName());
+				ak.setVersion(unit.getVersion());
+
+				// add a copy since we need the object once more in the artifact repository
+				iu.getArtifacts().add(EcoreUtil.copy(ak));
+			}
+			else {
+				// add fetch instruction first among install instructions
+				getWhenInstalling().add(0, fetch(unit.getSourceLocation().toString()));
+				// add cleanup fetch instruction last when un-installing
+				getWhenUninstalling().add(cleanupFetch(unit.getSourceLocation().toString()));
+			}
 		}
 
 		if(iu.getTouchpointType() != ITouchpointType.NONE) {
@@ -1587,5 +1635,4 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-
 } // PublisherImpl

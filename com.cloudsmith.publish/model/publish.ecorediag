@@ -191,7 +191,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_pTtSg4X-Ed-vP7bE7skxjw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="publish.ecore#//INativeActions"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pTtShIX-Ed-vP7bE7skxjw" x="351" y="27"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pTtShIX-Ed-vP7bE7skxjw" x="351"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_iBdSMIbVEd-7tJc5lBlYTA" type="1001">
       <children xmi:type="notation:Node" xmi:id="_iBdSMYbVEd-7tJc5lBlYTA" type="4001"/>

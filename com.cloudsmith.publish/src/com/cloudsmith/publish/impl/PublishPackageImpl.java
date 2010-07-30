@@ -1298,6 +1298,15 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		addEParameter(op, ecorePackage.getEString(), "permissions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "options", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "fetch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "cleanupFetch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iNativeActionsEClass, this.getPublisherAction(), "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3backendPackage.getStringArray(), "cmd", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
 			rpmActionsEClass, RPMActions.class, "RPMActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1387,16 +1396,6 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		addEOperation(
 			iExtNativeActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(iExtNativeActionsEClass, this.getPublisherAction(), "fetch", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
-			iExtNativeActionsEClass, this.getPublisherAction(), "cleanupFetch", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(iExtNativeActionsEClass, this.getPublisherAction(), "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3backendPackage.getStringArray(), "cmd", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			extNativeActionsEClass, ExtNativeActions.class, "ExtNativeActions", !IS_ABSTRACT, !IS_INTERFACE,

@@ -23,32 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface IExtNativeActions extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	PublisherAction cleanupFetch(String uri);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model cmdDataType="org.eclipse.b3.backend.evaluator.b3backend.StringArray"
-	 * @generated NOT
-	 */
-	PublisherAction exec(String... cmd);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	PublisherAction fetch(String uri);
 
 	/**
 	 * <!-- begin-user-doc -->
