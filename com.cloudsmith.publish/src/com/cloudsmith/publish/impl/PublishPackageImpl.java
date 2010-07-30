@@ -46,6 +46,7 @@ import com.cloudsmith.publish.RepositoryPublisher;
 import com.cloudsmith.publish.RubyActions;
 import com.cloudsmith.publish.RubyPublisher;
 import com.cloudsmith.publish.RubyRuntime;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -1066,6 +1067,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		// Obtain other dependent packages
 		B3BuildPackage theB3BuildPackage = (B3BuildPackage) EPackage.Registry.INSTANCE.getEPackage(B3BuildPackage.eNS_URI);
 		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
+		B3backendPackage theB3backendPackage = (B3backendPackage) EPackage.Registry.INSTANCE.getEPackage(B3backendPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1385,6 +1387,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		addEOperation(
 			iExtNativeActionsEClass, this.getPublisherAction(), "uninstallFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iExtNativeActionsEClass, this.getPublisherAction(), "fetch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			iExtNativeActionsEClass, this.getPublisherAction(), "cleanupFetch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "uri", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iExtNativeActionsEClass, this.getPublisherAction(), "exec", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3backendPackage.getStringArray(), "cmd", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			extNativeActionsEClass, ExtNativeActions.class, "ExtNativeActions", !IS_ABSTRACT, !IS_INTERFACE,

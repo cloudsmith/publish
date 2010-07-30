@@ -744,6 +744,17 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.PUBLISHER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.PUBLISHER__ID:
@@ -805,6 +816,41 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	private void generateInstructions(P2Factory p2Factory, EMap<String, ITouchpointInstruction> tpdm, String key,
+			EList<PublisherAction> actions) {
+		StringBuilder body = new StringBuilder();
+		boolean firstAction = true;
+
+		for(PublisherAction action : actions) {
+			if(firstAction)
+				firstAction = false;
+			else
+				body.append(';');
+
+			body.append(action.getQualifiedName());
+			body.append('(');
+			if(action.getParameters().size() > 0) {
+				boolean firstParam = true;
+				for(ActionParameter param : action.getParameters()) {
+					if(firstParam)
+						firstParam = false;
+					else
+						body.append(',');
+					body.append(param.getName());
+					body.append(':');
+					body.append(param.getValue());
+				}
+			}
+			body.append(')');
+		}
+
+		if(actions.size() > 0) {
+			TouchpointInstructionImpl instr = (TouchpointInstructionImpl) p2Factory.createTouchpointInstruction();
+			instr.setBody(body.toString());
+			tpdm.put(key, instr);
+		}
 	}
 
 	/**
@@ -1122,6 +1168,48 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets values from unit (if not already set).
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void setDefaultsFromUnit(BuildUnit unit) throws Throwable {
+		BExecutionContext ctx = B3ContextAccess.get();
+		EffectiveUnitFacade facade = unit.getEffectiveFacade(ctx);
+
+		// set defaults from the unit
+		setUnit(unit);
+
+		if(getVersion() == null)
+			setVersion(unit.getVersion());
+
+		// ID is name in p2 namespace, "name" is a property on an IU for "human readable"
+		if(getId() == null)
+			setId(unit.getName());
+
+		// Not needed, this is a property see cs issue #903
+		if(getName() == null) {
+			setName(unit.getName());
+		}
+		// REMEMBER: Modify requirements from UNIT to IU when creating IU metadata
+		if(getMetaRequires().size() == 0) {
+			for(EffectiveRequirementFacade effective : facade.getMetaRequiredCapabilities())
+				getMetaRequires().add(effective.getRequirement());
+		}
+
+		if(getRequires().size() == 0) {
+			for(EffectiveRequirementFacade effective : facade.getRequiredCapabilities())
+				getRequires().add(effective.getRequirement());
+		}
+		if(getProvides().size() == 0) {
+			for(EffectiveCapabilityFacade effective : facade.getProvidedCapabilities())
+				getProvides().add(effective.getProvidedCapability());
+		}
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1277,6 +1365,19 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Transforms a UNIT namespace to IIinstallableUnit.NAMESPECE_IU_ID and returns all others
+	 * verbatim.
+	 * 
+	 * @param namespace
+	 * @return
+	 */
+	protected String transformUnitNamespace(String namespace) {
+		if(B3BuildConstants.B3_NS_BUILDUNIT.equals(namespace))
+			return IInstallableUnit.NAMESPACE_IU_ID;
+		return namespace;
 	}
 
 	/**
@@ -1485,107 +1586,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Sets values from unit (if not already set).
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void setDefaultsFromUnit(BuildUnit unit) throws Throwable {
-		BExecutionContext ctx = B3ContextAccess.get();
-		EffectiveUnitFacade facade = unit.getEffectiveFacade(ctx);
-
-		// set defaults from the unit
-		setUnit(unit);
-
-		if(getVersion() == null)
-			setVersion(unit.getVersion());
-
-		// ID is name in p2 namespace, "name" is a property on an IU for "human readable"
-		if(getId() == null)
-			setId(unit.getName());
-
-		// Not needed, this is a property see cs issue #903
-		if(getName() == null) {
-			setName(unit.getName());
-		}
-		// REMEMBER: Modify requirements from UNIT to IU when creating IU metadata
-		if(getMetaRequires().size() == 0) {
-			for(EffectiveRequirementFacade effective : facade.getMetaRequiredCapabilities())
-				getMetaRequires().add(effective.getRequirement());
-		}
-
-		if(getRequires().size() == 0) {
-			for(EffectiveRequirementFacade effective : facade.getRequiredCapabilities())
-				getRequires().add(effective.getRequirement());
-		}
-		if(getProvides().size() == 0) {
-			for(EffectiveCapabilityFacade effective : facade.getProvidedCapabilities())
-				getProvides().add(effective.getProvidedCapability());
-		}
-
-	}
-
-	/**
-	 * Transforms a UNIT namespace to IIinstallableUnit.NAMESPECE_IU_ID and returns all others
-	 * verbatim.
-	 * 
-	 * @param namespace
-	 * @return
-	 */
-	protected String transformUnitNamespace(String namespace) {
-		if(B3BuildConstants.B3_NS_BUILDUNIT.equals(namespace))
-			return IInstallableUnit.NAMESPACE_IU_ID;
-		return namespace;
-	}
-
-	private void generateInstructions(P2Factory p2Factory, EMap<String, ITouchpointInstruction> tpdm, String key,
-			EList<PublisherAction> actions) {
-		StringBuilder body = new StringBuilder();
-		boolean firstAction = true;
-
-		for(PublisherAction action : actions) {
-			if(firstAction)
-				firstAction = false;
-			else
-				body.append(';');
-
-			body.append(action.getQualifiedName());
-			body.append('(');
-			if(action.getParameters().size() > 0) {
-				boolean firstParam = true;
-				for(ActionParameter param : action.getParameters()) {
-					if(firstParam)
-						firstParam = false;
-					else
-						body.append(',');
-					body.append(param.getName());
-					body.append(':');
-					body.append(param.getValue());
-				}
-			}
-			body.append(')');
-		}
-
-		if(actions.size() > 0) {
-			TouchpointInstructionImpl instr = (TouchpointInstructionImpl) p2Factory.createTouchpointInstruction();
-			instr.setBody(body.toString());
-			tpdm.put(key, instr);
-		}
 	}
 
 } // PublisherImpl

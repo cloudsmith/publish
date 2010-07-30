@@ -86,6 +86,16 @@ public class NativePublisherImpl extends PublisherImpl implements NativePublishe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction cleanupFetch(String uri) {
+		return getExtNativeActions().cleanupFetch(uri);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -168,6 +178,26 @@ public class NativePublisherImpl extends PublisherImpl implements NativePublishe
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction exec(String... cmd) {
+		return getExtNativeActions().exec(cmd);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction fetch(String uri) {
+		return getExtNativeActions().fetch(uri);
 	}
 
 	/**

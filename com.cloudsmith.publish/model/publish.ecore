@@ -167,6 +167,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="IExtNativeActions" abstract="true" interface="true">
     <eOperations name="installFromCSource" eType="#//PublisherAction"/>
     <eOperations name="uninstallFromCSource" eType="#//PublisherAction"/>
+    <eOperations name="fetch" eType="#//PublisherAction">
+      <eParameters name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="cleanupFetch" eType="#//PublisherAction">
+      <eParameters name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="exec" eType="#//PublisherAction">
+      <eParameters name="cmd" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//StringArray"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtNativeActions" eSuperTypes="#//ActionPackage #//IExtNativeActions"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativePublisher" eSuperTypes="#//Publisher #//IExtNativeActions">
