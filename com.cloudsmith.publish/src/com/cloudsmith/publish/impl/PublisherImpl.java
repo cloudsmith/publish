@@ -26,10 +26,12 @@ import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.EffectiveUnitFacade;
+import org.eclipse.b3.build.FragmentHost;
 import org.eclipse.b3.build.PathVector;
 import org.eclipse.b3.build.RequiredCapability;
 import org.eclipse.b3.build.VersionedCapability;
 import org.eclipse.b3.build.core.B3BuildConstants;
+import org.eclipse.b3.p2.InstallableUnitFragment;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
 import org.eclipse.b3.p2.impl.ArtifactRepositoryImpl;
@@ -1468,8 +1470,15 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		// get the list to add the IU to
 		EList<IInstallableUnit> resultIUList = mdr.getInstallableUnits();
 
-		// create an IU
-		InstallableUnitImpl iu = (InstallableUnitImpl) p2Factory.createInstallableUnit();
+		// CREATE IU (regular or fragment)
+		InstallableUnitImpl iu = null;
+		if(unit.getFragmentHosts() == null || unit.getFragmentHosts().size() == 0)
+			iu = (InstallableUnitImpl) p2Factory.createInstallableUnit();
+		else
+			iu = (InstallableUnitImpl) p2Factory.createInstallableUnitFragment();
+		// InstallableUnitFragmentImpl iuFrag = (InstallableUnitFragmentImpl) p2Factory.createInstallableUnitFragment();
+		// iuFrag.getHost().addAll(c)
+
 		iu.setId(unit.getName());
 		resultIUList.add(iu);
 
@@ -1554,6 +1563,27 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				else
 					iuR.setRange(VersionRange.emptyRange);
 				iuRequirements.add(iuR);
+			}
+		}
+		// FRAGMENT
+		// If an IU fragment is created, add all defined host requirements (typically just one).
+		if(iu instanceof InstallableUnitFragment) {
+			final Collection<IRequirement> iuHost = ((InstallableUnitFragment) iu).getHost();
+			for(FragmentHost hosts : unit.getFragmentHosts()) {
+				for(RequiredCapability r : hosts.getHostRequirements()) {
+					org.eclipse.b3.p2.impl.RequiredCapabilityImpl iuR = (org.eclipse.b3.p2.impl.RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
+					iuR.setMin(r.getMin());
+					iuR.setMax(r.getMax());
+					iuR.setGreedy(r.isGreedy());
+					iuR.setName(r.getName());
+					iuR.setNamespace(transformUnitNamespace(r.getNameSpace()));
+					// iuR.setFilter(newFilter)
+					if(r.getVersionRange() != null)
+						iuR.setRange(r.getVersionRange());
+					else
+						iuR.setRange(VersionRange.emptyRange);
+					iuHost.add(iuR);
+				}
 			}
 		}
 

@@ -241,14 +241,13 @@ public class NativePublisherImpl extends PublisherImpl implements NativePublishe
 	public BuildSet write(BuildUnit unit) {
 
 		boolean isSource = ((unit instanceof CSource) || CSource.class.isAssignableFrom(BuildUnitUtils.getBuildUnitInterface(unit)));
-		// TODO: Add support for other forms (binary, installer driven etc.
-		if(!isSource)
-			throw new UnsupportedOperationException("Installing Native that is not 'is CSource' not yet supported.");
-		if(getWhenInstalling().size() == 0)
-			getWhenInstalling().add(installFromCSource());
-		if(getWhenUninstalling().size() == 0)
-			getWhenUninstalling().add(uninstallFromCSource());
-
+		// If Native is marked as CSource, add default actions
+		if(isSource) {
+			if(getWhenInstalling().size() == 0)
+				getWhenInstalling().add(installFromCSource());
+			if(getWhenUninstalling().size() == 0)
+				getWhenUninstalling().add(uninstallFromCSource());
+		}
 		return super.write(unit);
 	}
 } // NativePublisherImpl
