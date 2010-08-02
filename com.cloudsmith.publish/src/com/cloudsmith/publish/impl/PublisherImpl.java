@@ -1473,9 +1473,11 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		iu.setId(unit.getName());
 		resultIUList.add(iu);
 
-		// Single value featurues of IU
+		// Single value features of IU
 		// iu.setCopyright(ICopyright);
-		// iu.setFilter(IMatchExpression);
+		if(unit.getPlatformFilter() != null)
+			iu.setFilter(unit.getPlatformFilter());
+
 		iu.setSingleton(this.isSingleton());
 		ITouchpointType tpt;
 		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
