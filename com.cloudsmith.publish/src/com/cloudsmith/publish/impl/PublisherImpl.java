@@ -1488,18 +1488,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			iu.setFilter(unit.getPlatformFilter());
 
 		iu.setSingleton(this.isSingleton());
-		ITouchpointType tpt;
-		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
-				getWhenUnconfiguring().size() > 0) {
-			TouchpointTypeImpl tpti = (TouchpointTypeImpl) p2Factory.createTouchpointType();
-			tpti.setId("org.eclipse.equinox.p2.osgi");
-			tpti.setVersion(Version.create("1.0.0"));
-			tpt = tpti;
-		}
-		else
-			tpt = ITouchpointType.NONE;
 
-		iu.setTouchpointType(tpt);
 		// iu.setTouchpointTypeGen(newTouchpointType)
 		// iu.setUpdateDescriptor(IUpdateDescriptor);
 
@@ -1607,6 +1596,19 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				getWhenUninstalling().add(cleanupFetch(unit.getSourceLocation().toString()));
 			}
 		}
+
+		ITouchpointType tpt;
+		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
+				getWhenUnconfiguring().size() > 0) {
+			TouchpointTypeImpl tpti = (TouchpointTypeImpl) p2Factory.createTouchpointType();
+			tpti.setId("org.eclipse.equinox.p2.osgi");
+			tpti.setVersion(Version.create("1.0.0"));
+			tpt = tpti;
+		}
+		else
+			tpt = ITouchpointType.NONE;
+
+		iu.setTouchpointType(tpt);
 
 		if(iu.getTouchpointType() != ITouchpointType.NONE) {
 			List<ITouchpointData> tpd = iu.getTouchpointData();
