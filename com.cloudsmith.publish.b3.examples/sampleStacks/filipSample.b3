@@ -3,7 +3,7 @@ unit 'RepoWithFragment' version 1.0.0 is RepositoryDefinition {
 }
 
 unit "org.eclipse.buckminster" version 1.0.0.r10554 is Native {
-	source : "svn://dev.eclipse.org/svnroot/tools/org.eclipse.buckminster/trunk/org.eclipse.buckminster,revision:10554,path:/opt/org.eclipse.buckminster";
+	source : "svn://dev.eclipse.org/svnroot/tools/org.eclipse.buckminster/trunk/org.eclipse.buckminster?revision=10554&path=/opt/org.eclipse.buckminster";
 }
 
 unit "org.eclipse.buckminster.configuration" version 1.0.0.r10554 is Native {
