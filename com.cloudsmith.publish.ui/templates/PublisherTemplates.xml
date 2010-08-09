@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+<template id="GEMdefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a GEM definition unit" enabled="true" name="GEMDefinition">unit ${gemName} version gem:${gemVersion} is GEM;
+${cursor}</template>
+<template id="NativeCSourceDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a Native, CSource definition unit" enabled="true" name="NativeCSourceDefinition">unit ${componentName} version rpm:${componentVersion} is Native, CSource {
+	source : "${sourceURI}" ;
+} 
+${cursor}</template>
+<template id="RepositoryDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a repository definition unit" enabled="true" name="RepositoryDefinition">unit ${repositoryName} version ${repositoryVersion} is RepositoryDefinition {
+}
+${cursor}</template>
+<template id="RPMDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a RPM definition unit" enabled="true" name="RPMDefinition">unit ${rpmName} version rpm:${rpmVersion} is RPM {
+	source : "${rpmURI}" ;
+} 
+${cursor}</template>
+<template id="RubyRuntimeDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a Ruby Runtime Definition" enabled="true" name="RubyRuntimeDefinition">unit ${componentName} version rpm:${componentVersion} is RubyRuntime, CSource {
+	source : "${sourceURI}" ;
+	${cursor}
+} 
+</template>
+<template id="RubyWebServerDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.PropertySetDefault" deleted="false" description="Definition of Ruby Runtime Web Server Integration" enabled="true" name="RubyWebServerDefinition">default-properties {
+	// Set webServer to "nginx" or "apache"
+	$${com.cloudsmith.stack.runtime.ruby.webserver} = "${webServer}"; 
+} </template>
+</templates>

@@ -38,5 +38,28 @@
           moduleClass="com.cloudsmith.publish.ui.module.PublishUiModule">
     </module>
  </extension>
+ <extension
+       point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+    <category
+          id="com.cloudsmith.publish.PublishCategory"
+          name="Cloudsmith Publisher">
+    </category>
+    <cheatsheet
+          category="com.cloudsmith.publish.PublishCategory"
+          composite="true"
+          contentFile="$nl$/cheatsheets/publishRepo.xml"
+          id="com.cloudsmith.publish.ui.cheatsheet.publishRepo"
+          name="Creating and Publishing a Repository">
+       <description>
+          Describes all the basic steps to publish a repository.
+       </description>
+    </cheatsheet>
+ </extension>
+ <extension
+       point="org.eclipse.b3.beelang.ui.B3Templates">
+    <templatesFile
+          file="templates/PublisherTemplates.xml">
+    </templatesFile>
+ </extension>
 
 </plugin>

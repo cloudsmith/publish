@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Create a new b3 file">
+   <intro>
+      <description>
+         This shows how to create a new file for a repository definition.
+      </description>
+   </intro>
+   <item
+         title="Select New &gt; xxx">
+      <description>
+         Description of &apos;Select New xxx&apos;
+      </description>
+   </item>
+</cheatsheet>
