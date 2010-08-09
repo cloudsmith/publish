@@ -53,7 +53,7 @@ public abstract class ActionPackageImpl extends EObjectImpl implements ActionPac
 	 */
 	protected static final String TOUCH_POINT_EDEFAULT = null;
 
-	public static final String DEFAULT_TOUCHPOINT = "org.eclipse.equinox.p2.osgi";
+	public static final String DEFAULT_TOUCHPOINT = "com.cloudsmith.p2.native";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,17 +63,6 @@ public abstract class ActionPackageImpl extends EObjectImpl implements ActionPac
 	 */
 	protected ActionPackageImpl() {
 		super();
-	}
-
-	protected void assertNotNull(String parameterName, Object value) {
-		if(value == null)
-			throw new IllegalArgumentException("The parameter " + parameterName + " can not be null.");
-	}
-
-	protected void assertNotNullOrEmpty(String parameterName, String value) {
-		assertNotNull(parameterName, value);
-		if(value.length() < 1)
-			throw new IllegalArgumentException("The parameter " + parameterName + " can not be an empty string.");
 	}
 
 	/**
@@ -118,17 +107,6 @@ public abstract class ActionPackageImpl extends EObjectImpl implements ActionPac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.ACTION_PACKAGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public abstract String getName();
@@ -141,6 +119,28 @@ public abstract class ActionPackageImpl extends EObjectImpl implements ActionPac
 	 */
 	public String getTouchPoint() {
 		return DEFAULT_TOUCHPOINT;
+	}
+
+	protected void assertNotNull(String parameterName, Object value) {
+		if(value == null)
+			throw new IllegalArgumentException("The parameter " + parameterName + " can not be null.");
+	}
+
+	protected void assertNotNullOrEmpty(String parameterName, String value) {
+		assertNotNull(parameterName, value);
+		if(value.length() < 1)
+			throw new IllegalArgumentException("The parameter " + parameterName + " can not be an empty string.");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.ACTION_PACKAGE;
 	}
 
 } // ActionPackageImpl
