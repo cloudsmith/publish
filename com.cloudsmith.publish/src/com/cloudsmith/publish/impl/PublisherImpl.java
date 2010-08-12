@@ -1489,10 +1489,17 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				iu.getArtifacts().add(EcoreUtil.copy(ak));
 			}
 			else {
-				// add fetch instruction first among install instructions
-				getWhenInstalling().add(0, fetch(unit.getSourceLocation().toString()));
-				// add cleanup fetch instruction last when un-installing
-				getWhenUninstalling().add(cleanupFetch(unit.getSourceLocation().toString()));
+				// filter out references to local files (as well as 'no reference' which seems to
+				// result in resource:/
+				// TODO: investigate why an empty sourceLocation results in this URI
+				// TODO: needs more checking for reasonable URI
+				//
+				if(!unit.getSourceLocation().getScheme().equals("resource")) {
+					// add fetch instruction first among install instructions
+					getWhenInstalling().add(0, fetch(unit.getSourceLocation().toString()));
+					// add cleanup fetch instruction last when un-installing
+					getWhenUninstalling().add(cleanupFetch(unit.getSourceLocation().toString()));
+				}
 			}
 		}
 
