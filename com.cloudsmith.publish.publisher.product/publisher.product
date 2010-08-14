@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Cloudsmith^Publisher" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="Cloudsmith Publisher" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="false">
+
 
    <configIni use="default">
    </configIni>
@@ -12,6 +13,11 @@
 
    <windowImages/>
 
+   <splash
+      location="com.cloudsmith.publish.publisher"
+      startupProgressRect="0,150,330,10"
+      startupMessageRect="7,130,330,20"
+      startupForegroundColor="CCCCCC" />
    <launcher name="publisher">
       <solaris/>
       <win useIco="false">
@@ -19,8 +25,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>

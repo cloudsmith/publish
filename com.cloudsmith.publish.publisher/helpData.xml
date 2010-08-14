@@ -1,0 +1,8 @@
+<extensions>
+ <tocOrder>
+  <toc id="/com.cloudsmith.publish.help/help/main-toc.xml"/>
+  <toc id="/com.cloudsmith.publish.help/help/publisher-toc.xml"/>
+  <toc id="/com.cloudsmith.publish.help/help/componentTypes-toc.xml"/>
+  <toc id="/com.cloudsmith.publish.help/help/versions-toc.xml"/>
+ </tocOrder>
+</extensions>

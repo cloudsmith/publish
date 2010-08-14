@@ -18,8 +18,10 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.ActionConstants;
+import com.cloudsmith.publish.publisher.IImageKeys;
 
 /**
  * Standard action for opening an editor on local file(s).
@@ -36,8 +38,15 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 	/**
 	 * Creates a new action for opening a local file.
 	 */
-	public OpenLocalb3FileAction() {
+	public OpenLocalb3FileAction(IWorkbenchWindow window) {
+		super("Open File...");
+		this.window = window;
 		setEnabled(true);
+		setId("publisher.openb3Files");
+		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.OPEN));
+
+		filterPath = System.getProperty("user.home"); //$NON-NLS-1$
 	}
 
 	/*

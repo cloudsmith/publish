@@ -1,6 +1,7 @@
 <project>
 	<import file="${buckminster.pdetasks}"/>
-	<property name="director.home" value="c:/tmp/Publisher/director"/>
+<!--	<property name="director.home" value="c:/tmp/Publisher/director"/> -->
+	<property name="director.home" value="/tmp/Publisher/director"/>
 
 	 <pathconvert property="equinox.launcher.jar">
 	   <first count="1">

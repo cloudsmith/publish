@@ -25,9 +25,11 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.ActionConstants;
 import com.cloudsmith.publish.publisher.Activator;
+import com.cloudsmith.publish.publisher.IImageKeys;
 
 public class Newb3FileAction extends Action implements IWorkbenchWindowActionDelegate {
 
@@ -62,6 +64,15 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 
 	private IWorkbenchWindow window;
 
+	public Newb3FileAction(IWorkbenchWindow window) {
+		super("New File");
+		this.window = window;
+		setEnabled(true);
+		setId("publisher.newb3File");
+		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.NEW));
+	}
+
 	public void dispose() {
 		window = null;
 	}
@@ -70,10 +81,12 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		this.window = window;
 	}
 
-	public void run(IAction action) {
+	@Override
+	public void run() {
 
 		File newFile = null;
 		try {
+			// TODO: This strategy creates horrible temp names that are visible
 			newFile = File.createTempFile("untitled", ".b3");
 		}
 		catch(IOException e) {
@@ -132,6 +145,10 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 				return;
 			}
 		}
+	}
+
+	public void run(IAction action) {
+		run();
 	}
 
 	public void selectionChanged(IAction action, ISelection selection) {
