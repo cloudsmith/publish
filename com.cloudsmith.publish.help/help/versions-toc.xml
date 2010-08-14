@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="help/versions.html" label="versions">
+	<topic href="help/versions.html" label="Versions">
+		<topic href="help/versions.html#Version_Formats" label="Version Formats">
+			<topic href="help/versions.html#The_OSGi_version_format" label="The OSGi version format"></topic>
+			<topic href="help/versions.html#The_triplet_version_format" label="The triplet version format"></topic>
+			<topic href="help/versions.html#The_tripletSnapshot_version_format" label="The tripletSnapshot version format"></topic>
+			<topic href="help/versions.html#The_rpm_version_format" label="The rpm version format"></topic>
+			<topic href="help/versions.html#The_auto_version_format" label="The auto version format"></topic>
+			<topic href="help/versions.html#The_string_version_format" label="The string version format"></topic>
+			<topic href="help/versions.html#The_gem_version_format" label="The gem version format"></topic>
+		</topic>
+		<topic href="help/versions.html#Version_Ranges" label="Version Ranges">
+			<topic href="help/versions.html#Inclusive_delimiter" label="Inclusive delimiter"></topic>
+			<topic href="help/versions.html#Exclusive_delimiter" label="Exclusive delimiter"></topic>
+			<topic href="help/versions.html#Open_ended_range" label="Open ended range"></topic>
+		</topic>
+		<topic href="help/versions.html#More_Information_about_OmniVersion" label="More Information about OmniVersion"></topic>
+	</topic>
+</toc>

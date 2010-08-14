@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.cloudsmith.publish.ui" default="default" basedir=".">
+    <description>
+            Build file that generates html and toc from *.mediawiki files using wiki text conversion.
+    </description>
+
+    <target name="default" depends="generate-help" description="description">        
+    </target>
+
+	<!-- <property name="wikitext.standalone" value=""/> 
+
+	<path id="wikitext.classpath">
+		<fileset dir="${wikitext.standalone}">
+			<include name="org.eclipse.mylyn.wikitext.*core*.jar"/>
+		</fileset>
+	</path> -->
+
+	<!--
+	<taskdef classpathref="wikitext.classpath" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties" />
+	-->
+	<target name="generate-help"  description="Generate Eclipse help from MediaWiki source">
+		<wikitext-to-eclipse-help markupLanguage="MediaWiki" 
+			multipleOutputFiles="true"
+			navigationImages="false"
+			helpPrefix="help">
+		<fileset file="${basedir}/help/versions.mediawiki">
+		</fileset>
+		</wikitext-to-eclipse-help>
+	</target>
+	</project>

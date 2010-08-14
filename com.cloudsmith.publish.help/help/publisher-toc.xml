@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="help/publisher.html" label="publisher">
+	<topic href="help/publisher.html" label="The Cloudsmith Publisher">
+		<topic href="help/publisher.html#Introduction" label="Introduction"></topic>
+	</topic>
+ <anchor id="com.cloudsmith.publish.AfterIntro"/>
+</toc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+       point="org.eclipse.help.toc">
+    <toc
+          file="help/main-toc.xml"
+          primary="true">
+    </toc>
+    <toc
+          file="help/publisher-toc.xml">
+    </toc>
+    <toc
+          file="help/versions-toc.xml">
+    </toc>
+    <toc
+          file="help/componentTypes-toc.xml">
+    </toc>
+ </extension>
+
+</plugin>

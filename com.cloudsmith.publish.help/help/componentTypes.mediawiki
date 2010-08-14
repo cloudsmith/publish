@@ -1,0 +1,88 @@
+=Component Types=
+The Cloudsmith Publisher is configured to handle publishing of a variety of component types.
+* Repository Definition
+* RPM
+* Native components
+* Component compiled from C-source
+* Component containing configuration of another component (called ''Fragment'')
+* Ruby Runtime
+* GEM
+
+==Repository Definition==
+A Repository Definition defines the name and version of the resulting repository. The name of the repository is used when creating the produced files and folders as well as serving as a label in some tools that can operate on the repository.
+The version of the repository is useful as it allows a particular version of the repository to be recognized.
+
+When the repository is generated, it will automatically include all other definitions in the same file, so there is very little to specify other than the name and the version. A specification may look like this:
+  unit MyRepository version 1.0.0 is RepositoryDefinition {
+  }
+
+There may only be one unit marked with "is RepositoryDefinition" in a file.
+
+As the repository definition is the root of what is being published, it is useful to declare default properties in this unit. Here is an example with a default property defined:
+ unit MyRepository version 1.0.0 is RepositoryDefinition {
+     default-properties {
+         ${com.cloudsmith.stack.runtime.ruby.webserver} = "nginx";
+     } 
+ } 
+
+==RPM Component Definition==
+A RPM definition is a specification of a component that will be installed in binary form using the Linux RPM mechanism.
+A unit representing a RPM is specified like in this example for a MySQL community server:
+ unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
+     source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-server-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
+ }
+
+Note that:
+* The name is quoted as the name contains special characters ('-' in this case).
+* The unit is marked with "is RPM" to indicate what this unit represents
+* the "source" has a URI referencing the location where the RPM can be downloaded.
+* As the RPM system will be used to install this component, specification of dependencies is not required, but may be used if so wanted.
+
+==Native Component Definition==
+A Native component is a specification of a component consisting of of one or more files. By default, the publishing system does not understand more about these files. They will simply be delivered by the installation mechanism. A Native component can however be combined with other declarations for some typical use cases - as explained later.
+
+==A Native Component Compiled from C Source==
+When a Native component is marked as also representing CSource, the component will be fetched and compiled when installed. The source location should be a reference to a single file containing all the source, or be a reference to a source code repository location being the root of the required source.
+
+Here is an example:
+ unit libevent version rpm:1.4.14a-stable is Native, CSource {
+    source : "http://www.monkey.org/~provos/libevent-1.4.14a-stable.tar.gz";
+ }
+
+== A Native Fragment Component==
+A fragment component is a specialized component that will be merged into a component referred to as the ''Fragment Host''. This is useful as the installation of a component may require a separate configuration script and the two parts taken together should be seen as the installation of one thing (as opposed to installing both the component and the installer of the component).
+
+A fragment is defined by declaring a Native component, and including a ''fragment-host'' specification as in this example:
+ unit MyComponentConfigurator version 1.0.0 is Native {
+     fragment-host : unit { 
+         name : "org.myorg.mycomponent";
+         version : 1.0.0; 
+     };
+     source : "...";
+ }
+
+
+==A Ruby Runtime Component==
+A Ruby Runtime component is used to represent a Ruby runtime. This component type can be combined with CSource if the runtime should be built from source. A RubyRuntime component has support for configuration of the runtime such as integration with a web server.
+
+Here is an example:
+ unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
+     requires : unit { name : "MySQL-devel-community"; version : rpm:5.1.48-1.rhel5.i386; };
+     source : "http://rubyforge.org/frs/download.php/71096/ruby-enterprise-1.8.7-2010.02.tar.gz";
+ }
+
+Note:
+* The requirement on a MySQL component (in this example expected to be declared in the same file)
+* The source is a reference to a downloadable source tarball
+
+==A GEM Component==
+A GEM component is used to represent a Ruby GEM. The GEM will be installed using the ruby gems system. A GEM definition will automatically generate a requirement that a Ruby Runtime must be present in the configuration.
+
+Here is an example of a GEM component:
+ unit logging version gem:1.2.3 is GEM;
+
+Note:
+* The gem: version scheme is used by most gems
+* Since the GEM is very simple, it does not need to have a body enclosed in { } and is instead terminated with a ;
+* A body, with requirements etc. can be added if needed for advanced cases.
+
