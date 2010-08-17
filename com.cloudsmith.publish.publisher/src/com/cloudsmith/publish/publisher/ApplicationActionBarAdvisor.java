@@ -225,8 +225,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 * Creates and returns the Edit menu.
 	 */
 	private MenuManager createEditMenu() {
-		MenuManager menu = new MenuManager(IDEWorkbenchMessages.Workbench_edit, IWorkbenchActionConstants.M_EDIT);
-		menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
+		MenuManager menu = new MenuManager(IDEWorkbenchMessages.Workbench_edit, "publisher.edit");
+		// menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
 
 		menu.add(undoAction);
 		menu.add(redoAction);
@@ -244,15 +244,15 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menu.add(new Separator());
 
 		menu.add(getFindItem());
-		menu.add(new GroupMarker(IWorkbenchActionConstants.FIND_EXT));
+		// menu.add(new GroupMarker(IWorkbenchActionConstants.FIND_EXT));
 		// menu.add(new Separator());
 		//
 		// menu.add(getBookmarkItem());
 		// menu.add(getTaskItem());
-		menu.add(new GroupMarker(IWorkbenchActionConstants.ADD_EXT));
+		// menu.add(new GroupMarker(IWorkbenchActionConstants.ADD_EXT));
 
-		menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_END));
-		menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		// menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_END));
+		// menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		return menu;
 	}
 
