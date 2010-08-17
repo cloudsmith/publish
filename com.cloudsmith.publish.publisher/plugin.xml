@@ -79,10 +79,10 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="com.cloudsmith.publish.publisher.application" name="Cloudsmith Publisher"
+            application="com.cloudsmith.publish.publisher.application" name="Repository Builder"
             >
          <property
-               name="appName" value="Cloudsmith Publisher">
+               name="appName" value="Repository Builder">
          </property>
          <property
                name="preferenceCustomization"

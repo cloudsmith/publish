@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Cloudsmith Publisher" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="false">
+<product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="false">
+
 
    <configIni use="default">
    </configIni>
@@ -21,8 +22,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
