@@ -18,4 +18,14 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		return PERSPECTIVE_ID;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.application.WorkbenchAdvisor#postStartup()
+	 */
+	@Override
+	public void postStartup() {
+		InitializePublisherJob job = new InitializePublisherJob();
+		job.schedule();
+	}
 }
