@@ -26,7 +26,7 @@
             locationURI="menu:publisher.file?after=additions">
          <command
                commandId="org.eclipse.b3.ui.run.b3cmd"
-               icon="icons/publish.gif"
+               icon="icons/publish_16.gif"
                label="Publish"
                style="push">
             <parameter
@@ -40,7 +40,7 @@
             locationURI="toolbar:publisher.toolbar?after=additions">
          <command
                commandId="org.eclipse.b3.ui.run.b3cmd"
-               icon="icons/publish.gif"
+               icon="icons/publish_32.gif"
                label="Publish"
                style="push">
             <parameter
@@ -87,6 +87,10 @@
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/repobuilder_16.gif,icons/repobuilder_32.gif,icons/repobuilder_48.gif,icons/repobuilder_64.gif,icons/repobuilder_128.gif">
          </property>
          <property
                name="aboutText"

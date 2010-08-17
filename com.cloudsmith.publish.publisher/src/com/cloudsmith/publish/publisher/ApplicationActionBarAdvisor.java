@@ -9,7 +9,9 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.Util;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -24,6 +26,7 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.provisional.application.IActionBarConfigurer2;
 import org.eclipse.ui.menus.CommandContributionItem;
 import org.eclipse.ui.menus.CommandContributionItemParameter;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.actions.Newb3FileAction;
 import com.cloudsmith.publish.publisher.actions.OpenLocalb3FileAction;
@@ -45,6 +48,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IWorkbenchAction saveAction;
 
+	private IWorkbenchAction saveToolbarAction;
+
 	private IWorkbenchAction saveAsAction;
 
 	private IWorkbenchAction saveAllAction;
@@ -63,7 +68,11 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IAction newFileAction;
 
+	private IAction newFileToolbarAction;
+
 	private IAction openFileAction;
+
+	private IAction openFileToolbarAction;
 
 	private Separator preferenceSeparator;
 
@@ -118,6 +127,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		isDisposed = true;
 		// set all actions and remembered menus to null
 		saveAction = null;
+		saveToolbarAction = null;
 		saveAsAction = null;
 		saveAllAction = null;
 		revertAction = null;
@@ -128,7 +138,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		closeAction = null;
 		closeAllAction = null;
 		newFileAction = null;
+		newFileToolbarAction = null;
 		openFileAction = null;
+		openFileToolbarAction = null;
 		preferenceSeparator = null;
 		preferencesActionItem = null;
 		quitActionItem = null;
@@ -157,10 +169,12 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	protected void fillCoolBar(ICoolBarManager coolBar) {
 		IActionBarConfigurer2 actionBarConfigurer = (IActionBarConfigurer2) getActionBarConfigurer();
 		IToolBarManager fileToolBar = actionBarConfigurer.createToolBarManager();
-		fileToolBar.add(newFileAction);
-		fileToolBar.add(openFileAction);
-		fileToolBar.add(saveAction);
+
+		fileToolBar.add(newFileToolbarAction);
+		fileToolBar.add(openFileToolbarAction);
+		fileToolBar.add(saveToolbarAction);
 		fileToolBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
+
 		coolBar.add(actionBarConfigurer.createToolBarContributionItem(fileToolBar, "publisher.toolbar"));
 
 	}
@@ -187,6 +201,11 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 		// standard actions
 		register(saveAction = ActionFactory.SAVE.create(window));
+		register(saveToolbarAction = ActionFactory.SAVE.create(window));
+
+		saveToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
+
 		register(saveAsAction = ActionFactory.SAVE_AS.create(window));
 		register(saveAllAction = ActionFactory.SAVE_ALL.create(window));
 		register(aboutAction = ActionFactory.ABOUT.create(window));
@@ -215,10 +234,18 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 		// application specific actions
 		register(newFileAction = new Newb3FileAction(window));
+		register(newFileToolbarAction = new Newb3FileAction(window));
+
+		newFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.NEW_32));
+
 		register(openFileAction = new OpenLocalb3FileAction(window));
+		register(openFileToolbarAction = new OpenLocalb3FileAction(window));
+
+		openFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.OPEN_32));
 
 		register(preferencesAction = new ReducedPreferencesAction(window));
-
 	}
 
 	/**
@@ -389,6 +416,13 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		return new CommandContributionItem(commandParm);
 	}
 
+	private IContributionItem getPasteItem() {
+		return getItem(
+			ActionFactory.PASTE.getId(), ActionFactory.PASTE.getCommandId(), ISharedImages.IMG_TOOL_PASTE,
+			ISharedImages.IMG_TOOL_PASTE_DISABLED, WorkbenchMessages.Workbench_paste,
+			WorkbenchMessages.Workbench_pasteToolTip, null);
+	}
+
 	// private IContributionItem getNewFileItem() {
 	// return getItem("new", "publish.newb3File", null, null, "New File", "Create a new .b3 file", null);
 	// }
@@ -397,16 +431,14 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	// return getItem("publish.openb3Files", "open", null, null, "Open...", "Open a .b3 file", null);
 	// }
 
-	private IContributionItem getPasteItem() {
-		return getItem(
-			ActionFactory.PASTE.getId(), ActionFactory.PASTE.getCommandId(), ISharedImages.IMG_TOOL_PASTE,
-			ISharedImages.IMG_TOOL_PASTE_DISABLED, WorkbenchMessages.Workbench_paste,
-			WorkbenchMessages.Workbench_pasteToolTip, null);
-	}
-
 	private IContributionItem getSelectAllItem() {
 		return getItem(
 			ActionFactory.SELECT_ALL.getId(), ActionFactory.SELECT_ALL.getCommandId(), null, null,
 			WorkbenchMessages.Workbench_selectAll, WorkbenchMessages.Workbench_selectAllToolTip, null);
+	}
+
+	private void scaleActionImage(IAction action, int width, int height) {
+		ImageData imageData = action.getImageDescriptor().getImageData().scaledTo(width, height);
+		action.setImageDescriptor(ImageDescriptor.createFromImageData(imageData));
 	}
 }
