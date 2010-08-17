@@ -3,6 +3,13 @@
 
 <product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="false">
 
+   <aboutInfo>
+      <text>
+         Repository Publisher - version 0.1
+© Cloudsmith Inc  - All rights reserved.
+License - see http://www.cloudsmith.com/license_info.html
+      </text>
+   </aboutInfo>
 
    <configIni use="default">
    </configIni>

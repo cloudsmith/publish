@@ -88,6 +88,12 @@
                name="preferenceCustomization"
                value="plugin_customization.ini">
          </property>
+         <property
+               name="aboutText"
+               value="Repository Publisher - version 0.1
+© Cloudsmith Inc  - All rights reserved.
+License - see http://www.cloudsmith.com/license_info.html">
+         </property>
       </product>
    </extension>
    <extension
