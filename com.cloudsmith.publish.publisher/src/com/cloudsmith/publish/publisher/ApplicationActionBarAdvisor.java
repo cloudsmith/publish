@@ -9,9 +9,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.Util;
-import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -204,6 +202,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		register(saveToolbarAction = ActionFactory.SAVE.create(window));
 
 		saveToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
+		saveToolbarAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
 
 		register(saveAsAction = ActionFactory.SAVE_AS.create(window));
@@ -437,8 +437,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			WorkbenchMessages.Workbench_selectAll, WorkbenchMessages.Workbench_selectAllToolTip, null);
 	}
 
-	private void scaleActionImage(IAction action, int width, int height) {
-		ImageData imageData = action.getImageDescriptor().getImageData().scaledTo(width, height);
-		action.setImageDescriptor(ImageDescriptor.createFromImageData(imageData));
-	}
+	// private void scaleActionImage(IAction action, int width, int height) {
+	// ImageData imageData = action.getImageDescriptor().getImageData().scaledTo(width, height);
+	// action.setImageDescriptor(ImageDescriptor.createFromImageData(imageData));
+	// }
 }
