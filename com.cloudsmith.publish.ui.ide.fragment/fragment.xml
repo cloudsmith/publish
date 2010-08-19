@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<fragment>
+ <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          allPopups="false"
+          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
+       <command
+             commandId="org.eclipse.b3.ui.run.b3cmd"
+             label="Publish"
+             style="push">
+          <parameter
+                name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
+                value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
+          </parameter>
+       </command>
+    </menuContribution>
+ </extension>
+
+</fragment>
