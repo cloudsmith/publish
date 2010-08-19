@@ -15,7 +15,8 @@ License - see http://www.cloudsmith.com/license_info.html
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgsMac>-Xdock:icon=../Resources/repobuilder.icns
+-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="/com.cloudsmith.publish.publisher/icons/repobuilder_16.gif" i32="/com.cloudsmith.publish.publisher/icons/repobuilder_32.gif" i48="/com.cloudsmith.publish.publisher/icons/repobuilder_48.gif" i64="/com.cloudsmith.publish.publisher/icons/repobuilder_64.gif" i128="/com.cloudsmith.publish.publisher/icons/repobuilder_128.gif"/>
@@ -34,9 +35,7 @@ License - see http://www.cloudsmith.com/license_info.html
 
 
    <vm>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
    </vm>
-
 
    <plugins>
    </plugins>
