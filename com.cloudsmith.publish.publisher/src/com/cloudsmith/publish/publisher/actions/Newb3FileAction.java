@@ -69,6 +69,9 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		this.window = window;
 		setEnabled(true);
 		setId("publisher.newb3File");
+
+		// This is wrong - the accelerators are platform specific
+		// setAccelerator(SWT.COMMAND | 'N');
 		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.NEW));
 	}

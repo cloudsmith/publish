@@ -52,11 +52,28 @@
       <menuContribution
             allPopups="false"
             locationURI="menu:publisher.help?after=additions">
-         <command
-               commandId="org.eclipse.ui.cheatsheets.openCheatSheet"
-               label="Open Cheat Sheet..."
-               style="push">
-         </command>
+         <menu
+               label="Open Cheat Sheet">
+            <command
+                  commandId="org.eclipse.ui.cheatsheets.openCheatSheet"
+                  icon="icons/cheatsheet_pad_obj.gif"
+                  label="Creating and Publishing a Repository"
+                  style="push">
+               <parameter
+                     name="cheatSheetId"
+                     value="com.cloudsmith.publish.ui.cheatsheet.publishRepo">
+               </parameter>
+            </command>
+            <separator
+                  name="com.cloudsmith.publish.publisher.openOtherCheatSheet"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.cheatsheets.openCheatSheet"
+                  label="Other..."
+                  style="push">
+            </command>
+         </menu>
       </menuContribution>
    </extension>
    
