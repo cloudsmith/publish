@@ -10,22 +10,6 @@
     </command>
  </extension>
  <extension
-       point="org.eclipse.ui.menus">
-    <menuContribution
-          allPopups="false"
-          locationURI="popup:org.eclipse.b3.BeeLang.EditorContext?after=additions">
-       <command
-             commandId="org.eclipse.b3.ui.run.b3cmd"
-             label="Publish"
-             style="push">
-          <parameter
-                name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
-                value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
-          </parameter>
-       </command>
-    </menuContribution>
- </extension>
- <extension
        point="org.eclipse.ui.handlers">
     <handler
           class="com.cloudsmith.publish.ui.commands.GenerateRepositoriesHandler"
@@ -42,7 +26,7 @@
        point="org.eclipse.ui.cheatsheets.cheatSheetContent">
     <category
           id="com.cloudsmith.publish.PublishCategory"
-          name="Cloudsmith Publisher">
+          name="Repository Builder">
     </category>
     <cheatsheet
           category="com.cloudsmith.publish.PublishCategory"
