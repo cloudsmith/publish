@@ -65,7 +65,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 	private IWorkbenchWindow window;
 
 	public Newb3FileAction(IWorkbenchWindow window) {
-		super("New File");
+		super("New");
 		this.window = window;
 		setEnabled(true);
 		setId("publisher.newb3File");

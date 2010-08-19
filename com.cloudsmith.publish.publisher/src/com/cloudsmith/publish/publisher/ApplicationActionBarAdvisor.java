@@ -24,7 +24,6 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.provisional.application.IActionBarConfigurer2;
 import org.eclipse.ui.menus.CommandContributionItem;
 import org.eclipse.ui.menus.CommandContributionItemParameter;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.actions.Newb3FileAction;
 import com.cloudsmith.publish.publisher.actions.OpenLocalb3FileAction;
@@ -201,9 +200,10 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		register(saveAction = ActionFactory.SAVE.create(window));
 		register(saveToolbarAction = ActionFactory.SAVE.create(window));
 
-		saveToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
-			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
-		saveToolbarAction.setDisabledImageDescriptor(null);
+		// saveToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+		// "com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
+		// saveToolbarAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+		// "com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
 
 		register(saveAsAction = ActionFactory.SAVE_AS.create(window));
 		register(saveAllAction = ActionFactory.SAVE_ALL.create(window));
@@ -235,14 +235,14 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		register(newFileAction = new Newb3FileAction(window));
 		register(newFileToolbarAction = new Newb3FileAction(window));
 
-		newFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
-			"com.cloudsmith.publish.publisher", IImageKeys.NEW_32));
+		// newFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+		// "com.cloudsmith.publish.publisher", IImageKeys.NEW_32));
 
 		register(openFileAction = new OpenLocalb3FileAction(window));
 		register(openFileToolbarAction = new OpenLocalb3FileAction(window));
 
-		openFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
-			"com.cloudsmith.publish.publisher", IImageKeys.OPEN_32));
+		// openFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+		// "com.cloudsmith.publish.publisher", IImageKeys.OPEN_32));
 
 		register(preferencesAction = new ReducedPreferencesAction(window));
 	}
@@ -435,4 +435,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			ActionFactory.SELECT_ALL.getId(), ActionFactory.SELECT_ALL.getCommandId(), null, null,
 			WorkbenchMessages.Workbench_selectAll, WorkbenchMessages.Workbench_selectAllToolTip, null);
 	}
+
+	// private void scaleActionImage(IAction action, int width, int height) {
+	// ImageData imageData = action.getImageDescriptor().getImageData().scaledTo(width, height);
+	// action.setImageDescriptor(ImageDescriptor.createFromImageData(imageData));
+	// }
 }

@@ -9,7 +9,7 @@
 package com.cloudsmith.publish.publisher;
 
 public interface IImageKeys {
-	public static final String OPEN = "icons/open_16.gif";
+	public static final String OPEN = "icons/open_16.png";
 
 	public static final String OPEN_32 = "icons/open_32.gif";
 

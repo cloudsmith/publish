@@ -40,7 +40,7 @@
             locationURI="toolbar:publisher.toolbar?after=additions">
          <command
                commandId="org.eclipse.b3.ui.run.b3cmd"
-               icon="icons/publish_32.gif"
+               icon="icons/publish_16.gif"
                label="Publish"
                style="push">
             <parameter
@@ -54,7 +54,7 @@
             locationURI="menu:publisher.help?after=additions">
          <command
                commandId="org.eclipse.ui.cheatsheets.openCheatSheet"
-               label="Open a Cheat Sheet..."
+               label="Open Cheat Sheet..."
                style="push">
          </command>
       </menuContribution>
@@ -94,7 +94,7 @@
          </property>
          <property
                name="aboutText"
-               value="Repository Publisher - version 0.1&#x0A;© Cloudsmith Inc  - All rights reserved.&#x0A;License - see http://www.cloudsmith.com/license_info.html">
+               value="Repository Builder - version 0.1&#x0A;© Cloudsmith Inc  - All rights reserved.&#x0A;License - see http://www.cloudsmith.com/license_info.html">
          </property>
       </product>
    </extension>

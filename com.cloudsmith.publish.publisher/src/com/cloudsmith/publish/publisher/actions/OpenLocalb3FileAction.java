@@ -39,7 +39,7 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 	 * Creates a new action for opening a local file.
 	 */
 	public OpenLocalb3FileAction(IWorkbenchWindow window) {
-		super("Open File...");
+		super("Open...");
 		this.window = window;
 		setEnabled(true);
 		setId("publisher.openb3Files");

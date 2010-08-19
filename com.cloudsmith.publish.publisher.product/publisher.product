@@ -5,7 +5,7 @@
 
    <aboutInfo>
       <text>
-         Repository Publisher - version 0.1
+         Repository Builder - version 0.1
 © Cloudsmith Inc  - All rights reserved.
 License - see http://www.cloudsmith.com/license_info.html
       </text>
@@ -32,8 +32,11 @@ License - see http://www.cloudsmith.com/license_info.html
       </win>
    </launcher>
 
+
    <vm>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
    </vm>
+
 
    <plugins>
    </plugins>
