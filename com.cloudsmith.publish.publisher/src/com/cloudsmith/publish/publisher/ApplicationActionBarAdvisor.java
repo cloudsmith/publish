@@ -203,8 +203,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 		saveToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
-		saveToolbarAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
-			"com.cloudsmith.publish.publisher", IImageKeys.SAVE_32));
+		saveToolbarAction.setDisabledImageDescriptor(null);
 
 		register(saveAsAction = ActionFactory.SAVE_AS.create(window));
 		register(saveAllAction = ActionFactory.SAVE_ALL.create(window));
@@ -436,9 +435,4 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			ActionFactory.SELECT_ALL.getId(), ActionFactory.SELECT_ALL.getCommandId(), null, null,
 			WorkbenchMessages.Workbench_selectAll, WorkbenchMessages.Workbench_selectAllToolTip, null);
 	}
-
-	// private void scaleActionImage(IAction action, int width, int height) {
-	// ImageData imageData = action.getImageDescriptor().getImageData().scaledTo(width, height);
-	// action.setImageDescriptor(ImageDescriptor.createFromImageData(imageData));
-	// }
 }
