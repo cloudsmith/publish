@@ -17,7 +17,7 @@
 				<attribute name="site.p2"/>
 			</prerequisites>
             <products alias="destination" base="${buckminster.output}" upToDatePolicy="NOT_EMPTY">
-            	<path path="publisher/"/>
+            	<path path="repobuilder/"/>
             </products>
 		</public>
 		<public name="create.product.zip" actor="ant">
@@ -30,7 +30,7 @@
 				<attribute name="manifest" alias="manifest"/>
 			</prerequisites>
             <products alias="action.output" base="${buckminster.output}" upToDatePolicy="COUNT" fileCount="1">
-            	<path path="publisher.zip/"/>
+            	<path path="repobuilder.zip/"/>
             </products>
 		</public>
 	</actions>
