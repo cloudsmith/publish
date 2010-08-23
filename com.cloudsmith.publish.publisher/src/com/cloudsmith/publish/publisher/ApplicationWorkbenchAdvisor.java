@@ -1,5 +1,13 @@
 package com.cloudsmith.publish.publisher;
 
+import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
@@ -25,7 +33,42 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	 */
 	@Override
 	public void postStartup() {
+		// Clean "untitled" area
+		//
+		try {
+			cleanUntitledArea();
+		}
+		catch(CoreException e) {
+			// what to do here?
+			e.printStackTrace();
+		}
 		InitializePublisherJob job = new InitializePublisherJob();
 		job.schedule();
+	}
+
+	private void cleanUntitledArea() throws CoreException {
+		IWorkspace ws = ResourcesPlugin.getWorkspace();
+		// get, or create project if non existing
+		IProject project = ws.getRoot().getProject(ExtLinkedXtextEditor.AUTOLINK_PROJECT_NAME);
+		boolean newProject = false;
+		if(!project.exists()) {
+			project.create(null);
+			newProject = true;
+		}
+		if(!project.isOpen()) {
+			project.open(null);
+			project.setHidden(true);
+		}
+
+		if(newProject)
+			project.setDefaultCharset(ExtLinkedXtextEditor.ENCODING_UTF8, new NullProgressMonitor());
+		IFolder untitledFolder = project.getFolder("untitled");
+		if(!untitledFolder.exists())
+			return; // nothing to clear
+		for(IResource r : untitledFolder.members()) {
+			if(r.isLinked())
+				r.delete(true, new NullProgressMonitor());
+		}
+
 	}
 }
