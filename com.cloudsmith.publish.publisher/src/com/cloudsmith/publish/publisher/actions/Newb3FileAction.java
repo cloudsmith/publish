@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.eclipse.b3.beelang.ui.xtext.linked.TmpFileStoreEditorInput;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
@@ -22,7 +23,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -139,7 +139,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 			IWorkbenchPage page = window.getActivePage();
 			try {
 				// open the editor on the file
-				page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
+				page.openEditor(new TmpFileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
 			}
 			catch(PartInitException e) {
 				String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
