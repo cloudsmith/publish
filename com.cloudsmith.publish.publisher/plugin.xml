@@ -82,11 +82,20 @@
       <perspectiveExtension
             targetID="*">
          <view
-               id="org.eclipse.ui.views.ContentOutline"
+               closeable="true"
+               id="org.eclipse.ui.cheatsheets.views.CheatSheetView"
                minimized="false"
+               moveable="true"
                ratio="0.75"
                relationship="right"
                relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
+         <view
+               id="org.eclipse.ui.views.ContentOutline"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.cheatsheets.views.CheatSheetView"
                standalone="false">
          </view>
       </perspectiveExtension>

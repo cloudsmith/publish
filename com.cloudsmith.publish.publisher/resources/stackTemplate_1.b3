@@ -1,0 +1,85 @@
+«
+  THIS IS A TEMPLATE FOR A REPOSITORY (change what you want and save)
+  
+  A Repository is defined in terms of 'units' which have several types - declared with 'is'.
+  One unit represents the repository itself - it has the type 'RepositoryDefinition'.
+  A generated repository will contain all declared units.
+  
+  Supported Types include:
+  - RepositoryDefinition
+  - RPM
+  - GEM
+  - RubyRuntime
+  - CSource (combined with RPM and RubyRuntime)
+  
+  NOTES:
+   - Text within 'french guilmots' contains documentation for the element it precedes (like this text).
+   - Files are in UTF-8.
+   - Documentation can be written using java-doc style comments as an alternative to using guilmots
+   - Versions can in general be written without surrounding quotes (""), but quotes are required for some versioning schemes.
+   - The default version scheme follows OSGi standard
+   
+   EDITOR NOTES:
+   - Code completion is available via CTRL-<space> (example: place caret after 'version' and press CTRL-<space>)
+
+  Give the repository a unique name, and a version.
+  (There can only be one 'RepositoryDefinition' in a file.)
+»
+unit org.myorg.MyRepository version 1.0.0 is RepositoryDefinition {
+	
+	« Sample use of default-properties.
+	  Example: a declaration that a ruby runtime should
+	  be installed with support for 'nginx' (unless this property is
+	  overridden by setting it on the command line when generating the repository, or
+	  by setting it explicitly in a unit included in the repository.)  
+	»
+	default-properties {
+		${com.cloudsmith.stack.runtime.ruby.webserver} = "nginx"; 
+		} 
+	// nothing else needs to be declared, as all other units declared in this file
+	// are automatically included
+}
+
+« Sample RPM that is installed in binary form.
+  NOTE: 
+  - RPMs (typically) follow the 'rpm:' versioning scheme
+  - 'is RPM' declares that this unit represents a RPM
+  - 'source' is a reference to where the system can download the binary component from
+»  
+unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
+	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-server-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
+}
+
+« Sample RPM built from C-source
+  NOTE:
+  - 'is CSource' declares that this unit represents the RPM in source form
+  - 'source' is a reference to where the source is
+»
+unit libevent version rpm:1.4.14a-stable is RPM, CSource {
+	source : "http://www.monkey.org/~provos/libevent-1.4.14a-stable.tar.gz";
+}
+
+« Sample Ruby Runtime installed in C-source form
+  NOTE:
+  - a 'RubyRuntime' is more than a regular RPM (support for additional configuration and
+    installation of plugins).
+  - a requirement is declared on MySQL-devel-community
+  - the requirement is a requirement on an exact version, ranges are declared with
+    [minVersion, maxVersion], where a '[' or ']' is inclusive, and '(' or ')' is exclusive at
+    the respective end.
+» 
+unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
+	requires : unit { name : "MySQL-devel-community"; version : rpm:5.1.48-1.rhel5.i386; };
+	source : "http://rubyforge.org/frs/download.php/71096/ruby-enterprise-1.8.7-2010.02.tar.gz";
+}
+
+« Sample GEM
+  NOTE:
+  - A Gem typically follows the 'gem:' version scheme (the gem 'rational policy')
+»
+unit activemerchant version gem:1.5.1 is GEM;
+
+« Included because it is required by 'ruby-enterprise' »
+unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
+	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-devel-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
+}
