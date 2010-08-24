@@ -76,9 +76,6 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	@Override
 	public IStatus restoreState(IMemento memento) {
 		IStatus status = super.restoreState(memento);
-		// if there are no open files, create a new untitled file and open it
-		// new Newb3FileAction(getWorkbenchConfigurer().getWorkbench().getActiveWorkbenchWindow()).run();
-
 		return status;
 	}
 
@@ -121,4 +118,5 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		}
 
 	}
+
 }
