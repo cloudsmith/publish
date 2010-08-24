@@ -84,6 +84,9 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		this.window = window;
 	}
 
+	/**
+	 * Performs the creation of a new empty "untitled" .b3 file.
+	 */
 	@Override
 	public void run() {
 
