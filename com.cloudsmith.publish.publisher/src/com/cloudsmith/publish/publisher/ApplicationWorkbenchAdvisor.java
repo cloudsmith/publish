@@ -23,6 +23,8 @@ import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.part.FileEditorInput;
 
+import com.cloudsmith.publish.publisher.actions.ReducedPreferencesAction;
+
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 	private static final String PERSPECTIVE_ID = "com.cloudsmith.publish.publisher.perspective";
@@ -64,7 +66,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 			// what to do here?
 			e.printStackTrace();
 		}
-		// removeUnwantedPreferences();
+		ReducedPreferencesAction.removeUnwantedPreferences();
 		InitializePublisherJob job = new InitializePublisherJob();
 		job.schedule();
 	}

@@ -22,6 +22,49 @@ public class ReducedPreferencesAction extends Action implements IWorkbenchWindow
 	// "org.eclipse.ui.editors.preferencePages.LinkedModePreferencePage", //
 	// };
 
+	public static void removeUnwantedPreferences() {
+		PreferenceManager pm = PlatformUI.getWorkbench().getPreferenceManager();
+
+		// move the b3 syntax coloring and template to root
+		promoteChildrenToRoot(pm, "org.eclipse.b3.BeeLang");
+
+		// "workbench" is the "general" node - attempt to move all subnodes to root
+		IPreferenceNode general = pm.find("org.eclipse.ui.preferencePages.Workbench");
+		if(general != null) {
+			for(IPreferenceNode node : general.getSubNodes())
+				pm.addToRoot(node);
+		}
+
+		// move "text editor" children to root
+		// IPreferenceNode textEditorsNode = pm.find("org.eclipse.ui.preferencePages.GeneralTextEditor");
+		// pm.addToRoot(textEditorsNode);
+		promoteChildrenToRoot(pm, "org.eclipse.ui.preferencePages.Editors");
+
+		pm.remove("org.eclipse.ui.preferencePages.ContentTypes");
+		pm.remove("org.eclipse.ui.preferencePages.FileEditors");
+		pm.remove("org.eclipse.ui.preferencePages.GeneralTextEditor/org.eclipse.ui.editors.preferencePages.Spelling");
+		pm.remove("org.eclipse.ui.preferencePages.GeneralTextEditor/org.eclipse.ui.editors.preferencePages.HyperlinkDetectorsPreferencePage");
+		pm.remove("org.eclipse.ui.preferencePages.Keys");
+		pm.remove("org.eclipse.ui.preferencePages.Workbench");
+		pm.remove("org.eclipse.ui.preferencePages.Workspace");
+		pm.remove("org.eclipse.ui.preferencePages.Views/org.eclipse.ui.preferencePages.Decorators");
+		pm.remove("org.eclipse.ui.preferencePages.Perspectives");
+		pm.remove("org.eclipse.compare.internal.ComparePreferencePage");
+		pm.remove("org.eclipse.help.ui.browsersPreferencePage");
+		pm.remove("org.eclipse.help.ui.contentPreferencePage");
+		pm.remove("org.eclipse.team.ui.TeamPreferences");
+	}
+
+	private static void promoteChildrenToRoot(PreferenceManager pm, String id) {
+		IPreferenceNode general = pm.find(id);
+		if(general != null) {
+			for(IPreferenceNode node : general.getSubNodes())
+				pm.addToRoot(node);
+		}
+		pm.remove(id);
+
+	}
+
 	private IWorkbenchWindow window;
 
 	public ReducedPreferencesAction(IWorkbenchWindow window) {
@@ -69,48 +112,5 @@ public class ReducedPreferencesAction extends Action implements IWorkbenchWindow
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// do nothing, this action is not related to current selection.
-	}
-
-	private void promoteChildrenToRoot(PreferenceManager pm, String id) {
-		IPreferenceNode general = pm.find(id);
-		if(general != null) {
-			for(IPreferenceNode node : general.getSubNodes())
-				pm.addToRoot(node);
-		}
-		pm.remove(id);
-
-	}
-
-	private void removeUnwantedPreferences() {
-		PreferenceManager pm = PlatformUI.getWorkbench().getPreferenceManager();
-
-		// move the b3 syntax coloring and template to root
-		promoteChildrenToRoot(pm, "org.eclipse.b3.BeeLang");
-
-		// "workbench" is the "general" node - attempt to move all subnodes to root
-		IPreferenceNode general = pm.find("org.eclipse.ui.preferencePages.Workbench");
-		if(general != null) {
-			for(IPreferenceNode node : general.getSubNodes())
-				pm.addToRoot(node);
-		}
-
-		// move "text editor" children to root
-		// IPreferenceNode textEditorsNode = pm.find("org.eclipse.ui.preferencePages.GeneralTextEditor");
-		// pm.addToRoot(textEditorsNode);
-		promoteChildrenToRoot(pm, "org.eclipse.ui.preferencePages.Editors");
-
-		pm.remove("org.eclipse.ui.preferencePages.ContentTypes");
-		pm.remove("org.eclipse.ui.preferencePages.FileEditors");
-		pm.remove("org.eclipse.ui.preferencePages.GeneralTextEditor/org.eclipse.ui.editors.preferencePages.Spelling");
-		pm.remove("org.eclipse.ui.preferencePages.GeneralTextEditor/org.eclipse.ui.editors.preferencePages.HyperlinkDetectorsPreferencePage");
-		pm.remove("org.eclipse.ui.preferencePages.Keys");
-		pm.remove("org.eclipse.ui.preferencePages.Workbench");
-		pm.remove("org.eclipse.ui.preferencePages.Workspace");
-		pm.remove("org.eclipse.ui.preferencePages.Views/org.eclipse.ui.preferencePages.Decorators");
-		pm.remove("org.eclipse.ui.preferencePages.Perspectives");
-		pm.remove("org.eclipse.compare.internal.ComparePreferencePage");
-		pm.remove("org.eclipse.help.ui.browsersPreferencePage");
-		pm.remove("org.eclipse.help.ui.contentPreferencePage");
-		pm.remove("org.eclipse.team.ui.TeamPreferences");
 	}
 }
