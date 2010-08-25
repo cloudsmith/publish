@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
@@ -24,6 +25,8 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
+
+	private Boolean virginState = Boolean.TRUE;
 
 	public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
 		super(configurer);
@@ -63,11 +66,37 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShowStatusLine(true);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.application.WorkbenchWindowAdvisor#restoreState(org.eclipse.ui.IMemento)
+	 */
+	@Override
+	public IStatus restoreState(IMemento memento) {
+		Boolean virgin = memento.getBoolean("com.cloudsmith.publish.virgin");
+		if(virgin != null)
+			virginState = virgin;
+		return super.restoreState(memento);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.application.WorkbenchWindowAdvisor#saveState(org.eclipse.ui.IMemento)
+	 */
+	@Override
+	public IStatus saveState(IMemento memento) {
+		// TODO Auto-generated method stub
+		memento.putBoolean("com.cloudsmith.publish.virgin", false);
+		return super.saveState(memento);
+	}
+
 	/**
 	 * Performs the creation of a new empty "untitled" .b3 file.
 	 */
 	private void openEmptyUntitled() {
-
+		if(!virginState)
+			return;
 		File newFile = null;
 		try {
 			newFile = File.createTempFile("untitled", ".b3");
