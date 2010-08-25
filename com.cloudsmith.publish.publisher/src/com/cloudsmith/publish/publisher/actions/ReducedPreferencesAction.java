@@ -13,14 +13,14 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 
 public class ReducedPreferencesAction extends Action implements IWorkbenchWindowActionDelegate {
-	private static final String[] displayedIds = {
-			"org.eclipse.b3.BeeLang.editor", "org.eclipse.b3.BeeLang", "org.eclipse.b3.BeeLang.templates",
-			"org.eclipse.b3.BeeLang.coloring", //
-			"org.eclipse.ui.preferencePages.GeneralTextEditor", //
-			"org.eclipse.ui.editors.preferencePages.QuickDiff", //
-			"org.eclipse.ui.editors.preferencePages.Accessibility", //
-			"org.eclipse.ui.editors.preferencePages.LinkedModePreferencePage", //
-	};
+	// private static final String[] displayedIds = {
+	// "org.eclipse.b3.BeeLang.editor", "org.eclipse.b3.BeeLang", "org.eclipse.b3.BeeLang.templates",
+	// "org.eclipse.b3.BeeLang.coloring", //
+	// "org.eclipse.ui.preferencePages.GeneralTextEditor", //
+	// "org.eclipse.ui.editors.preferencePages.QuickDiff", //
+	// "org.eclipse.ui.editors.preferencePages.Accessibility", //
+	// "org.eclipse.ui.editors.preferencePages.LinkedModePreferencePage", //
+	// };
 
 	private IWorkbenchWindow window;
 
