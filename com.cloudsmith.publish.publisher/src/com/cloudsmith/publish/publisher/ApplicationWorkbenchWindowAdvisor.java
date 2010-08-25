@@ -86,7 +86,6 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	 */
 	@Override
 	public IStatus saveState(IMemento memento) {
-		// TODO Auto-generated method stub
 		memento.putBoolean("com.cloudsmith.publish.virgin", false);
 		return super.saveState(memento);
 	}
