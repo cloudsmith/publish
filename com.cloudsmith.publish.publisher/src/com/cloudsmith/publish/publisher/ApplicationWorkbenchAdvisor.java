@@ -64,6 +64,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 			// what to do here?
 			e.printStackTrace();
 		}
+		// removeUnwantedPreferences();
 		InitializePublisherJob job = new InitializePublisherJob();
 		job.schedule();
 	}
