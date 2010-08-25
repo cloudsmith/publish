@@ -25,6 +25,7 @@ import org.eclipse.ui.internal.provisional.application.IActionBarConfigurer2;
 import org.eclipse.ui.menus.CommandContributionItem;
 import org.eclipse.ui.menus.CommandContributionItemParameter;
 
+import com.cloudsmith.publish.publisher.actions.NewB3ExampleFileAction;
 import com.cloudsmith.publish.publisher.actions.Newb3FileAction;
 import com.cloudsmith.publish.publisher.actions.OpenLocalb3FileAction;
 import com.cloudsmith.publish.publisher.actions.ReducedPreferencesAction;
@@ -112,6 +113,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private ActionContributionItem aboutActionItem;
 
+	private NewB3ExampleFileAction newExampleFileAction;
+
 	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
 		super(configurer);
 		window = configurer.getWindowConfigurer().getWindow();
@@ -154,6 +157,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		selectAllAction = null;
 		findReplaceAction = null;
 		editMenu = null;
+		newExampleFileAction = null;
 		super.dispose();
 	}
 
@@ -233,6 +237,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 		// application specific actions
 		register(newFileAction = new Newb3FileAction(window));
+		register(newExampleFileAction = new NewB3ExampleFileAction(window));
 		register(newFileToolbarAction = new Newb3FileAction(window));
 
 		// newFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
@@ -356,6 +361,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menu.add(helpContentsAction);
 		menu.add(helpSearchAction);
 		menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		menu.add(newExampleFileAction);
+
 		// special handling of about
 		menu.add(new Separator("group.about")); //$NON-NLS-1$
 		aboutActionItem = new ActionContributionItem(aboutAction);

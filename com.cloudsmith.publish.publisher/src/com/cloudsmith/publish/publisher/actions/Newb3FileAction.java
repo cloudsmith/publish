@@ -65,7 +65,11 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 	private IWorkbenchWindow window;
 
 	public Newb3FileAction(IWorkbenchWindow window) {
-		super("New");
+		this(window, "New");
+	}
+
+	protected Newb3FileAction(IWorkbenchWindow window, String label) {
+		super(label);
 		this.window = window;
 		setEnabled(true);
 		setId("publisher.newb3File");
@@ -74,6 +78,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		// setAccelerator(SWT.COMMAND | 'N');
 		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.NEW));
+
 	}
 
 	public void dispose() {
@@ -102,7 +107,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 			return;
 		}
 
-		InputStream is = this.getClass().getResourceAsStream("/resources/newStackTemplate.b3");
+		InputStream is = this.getClass().getResourceAsStream(getTemplateFileName());
 
 		try {
 			FileOutputStream fos = new FileOutputStream(newFile);
@@ -158,6 +163,10 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 	}
 
 	public void selectionChanged(IAction action, ISelection selection) {
+	}
+
+	protected String getTemplateFileName() {
+		return "/resources/newStackTemplate.b3";
 	}
 
 }

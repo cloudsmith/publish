@@ -49,6 +49,7 @@
             </parameter>
          </command>
       </menuContribution>
+      <!-- NO CHEAT SHEETs in HELP MENU
       <menuContribution
             allPopups="false"
             locationURI="menu:publisher.help?after=additions">
@@ -75,6 +76,7 @@
             </command>
          </menu>
       </menuContribution>
+      -->
    </extension>
    
       <extension
@@ -82,21 +84,14 @@
       <perspectiveExtension
             targetID="*">
          <view
-               closeable="true"
-               id="org.eclipse.ui.cheatsheets.views.CheatSheetView"
+               closeable="false"
+               id="org.eclipse.ui.views.ContentOutline"
                minimized="false"
-               moveable="true"
                ratio="0.75"
                relationship="right"
                relative="org.eclipse.ui.editorss"
+               standalone="false"
                visible="true">
-         </view>
-         <view
-               id="org.eclipse.ui.views.ContentOutline"
-               minimized="false"
-               relationship="stack"
-               relative="org.eclipse.ui.cheatsheets.views.CheatSheetView"
-               standalone="false">
          </view>
       </perspectiveExtension>
    </extension>
