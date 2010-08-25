@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Adding a GEM">
+   <intro>
+      <description>
+         Add a GEM by using content assist.
+      </description>
+   </intro>
+   <item
+         title="Insert Template">
+      <description>
+	</description>
+      <subitem
+            label="Press CTRL+space">
+      </subitem>
+      <subitem
+            label="Select &quot;GEMDefinition&quot;">
+      </subitem>
+     </item>
+   <item
+         title="Edit the GEM&apos;s name name">
+      <description>
+         The name of the GEM should be the fully qualified name used by the Ruby gems system.
+      </description>
+      <subitem
+            label="Modify the &quot;gemName&quot; to reflect the name of the gem.">
+      </subitem>
+      <subitem
+            label="Press TAB to move to &apos;gemVersion&apos;">
+      </subitem>
+   </item>
+   <item
+         title="Edit the GEM&apos;s version">
+      <description>
+         The gem&apos;s version should reflect the wanted version of the GEM from the Ruby gems system.
+      </description>
+      <subitem
+            label="Modify the &apos;rational version number&apos; after the &apos;gem:&apos; version type prefix.">
+      </subitem>
+      <subitem
+      		label="Press TAB to complete the template.">
+      </subitem>
+   </item>
+</cheatsheet>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Adding a RPM">
+   <intro>
+      <description>
+         Add a RPM by using content assist.
+      </description>
+   </intro>
+   <item
+         title="Insert Template">
+      <description>
+	</description>
+      <subitem
+            label="Press CTRL+space">
+      </subitem>
+      <subitem
+            label="Select &quot;RPMDefinition&quot;">
+      </subitem>
+     </item>
+   <item
+         title="Edit the RPM&apos;s name name">
+      <description>
+         The name of the RPM should be the fully qualified name used by the Linux RPM system. </description>
+      <subitem
+            label="Modify the &quot;rpmName&quot; to reflect the name of the RPM.">
+      </subitem>
+      <subitem
+            label="Press TAB to move to &apos;rpmVersion&apos;">
+      </subitem>
+   </item>
+   <item
+         href="/com.clousmith.publish.help/help/versions.html"
+         title="Edit the RPM&apos;s version">
+      <description>
+         The RPM&apos;s version should reflect the wanted version of the RPM from the RPM system.
+      </description>
+      <subitem
+            label="Modify the rpm version specification after the &apos;rpm:&apos; version type prefix.">
+      </subitem>
+      <subitem
+      		label="Press TAB to move to &apos;rpmURI&apos;e.">
+      </subitem>
+   </item>
+   <item
+         title="Edit the RPM&apos;s locationation">
+      <description>
+         The source location of the RPM unit should be a URI (URL) where the RPM definition can be obtained.
+      </description>
+      <subitem 
+      		label="Modify the &apos;rpmURI&apos; to reflect where the RPM can be fetched.">
+      </subitem>
+      <subitem
+      		label="Press TAB to finish the templates.">
+      </subitem>
+   </item>
+</cheatsheet>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Create a new b3 file">
+   <intro>
+      <description>
+         Create a new b3 file using external tools.
+      </description>
+   </intro>
+   <item
+         title="Use editor of choice, or command line to create file">
+      <description>
+         <b>Guidelines:</b><br/>
+		&#8226; Give the file a name of your choice<br/>
+		&#8226; Use the extension &quot;.b3&quot;<br/>
+		&#8226; To avoid potential issues do not use space or special characters in the file name.<br/>
+		&#8226; Use UTF-8 as character encoding for file content<br/>
+		</description>
+   </item>
+</cheatsheet>

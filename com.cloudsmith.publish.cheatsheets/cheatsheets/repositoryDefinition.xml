@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+      title="Define a Repository">
+   <intro>
+      <description>
+         Define a repository by using content assist.
+      </description>
+   </intro>
+   <item
+         title="Insert Template">
+      <description>
+         
+      </description>
+      <subitem
+            label="Press CTRL+space">
+      </subitem>
+      <subitem
+            label="Select Template &quot;RepositoryDefinition&quot;">
+      </subitem>
+   </item>
+   <item
+         title="Define the name of the repository">
+      <description>
+         The name of the repository is used both to name produced output and as a label/name that is visible in tools that makes use of the repository.
+      </description>
+      <subitem
+            label="Modify &quot;repositoryName&quot; to reflect the wanted name. The name can be fully qualified (e.g. org.myorg.myrepo). If you want a name that uses spaces or special characters, enclose the name in quotes (e.g. &quot;My Überfantastic Dream Repo&quot;).">
+      </subitem>
+      <subitem
+            label="Press TAB to move to &apos;repositoryVersion&apos;">
+      </subitem>
+   </item>
+   <item
+         title="Define the version of the repository">
+      <description>
+         The version of the repository is used in file names of produced output as well as being used for normal version management tasks.
+      </description>
+      <subitem
+            label="Modify &quot;repositoryVersion&quot; to reflect the version of the repository. Use 1.0.0 if you have no other preferences. This will use the default OSGi versioning scheme.">
+      </subitem>
+      <subitem
+            label="Press TAB to complete the template.">
+      </subitem>
+   </item>
+</cheatsheet>
