@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.b3.p2,
  com.google.inject;bundle-version="2.0.0",
  org.eclipse.equinox.p2.repository;bundle-version="2.0.0",
- org.eclipse.equinox.p2.core;bundle-version="2.0.0"
+ org.eclipse.equinox.p2.core;bundle-version="2.0.0",
+ org.eclipse.b3.util;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Eclipse-RegisterBuddy: org.eclipse.b3.backend
 Export-Package: com.cloudsmith.publish,

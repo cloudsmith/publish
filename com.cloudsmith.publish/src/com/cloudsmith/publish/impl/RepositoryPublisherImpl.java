@@ -11,9 +11,13 @@
 package com.cloudsmith.publish.impl;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.eclipse.b3.backend.core.B3ContextAccess;
 import org.eclipse.b3.backend.core.runtime.B3OutputLocationProvider;
@@ -32,6 +36,7 @@ import org.eclipse.b3.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.p2.util.P2Bridge;
 import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.b3.util.IOUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -75,17 +80,6 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 	 */
 	protected RepositoryPublisherImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.REPOSITORY_PUBLISHER;
 	}
 
 	/**
@@ -206,12 +200,57 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 			throw new Error(e.getMessage(), e);
 		}
 
+		try {
+			packRepository(resultRepoDir);
+		}
+		catch(IOException e) {
+			System.err.print("Could not zip resulting repository\n");
+			throw new Error(e.getMessage(), e);
+		}
+
 		// Return a BuildSet (containing the outputURI where the repo in p2 form is found).
 		BuildSet bs = B3BuildFactory.eINSTANCE.createBuildSet();
 		PathVector pv = B3BuildFactory.eINSTANCE.createPathVector();
 		pv.setBasePath(outputURI);
 		bs.getPathVectors().add(pv);
 		return bs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.REPOSITORY_PUBLISHER;
+	}
+
+	private void addArchiveEntry(File dir, ZipOutputStream archive, String entryName) throws IOException {
+		ZipEntry entry = new ZipEntry(entryName);
+		archive.putNextEntry(entry);
+
+		File entryFile = new File(dir, entryName);
+
+		FileInputStream entrySource = new FileInputStream(entryFile);
+		IOUtils.copyStream(entrySource, archive, true, false);
+
+		archive.closeEntry();
+
+		if(!entryFile.delete())
+			throw new IOException("Could not delete " + entryFile.getAbsolutePath());
+	}
+
+	private void packRepository(File resultRepoDir) throws IOException {
+		File archiveFile = new File(resultRepoDir, resultRepoDir.getName() + ".zip");
+		if(archiveFile.exists() && !archiveFile.delete())
+			throw new IOException("Could not delete " + archiveFile.getAbsolutePath());
+
+		ZipOutputStream archive = new ZipOutputStream(new FileOutputStream(archiveFile));
+		addArchiveEntry(resultRepoDir, archive, "artifacts.jar");
+		addArchiveEntry(resultRepoDir, archive, "content.jar");
+		archive.close();
 	}
 
 } // RepositoryPublisherImpl
