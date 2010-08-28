@@ -9,9 +9,9 @@ use java.lang.Throwable;
 */
 function main(Map parameters) {
 	with DefaultPublishing : { 
-		val allDefined = b3.allDefinedUnits().select(u | u instanceof RepositoryDefinition);
-		if allDefined.size() != 1 then throw "File must contain one unit that 'is RepositoryDefinition'." endif;
 		try {	
+			val allDefined = b3.allDefinedUnits().select(u | u instanceof RepositoryDefinition);
+			if allDefined.size() != 1 then throw "File must contain one unit that 'is RepositoryDefinition'." endif;
 			BuildSet producedResult = b3.resolveAndRunBuilder(
 				allDefined[0], 
 				"publish");
