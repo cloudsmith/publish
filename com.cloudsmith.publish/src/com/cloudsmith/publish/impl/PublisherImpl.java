@@ -1482,7 +1482,14 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 				ak = (ArtifactKeyImpl) p2Factory.createArtifactKey();
 				ak.setClassifier("blob");
+				String n = unit.getName();
+				if(n == null || n.length() < 1)
+					throw new IllegalArgumentException("Unit without name is not allowed.");
 				ak.setId(unit.getName());
+				Version v = unit.getVersion();
+				if(v == null)
+					throw new IllegalArgumentException("Unit '" + n +
+							"' does not have a version - required when having 'source'");
 				ak.setVersion(unit.getVersion());
 
 				// add a copy since we need the object once more in the artifact repository
