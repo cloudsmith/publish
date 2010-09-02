@@ -33,6 +33,10 @@
                   name="org.eclipse.b3.ui.run.b3cmd.pathParameter"
                   value="b3:/com.cloudsmith.publish/src-b3/CreateReposCmd.b3">
             </parameter>
+            <parameter
+                  name="org.eclipse.b3.ui.run.b3cmd.wizardId"
+                  value="com.cloudsmith.publish.createReposWizard">
+            </parameter>
          </command>
       </menuContribution>
       <menuContribution
