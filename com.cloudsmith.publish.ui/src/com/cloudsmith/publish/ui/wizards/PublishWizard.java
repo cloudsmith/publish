@@ -1,6 +1,7 @@
 package com.cloudsmith.publish.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
 import org.eclipse.b3.build.ui.commands.CmdUnitOfWork;
 import org.eclipse.b3.build.ui.commands.ICmdWizard;
@@ -44,6 +45,11 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 		outputSelectionPage.finish();
 
 		// TODO: Set the options from the outputSelection page in cmdUnitOfWork
+		Map<String, String> propertyMap = cmdUnitOfWork.getPropertyMap();
+		propertyMap.put("b3.output.dir",
+				outputSelectionPage.getDestinationValue());
+		propertyMap.put("b3.output.overwrite",
+				outputSelectionPage.getOverwriteExistingValue());
 
 		try {
 			getContainer().run(true, true, cmdUnitOfWork);

@@ -84,6 +84,8 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 	 * @return boolean
 	 */
 	public boolean finish() {
+		// make sure the specified directory exists (or prompt to create it).
+		ensureDirectoryExists(new File(getDestinationValue()));
 
 		// Save dirty editors if possible but do not stop if not all are saved
 		saveDirtyEditors();
@@ -91,6 +93,24 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		saveWidgetValues();
 
 		return true;
+	}
+
+	/**
+	 * Returns the value of the selected directory (path) as a String.
+	 * 
+	 * @return java.lang.String
+	 */
+	public String getDestinationValue() {
+		return destinationNameField.getText().trim();
+	}
+
+	/**
+	 * Returns the value of the "overwrite existing" option as a boolean string.
+	 * 
+	 * @return
+	 */
+	public String getOverwriteExistingValue() {
+		return Boolean.toString(overwriteExistingFilesCheckbox.getSelection());
 	}
 
 	/**
@@ -249,6 +269,8 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 				| SWT.LEFT);
 		overwriteExistingFilesCheckbox.setText("Overwrite existing");
 		overwriteExistingFilesCheckbox.setFont(font);
+		// set default to true (can be overridden by saved state).
+		overwriteExistingFilesCheckbox.setSelection(true);
 	}
 
 	/**
@@ -297,15 +319,6 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		}
 
 		return true;
-	}
-
-	/**
-	 * Answer the contents of self's destination specification widget
-	 * 
-	 * @return java.lang.String
-	 */
-	protected String getDestinationValue() {
-		return destinationNameField.getText().trim();
 	}
 
 	/**
