@@ -24,4 +24,6 @@ Bundle-Vendor: %providerName
 Export-Package: com.cloudsmith.publish.ui,
  com.cloudsmith.publish.ui.commands,
  com.cloudsmith.publish.ui.editor,
- com.cloudsmith.publish.ui.module
+ com.cloudsmith.publish.ui.module,
+ com.cloudsmith.publish.ui.wizards
+Bundle-Activator: com.cloudsmith.publish.ui.Activator

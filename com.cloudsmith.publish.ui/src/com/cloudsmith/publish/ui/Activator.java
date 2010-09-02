@@ -1,5 +1,8 @@
 package com.cloudsmith.publish.ui;
 
+import java.net.URL;
+
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -12,7 +15,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "org.eclipse.b3.build.ui"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	public static Activator plugin;
 	
 	/**
 	 * The constructor
@@ -48,5 +51,11 @@ public class Activator extends AbstractUIPlugin {
 	public static Activator getDefault() {
 		return plugin;
 	}
-
+	public ImageDescriptor getImageDescriptor(String imageKey) {
+		URL imgUrl = getBundle().getEntry(imageKey);
+		return ImageDescriptor.createFromURL(imgUrl);
+	}
+	public interface IImageKeys { 
+		public static final String PUBLISH_WIZ_ICON = "icons/wiz/publish_banner.png";
+	}
 }

@@ -28,5 +28,12 @@
           file="templates/PublisherTemplates.xml">
     </templatesFile>
  </extension>
+ <extension
+       id="com.cloudsmith.publish.createReposWizard"
+       point="org.eclipse.b3.build.ui.cmdWizard">
+    <cmdWizard
+          wizard="com.cloudsmith.publish.ui.wizards.PublishWizard">
+    </cmdWizard>
+ </extension>
 
 </plugin>
