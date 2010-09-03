@@ -85,7 +85,8 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 	 */
 	public boolean finish() {
 		// make sure the specified directory exists (or prompt to create it).
-		ensureDirectoryExists(new File(getDestinationValue()));
+		if (!ensureDirectoryExists(new File(getDestinationValue())))
+			return false;
 
 		// Save dirty editors if possible but do not stop if not all are saved
 		saveDirtyEditors();
