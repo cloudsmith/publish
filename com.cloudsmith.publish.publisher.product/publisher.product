@@ -25,10 +25,10 @@ License - see http://www.cloudsmith.com/license_info.html
       location="com.cloudsmith.publish.publisher" />
    <launcher name="repobuilder">
       <linux icon="/com.cloudsmith.publish.publisher/icons/repobuilder_128.xpm"/>
-      <macosx icon="/com.cloudsmith.publish.publisher/icons/repobuilder.icns"/>
+      <macosx icon="/com.cloudsmith.publish.publisher/icons/RBDockIconMac.icns"/>
       <solaris/>
       <win useIco="true">
-         <ico path="/com.cloudsmith.publish.publisher/icons/repobuilder.ico"/>
+         <ico path="/com.cloudsmith.publish.publisher/icons/RBDockIconWinXP.ico"/>
          <bmp/>
       </win>
    </launcher>
@@ -36,6 +36,7 @@ License - see http://www.cloudsmith.com/license_info.html
 
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
