@@ -119,8 +119,6 @@ public class RepositoryPublisherImpl extends EObjectImpl implements RepositoryPu
 		B3OutputLocationProvider locProvider = ctx.getInjector().getInstance(B3OutputLocationProvider.class);
 		java.net.URI outputURI = locProvider.getFileURI(unit.getOutputLocation());
 
-		// TODO Get proper location
-		// File resultRepoDir = new File("/tmp/PublishTest");
 		File resultRepoDir = new File(outputURI);
 		resultRepoDir.mkdirs();
 		if(!resultRepoDir.isDirectory())

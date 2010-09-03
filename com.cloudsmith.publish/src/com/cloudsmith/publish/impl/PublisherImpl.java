@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3ContextAccess;
+import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.runtime.B3OutputLocationProvider;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.B3BuildFactory;
@@ -1592,6 +1593,25 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	@Override
 	protected EClass eStaticClass() {
 		return PublishPackage.Literals.PUBLISHER;
+	}
+
+	/**
+	 * Returns true if the property b3.output.overwrite is non existing, or not set to the string "false".
+	 * (i.e. overwriting of files is OK if not explicitly denied).
+	 * 
+	 * @param ctx
+	 * @return
+	 */
+	protected boolean isOverwriteOk(BExecutionContext ctx) {
+		try {
+			Object val = ctx.getValue("${b3.output.overwrite}");
+			if(val instanceof String && ((String) val).equals("false"))
+				return false;
+		}
+		catch(B3EngineException e) {
+			// ignore - the default is true
+		}
+		return true;
 	}
 
 	/**
