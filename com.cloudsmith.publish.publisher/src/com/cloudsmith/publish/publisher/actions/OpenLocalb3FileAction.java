@@ -21,6 +21,7 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.ActionConstants;
+import com.cloudsmith.publish.publisher.Activator;
 import com.cloudsmith.publish.publisher.IImageKeys;
 
 /**
@@ -32,6 +33,9 @@ import com.cloudsmith.publish.publisher.IImageKeys;
 public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowActionDelegate {
 
 	private IWorkbenchWindow window;
+
+	// dialog id constants
+	private static final String STORE_LAST_OPENED_DIRECTORY_ID = "OpenLocalb3FileAction.STORE_LAST_OPENED_DIRECTORY_ID"; //$NON-NLS-1$
 
 	private String filterPath;
 
@@ -46,7 +50,6 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.OPEN));
 
-		filterPath = System.getProperty("user.home"); //$NON-NLS-1$
 	}
 
 	/*
@@ -76,6 +79,10 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 	 */
 	@Override
 	public void run() {
+		filterPath = Activator.getDefault().getDialogSettings().get(STORE_LAST_OPENED_DIRECTORY_ID);
+		if(filterPath == null)
+			filterPath = System.getProperty("user.home"); //$NON-NLS-1$
+
 		FileDialog dialog = new FileDialog(window.getShell(), SWT.OPEN | SWT.MULTI);
 		dialog.setText(IDEWorkbenchMessages.OpenLocalFileAction_title);
 		dialog.setFilterPath(filterPath);
@@ -85,6 +92,7 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 
 		if(names != null) {
 			filterPath = dialog.getFilterPath();
+			Activator.getDefault().getDialogSettings().put(STORE_LAST_OPENED_DIRECTORY_ID, filterPath);
 
 			int numberOfFilesNotFound = 0;
 			StringBuffer notFound = new StringBuffer();
