@@ -15,7 +15,7 @@ License - see http://www.cloudsmith.com/license_info.html
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-Xdock:icon=../Resources/repobuilder.icns
+      <vmArgsMac>-Xdock:icon=../Resources/RBDockIconMac.icns
 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
@@ -33,10 +33,8 @@ License - see http://www.cloudsmith.com/license_info.html
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
