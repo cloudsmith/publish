@@ -45,12 +45,12 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 	// dialog id constants
 	private static final String STORE_DESTINATION_NAMES_ID = "WizardOutputSelectionPage.STORE_DESTINATION_NAMES_ID"; //$NON-NLS-1$
 
-	private static final String STORE_OVERWRITE_EXISTING_FILES_ID = "WizardOutputSelectionPage.STORE_OVERWRITE_EXISTING_FILES_ID"; //$NON-NLS-1$
+	//	private static final String STORE_OVERWRITE_EXISTING_FILES_ID = "WizardOutputSelectionPage.STORE_OVERWRITE_EXISTING_FILES_ID"; //$NON-NLS-1$
 
 	public OutputSelectionPage() {
 		super("outputSelectionPage");
-		setTitle("Repository Generation Details");
-		setDescription("Specify directory location and options for repository generation output");
+		setTitle("Repository Publication Details");
+		setDescription("Specify directory location for repository publication output.");
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		composite.setFont(parent.getFont());
 
 		createDestinationGroup(composite);
-		createOptionsGroup(composite);
+		// createOptionsGroup(composite);
 		restoreWidgetValues(); // ie.- subclass hook
 
 		updateWidgetEnablements();
@@ -88,8 +88,9 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		if (!ensureDirectoryExists(new File(getDestinationValue())))
 			return false;
 
-		// Save dirty editors if possible but do not stop if not all are saved
-		saveDirtyEditors();
+		// // Save dirty editors if possible but do not stop if not all are
+		// saved
+		// saveDirtyEditors();
 		// about to invoke the operation so save our state
 		saveWidgetValues();
 
@@ -111,7 +112,9 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 	 * @return
 	 */
 	public String getOverwriteExistingValue() {
-		return Boolean.toString(overwriteExistingFilesCheckbox.getSelection());
+		return "true";
+		// return
+		// Boolean.toString(overwriteExistingFilesCheckbox.getSelection());
 	}
 
 	/**
@@ -202,7 +205,7 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		destinationSelectionGroup.setFont(font);
 
 		Label destinationLabel = new Label(destinationSelectionGroup, SWT.NONE);
-		destinationLabel.setText("Generate in directory");
+		destinationLabel.setText("Publish in directory");
 		destinationLabel.setFont(font);
 
 		// destination name entry field
@@ -366,9 +369,9 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 				addDestinationItem(directoryNames[i]);
 			}
 
-			// options
-			overwriteExistingFilesCheckbox.setSelection(settings
-					.getBoolean(STORE_OVERWRITE_EXISTING_FILES_ID));
+			// // options
+			// overwriteExistingFilesCheckbox.setSelection(settings
+			// .getBoolean(STORE_OVERWRITE_EXISTING_FILES_ID));
 
 		}
 	}
@@ -390,9 +393,9 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 			directoryNames = addToHistory(directoryNames, getDestinationValue());
 			settings.put(STORE_DESTINATION_NAMES_ID, directoryNames);
 
-			// options
-			settings.put(STORE_OVERWRITE_EXISTING_FILES_ID,
-					overwriteExistingFilesCheckbox.getSelection());
+			// // options
+			// settings.put(STORE_OVERWRITE_EXISTING_FILES_ID,
+			// overwriteExistingFilesCheckbox.getSelection());
 
 		}
 	}
