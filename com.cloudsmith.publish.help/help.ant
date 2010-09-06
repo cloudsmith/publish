@@ -2,7 +2,7 @@
 <project name="com.cloudsmith.publish.help">
 	<description>
 		Build file that generates html and toc from *.mediawiki files using wiki text conversion.
-    </description>
+	</description>
 
 	<target name="-define.wikitext.tasks" description="Define wikitext ant tasks">
 		<buckminster.valuepath id="wikitext.standalone.classpath" value="${fs:wikitext.standalone}" />
