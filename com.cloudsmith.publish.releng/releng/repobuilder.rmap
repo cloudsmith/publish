@@ -8,6 +8,7 @@
 	<locator pattern="^org\.eclipse\.xtext(?:\..+)?$" searchPathRef="tmf" />
 	<locator pattern="^com\.google(?:\..+)$" searchPathRef="tmf" />
 	<locator pattern="^org\.eclipse\.(?:emf|xsd)(?:\..+)?$" searchPathRef="emf" />
+	<locator pattern="^org\.eclipse\.mylyn(?:\..+)?$" searchPathRef="mylyn" />
 	<locator pattern="^org\.(?:aopalliance|antlr\.runtime)$" searchPathRef="orbit" />
 	<locator pattern="^org\.apache(?:\..+)$" searchPathRef="orbit" failOnError="false" />
 	<locator searchPathRef="platform" />
@@ -45,6 +46,16 @@
 			resolutionFilter="(resolve.target.platform=true)"
 		>
 			<uri format="{0}/modeling/emf/emf/updates/2.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="mylyn">
+		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<uri format="{0}/tools/mylyn/update/e3.4">
 				<bc:propertyRef key="eclipse.download" />
 			</uri>
 		</provider>

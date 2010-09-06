@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs:cspecExtension xmlns:com="http://www.eclipse.org/buckminster/Common-1.0" xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0">
+	<cs:dependencies>
+		<cs:dependency name="org.eclipse.mylyn.wikitext.core" componentType="osgi.bundle" />
+		<cs:dependency name="org.eclipse.mylyn.wikitext.mediawiki.core" componentType="osgi.bundle" />
+	</cs:dependencies>
+
+	<cs:artifacts>
+		<cs:private name="wiki.source" path="help" />
+	</cs:artifacts>
+
+	<cs:actions>
+		<cs:private name="eclipse.help" actor="ant">
+			<cs:actorProperties>
+				<cs:property key="buildFile" value="help.ant" />
+				<cs:property key="targets" value="generate.help" />
+			</cs:actorProperties>
+			<cs:prerequisites>
+				<cs:attribute name="wiki.source" alias="wiki.source" />
+				<cs:attribute name="wikitext.bundles" alias="wikitext.standalone" />
+			</cs:prerequisites>
+			<cs:products alias="output" base="${buckminster.temp}">
+				<cs:path path="help/" />
+			</cs:products>
+		</cs:private>
+	</cs:actions>
+
+	<cs:groups>
+		<cs:private name="wikitext.bundles">
+			<cs:attribute component="org.eclipse.mylyn.wikitext.core" componentType="osgi.bundle" />
+			<cs:attribute component="org.eclipse.mylyn.wikitext.mediawiki.core" componentType="osgi.bundle" />
+		</cs:private>
+	</cs:groups>
+
+	<cs:alterGroups>
+		<cs:private name="jar.contents">
+			<cs:attribute name="eclipse.help" />
+		</cs:private>
+	</cs:alterGroups>
+</cs:cspecExtension>
