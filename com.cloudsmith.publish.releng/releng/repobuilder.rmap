@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rmap xmlns="http://www.eclipse.org/buckminster/RMap-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0"
+>
+	<locator pattern="^com\.cloudsmith\.publish(?:\..+)?$" searchPathRef="repobuilder" />
+	<locator pattern="^org\.eclipse\.b3(?:\..+)?$" searchPathRef="b3" />
+
+	<locator pattern="^org\.eclipse\.xtext(?:\..+)?$" searchPathRef="tmf" />
+	<locator pattern="^com\.google(?:\..+)$" searchPathRef="tmf" />
+	<locator pattern="^org\.eclipse\.(?:emf|xsd)(?:\..+)?$" searchPathRef="emf" />
+	<locator pattern="^org\.(?:aopalliance|antlr\.runtime)$" searchPathRef="orbit" />
+	<locator pattern="^org\.apache(?:\..+)$" searchPathRef="orbit" failOnError="false" />
+	<locator searchPathRef="platform" />
+
+	<searchPath name="repobuilder">
+		<provider componentTypes="osgi.bundle,eclipse.feature" readerType="svn" source="true">
+			<uri format="{0}/com.cloudsmith.publish/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
+				<bc:propertyRef key="cloudsmith.svn.repository" />
+				<bc:propertyRef key="buckminster.component" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="b3">
+		<provider componentTypes="osgi.bundle,eclipse.feature" readerType="svn" source="true">
+			<uri format="{0}/org.eclipse.emft.b3/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
+				<bc:propertyRef key="eclipse.svn.repository" />
+				<bc:propertyRef key="buckminster.component" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="tmf">
+		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<uri format="{0}/modeling/tmf/updates/milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="emf">
+		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<uri format="{0}/modeling/emf/emf/updates/2.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="orbit">
+		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<uri format="{0}/tools/orbit/downloads/drops/R20100519200754/repository">
+				<bc:propertyRef key="eclipse.download" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<searchPath name="platform">
+		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<uri format="{0}/eclipse/updates/3.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</uri>
+		</provider>
+	</searchPath>
+
+	<property key="cloudsmith.svn.repository" value="https://svn.cloudsmith.com/repos" />
+	<property key="eclipse.svn.repository" value="http://dev.eclipse.org/svnroot/modeling" />
+
+	<property key="eclipse.download" value="http://download.eclipse.org" />
+
+	<property key="resolve.target.platform" value="false" />
+</rmap>
