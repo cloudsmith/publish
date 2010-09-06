@@ -119,7 +119,7 @@
          </property>
          <property
                name="windowImages"
-               value="icons/repobuilder_16.gif,icons/repobuilder_32.gif,icons/repobuilder_48.gif,icons/repobuilder_64.gif,icons/repobuilder_128.gif">
+               value="icons/RPicon16.png,icons/RPicon32.png,icons/RPicon48.png,icons/RPicon64.png,icons/RPicon128.png">
          </property>
          <property
                name="aboutText"
