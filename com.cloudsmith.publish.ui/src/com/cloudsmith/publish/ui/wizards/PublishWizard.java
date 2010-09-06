@@ -7,6 +7,7 @@ import org.eclipse.b3.backend.core.IResultStatus;
 import org.eclipse.b3.build.ui.commands.CmdUnitOfWork;
 import org.eclipse.b3.build.ui.commands.ConfigurableWizardDialog;
 import org.eclipse.b3.build.ui.commands.ICmdWizard;
+import org.eclipse.be.build.ui.wizards.StatusPage;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.wizard.IWizardContainer;
