@@ -8,45 +8,56 @@
 		<taskdef classpath="${wikitext.standalone.classpath}" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties" />
 	</target>
 
-	<target name="generate.help.in.separate.vm" depends="-define.wikitext.tasks" description="Generate Eclipse help from MediaWiki source">
-		<delete dir="${sp:output}" />
-		<mkdir dir="${sp:output}" />
-
+	<target name="generate.eclipse.help" depends="-define.wikitext.tasks" description="Generate Eclipse help from MediaWiki sources">
 		<copy todir="${sp:output}">
-			<fileset dir="${sp:wiki.source}" />
+			<fileset dir="${sp:wikitext.sources}" />
 		</copy>
 
-		<fileset id="wiki.sources" dir="${sp:output}">
+		<fileset id="wikitext.sources" dir="${sp:output}">
 			<filename name="*.mediawiki" />
 		</fileset>
 
 		<wikitext-to-eclipse-help markupLanguage="MediaWiki" multipleOutputFiles="false" navigationImages="false" helpPrefix="help">
-			<fileset refid="wiki.sources" />
+			<fileset refid="wikitext.sources" />
 			<stylesheet url="book.css" />
 			<stylesheet url="styles/help.css" />
 			<stylesheet url="styles/main.css" />
 		</wikitext-to-eclipse-help>
 
 		<delete>
-			<fileset refid="wiki.sources" />
+			<fileset refid="wikitext.sources" />
 		</delete>
 	</target>
 
-	<target name="generate.help" description="Run help generation in a separate VM">
+	<target name="-build.eclipse.help" depends="-clean.eclipse.help" description="Build Eclipse help (this target is invoked by a Buckminster action defined in the buckminster.cspex file)">
 		<pathconvert property="wikitext.standalone.classpath">
-			<buckminster.valuepath value="${fs:wikitext.standalone}" />
+			<buckminster.valuepath value="${fs:wikitext.bundles}" />
 		</pathconvert>
 
+		<!-- run Eclipse help generation in a separate VM -->
 		<java jvm="${java.home}/bin/java" jar="${ant.library.dir}/ant-launcher.jar" dir="${basedir}" fork="true" failonerror="true">
 			<syspropertyset>
 				<propertyref name="basedir" />
 				<propertyref name="wikitext.standalone.classpath" />
-				<propertyref name="sp:wiki.source" />
+				<propertyref name="sp:wikitext.sources" />
 				<propertyref name="sp:output" />
 			</syspropertyset>
 			<arg value="-f" />
 			<arg value="${ant.file}" />
-			<arg value="generate.help.in.separate.vm" />
+			<arg value="generate.eclipse.help" />
 		</java>
+	</target>
+
+	<target name="-clean.eclipse.help" description="Clean Eclipse help (this target is invoked by a Buckminster action defined in the buckminster.cspex file)">
+		<delete dir="${sp:output}" />
+		<mkdir dir="${sp:output}" />
+	</target>
+
+	<target name="-build" description="Build Eclipse help (this target is invoked by Buckminster Ant Workspace Builder defined in the .project file)">
+		<buckminster.perform component="${component.name}" attribute="build.eclipse.help" inworkspace="true" />
+	</target>
+
+	<target name="-clean" description="Clean Eclipse help (this target is invoked by Buckminster Ant Workspace Builder defined in the .project file)">
+		<buckminster.perform component="${component.name}" attribute="clean.eclipse.help" inworkspace="true" />
 	</target>
 </project>

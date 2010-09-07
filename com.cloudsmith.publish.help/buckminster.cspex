@@ -6,23 +6,32 @@
 	</cs:dependencies>
 
 	<cs:artifacts>
-		<cs:private name="wiki.source" path="help" />
+		<cs:private name="wikitext.sources" path="src-help" />
+		<cs:private name="eclipse.help.output" path="help" />
 	</cs:artifacts>
 
 	<cs:actions>
-		<cs:private name="eclipse.help" actor="ant">
+		<cs:public name="build.eclipse.help" actor="ant">
 			<cs:actorProperties>
 				<cs:property key="buildFile" value="help.ant" />
-				<cs:property key="targets" value="generate.help" />
+				<cs:property key="targets" value="-build.eclipse.help" />
 			</cs:actorProperties>
 			<cs:prerequisites>
-				<cs:attribute name="wiki.source" alias="wiki.source" />
-				<cs:attribute name="wikitext.bundles" alias="wikitext.standalone" />
+				<cs:attribute name="wikitext.bundles" alias="wikitext.bundles" />
+				<cs:attribute name="wikitext.sources" alias="wikitext.sources" />
+				<cs:attribute name="eclipse.help.output" alias="output" />
 			</cs:prerequisites>
-			<cs:products alias="output" base="${buckminster.temp}">
-				<cs:path path="help/" />
-			</cs:products>
-		</cs:private>
+		</cs:public>
+
+		<cs:public name="clean.eclipse.help" actor="ant">
+			<cs:actorProperties>
+				<cs:property key="buildFile" value="help.ant" />
+				<cs:property key="targets" value="-clean.eclipse.help" />
+			</cs:actorProperties>
+			<cs:prerequisites>
+				<cs:attribute name="eclipse.help.output" alias="output" />
+			</cs:prerequisites>
+		</cs:public>
 	</cs:actions>
 
 	<cs:groups>
@@ -31,10 +40,4 @@
 			<cs:attribute component="org.eclipse.mylyn.wikitext.mediawiki.core" componentType="osgi.bundle" />
 		</cs:private>
 	</cs:groups>
-
-	<cs:alterGroups>
-		<cs:private name="jar.contents">
-			<cs:attribute name="eclipse.help" />
-		</cs:private>
-	</cs:alterGroups>
 </cs:cspecExtension>
