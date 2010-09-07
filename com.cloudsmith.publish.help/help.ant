@@ -49,8 +49,9 @@
 	</target>
 
 	<target name="-clean.eclipse.help" description="Clean Eclipse help (this target is invoked by a Buckminster action defined in the buckminster.cspex file)">
-		<delete dir="${sp:output}" />
-		<mkdir dir="${sp:output}" />
+		<delete dir="${sp:output}" includeemptydirs="true">
+			<filename name="**/*" />
+		</delete>
 	</target>
 
 	<target name="-build" description="Build Eclipse help (this target is invoked by Buckminster Ant Workspace Builder defined in the .project file)">

@@ -32,10 +32,6 @@
 					<value>src-help</value>
 				</dictionary>
 				<dictionary>
-					<key>derived.resource</key>
-					<value>help</value>
-				</dictionary>
-				<dictionary>
 					<key>refresh.resource</key>
 					<value>help</value>
 				</dictionary>
