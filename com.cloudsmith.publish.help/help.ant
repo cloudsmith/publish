@@ -5,11 +5,10 @@
 	</description>
 
 	<target name="-define.wikitext.tasks" description="Define wikitext ant tasks">
-		<buckminster.valuepath id="wikitext.standalone.classpath" value="${fs:wikitext.standalone}" />
-		<taskdef classpathref="wikitext.standalone.classpath" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties" />
+		<taskdef classpath="${wikitext.standalone.classpath}" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties" />
 	</target>
 
-	<target name="generate.help" depends="-define.wikitext.tasks" description="Generate Eclipse help from MediaWiki source">
+	<target name="generate.help.in.separate.vm" depends="-define.wikitext.tasks" description="Generate Eclipse help from MediaWiki source">
 		<delete dir="${sp:output}" />
 		<mkdir dir="${sp:output}" />
 
@@ -31,5 +30,23 @@
 		<delete>
 			<fileset refid="wiki.sources" />
 		</delete>
+	</target>
+
+	<target name="generate.help" description="Run help generation in a separate VM">
+		<pathconvert property="wikitext.standalone.classpath">
+			<buckminster.valuepath value="${fs:wikitext.standalone}" />
+		</pathconvert>
+
+		<java jvm="${java.home}/bin/java" jar="${ant.library.dir}/ant-launcher.jar" dir="${basedir}" fork="true" failonerror="true">
+			<syspropertyset>
+				<propertyref name="basedir" />
+				<propertyref name="wikitext.standalone.classpath" />
+				<propertyref name="sp:wiki.source" />
+				<propertyref name="sp:output" />
+			</syspropertyset>
+			<arg value="-f" />
+			<arg value="${ant.file}" />
+			<arg value="generate.help.in.separate.vm" />
+		</java>
 	</target>
 </project>
