@@ -22,6 +22,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.statushandlers.AbstractStatusHandler;
 
 import com.cloudsmith.publish.publisher.actions.ReducedPreferencesAction;
 
@@ -37,6 +38,17 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	@Override
 	public String getInitialWindowPerspectiveId() {
 		return PERSPECTIVE_ID;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.application.WorkbenchAdvisor#getWorkbenchErrorHandler()
+	 */
+	@Override
+	public synchronized AbstractStatusHandler getWorkbenchErrorHandler() {
+		// TODO Auto-generated method stub
+		return super.getWorkbenchErrorHandler();
 	}
 
 	/*
@@ -121,5 +133,4 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		}
 
 	}
-
 }
