@@ -17,5 +17,12 @@
           file="help/componentTypes-toc.xml">
     </toc>
  </extension>
+ <extension
+       point="org.eclipse.help.contexts">
+    <contexts
+          file="helpContexts.xml"
+          plugin="com.cloudsmith.publish.ui">
+    </contexts>
+ </extension>
 
 </plugin>

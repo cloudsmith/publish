@@ -1,0 +1,10 @@
+<contexts>
+    <context  id="publishing_wizard__output">
+        <description>Specifies where the publishing process generates output.</description>
+        <topic href="help/publishwiz.html"  label="Publishing wizard help"/>
+    </context>
+    <context  id="publishing_wizard__status">
+        <description>Shows status of the publishing operation.</description>
+        <topic href="help/publishwiz.html"  label="Publishing wizard help"/>
+    </context>
+</contexts>
