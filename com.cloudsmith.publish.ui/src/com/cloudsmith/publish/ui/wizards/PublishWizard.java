@@ -73,12 +73,13 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 				&& ((IResultStatus) result).getResult() instanceof IStatus)
 			reportStatus = (IStatus) ((IResultStatus) result).getResult();
 
-		StatusPage page = new StatusPage(reportStatus) {
-			@Override
-			protected void setHeaderForOk() {
-				setTitle("Repository published");
-			}
-		};
+		StatusPage page = new StatusPage(reportStatus);
+		// {
+		// @Override
+		// protected void setHeaderForOk() {
+		// setTitle("Repository published");
+		// }
+		// };
 		this.addPage(page);
 		IWizardContainer container = getContainer();
 		if (container instanceof ConfigurableWizardDialog)
