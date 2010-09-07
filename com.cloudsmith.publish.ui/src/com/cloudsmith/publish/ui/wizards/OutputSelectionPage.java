@@ -18,6 +18,9 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.PlatformUI;
+
+import com.cloudsmith.publish.ui.Activator;
 
 public class OutputSelectionPage extends AbstractWizardPage implements Listener {
 
@@ -47,6 +50,9 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 
 	//	private static final String STORE_OVERWRITE_EXISTING_FILES_ID = "WizardOutputSelectionPage.STORE_OVERWRITE_EXISTING_FILES_ID"; //$NON-NLS-1$
 
+	private static final String PUBLISHING_WIZARDCONTEXT = Activator.PLUGIN_ID
+			+ ".publishing_wizard__output";
+
 	public OutputSelectionPage() {
 		super("outputSelectionPage");
 		setTitle("Repository Publication Details");
@@ -72,6 +78,8 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		setErrorMessage(null); // should not initially have error message
 
 		setControl(composite);
+		PlatformUI.getWorkbench().getHelpSystem()
+				.setHelp(parent, PUBLISHING_WIZARDCONTEXT);
 	}
 
 	/**
@@ -132,6 +140,17 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		}
 
 		updatePageCompletion();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.dialogs.DialogPage#performHelp()
+	 */
+	@Override
+	public void performHelp() {
+		PlatformUI.getWorkbench().getHelpSystem()
+				.displayHelp(PUBLISHING_WIZARDCONTEXT);
 	}
 
 	/**
@@ -463,4 +482,5 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		// TODO: if there are more complex options - add validation here
 		return true;
 	}
+
 }

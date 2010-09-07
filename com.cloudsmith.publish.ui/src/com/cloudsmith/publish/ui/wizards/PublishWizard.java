@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.wizard.IWizardContainer;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.PlatformUI;
 
 import com.cloudsmith.publish.ui.Activator;
 
@@ -20,10 +21,12 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 	private CmdUnitOfWork cmdUnitOfWork;
 	private IStatus result;
 	private OutputSelectionPage outputSelectionPage;
+	private static final String PUBLISHING_WIZARDCONTEXT__STATUS = Activator.PLUGIN_ID
+			+ ".publishing_wizard__status";
 
 	public PublishWizard() {
 		setNeedsProgressMonitor(true);
-		setHelpAvailable(true);
+		// setHelpAvailable(true); // results in "Help" button in button bar
 		setWindowTitle("Publish Repository");
 		setDefaultPageImageDescriptor(Activator.getDefault()
 				.getImageDescriptor(Activator.IImageKeys.PUBLISH_WIZ_ICON));
@@ -73,19 +76,31 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 				&& ((IResultStatus) result).getResult() instanceof IStatus)
 			reportStatus = (IStatus) ((IResultStatus) result).getResult();
 
-		StatusPage page = new StatusPage(reportStatus);
-		// {
-		// @Override
-		// protected void setHeaderForOk() {
-		// setTitle("Repository published");
-		// }
-		// };
+		StatusPage page = new StatusPage(reportStatus) {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see org.eclipse.jface.dialogs.DialogPage#performHelp()
+			 */
+			@Override
+			public void performHelp() {
+				PlatformUI.getWorkbench().getHelpSystem()
+						.displayHelp(PUBLISHING_WIZARDCONTEXT__STATUS);
+			}
+		};
 		this.addPage(page);
 		IWizardContainer container = getContainer();
 		if (container instanceof ConfigurableWizardDialog)
 			((ConfigurableWizardDialog) container).configureButtonsForEndPage();
 
 		container.showPage(page);
+		// if context help is being displayed (a tray is present), and it needs
+		// to be updated
+		//
+		if (((ConfigurableWizardDialog) container).getTray() != null)
+			PlatformUI.getWorkbench().getHelpSystem()
+					.displayHelp(PUBLISHING_WIZARDCONTEXT__STATUS);
+
 		// screwed up, a "false" will keep the wizard open
 		return false;
 	}
