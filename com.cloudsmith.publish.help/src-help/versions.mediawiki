@@ -1,7 +1,7 @@
 =Versions=
 There are many different versioning schemes in use in the computer industry, ranging from very simple numerical only version schemes, to the very complex with rich semantics. Some technologies have well defined, and strict specifications (like OSGi and RPM), and some have recommendations only (GEMs). 
 
-To deal with the diverse field of versioning schemes, the Cloudsmith Repository Builder and Stack Builder uses a technology called OmniVersion to describe versions and version ranges. This technology is capable of describing almost any versioning scheme. One of the benefits of the format is that it encodes not only the version itself, but also the semantics of the format.
+To deal with the diverse field of versioning schemes, the Cloudsmith Repository Builder and Stack Builder use a technology called OmniVersion to describe versions and version ranges. This technology is capable of describing almost any versioning scheme. One of the benefits of the format is that it encodes not only the version itself, but also the semantics of the format.
 
 These formats can be quite complex. To overcome this problem, the Cloudsmith Repository Builder comes with preconfigured formats for some commonly used formats and allows these formats to be referenced via name. (Internally, the versions have the full specification).
 
