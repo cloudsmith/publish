@@ -1,9 +1,9 @@
 =Versions=
-There are many different versioning schemes in use in the computer industry, ranging from very simple numerical only version schemes, to the very complex with rich semantics. Some technologies have well defined, and strict specification (like OSGi and RPM), and some have recommendations only (GEMs). 
+There are many different versioning schemes in use in the computer industry, ranging from very simple numerical only version schemes, to the very complex with rich semantics. Some technologies have well defined, and strict specifications (like OSGi and RPM), and some have recommendations only (GEMs). 
 
-To deal with the diverse field of version schemes, the Cloudsmith publisher and stack service uses a technology called OmniVersion to describe versions and version ranges. This technology is capable of describing almost any versioning scheme. One of the benefits of the format is that it encodes not only the version itself, but also the semantics of the format.
+To deal with the diverse field of versioning schemes, the Cloudsmith Repository Builder and Stack Builder uses a technology called OmniVersion to describe versions and version ranges. This technology is capable of describing almost any versioning scheme. One of the benefits of the format is that it encodes not only the version itself, but also the semantics of the format.
 
-These formats can be quite complex. To overcome this problem, the Cloudsmith Publisher comes with preconfigured formats for some commonly used formats and allows these formats to be referenced via name. (Internally, the versions have the full specification).
+These formats can be quite complex. To overcome this problem, the Cloudsmith Repository Builder comes with preconfigured formats for some commonly used formats and allows these formats to be referenced via name. (Internally, the versions have the full specification).
 
 ==Version Formats==
 The available formats are:
@@ -16,16 +16,16 @@ The available formats are:
 * string
 
 ===The OSGi version format===
-The OSGi version format has three mandatory period separated numerical fields for ''major'', ''minor'', and ''micro'' with an optional fourth alphanumerical field for ''qualifier''. The semantics of the major, minor and micro fields are well defined in the OSGi specification wrt. what a change in a particular fields mean.
+The OSGi version format has three mandatory period separated numerical fields for ''major'', ''minor'', and ''micro'' with an optional fourth alphanumerical field for ''qualifier''. The semantics of the major, minor and micro fields are well defined in the OSGi specification with respect to what a change in a particular fields mean.
 
 Use of the OSGi version scheme is recommended whenever there is a choice.
 
 The OSGi version format is used by default - entering a version such as "1.0.0" creates an OSGi version.
 
 ===The triplet version format===
-The ''triplet'' version format is the same as the OSGi format, but the semantics are different. A triplet without a qualifier is always ''later'' than a version with a qualifier. The triplet version scheme is used by several open source technologies such as maven.
+The ''triplet'' version format is the same as the OSGi format, but the semantics are different. A triplet without a qualifier is always ''later'' than a version with a qualifier. The triplet version scheme is used by several open source technologies such as Maven.
 
-A triplet version is entered by using the prefix 'triplet:' e.g. triplet:1.0.0
+A triplet version is entered by using the prefix 'triplet:', e.g. triplet:1.0.0
 
 ===The tripletSnapshot version format===
 The ''tripletSnapshot'' version format is a variant of ''triplet'' where the qualifier part is separated from the main part using a '-' and is followed by a build identifier automatically generated during a build (a build number and a timestamp is typically used). A triplet snapshot may look like this: 1.2.3-45.20081213:8765.
@@ -38,7 +38,7 @@ The ''rpm'' version format is quite complex, and contains additional information
 A rpm version is entered with the prefix 'rpm' e.g. rpm:33:1.2.3a-23/i386
 
 ===The auto version format===
-The ''auto'' version format is similar to the RPM format in that it allows for automatic detection of numerical and alpha numerical fields. This verision format may be of use for some components that do not strictly comply with the rpm format.
+The ''auto'' version format is similar to the RPM format in that it allows for automatic detection of numerical and alpha numerical fields. This version format may be of use for some components that do not strictly comply with the rpm format.
 
 An auto version is entered with the prefix 'auto' e.g. auto:1.a.2
 
@@ -48,7 +48,7 @@ The string version format compares the version as a string. Although not typical
 A string version is entered with the prefix 'string' e.g. string:jupiter
 
 ===The gem version format===
-The gem version format is defined in accordance with the gems ''rational versining scheme'' consisting of three numerical period separated fields. This is the format recommended by gems, but the format is not enforced and variations exist.
+The gem version format is defined in accordance with the gems ''rational versioning scheme'' consisting of three numerical period separated fields. This is the format recommended by gems, but the format is not enforced and variations exist.
 
 A gem version is entered with the prefix 'gem' e.g. gem:1.2.3
 
@@ -57,7 +57,7 @@ Dependencies (requirements) are specified using a version range. A version range
 * a single version - (greater than this version inclusive)
 * two versions indicating the min and max version
 * delimiters that indicate inclusion or exclusion of the min and max
-* a version format preceeding the range specification
+* a version format preceding the range specification
 
 ===Inclusive delimiter===
 The &apos;&#91;&apos; and &apos;&#93;&apos; denotes inclusion of the respective end (min, max). The following example references version 1.2.3 and all version greater or equal to 1.2.9.
@@ -71,7 +71,7 @@ The &apos;(&apos; and &apos;)&apos; denotes exclusion of the respective end (min
  [1.2.3,2.0.0)
 
 ===Open ended range===
-A single version without inclusion or exclusion is taken as an open ended range - i.e. equal to greater than the specified version. The example below references version 1.2.3 and any later version:
+A single version without inclusion or exclusion is taken as an open ended range, i.e., equal to greater than the specified version. The example below references version 1.2.3 and any later version:
  1.2.3
 
 ==More Information about OmniVersion==
