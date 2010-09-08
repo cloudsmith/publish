@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<toc label="Cloudsmith Publisher">
+<toc label="Cloudsmith Repository Builder">
    <link toc="help/publisher-toc.xml"/>
    <link toc="help/componentTypes-toc.xml"/>
    <link toc="help/versions-toc.xml"/>
