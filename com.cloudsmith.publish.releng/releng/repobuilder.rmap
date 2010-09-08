@@ -14,7 +14,7 @@
 	<locator searchPathRef="platform" />
 
 	<searchPath name="repobuilder">
-		<provider componentTypes="osgi.bundle,eclipse.feature" readerType="svn" source="true">
+		<provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn" source="true">
 			<uri format="{0}/com.cloudsmith.publish/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
 				<bc:propertyRef key="cloudsmith.svn.repository" />
 				<bc:propertyRef key="buckminster.component" />

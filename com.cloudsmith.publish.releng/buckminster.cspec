@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="com.cloudsmith.publish.releng"
-	componentType="buckminster" version="0.1.0.qualifier" />
+	componentType="buckminster" version="0.1.0.qualifier"
+>
+	<cs:dependencies>
+		<cs:dependency name="com.cloudsmith.publish.publisher.product" componentType="eclipse.feature" />
+
+		<cs:dependency name="org.eclipse.equinox.executable" componentType="eclipse.feature" />
+	</cs:dependencies>
+</cs:cspec>
