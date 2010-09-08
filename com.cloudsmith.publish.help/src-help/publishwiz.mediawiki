@@ -1,0 +1,11 @@
+=The Publish Repository Wizard=
+The 'Publish Repository Wizard' is displayed when invoking the 'Publish' action from the 'File' menu, or toolbar.
+
+# On the first page, specify the directory where you want the published material to be generated.
+# Press 'Finish'
+
+A status page will appear indicating success or failure. If the publishing was successful the status page shows
+the location of the generated repository; it is found in a sub-directory under the given directory from step 1 above.
+The sub directory is named after the unit marked with 'is RepositoryDefinition' in the published file. The name of the sub-folder reflects both the name and the version, and special characters have been replaced.
+
+In case of errors, there are details that show the cause of the problems.
