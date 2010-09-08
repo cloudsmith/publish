@@ -19,9 +19,11 @@
 
 		<wikitext-to-eclipse-help markupLanguage="MediaWiki" multipleOutputFiles="false" navigationImages="false" helpPrefix="help">
 			<fileset refid="wikitext.sources" />
-			<stylesheet url="book.css" />
+			<!--
+			<stylesheet url="PLUGINS_ROOT/org.eclipse.help.base/doc/book.css" />
 			<stylesheet url="styles/help.css" />
 			<stylesheet url="styles/main.css" />
+			-->
 		</wikitext-to-eclipse-help>
 
 		<delete>
