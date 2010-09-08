@@ -1,4 +1,5 @@
 =The Cloudsmith Repository Builder=
 ==Introduction==
-The Cloudsmith Repository Builder is a standalone editor and processor of repository definitions. It takes a definition of a repository described using a specific build description syntax (called 'b3') and transforms this into a meta data and artifact repository for the described components.
+The Cloudsmith Repository Builder is a standalone editor and processor of repository definitions.
+It takes a definition of a repository described using a specific build description syntax (called 'b3') and transforms this into a meta data and artifact repository for the described components.
 
