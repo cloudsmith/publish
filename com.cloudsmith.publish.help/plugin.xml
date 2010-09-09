@@ -16,6 +16,13 @@
     <toc
           file="help/componentTypes-toc.xml">
     </toc>
+    <toc
+          file="help/advanced-toc.xml">
+    </toc>
+    <toc
+          file="help/advanced_publishing-toc.xml"
+          primary="false">
+    </toc>
  </extension>
  <extension
        point="org.eclipse.help.contexts">

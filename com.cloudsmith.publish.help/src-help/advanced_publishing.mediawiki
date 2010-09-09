@@ -1,0 +1,216 @@
+=Advanced Publishing=
+The 'Publish' action invoked from the user interface executes a process where the declared units are advised with default publishing instructions based on their type. The last step in the processing of an individual unit is to let what is called a 'Publisher' act on each (possibly advised) unit declaration to produce the repository meta-data.
+
+The Cloudsmith Repository Builder comes with a set of publishers for different types of components. A Publisher provides  the transformation logic for both default and custom transformation of a unit of a particular type.
+An important aspect of a publisher is to provide component type specific and generic installation and configuration actions. An example of a general action is copy(), which copies files, or unzip() which unzips an archive. Examples of type specific actions are installRPM(), and installSRCRPM() provided by the RPMPublisher.
+
+The simplest possible use of a publisher is to let it process everything by default.
+Here is an example using a GEM unit:
+<pre>
+unit myGem version gem:1.0.0 is GEM;
+</pre>
+Behind the scenes in this case, the Publish operation will apply additional logic to the unit before any publishing takes place. The resulting (adviced) code looks like this (with respect to how a Publisher is used):
+<pre>
+unit myGem version gem:1.0.0 {
+    builder publish() {
+        result: new GEMPublisher().write(unit);
+    };
+}
+</pre>
+
+==Customization==
+In Repository Publisher Beta 1, it is possible to customize the actions performed when installing and uninstalling components (later versions will allow more customization). 
+
+===Installation Phases===
+When the installer is executed, it is given instructions to install a particular component (or possibly several components). When acting on such a request, the installer prepares a plan of what needs to be done, starting with a resolution of all the requirements (what is needed, what is already available, and what needs to be changed in the already installed to comply with the request). At a high level this can be seen as a series of download, install and uninstall operations. Technically, it is more complex as there are interdependencies where information from one of step have an effect on later actions. Most of this is handled automatically, but as an author of a repository with installation instructions, it is important to understand when and why actions are executed. 
+
+The execution takes place in phases. The phases of interest when authoring a repository are:
+* installing 
+* uninstalling
+* configuring
+* unconfiguring
+
+There are other phases, but these are not meaningful to customize (nor is customization supported by the Repository Builder, but they are mentioned here to get an idea for what is taking place). These non customizable phases include such resolution, download/mirroing, and verification of signed content.
+
+'''Installing''' is the phase executed after download. The purpose of actions in this phase is to organize the component's artifacts (files) in the wanted location in the target environment, and to run all installation type actions independant of other components. The order in which different units are installed is not defined. A typical action in this phase is to unzip an archive.
+
+'''Configuring''' is the phase executed after the Installing phase. In this phase, all units have had their installation phase instructions executed. A typical action in this phase is to add configuration data in some 'base unit' for which the current unit is an extension. 
+
+'''Unconfiguring''' is the very first phase during installation. Unit's that are upgraded, or no longer required in the installed configuration will be removed, and since there may be inter dependencies, components that are to be deleted are allowed to first perform 'unconfiguration'. A typical action would be to remove configuration data from some 'base unit' for which the current unit is an extension.
+
+'''Uninstalling''' is executed for components that are no longer going to be used after all units that are no longer going to be used have had the unconfiguration phase actions executed. A typical action in this phase is to cleanup what was done in the installation phase, an example is the cleanupzip() action.
+
+Naturally, when installing something for the very first time, there are no units requiring uninstall, or unconfigure. Consequently, if you are designing installations that will only be performed as new installations, you do not need to perform any actions in the unconfigure and uninstall phases.
+
+====Declaring actions per phase====
+The Publisher supports declaration of actions per phase. This is done by specifying a list of actions for the phase, either when creating the Publisher instance (as in the following example) or by performing a series of calls (as shown later).
+
+The actions per phase lists are called:
+* whenInstalling
+* whenConfiguring
+* whenUninstalling
+* whenUnconfiguring
+
+Here is an example where an 'exec' action is declared to be executed in the installation phase:
+<pre>
+	builder publish() {
+		result : 
+			new NativePublisher() as p {
+			whenInstalling : [p.exec("myscript.bat", "anArgument", "10") ];
+		}.write(unit);
+	}
+</pre>
+
+The declaration:
+<pre>
+    new NativePublisher() as p { whenInstalling : [ ... ]; }
+</pre>
+is shorthand notation for:
+<pre>
+    var p = new NativePublisher();
+    p.whenInstalling = [ ... ];
+ </pre>
+
+Here is an example showing actions being executed in two phases, and where more than one action is executed in the installation phase:
+<pre>
+	builder publish() {
+		result : 
+			new NativePublisher() as p {
+			whenInstalling : [
+				p.exec("myScript.bat", "anArgument", "10"),
+				p.exec("mySecondScript.bat")
+			 ];
+			whenUninstalling : [ p.exec("myCleanupScript.bat") ];
+		}.write(unit);
+	}
+</pre>
+====Arguments to Actions====
+The arguments to actions are evaluated during publishing. At installation time all arguments are constant values. As an example if you were to use property values, or any expression like:
+<pre>
+	whenInstalling : [
+	    p.exec("myScript.bat", "hello " + ${user.name}, myFunction(1,2,3))
+		];
+
+    function myFunction(Integer a, Integer b, Integer c) : a + b + c;
+</pre>
+
+The resulting information in the repository will be "hello "+ the value of the property user.name ''at the time the repository was published'', and the string "6" (the result of calling the function myFunction transformed to a String).
+
+==Available Actions==
+===Publisher===
+'Publisher' is the base class for all publishers and supports the following actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''chmod'''(String targetDir, String targetFile, String permissions, String options)</code>
+| Changes permission on a file using the system's chmod command. The ''targetDir'' parameter is either a path, or the special <code>"@artifact"</code> which is a reference to the directory where the artifact included in the unit is located. The parameter ''targetFile'' is the name of a file, and ''permissions'' is written like for the ''chmod'' system command. The options parameter allows passing additional options like "-R" for recursive operation. If multiple parameters are needed separate them with a space (like on the command line). Note: This action executes the system command ''chmod'', and is not available on platforms that do not have this (i.e., Windows).
+|- valign="top"
+|<code>'''cleanupCopy'''(String source, String target)</code>
+| Cleans up what was installed earlier with a ''copy'' from ''source'' to ''target'', i.e., this is an "undo" of a ''copy'' operation.
+|- valign="top"
+|<code>'''cleanupFetch'''(String uri)</code>
+| Cleans up what was installed earlier with a ''fetch'' from the given ''uri'', i.e., this is an "undo" of a ''fetc'' operation.
+|- valign="top"
+| <code>'''cleanupZip'''(String source, String target)</code>
+| removes unzipped files and directories that where unzipped from ''source'' into ''target'' - i.e., an "undo operation" of an ''unzip'' instruction.
+|- valign="top"
+|<code>'''copy'''(String source, String target, boolean overwrite)</code>
+| Copies a file or a directory (and all of its content) denoted by ''source'' path to the ''target'' path. 
+The boolean flag ''overwrite'' should be set to ''true'' if the copy action should overwrite existing files. If overwrite is
+''false'' the operation will fail with an IO error during installation if the target of a copied file already exists.
+|- valign="top"
+|<code>'''exec'''(String...arg)</code>
+| Executes a system command, the first argument is the name (or full path if the command is not found via the system's
+normal command path). Additional arguments are passed as arguments to the system command. Note: there is no corresponding cleanup, or undo operation in case of transaction failure as the installer has no understanding of what is being
+executed by the action.
+|- valign="top"
+|<code>'''fetch'''(String uri)</code>
+| Fetches data from the location specified in the ''uri'' parameter. ''TODO: There is more to say here about supported schemes, and how to access what was fetched.''
+|- valign="top"
+|<code>'''link'''(String targetDir, String linkTarget, String linkName, boolean force)</code>
+| Performs the system action <code>ln -s</code> with the parameters ''linkTarget'' being the source-file, ''targetDir'' being the directory where the symbolic link will be created, and ''linkName'' being the name of the resulting link in the ''targetDir''. The ''force'' parameter indicates if an existing link with the same name should be removed before the new link is created. Note: This action executes the system command ''ln -s'', and is not available on platforms that do not have this (i.e., Windows).
+|-valign="top"
+|<code>'''mkdir'''(String path)</code>
+| Creates the directory specified by the parameter ''path''.
+|- valign="top"
+|<code>'''remove'''(String path)</code>
+| Removes a file, or a directory (and all files under this directory) as referenced by the parameter ''path''.
+|-valign="top"
+| <code>'''rmdir'''(String path)</code>
+| Removes the directory specified by the parameter ''path''. Action has no effect if the referenced directory contains files. Use the '''remove''' action for a forced recursive remove. 
+|- valign="top"
+| <code>'''unZip'''(String source, String target)</code>
+| unzips the ''source'' into the ''target'' directory. The ''source'' can be the special <code>"@artifact"</code> source path, which denotes the download cache location of the artifact associated with the unit.
+|}
+
+===NativePublisher===
+'NativePublisher' is derived from Publisher and supports the following additional actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''installFromCSource'''()</code>
+| The ''source'' location is specified by the ''source'' attribute of the unit. 
+|- valign="top"
+|<code>'''uninstallFromCSource'''()</code>
+| Cleans up what was installed earlier with a ''installFromCSource'' operation, i.e., this is an "undo" of a ''installFromCSource'' operation.
+|}
+===GEMPublisher===
+'GEMPublisher' is derived from Publisher and supports the following additional actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''installGEM'''()</code>
+| The ''source'' location is specified by the ''source'' attribute of the unit. 
+|- valign="top"
+|<code>'''uninstallGEM'''()</code>
+| Cleans up what was installed earlier with a ''installGEM'' operation, i.e., this is an "undo" of a ''installGEM'' operation.
+|}
+Note that these actions should be executed in the configuration phase as they require that a ruby runtime has already been installed.
+===RPMPublisher===
+'RPMPublisher' is derived from Publisher and supports the following additional actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''installSRCRPM'''()</code>
+| Installs an RPM from C-source. The location of the C-source is specified by the ''source'' attribute of the unit. 
+|-valign="top"
+| <code>'''installRPM'''()</code>
+| Installs a binary RPM. The location of the binary is specified by the ''source'' attribute of the unit.
+|- valign="top"
+|<code>'''uninstallSRCRPM'''()</code>
+| Cleans up what was installed earlier with a ''installSRCRPM'' operation, i.e., this is an "undo" of a ''installSRCRPM'' operation. 
+|- valign="top"
+|<code>'''uninstallRPM'''()</code>
+| Cleans up what was installed earlier with a ''installRPM'' operation, i.e., this is an "undo" of a ''installRPM'' operation.
+|}
+===RubyPublisher===
+'RubyPublisher' is derived from Publisher and supports the following additional actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''installPassenger'''(String server)</code>
+| Installs 'Passanger' into the runtime for the specified ''server'' ('apache' or 'nginx'). 
+|-valign="top"
+| <code>'''installRubyEnterpriseFromCSource'''()</code>
+| Installs Ruby Enterprise from C-source. The location of the source code is specified by the ''source'' attribute of the unit.
+|- valign="top"
+|<code>'''uninstallPassenger'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPassenger'' operation, i.e., this is an "undo" of a ''installPassenger'' operation. 
+|- valign="top"
+|<code>'''uninstallRubyEnterpriseFromCSource'''()</code>
+| Cleans up what was installed earlier with a ''installRubyEnterpriseFromCSource'' operation, i.e., this is an "undo" of a ''installRubyEnterpriseFromCSource'' operation.
+|}
+===RepositoryPublisher===
+'RepositoryPublisher' is not derived from Publisher. The result of this publisher is a repository which is used during the installation process, but it is not installed as a component.
+
+There are no actions, and no additional customization available.
