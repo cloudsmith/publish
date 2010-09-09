@@ -1,82 +1,152 @@
 <project>
-	<import file="${buckminster.pdetasks}"/>
-<!--	<property name="director.home" value="c:/tmp/Publisher/director"/> -->
-	<property name="director.home" value="/tmp/Publisher/director"/>
+	<target name="create.product.zip" depends="-define.properties,-install.product">
+		<!-- find out product version -->
+		<property name="temp.metadata.directory" location="${product.install.directory}-metadata" />
+		<property name="product.metadata.filename" location="${temp.metadata.directory}/content.xml" />
+		<property name="product.version.filename" location="${temp.metadata.directory}/version.txt" />
 
-	 <pathconvert property="equinox.launcher.jar">
-	   <first count="1">
-	     <sort>
-	       <fileset dir="${eclipse.home}/plugins" includes="**/org.eclipse.equinox.launcher_*.jar"/>
-	       <reverse xmlns="antlib:org.apache.tools.ant.types.resources.comparators">
-	         <date/>
-	       </reverse>
-	     </sort>
-	   </first>
-	 </pathconvert>
+		<antcall target="-copy.metadata">
+			<param name="source.repository" value="${sp:repository}" />
+			<param name="target.metadata" value="${product.metadata.filename}" />
+		</antcall>
+		<xslt in="${product.metadata.filename}" out="${product.version.filename}" force="true" style="iu-version.xsl">
+			<param name="product-iu" expression="${product.iu}" />
+		</xslt>
+		<loadfile property="product.version" srcfile="${product.version.filename}" />
 
-	<target name="create.product">
-		<property name="targetPlatformPath" value=""/>
-		<buckminster.contextProperty name="targetPlatformPath"/>
-		<fail message="The property 'targetPlatformPath' must be set in order to do create the product">
-			<condition>
-				<length string="${targetPlatformPath}" when="equal" length="0"/>
-			</condition>
-		</fail>
+		<delete dir="${temp.metadata.directory}" />
 
-		<property name="destination" location="${sp:destination}"/>
-		<makeurl property="repository" file="${sp:repository}"/>
-		<mkdir dir="${destination}"/>
+		<!-- find out product launcher name -->
+		<pathconvert property="product.launcher.name">
+			<first count="1">
+				<fileset dir="${product.install.directory}">
+					<filename name="*.ini" />
+				</fileset>
+			</first>
+			<chainedmapper>
+				<flattenmapper />
+				<globmapper from="*.ini" to="*" />
+			</chainedmapper>
+		</pathconvert>
 
-		<echo message="${equinox.launcher.jar}"/>
-		<echo message="${repository}"/>
-		<echo message="${destination}"/>
-		<echo message="${p2.os}, ${p2.ws}, ${p2.arch}"/>
-		<java jar="${equinox.launcher.jar}" fork="true" failonerror="true" >
-			<arg value="-application"/>
-			<arg value="org.eclipse.equinox.p2.director"/>
-			<arg value="-r"/>
-			<arg value="${repository}"/>
-			<arg value="-d"/>
-			<arg value="${destination}"/>
-			<arg value="-p"/>
-			<arg value="${profile}"/>
-			<arg value="-i"/>
-			<arg value="${iu}"/>
-			<arg value="-p2.os"/>
-			<arg value="${p2.os}"/>
-			<arg value="-p2.ws"/>
-			<arg value="${p2.ws}"/>
-			<arg value="-p2.arch"/>
-			<arg value="${p2.arch}"/>
-			<!-- jvmarg value="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y"/ -->
-		</java>
+		<!-- define a selector selecting product's executable files -->
+		<selector id="product.executables">
+			<and>
+				<type type="file" />
+				<filename name="${product.launcher.name}" />
+			</and>
+		</selector>
 
-		<!-- Copy needed platform specific fragments -->
-		<copy todir="${destination}/plugins">
-			<fileset dir="${targetPlatformPath}/plugins" excludes="*.source_*.jar">
-				<include name="org.eclipse.equinox.launcher.*/**"/>
-				<include name="org.eclipse.core.net.*.jar"/>
-				<include name="org.eclipse.equinox.security.win32.*.jar"/>
-				<include name="org.eclipse.equinox.security.macosx.*.jar"/>
-			</fileset>
-		</copy>
+		<condition property="product.version.qualifier" value="-${product.version}" else="">
+			<isset property="product.version" />
+		</condition>
 
-		<!-- This app can do without the P2 profile and cache -->
-		<delete dir="${destination}/p2"/>
+		<!-- create the product zip file -->
+		<zip destfile="${sp:output}/${product.qualified.name}${product.version.qualifier}.zip">
+			<zipfileset dir="${product.install.directory}" dirmode="755" filemode="644" prefix="${product.name}">
+				<not>
+					<selector refid="product.executables" />
+				</not>
+			</zipfileset>
+			<zipfileset dir="${product.install.directory}" filemode="755" prefix="${product.name}">
+				<selector refid="product.executables" />
+			</zipfileset>
+		</zip>
+
+		<!-- cleanup the product install directory -->
+		<delete dir="${product.install.directory}" />
 	</target>
 
-	<target name="create.product.zip">
-		<extractFeatureVersion file="${sp:manifest}" property="product.version"/>
-		<extractFeatureId file="${sp:manifest}" property="product.name"/>
-		<dirname file="${sp:product.dir}" property="product.parent.dir"/>
-		<basename file="${sp:product.dir}" property="relative.product.dir"/>
-		<mkdir dir="${sp:action.output}"/>
-		<exec dir="${product.parent.dir}" executable="zip" outputproperty="zip.output" failonerror="true">
-			<arg value="-r"/>
-			<arg value="-9"/>
-			<arg value="${sp:action.output}${product.name}_${product.version}.zip"/>
-			<arg value="${relative.product.dir}"/>
-		</exec>
-		<echo message="${zip.output}"/>
+	<target name="-define.properties">
+		<!-- set defaults -->
+		<property name="product.arch" value="${osgi.arch}" />
+		<property name="product.os" value="${osgi.os}" />
+		<property name="product.ws" value="${osgi.ws}" />
+
+		<property name="product.qualified.name" value="${product.name}-${product.ws}.${product.os}.${product.arch}" />
+		<property name="product.install.directory" location="${sp:output}/${product.qualified.name}" />
+	</target>
+
+	<target name="-install.product">
+		<property name="repository.url" value="file:${sp:repository}" />
+
+		<delete dir="${product.install.directory}" />
+		<mkdir dir="${product.install.directory}" />
+
+		<p2.director destination="${product.install.directory}" metadatarepository="${repository.url}" artifactrepository="${repository.url}" profile="Product" arch="${product.arch}" os="${product.os}" ws="${product.ws}" roaming="true">
+			<iu id="${product.iu}" />
+		</p2.director>
+
+		<!-- delete the command line launcher created for windows targets -->
+		<delete file="${product.install.directory}/eclipsec.exe" />
+
+		<!-- this application can do without the P2 bits -->
+		<delete dir="${product.install.directory}" includeemptydirs="true">
+			<or>
+				<filename name="p2/**" />
+				<filename name="artifacts.xml" />
+			</or>
+		</delete>
+		<!-- delete also P2 properties from the config.ini file -->
+		<property name="config.ini" location="${product.install.directory}/configuration/config.ini" />
+		<property name="config.ini.properties.prefix" value="config.ini.property." />
+		<property file="${config.ini}" prefix="${config.ini.properties.prefix}" />
+		<antcall target="-massage.config.ini" inheritall="false">
+			<propertyset>
+				<propertyref name="config.ini" />
+				<propertyref name="config.ini.properties.prefix" />
+			</propertyset>
+			<propertyset>
+				<propertyref prefix="${config.ini.properties.prefix}" />
+				<regexpmapper from="^((?:.+\.)?p2(?:\..+)?)$" to="filtered.\1" />
+			</propertyset>
+		</antcall>
+	</target>
+
+	<target name="-massage.config.ini">
+		<property name="config.ini.filtered" location="${config.ini}.filtered" />
+		<property name="config.ini.comment" location="${config.ini}.comment" />
+		<echoproperties destfile="${config.ini.filtered}">
+			<propertyset>
+				<propertyref prefix="${config.ini.properties.prefix}" />
+				<globmapper from="${config.ini.properties.prefix}*" to="*" />
+			</propertyset>
+		</echoproperties>
+		<property name="product.config.comment" value="Framework configuration" />
+		<echo message="# ${product.config.comment}${line.separator}" file="${config.ini.comment}" />
+		<copy file="${config.ini.filtered}" tofile="${config.ini}">
+			<filterchain>
+				<striplinecomments>
+					<comment value="#" />
+				</striplinecomments>
+				<concatfilter prepend="${config.ini.comment}" />
+			</filterchain>
+		</copy>
+		<dirname property="config.ini.directory" file="${config.ini}" />
+		<basename property="config.ini.basename" file="${config.ini}" />
+		<delete dir="${config.ini.directory}">
+			<filename name="${config.ini.basename}.*" />
+		</delete>
+	</target>
+
+	<target name="-define.copy.properties">
+		<dirname property="target.metadata.directory" file="${target.metadata}" />
+		<basename property="target.metadata.filename" file="${target.metadata}" />
+		<available property="metadata.is.packed" file="${source.repository}/content.jar" />
+	</target>
+
+	<target name="-define.packed.source.metadata" depends="-define.copy.properties" if="metadata.is.packed">
+		<zipentry id="source.metadata" zipfile="${source.repository}/content.jar" name="content.xml" />
+	</target>
+
+	<target name="-define.plain.source.metadata" depends="-define.copy.properties" unless="metadata.is.packed">
+		<file id="source.metadata" basedir="${source.repository}" file="${source.repository}/content.xml" />
+	</target>
+
+	<target name="-copy.metadata" depends="-define.packed.source.metadata,-define.plain.source.metadata">
+		<copy todir="${target.metadata.directory}" overwrite="true">
+			<resources refid="source.metadata" />
+			<mergemapper to="${target.metadata.filename}" />
+		</copy>
 	</target>
 </project>
