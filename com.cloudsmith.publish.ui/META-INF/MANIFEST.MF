@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Repository Builder UI
 Bundle-SymbolicName: com.cloudsmith.publish.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.ui,
@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
  J2SE-1.5
-Bundle-Vendor: %providerName
+Bundle-Vendor: CLOUDSMITH
 Export-Package: com.cloudsmith.publish.ui,
  com.cloudsmith.publish.ui.commands,
  com.cloudsmith.publish.ui.editor,
