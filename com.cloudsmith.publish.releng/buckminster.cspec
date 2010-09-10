@@ -4,7 +4,5 @@
 >
 	<cs:dependencies>
 		<cs:dependency name="com.cloudsmith.publish.publisher.product" componentType="eclipse.feature" />
-
-		<cs:dependency name="org.eclipse.equinox.executable" componentType="eclipse.feature" />
 	</cs:dependencies>
 </cs:cspec>

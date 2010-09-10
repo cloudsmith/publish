@@ -1,55 +1,12 @@
 <project>
-	<target name="create.product.zip" depends="-define.properties,-install.product">
-		<!-- find out product version -->
-		<property name="temp.metadata.directory" location="${product.install.directory}-metadata" />
-		<property name="product.metadata.filename" location="${temp.metadata.directory}/content.xml" />
-		<property name="product.version.filename" location="${temp.metadata.directory}/version.txt" />
-
-		<antcall target="-copy.metadata">
-			<param name="source.repository" value="${sp:repository}" />
-			<param name="target.metadata" value="${product.metadata.filename}" />
-		</antcall>
-		<xslt in="${product.metadata.filename}" out="${product.version.filename}" force="true" style="iu-version.xsl">
-			<param name="product-iu" expression="${product.iu}" />
-		</xslt>
-		<loadfile property="product.version" srcfile="${product.version.filename}" />
-
-		<delete dir="${temp.metadata.directory}" />
-
-		<!-- find out product launcher name -->
-		<pathconvert property="product.launcher.name">
-			<first count="1">
-				<fileset dir="${product.install.directory}">
-					<filename name="*.ini" />
-				</fileset>
-			</first>
-			<chainedmapper>
-				<flattenmapper />
-				<globmapper from="*.ini" to="*" />
-			</chainedmapper>
-		</pathconvert>
-
-		<!-- define a selector selecting product's executable files -->
-		<selector id="product.executables">
-			<and>
-				<type type="file" />
-				<filename name="${product.launcher.name}" />
-			</and>
-		</selector>
-
-		<condition property="product.version.qualifier" value="-${product.version}" else="">
-			<isset property="product.version" />
-		</condition>
-
+	<target name="create.product.zip" depends="-install.launcher.icon">
 		<!-- create the product zip file -->
-		<zip destfile="${sp:output}/${product.qualified.name}${product.version.qualifier}.zip">
-			<zipfileset dir="${product.install.directory}" dirmode="755" filemode="644" prefix="${product.name}">
-				<not>
-					<selector refid="product.executables" />
-				</not>
+		<zip destfile="${sp:output}/${product.launcher.name}-${product.qualifier}${product.version.qualifier}.zip">
+			<zipfileset dir="${product.install.directory}" dirmode="755" filemode="644" prefix="${product.launcher.name}">
+				<filename name="${product.launcher.relative.pathname}" negate="true" />
 			</zipfileset>
-			<zipfileset dir="${product.install.directory}" filemode="755" prefix="${product.name}">
-				<selector refid="product.executables" />
+			<zipfileset dir="${product.install.directory}" filemode="755" prefix="${product.launcher.name}">
+				<filename name="${product.launcher.relative.pathname}" />
 			</zipfileset>
 		</zip>
 
@@ -57,17 +14,37 @@
 		<delete dir="${product.install.directory}" />
 	</target>
 
-	<target name="-define.properties">
-		<!-- set defaults -->
+	<target name="-define.product.properties">
+		<!-- set product target defaults -->
 		<property name="product.arch" value="${osgi.arch}" />
 		<property name="product.os" value="${osgi.os}" />
 		<property name="product.ws" value="${osgi.ws}" />
 
-		<property name="product.qualified.name" value="${product.name}-${product.ws}.${product.os}.${product.arch}" />
-		<property name="product.install.directory" location="${sp:output}/${product.qualified.name}" />
+		<property name="product.qualifier" value="${product.ws}.${product.os}.${product.arch}" />
+		<property name="product.install.directory" location="${sp:output}/product-${product.qualifier}" />
+		<property name="product.properties.filename" location="${product.install.directory}-properties.xml" />
+
+		<!-- extract useful pieces of information from product file and load them to properties -->
+		<xslt in="${sp:product.definition.file}" out="${product.properties.filename}" force="true" style="product-properties.xsl">
+			<param name="os" expression="${product.os}" />
+		</xslt>
+		<xmlproperty file="${product.properties.filename}" />
+		<delete file="${product.properties.filename}" />
+
+		<!-- set product info defaults -->
+		<property name="product.launcher.name" value="eclipse" />
+
+		<!-- set additional product info defaults -->
+		<property name="product.config.comment.addition" value="OSGi Framework configuration" />
+		<condition property="product.config.comment" value="${product.name} ${product.config.comment.addition}" else="${product.config.comment.addition}">
+			<isset property="product.name" />
+		</condition>
+		<condition property="product.version.qualifier" value="-${product.version}" else="">
+			<isset property="product.version" />
+		</condition>
 	</target>
 
-	<target name="-install.product">
+	<target name="-install.product" depends="-define.product.properties">
 		<property name="repository.url" value="file:${sp:repository}" />
 
 		<delete dir="${product.install.directory}" />
@@ -95,6 +72,7 @@
 			<propertyset>
 				<propertyref name="config.ini" />
 				<propertyref name="config.ini.properties.prefix" />
+				<propertyref name="product.config.comment" />
 			</propertyset>
 			<propertyset>
 				<propertyref prefix="${config.ini.properties.prefix}" />
@@ -112,7 +90,6 @@
 				<globmapper from="${config.ini.properties.prefix}*" to="*" />
 			</propertyset>
 		</echoproperties>
-		<property name="product.config.comment" value="Framework configuration" />
 		<echo message="# ${product.config.comment}${line.separator}" file="${config.ini.comment}" />
 		<copy file="${config.ini.filtered}" tofile="${config.ini}">
 			<filterchain>
@@ -129,24 +106,60 @@
 		</delete>
 	</target>
 
-	<target name="-define.copy.properties">
-		<dirname property="target.metadata.directory" file="${target.metadata}" />
-		<basename property="target.metadata.filename" file="${target.metadata}" />
-		<available property="metadata.is.packed" file="${source.repository}/content.jar" />
+	<target name="-define.launcher.properties">
+		<pathconvert property="product.launcher.relative.pathname" setonempty="false">
+			<first count="1">
+				<fileset dir="${product.install.directory}">
+					<and>
+						<type type="file" />
+						<filename name="**/${product.launcher.name}" />
+						<present targetdir="${product.install.directory}">
+							<mapper>
+								<globmapper from="*" to="*.ini" />
+							</mapper>
+						</present>
+					</and>
+				</fileset>
+			</first>
+			<map from="${product.install.directory}/" to="" />
+		</pathconvert>
+
+		<!-- assume launcher is located at the installation root if we haven't found it -->
+		<condition property="prouduct.launcher.location" value="${product.install.directory}">
+			<not>
+				<isset property="product.launcher.relative.pathname" />
+			</not>
+		</condition>
+		<dirname property="prouduct.launcher.location" file="${product.install.directory}/${product.launcher.relative.pathname}" />
+		<property name="product.launcher.relative.pathname" value="" />
 	</target>
 
-	<target name="-define.packed.source.metadata" depends="-define.copy.properties" if="metadata.is.packed">
-		<zipentry id="source.metadata" zipfile="${source.repository}/content.jar" name="content.xml" />
+	<target name="-install.launcher.icon" depends="-install.product,-define.launcher.properties" if="product.launcher.icon">
+		<eclipse.convertPath property="prouduct.launcher.icon.source" resourcepath="${product.launcher.icon}" />
+
+		<condition property="prouduct.launcher.icon.relative.location" value="../Resources">
+			<equals arg1="${product.os}" arg2="macosx" />
+		</condition>
+		<property name="prouduct.launcher.icon.relative.location" value="." />
+
+		<property name="prouduct.launcher.icon.location" location="${prouduct.launcher.location}/${prouduct.launcher.icon.relative.location}" />
+
+		<mkdir dir="${prouduct.launcher.icon.location}" />
+
+		<copy todir="${prouduct.launcher.icon.location}" file="${prouduct.launcher.icon.source}" />
 	</target>
 
-	<target name="-define.plain.source.metadata" depends="-define.copy.properties" unless="metadata.is.packed">
-		<file id="source.metadata" basedir="${source.repository}" file="${source.repository}/content.xml" />
-	</target>
-
-	<target name="-copy.metadata" depends="-define.packed.source.metadata,-define.plain.source.metadata">
-		<copy todir="${target.metadata.directory}" overwrite="true">
-			<resources refid="source.metadata" />
-			<mergemapper to="${target.metadata.filename}" />
-		</copy>
+	<target name="fix.executable.templates">
+		<!--
+		<!pathconvert property="ini.files" pathsep="${line.separator}">
+			<fileset dir="${sp:equinox.executable.feature}">
+				<filename name="**/MacOS/eclipse.ini" />
+			</fileset>
+		</pathconvert>
+		<echo message="${ini.files}" />
+		-->
+		<delete dir="${sp:equinox.executable.feature}">
+			<filename name="**/MacOS/eclipse.ini" />
+		</delete>
 	</target>
 </project>
