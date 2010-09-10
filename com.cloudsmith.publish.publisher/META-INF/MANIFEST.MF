@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Publisher RCP
+Bundle-Name: Repository Builder Platform
 Bundle-SymbolicName: com.cloudsmith.publish.publisher;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.cloudsmith.publish.publisher.Activator
-Bundle-Vendor: Cloudsmith Inc.
+Bundle-Vendor: CLOUDSMITH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.editors;bundle-version="3.6.0",
