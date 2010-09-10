@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.cloudsmith.publish.publisher.product"
-      label="Publisher Product"
+      label="Repository Builder Product"
       version="1.0.0.qualifier"
-      provider-name="Cloudsmith Inc.">
+      provider-name="CLOUDSMITH">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,7 +20,6 @@
    <includes
          id="com.cloudsmith.publish.publisher.feature"
          version="0.0.0"/>
-
 
    <plugin
          id="org.eclipse.equinox.event"
