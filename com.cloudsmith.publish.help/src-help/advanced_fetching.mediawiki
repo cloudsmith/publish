@@ -27,13 +27,13 @@ The URI given to fetch is handled by the installer. Currently, the schemes handl
 
 ===Fetching from SVN===
 The installer's support for the svn scheme supports the following URI format:
-* svn - scheme
-* regular hierarchical URL, i.e., //&#91;username&#91;:password]@]host&#91;:port]/path
+* <code>svn</code> - scheme
+* regular hierarchical URL, i.e., <code>//&#91;username&#91;:password]@]host&#91;:port]/path</code>
 * optional URL 'query parameters' for username, password, revision, and path as follows:
-** username=mary 
-** password=hadALittleLamb
-** revision=revisionSpecifier
-** path=/targetPath
+** <code>username=mary</code>
+** <code>password=hadALittleLamb</code>
+** <code>revision=revisionSpecifier</code>
+** <code>path=/targetPath</code>
 
 Username and password requires no further explanation, but there are two ways of specifying these; as part of the URL or
 as separate parameters. (TODO: is it possible to specify them in the URL? the svn command says nothing about this in
