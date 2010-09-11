@@ -1,0 +1,54 @@
+(W.I.P + has links to non public bugzilla issues)
+=Advanced Fetching=
+An Installable Unit (i.e. a unit transformed into installable form) can have a payload of one artifact which is managed by the installation logic. Typically, the artifact is an archive of some sort (zip, gz, etc.) that is unpacked on installation, but sometimes the artifact is simply a key into a different installation mechanism (e.g., a Ruby Gem, or RPM).
+
+The Repository Builder uses at the <code>source</code> attribute of a unit as the reference to an artifact. The unit types that have symbolic references use the unit's name as the key as they don't need to have a payload.
+
+The <code>source</code> attribute of a unit is a URI. The Repository Builder selects the mechanism to use for downloading the artifact based on the URI scheme as follows:
+
+* http, https, ftp, ftps - download is via the repository technology's standard mechanism 
+* any other scheme - handled as fetch actions during installation
+
+==Standard download==
+The standard download will download and cache the artifact using the Eclipse p2 artifact repository mechanisms before handing the artifact to the installation logic. The download logic is advanced and supports among other thins, selection of mirrored repositories, and detection of changed timestamps and sizes to avoid downloading already downloaded files.
+
+The downloaded artifact is made available at the special path "@artifact" which is used in actions. As an example, to copy the artifact specified in a unit the instruction in a unit would be:
+
+ whenInstalling : [ p.copy("@artifact", "/opt/WhereIWantIt/filename"); ] ;
+
+==Download via fetch==
+The fetch mechanism is used when the <code>source</code> location has a scheme other than the http(s), or ftp(s).
+The Repository Publisher will then generate a fetch action executed before any other stated actions in the install-phase, and a cleanupFetch action executed as the last action in the uninstall-phase.
+
+The URI given to fetch is handled by the installer. Currently, the schemes handled by the installer are:
+* svn:
+* svn+ssh, and other svn schemes - (not in 0.1) http://bugzilla.cloudsmith.com/show_bug.cgi?id=1024
+* git (not in 0.1) http://bugzilla.cloudsmith.com/show_bug.cgi?id=1025
+
+===Fetching from SVN===
+The installer's support for the svn scheme supports the following URI format:
+* svn - scheme
+* regular hierarchical URL, i.e., //&#91;username&#91;:password]@]host&#91;:port]/path
+* optional URL 'query parameters' for username, password, revision, and path as follows:
+** username=mary 
+** password=hadALittleLamb
+** revision=revisionSpecifier
+** path=/targetPath
+
+Username and password requires no further explanation, but there are two ways of specifying these; as part of the URL or
+as separate parameters. (TODO: is it possible to specify them in the URL? the svn command says nothing about this in
+its man pages). When specifying them as parameters, they are passed as the parameters --username and --password respecitively to the system svn command. 
+
+The revision is passed to the system svn command using --revision which supports a revision number as well as symblical references (e.g. HEAD, or BASE - for a full list see the svn system command). If a revision is not specified, HEAD will be used to get the latest revision).
+
+The targetPath is passed to the system svn command and is the location where the checked out content should be placed in the file system. If this path is not specified, the checkout will be made to a cache location, and this location is made available to actions (TODO: how is this made available?).
+
+Here is an example of a URI to a repository that does not require username and password:
+ svn://org.myorg/svnroot/trunk/org.myorg.mycomponent?revision=12345&path=/opt/org.myorg.myComponent.configuration
+
+And here with username and password:
+ svn://org.myorg/svnroot/trunk/org.myorg.mycomponent?revision=12345&path=/opt/org.myorg.myComponent.configuration&username=mary&password=hadALittleLamb
+ 
+Note that special characters in the username or password have to be URL safe. Use URL escape mechanism for such characters.
+
+

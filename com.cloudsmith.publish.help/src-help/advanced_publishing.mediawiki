@@ -9,7 +9,7 @@ Here is an example using a GEM unit:
 <pre>
 unit myGem version gem:1.0.0 is GEM;
 </pre>
-Behind the scenes in this case, the Publish operation will apply additional logic to the unit before any publishing takes place. The resulting (adviced) code looks like this (with respect to how a Publisher is used):
+Behind the scenes in this case, the Publish operation will apply additional logic to the unit before any publishing takes place. The resulting (advised) code looks like this (with respect to how a Publisher is used):
 <pre>
 unit myGem version gem:1.0.0 {
     builder publish() {
@@ -125,6 +125,8 @@ The boolean flag ''overwrite'' should be set to ''true'' if the copy action shou
 | Executes a system command, the first argument is the name (or full path if the command is not found via the system's
 normal command path). Additional arguments are passed as arguments to the system command. Note: there is no corresponding cleanup, or undo operation in case of transaction failure as the installer has no understanding of what is being
 executed by the action.
+
+When the installer executes the system command, the current working directory (CWD) will be set to the root of the unit's unpacked archive artifact, or the checked out root directory for a source code control system fetch operation.
 |- valign="top"
 |<code>'''fetch'''(String uri)</code>
 | Fetches data from the location specified in the ''uri'' parameter. ''TODO: There is more to say here about supported schemes, and how to access what was fetched.''
