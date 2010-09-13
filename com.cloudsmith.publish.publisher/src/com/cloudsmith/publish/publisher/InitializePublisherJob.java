@@ -24,7 +24,7 @@ public class InitializePublisherJob extends Job {
 	 * @param name
 	 */
 	public InitializePublisherJob() {
-		super("Initializing Publisher");
+		super("Initializing Repository Builder");
 		setPriority(INTERACTIVE);
 		setUser(false);
 		setSystem(false);
