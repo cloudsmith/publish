@@ -146,6 +146,12 @@
             pattern="org\.eclipse\.search.*|org\.eclipse\.ui\.edit\.text\.gotoLastEditPosition|org\.eclipse\.ui\.edit.*Annotation.*|.*org\.eclipse\.team\.ui\.applyPatch|.*org\.eclipse\.team\.ui\.showLocalHistory|.*org\.eclipse\.team\.ui\.ConfigureProject|.*OpenDeclaration.*|org\.eclipse\.ui\.navigate.*">
       </activityPatternBinding>
    </extension>
+   <extension
+         point="org.eclipse.b3.beelang.ui.B3BeeLangUiModule">
+      <module
+            moduleClass="com.cloudsmith.publish.publisher.module.PublisherModule">
+      </module>
+   </extension>
    
    
 
