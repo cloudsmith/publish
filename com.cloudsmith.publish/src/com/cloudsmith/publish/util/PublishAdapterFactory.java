@@ -15,6 +15,7 @@ import com.cloudsmith.publish.*;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
@@ -126,6 +127,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIPHPActions(IPHPActions object) {
+			return createIPHPActionsAdapter();
+		}
+
+		@Override
 		public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
 			return createIProvidedCapabilityContainerAdapter();
 		}
@@ -146,6 +152,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIVarName(IVarName object) {
+			return createIVarNameAdapter();
+		}
+
+		@Override
 		public Adapter caseNative(Native object) {
 			return createNativeAdapter();
 		}
@@ -158,6 +169,36 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseNativePublisher(NativePublisher object) {
 			return createNativePublisherAdapter();
+		}
+
+		@Override
+		public Adapter casePear(Pear object) {
+			return createPearAdapter();
+		}
+
+		@Override
+		public Adapter casePecl(Pecl object) {
+			return createPeclAdapter();
+		}
+
+		@Override
+		public Adapter casePHPActions(PHPActions object) {
+			return createPHPActionsAdapter();
+		}
+
+		@Override
+		public Adapter casePHPPackage(PHPPackage object) {
+			return createPHPPackageAdapter();
+		}
+
+		@Override
+		public Adapter casePHPPublisher(PHPPublisher object) {
+			return createPHPPublisherAdapter();
+		}
+
+		@Override
+		public Adapter casePHPRuntime(PHPRuntime object) {
+			return createPHPRuntimeAdapter();
 		}
 
 		@Override
@@ -479,6 +520,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IPHPActions <em>IPHP Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.IPHPActions
+	 * @generated
+	 */
+	public Adapter createIPHPActionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
@@ -541,6 +597,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName <em>IVar Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IVarName
+	 * @generated
+	 */
+	public Adapter createIVarNameAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.NativeActions <em>Native Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -582,6 +653,96 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNativePublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Pear <em>Pear</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Pear
+	 * @generated
+	 */
+	public Adapter createPearAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Pecl
+	 * @generated
+	 */
+	public Adapter createPeclAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPActions <em>PHP Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHPActions
+	 * @generated
+	 */
+	public Adapter createPHPActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPPackage <em>PHP Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHPPackage
+	 * @generated
+	 */
+	public Adapter createPHPPackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPPublisher <em>PHP Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHPPublisher
+	 * @generated
+	 */
+	public Adapter createPHPPublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPRuntime <em>PHP Runtime</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHPRuntime
+	 * @generated
+	 */
+	public Adapter createPHPRuntimeAdapter() {
 		return null;
 	}
 

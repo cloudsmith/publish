@@ -208,17 +208,6 @@ public class NativeActionsImpl extends ActionPackageImpl implements NativeAction
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.NATIVE_ACTIONS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Generates an Action 'exec(argc:count, arg0:txt, argn:txt)'
 	 * <!-- end-user-doc -->
 	 * 
@@ -417,5 +406,16 @@ public class NativeActionsImpl extends ActionPackageImpl implements NativeAction
 		a.setActionPackage(this);
 		return a;
 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.NATIVE_ACTIONS;
 	}
 } // NativeActionsImpl

@@ -221,17 +221,6 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.PUBLISHER_ACTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.PUBLISHER_ACTION__NAME:
@@ -380,6 +369,17 @@ public class PublisherActionImpl extends EObjectImpl implements PublisherAction 
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.UNSET, PublishPackage.PUBLISHER_ACTION__NAME, oldName, NAME_EDEFAULT, oldNameESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.PUBLISHER_ACTION;
 	}
 
 } // PublisherActionImpl

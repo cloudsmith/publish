@@ -29,11 +29,18 @@ import com.cloudsmith.publish.GEMPublisher;
 import com.cloudsmith.publish.IExtNativeActions;
 import com.cloudsmith.publish.IGEMActions;
 import com.cloudsmith.publish.INativeActions;
+import com.cloudsmith.publish.IPHPActions;
 import com.cloudsmith.publish.IRPMActions;
 import com.cloudsmith.publish.IRubyActions;
 import com.cloudsmith.publish.Native;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.NativePublisher;
+import com.cloudsmith.publish.PHPActions;
+import com.cloudsmith.publish.PHPPackage;
+import com.cloudsmith.publish.PHPPublisher;
+import com.cloudsmith.publish.PHPRuntime;
+import com.cloudsmith.publish.Pear;
+import com.cloudsmith.publish.Pecl;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publishable;
@@ -270,6 +277,62 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	private EClass iphpActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass phpActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass phpPublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass phpRuntimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass phpPackageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass pearEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass peclEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -444,6 +507,21 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		createEReference(nativePublisherEClass, NATIVE_PUBLISHER__EXT_NATIVE_ACTIONS);
 
 		nativeEClass = createEClass(NATIVE);
+
+		iphpActionsEClass = createEClass(IPHP_ACTIONS);
+
+		phpActionsEClass = createEClass(PHP_ACTIONS);
+
+		phpPublisherEClass = createEClass(PHP_PUBLISHER);
+		createEReference(phpPublisherEClass, PHP_PUBLISHER__PHP_ACTIONS);
+
+		phpRuntimeEClass = createEClass(PHP_RUNTIME);
+
+		phpPackageEClass = createEClass(PHP_PACKAGE);
+
+		pearEClass = createEClass(PEAR);
+
+		peclEClass = createEClass(PECL);
 	}
 
 	/**
@@ -602,6 +680,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getIPHPActions() {
+		return iphpActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIRPMActions() {
 		return irpmActionsEClass;
 	}
@@ -654,6 +742,76 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EReference getNativePublisher_ExtNativeActions() {
 		return (EReference) nativePublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPear() {
+		return pearEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPecl() {
+		return peclEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPHPActions() {
+		return phpActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPHPPackage() {
+		return phpPackageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPHPPublisher() {
+		return phpPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getPHPPublisher_PhpActions() {
+		return (EReference) phpPublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPHPRuntime() {
+		return phpRuntimeEClass;
 	}
 
 	/**
@@ -1100,6 +1258,14 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		nativePublisherEClass.getESuperTypes().add(this.getPublisher());
 		nativePublisherEClass.getESuperTypes().add(this.getIExtNativeActions());
 		nativeEClass.getESuperTypes().add(this.getPublishable());
+		phpActionsEClass.getESuperTypes().add(this.getActionPackage());
+		phpActionsEClass.getESuperTypes().add(this.getIPHPActions());
+		phpPublisherEClass.getESuperTypes().add(this.getPublisher());
+		phpPublisherEClass.getESuperTypes().add(this.getIPHPActions());
+		phpRuntimeEClass.getESuperTypes().add(this.getPublishable());
+		phpPackageEClass.getESuperTypes().add(this.getPublishable());
+		pearEClass.getESuperTypes().add(this.getPHPPackage());
+		peclEClass.getESuperTypes().add(this.getPHPPackage());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1410,6 +1576,30 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nativeEClass, Native.class, "Native", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			iphpActionsEClass, IPHPActions.class, "IPHPActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			phpActionsEClass, PHPActions.class, "PHPActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			phpPublisherEClass, PHPPublisher.class, "PHPPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getPHPPublisher_PhpActions(), this.getPHPActions(), null, "phpActions", null, 0, 1, PHPPublisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			phpRuntimeEClass, PHPRuntime.class, "PHPRuntime", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			phpPackageEClass, PHPPackage.class, "PHPPackage", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pearEClass, Pear.class, "Pear", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(peclEClass, Pecl.class, "Pecl", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -18,6 +18,28 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 
 public class PublishModule extends AbstractModule {
+	@Override
+	public void configure() {
+
+		bindGEMActions();
+		bindGEMPublisher();
+
+		bindNativeActions();
+		bindPublisher();
+
+		bindExtNativeActions();
+		bindNativePublisher();
+
+		bindRepositoryPublisher();
+
+		bindRPMActions();
+		bindRPMPublisher();
+
+		bindRubyPublisher();
+		bindRubyActions();
+
+	}
+
 	protected void bindExtNativeActions() {
 		bind(ExtNativeActions.class).toProvider(
 			publishModelProvider(ExtNativeActions.class, PublishPackage.Literals.EXT_NATIVE_ACTIONS));
@@ -68,28 +90,6 @@ public class PublishModule extends AbstractModule {
 	protected void bindRubyPublisher() {
 		bind(RubyPublisher.class).toProvider(
 			publishModelProvider(RubyPublisher.class, PublishPackage.Literals.RUBY_PUBLISHER));
-	}
-
-	@Override
-	public void configure() {
-
-		bindGEMActions();
-		bindGEMPublisher();
-
-		bindNativeActions();
-		bindPublisher();
-
-		bindExtNativeActions();
-		bindNativePublisher();
-
-		bindRepositoryPublisher();
-
-		bindRPMActions();
-		bindRPMPublisher();
-
-		bindRubyPublisher();
-		bindRubyActions();
-
 	}
 
 	<T> Provider<T> publishModelProvider(Class<T> type, EClass eclass) {

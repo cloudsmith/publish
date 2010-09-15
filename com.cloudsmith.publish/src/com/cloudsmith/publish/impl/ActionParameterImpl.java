@@ -153,17 +153,6 @@ public class ActionParameterImpl extends EObjectImpl implements ActionParameter 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.ACTION_PARAMETER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.ACTION_PARAMETER__NAME:
@@ -241,6 +230,17 @@ public class ActionParameterImpl extends EObjectImpl implements ActionParameter 
 		result.append(value);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.ACTION_PARAMETER;
 	}
 
 } // ActionParameterImpl

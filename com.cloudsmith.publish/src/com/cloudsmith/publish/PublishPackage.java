@@ -631,6 +631,92 @@ public interface PublishPackage extends EPackage {
 		 */
 		EClass NATIVE = eINSTANCE.getNative();
 
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IPHPActions <em>IPHP Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IPHPActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIPHPActions()
+		 * @generated
+		 */
+		EClass IPHP_ACTIONS = eINSTANCE.getIPHPActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PHPActionsImpl <em>PHP Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.PHPActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPActions()
+		 * @generated
+		 */
+		EClass PHP_ACTIONS = eINSTANCE.getPHPActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.PHPPublisherImpl <em>PHP Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.PHPPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPPublisher()
+		 * @generated
+		 */
+		EClass PHP_PUBLISHER = eINSTANCE.getPHPPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Php Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference PHP_PUBLISHER__PHP_ACTIONS = eINSTANCE.getPHPPublisher_PhpActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.PHPRuntime <em>PHP Runtime</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.PHPRuntime
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPRuntime()
+		 * @generated
+		 */
+		EClass PHP_RUNTIME = eINSTANCE.getPHPRuntime();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.PHPPackage <em>PHP Package</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.PHPPackage
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPPackage()
+		 * @generated
+		 */
+		EClass PHP_PACKAGE = eINSTANCE.getPHPPackage();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.Pear <em>Pear</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.Pear
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPear()
+		 * @generated
+		 */
+		EClass PEAR = eINSTANCE.getPear();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.Pecl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPecl()
+		 * @generated
+		 */
+		EClass PECL = eINSTANCE.getPecl();
+
 	}
 
 	/**
@@ -759,6 +845,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int PUBLISHABLE__PROVIDED_CAPABILITIES = B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHABLE__VAR_NAME = B3BuildPackage.BUILD_UNIT__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -911,6 +1007,26 @@ public interface PublishPackage extends EPackage {
 	int PUBLISHABLE__PARENT = B3BuildPackage.BUILD_UNIT__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHABLE__FRAGMENT_HOSTS = B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHABLE__PLATFORM_FILTER = B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER;
+
+	/**
 	 * The number of structural features of the '<em>Publishable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1010,6 +1126,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int RPM__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM__VAR_NAME = PUBLISHABLE__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -1162,6 +1288,26 @@ public interface PublishPackage extends EPackage {
 	int RPM__PARENT = PUBLISHABLE__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RPM__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
 	 * The number of structural features of the '<em>RPM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1261,6 +1407,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM__VAR_NAME = PUBLISHABLE__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -1411,6 +1567,26 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int GEM__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GEM__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
 
 	/**
 	 * The number of structural features of the '<em>GEM</em>' class.
@@ -2536,6 +2712,16 @@ public interface PublishPackage extends EPackage {
 	int REPOSITORY_DEFINITION__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
 
 	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2684,6 +2870,26 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY_DEFINITION__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DEFINITION__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
 
 	/**
 	 * The number of structural features of the '<em>Repository Definition</em>' class.
@@ -3101,6 +3307,16 @@ public interface PublishPackage extends EPackage {
 	int RUBY_RUNTIME__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
 
 	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_RUNTIME__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3251,6 +3467,26 @@ public interface PublishPackage extends EPackage {
 	int RUBY_RUNTIME__PARENT = PUBLISHABLE__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_RUNTIME__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RUBY_RUNTIME__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
 	 * The number of structural features of the '<em>Ruby Runtime</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3350,6 +3586,16 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int CSOURCE__PROVIDED_CAPABILITIES = B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CSOURCE__VAR_NAME = B3BuildPackage.BUILD_UNIT__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -3500,6 +3746,26 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int CSOURCE__PARENT = B3BuildPackage.BUILD_UNIT__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CSOURCE__FRAGMENT_HOSTS = B3BuildPackage.BUILD_UNIT__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CSOURCE__PLATFORM_FILTER = B3BuildPackage.BUILD_UNIT__PLATFORM_FILTER;
 
 	/**
 	 * The number of structural features of the '<em>CSource</em>' class.
@@ -3896,6 +4162,16 @@ public interface PublishPackage extends EPackage {
 	int NATIVE__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
 
 	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4046,6 +4322,26 @@ public interface PublishPackage extends EPackage {
 	int NATIVE__PARENT = PUBLISHABLE__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
 	 * The number of structural features of the '<em>Native</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4054,6 +4350,1423 @@ public interface PublishPackage extends EPackage {
 	 * @ordered
 	 */
 	int NATIVE_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.IPHPActions <em>IPHP Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.IPHPActions
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIPHPActions()
+	 * @generated
+	 */
+	int IPHP_ACTIONS = 26;
+
+	/**
+	 * The number of structural features of the '<em>IPHP Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IPHP_ACTIONS_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PHPActionsImpl <em>PHP Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.PHPActionsImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPActions()
+	 * @generated
+	 */
+	int PHP_ACTIONS = 27;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
+
+	/**
+	 * The number of structural features of the '<em>PHP Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_ACTIONS_FEATURE_COUNT = ACTION_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.PHPPublisherImpl <em>PHP Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.PHPPublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPPublisher()
+	 * @generated
+	 */
+	int PHP_PUBLISHER = 28;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__ID = PUBLISHER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__SINGLETON = PUBLISHER__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__VERSION = PUBLISHER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__COPYRIGHT_TEXT = PUBLISHER__COPYRIGHT_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__COPYRIGHT_URL = PUBLISHER__COPYRIGHT_URL;
+
+	/**
+	 * The feature id for the '<em><b>License Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__LICENSE_TEXT = PUBLISHER__LICENSE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>License URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__LICENSE_URL = PUBLISHER__LICENSE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__RUNTIME_FILTER = PUBLISHER__RUNTIME_FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__WHEN_UNCONFIGURING = PUBLISHER__WHEN_UNCONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__NAME = PUBLISHER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__UNIT = PUBLISHER__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Provides</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__PROVIDES = PUBLISHER__PROVIDES;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__REQUIRES = PUBLISHER__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Php Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER__PHP_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PHP Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.PHPRuntime <em>PHP Runtime</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.PHPRuntime
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPRuntime()
+	 * @generated
+	 */
+	int PHP_RUNTIME = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__NAME = PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__NAME_SPACE = PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__COND_EXPR = PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__VERSION = PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__FUNCTIONS = PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__BUILDERS = PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__DOCUMENTATION = PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__EXECUTION_MODE = PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__META_REQUIRED_CAPABILITIES = PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__IMPLEMENTS = PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__CONCERNS = PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__DEFAULT_PROPERTIES = PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__SYNCHRONIZATIONS = PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__REPOSITORIES = PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__CONTAINERS = PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__PROPERTY_SETS = PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__SOURCE_LOCATION = PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__OUTPUT_LOCATION = PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>PHP Runtime</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_RUNTIME_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.PHPPackage <em>PHP Package</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.PHPPackage
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPPackage()
+	 * @generated
+	 */
+	int PHP_PACKAGE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__NAME = PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__NAME_SPACE = PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__COND_EXPR = PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__VERSION = PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__FUNCTIONS = PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__BUILDERS = PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__DOCUMENTATION = PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__EXECUTION_MODE = PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__META_REQUIRED_CAPABILITIES = PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__IMPLEMENTS = PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__CONCERNS = PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__DEFAULT_PROPERTIES = PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__SYNCHRONIZATIONS = PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__REPOSITORIES = PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__CONTAINERS = PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__PROPERTY_SETS = PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__SOURCE_LOCATION = PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__OUTPUT_LOCATION = PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>PHP Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PHP_PACKAGE_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.Pear <em>Pear</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.Pear
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPear()
+	 * @generated
+	 */
+	int PEAR = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__NAME = PHP_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__COND_EXPR = PHP_PACKAGE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__VERSION = PHP_PACKAGE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__VAR_NAME = PHP_PACKAGE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__BUILDERS = PHP_PACKAGE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__CONCERNS = PHP_PACKAGE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__CONTAINERS = PHP_PACKAGE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__PROVIDERS = PHP_PACKAGE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__PARENT = PHP_PACKAGE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>Pear</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PEAR_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.Pecl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPecl()
+	 * @generated
+	 */
+	int PECL = 32;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__NAME = PHP_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__COND_EXPR = PHP_PACKAGE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__VERSION = PHP_PACKAGE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__VAR_NAME = PHP_PACKAGE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__BUILDERS = PHP_PACKAGE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__CONCERNS = PHP_PACKAGE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__CONTAINERS = PHP_PACKAGE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__PROVIDERS = PHP_PACKAGE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__PARENT = PHP_PACKAGE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>Pecl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PECL_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
@@ -4226,6 +5939,17 @@ public interface PublishPackage extends EPackage {
 	EClass getINativeActions();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IPHPActions <em>IPHP Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IPHP Actions</em>'.
+	 * @see com.cloudsmith.publish.IPHPActions
+	 * @generated
+	 */
+	EClass getIPHPActions();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IRPMActions <em>IRPM Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4292,6 +6016,84 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNativePublisher_ExtNativeActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Pear <em>Pear</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Pear</em>'.
+	 * @see com.cloudsmith.publish.Pear
+	 * @generated
+	 */
+	EClass getPear();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Pecl</em>'.
+	 * @see com.cloudsmith.publish.Pecl
+	 * @generated
+	 */
+	EClass getPecl();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPActions <em>PHP Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>PHP Actions</em>'.
+	 * @see com.cloudsmith.publish.PHPActions
+	 * @generated
+	 */
+	EClass getPHPActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPPackage <em>PHP Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>PHP Package</em>'.
+	 * @see com.cloudsmith.publish.PHPPackage
+	 * @generated
+	 */
+	EClass getPHPPackage();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPPublisher <em>PHP Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>PHP Publisher</em>'.
+	 * @see com.cloudsmith.publish.PHPPublisher
+	 * @generated
+	 */
+	EClass getPHPPublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.PHPPublisher#getPhpActions <em>Php Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Php Actions</em>'.
+	 * @see com.cloudsmith.publish.PHPPublisher#getPhpActions()
+	 * @see #getPHPPublisher()
+	 * @generated
+	 */
+	EReference getPHPPublisher_PhpActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPRuntime <em>PHP Runtime</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>PHP Runtime</em>'.
+	 * @see com.cloudsmith.publish.PHPRuntime
+	 * @generated
+	 */
+	EClass getPHPRuntime();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.Publishable <em>Publishable</em>}'.

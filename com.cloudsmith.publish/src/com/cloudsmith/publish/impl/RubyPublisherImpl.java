@@ -136,56 +136,6 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RUBY_PUBLISHER;
-	}
-
-	/**
-	 * Returns the value of a property (on the form "a.b.c") as it was set when resolving the given unit.
-	 * If property was not set, then check the regular context (i.e. "now").
-	 * If no context is available (unit testing?) the property is looked up using system properties directly.
-	 * 
-	 * @param unit
-	 * @param property
-	 * @return
-	 */
-	private String getPropertyInTheContextUnitWasResolved(BuildUnit unit, String propertyName, String defaultValue) {
-		// need the context to get resolution scope key
-		BExecutionContext ctx = B3ContextAccess.get();
-		if(ctx != null) {
-			Object result = null;
-			try {
-				// Get the current resolution scope
-				IBuildUnitResolver scopeKey = ctx.getInjector().getInstance(IBuildUnitResolver.class);
-
-				// Get the resolution info associated with the unit
-				ResolutionInfo rinfo = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit).getAssociatedInfo(scopeKey);
-				if(rinfo.getStatus().isOK() && rinfo instanceof UnitResolutionInfo) {
-					UnitResolutionInfo urinfo = (UnitResolutionInfo) rinfo;
-					ctx = urinfo.getContext();
-					result = ctx.getValue("${" + propertyName + "}");
-				}
-			}
-			catch(B3NoSuchVariableException e) {
-				result = null;
-			}
-			catch(B3EngineException e) {
-				return null;
-			}
-			return (result == null || !(result instanceof String))
-					? defaultValue
-					: (String) result;
-		}
-		return System.getProperty(propertyName, defaultValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	public RubyActions getRubyActions() {
@@ -264,6 +214,56 @@ public class RubyPublisherImpl extends PublisherImpl implements RubyPublisher {
 		}
 
 		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RUBY_PUBLISHER;
+	}
+
+	/**
+	 * Returns the value of a property (on the form "a.b.c") as it was set when resolving the given unit.
+	 * If property was not set, then check the regular context (i.e. "now").
+	 * If no context is available (unit testing?) the property is looked up using system properties directly.
+	 * 
+	 * @param unit
+	 * @param property
+	 * @return
+	 */
+	private String getPropertyInTheContextUnitWasResolved(BuildUnit unit, String propertyName, String defaultValue) {
+		// need the context to get resolution scope key
+		BExecutionContext ctx = B3ContextAccess.get();
+		if(ctx != null) {
+			Object result = null;
+			try {
+				// Get the current resolution scope
+				IBuildUnitResolver scopeKey = ctx.getInjector().getInstance(IBuildUnitResolver.class);
+
+				// Get the resolution info associated with the unit
+				ResolutionInfo rinfo = ResolutionInfoAdapterFactory.eINSTANCE.adapt(unit).getAssociatedInfo(scopeKey);
+				if(rinfo.getStatus().isOK() && rinfo instanceof UnitResolutionInfo) {
+					UnitResolutionInfo urinfo = (UnitResolutionInfo) rinfo;
+					ctx = urinfo.getContext();
+					result = ctx.getValue("${" + propertyName + "}");
+				}
+			}
+			catch(B3NoSuchVariableException e) {
+				result = null;
+			}
+			catch(B3EngineException e) {
+				return null;
+			}
+			return (result == null || !(result instanceof String))
+					? defaultValue
+					: (String) result;
+		}
+		return System.getProperty(propertyName, defaultValue);
 	}
 
 } // RubyPublisherImpl

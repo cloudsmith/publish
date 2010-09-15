@@ -178,17 +178,6 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RPM_PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.RPM_PUBLISHER__RPM_INSTALL_DIR:
@@ -309,5 +298,16 @@ public class RPMPublisherImpl extends PublisherImpl implements RPMPublisher {
 					: uninstallRPM());
 
 		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RPM_PUBLISHER;
 	}
 } // RPMPublisherImpl

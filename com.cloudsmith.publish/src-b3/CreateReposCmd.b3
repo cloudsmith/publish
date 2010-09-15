@@ -30,6 +30,8 @@ function main(Map parameters) {
 concern DefaultPublishing 
 	extends A_GEM_Needs_a_Ruby_Runtime,
 		A_RubyRuntime_provides_Runtime, 
+		A_PHPPackage_Needs_a_PHP_Runtime,
+		A_PHPRuntime_provides_Runtime,
 		Repositories_Requires_Everything {
 	builder publish(RPM unit) {
 		result : new RPMPublisher().write(unit);
@@ -88,6 +90,29 @@ concern A_RubyRuntime_provides_Runtime {
 		modify-selected : {
 			provides :  {
 				+ capability { name-space : com.cloudsmith.stack.runtime; name : "ruby"; version: 1.0.0; };				
+			};
+		};
+	}
+}
+/** This concern declares that all PHPPackage units need a PHP Runtime.
+  Using this concern reduces the amount of declaration in each PHP Package.
+*/
+concern A_PHPPackage_Needs_a_PHP_Runtime {
+	unit-context { 
+	select-units: is == PHPPackage; 
+	modify-selected : { 
+		requires : { 
+			+capability { name-space : com.cloudsmith.stack.runtime; name : "php"; }; };
+		};
+	}
+}
+
+concern A_PHPRuntime_provides_Runtime {
+	unit-context {
+		select-units: is == PHPRuntime;
+		modify-selected : {
+			provides :  {
+				+ capability { name-space : com.cloudsmith.stack.runtime; name : "php"; version: 1.0.0; };				
 			};
 		};
 	}

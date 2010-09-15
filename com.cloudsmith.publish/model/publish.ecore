@@ -184,4 +184,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Native" abstract="true" interface="true"
       eSuperTypes="#//Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IPHPActions" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PHPActions" eSuperTypes="#//ActionPackage #//IPHPActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PHPPublisher" eSuperTypes="#//Publisher #//IPHPActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phpActions" eType="#//PHPActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PHPRuntime" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PHPPackage" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pear" abstract="true" interface="true"
+      eSuperTypes="#//PHPPackage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pecl" abstract="true" interface="true"
+      eSuperTypes="#//PHPPackage"/>
 </ecore:EPackage>

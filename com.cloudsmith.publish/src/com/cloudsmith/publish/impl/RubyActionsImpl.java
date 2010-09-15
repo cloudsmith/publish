@@ -43,17 +43,6 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RUBY_ACTIONS;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -129,5 +118,16 @@ public class RubyActionsImpl extends ActionPackageImpl implements RubyActions {
 
 		a.setActionPackage(this);
 		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RUBY_ACTIONS;
 	}
 } // RubyActionsImpl

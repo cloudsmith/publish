@@ -150,17 +150,6 @@ public class NativePublisherImpl extends PublisherImpl implements NativePublishe
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.NATIVE_PUBLISHER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case PublishPackage.NATIVE_PUBLISHER__EXT_NATIVE_ACTIONS:
@@ -249,5 +238,16 @@ public class NativePublisherImpl extends PublisherImpl implements NativePublishe
 				getWhenUninstalling().add(uninstallFromCSource());
 		}
 		return super.write(unit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.NATIVE_PUBLISHER;
 	}
 } // NativePublisherImpl

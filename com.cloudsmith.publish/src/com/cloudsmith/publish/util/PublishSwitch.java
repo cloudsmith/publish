@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
@@ -301,6 +302,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IPHP Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IPHP Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIPHPActions(IPHPActions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -369,6 +387,23 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IVar Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIVarName(IVarName object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Native</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -416,6 +451,108 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseNativePublisher(NativePublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pear</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pear</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePear(Pear object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pecl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pecl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePecl(Pecl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PHP Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PHP Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePHPActions(PHPActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PHP Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PHP Package</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePHPPackage(PHPPackage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PHP Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PHP Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePHPPublisher(PHPPublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PHP Runtime</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PHP Runtime</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePHPRuntime(PHPRuntime object) {
 		return null;
 	}
 
@@ -648,16 +785,8 @@ public class PublishSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
+	public T doSwitch(EObject theEObject) {
+		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
 	/**
@@ -668,8 +797,16 @@ public class PublishSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
+		if(theEClass.eContainer() == modelPackage) {
+			return doSwitch(theEClass.getClassifierID(), theEObject);
+		}
+		else {
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
+			return eSuperTypes.isEmpty()
+					? defaultCase(theEObject)
+					: doSwitch(eSuperTypes.get(0), theEObject);
+		}
 	}
 
 	/**
@@ -696,6 +833,8 @@ public class PublishSwitch<T> {
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(publishable);
 				if(result == null)
+					result = caseIVarName(publishable);
+				if(result == null)
 					result = caseCapability(publishable);
 				if(result == null)
 					result = caseINamedValue(publishable);
@@ -719,6 +858,8 @@ public class PublishSwitch<T> {
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(rpm);
 				if(result == null)
+					result = caseIVarName(rpm);
+				if(result == null)
 					result = caseCapability(rpm);
 				if(result == null)
 					result = caseINamedValue(rpm);
@@ -741,6 +882,8 @@ public class PublishSwitch<T> {
 					result = caseIRequiredCapabilityContainer(gem);
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(gem);
+				if(result == null)
+					result = caseIVarName(gem);
 				if(result == null)
 					result = caseCapability(gem);
 				if(result == null)
@@ -875,6 +1018,8 @@ public class PublishSwitch<T> {
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(repositoryDefinition);
 				if(result == null)
+					result = caseIVarName(repositoryDefinition);
+				if(result == null)
 					result = caseCapability(repositoryDefinition);
 				if(result == null)
 					result = caseINamedValue(repositoryDefinition);
@@ -936,6 +1081,8 @@ public class PublishSwitch<T> {
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(rubyRuntime);
 				if(result == null)
+					result = caseIVarName(rubyRuntime);
+				if(result == null)
 					result = caseCapability(rubyRuntime);
 				if(result == null)
 					result = caseINamedValue(rubyRuntime);
@@ -956,6 +1103,8 @@ public class PublishSwitch<T> {
 					result = caseIRequiredCapabilityContainer(cSource);
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(cSource);
+				if(result == null)
+					result = caseIVarName(cSource);
 				if(result == null)
 					result = caseCapability(cSource);
 				if(result == null)
@@ -1011,9 +1160,146 @@ public class PublishSwitch<T> {
 				if(result == null)
 					result = caseIProvidedCapabilityContainer(native_);
 				if(result == null)
+					result = caseIVarName(native_);
+				if(result == null)
 					result = caseCapability(native_);
 				if(result == null)
 					result = caseINamedValue(native_);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.IPHP_ACTIONS: {
+				IPHPActions iphpActions = (IPHPActions) theEObject;
+				T result = caseIPHPActions(iphpActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PHP_ACTIONS: {
+				PHPActions phpActions = (PHPActions) theEObject;
+				T result = casePHPActions(phpActions);
+				if(result == null)
+					result = caseActionPackage(phpActions);
+				if(result == null)
+					result = caseIPHPActions(phpActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PHP_PUBLISHER: {
+				PHPPublisher phpPublisher = (PHPPublisher) theEObject;
+				T result = casePHPPublisher(phpPublisher);
+				if(result == null)
+					result = casePublisher(phpPublisher);
+				if(result == null)
+					result = caseIPHPActions(phpPublisher);
+				if(result == null)
+					result = caseINativeActions(phpPublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PHP_RUNTIME: {
+				PHPRuntime phpRuntime = (PHPRuntime) theEObject;
+				T result = casePHPRuntime(phpRuntime);
+				if(result == null)
+					result = casePublishable(phpRuntime);
+				if(result == null)
+					result = caseBuildUnit(phpRuntime);
+				if(result == null)
+					result = caseVersionedCapability(phpRuntime);
+				if(result == null)
+					result = caseBFunctionContainer(phpRuntime);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(phpRuntime);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(phpRuntime);
+				if(result == null)
+					result = caseIVarName(phpRuntime);
+				if(result == null)
+					result = caseCapability(phpRuntime);
+				if(result == null)
+					result = caseINamedValue(phpRuntime);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PHP_PACKAGE: {
+				PHPPackage phpPackage = (PHPPackage) theEObject;
+				T result = casePHPPackage(phpPackage);
+				if(result == null)
+					result = casePublishable(phpPackage);
+				if(result == null)
+					result = caseBuildUnit(phpPackage);
+				if(result == null)
+					result = caseVersionedCapability(phpPackage);
+				if(result == null)
+					result = caseBFunctionContainer(phpPackage);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(phpPackage);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(phpPackage);
+				if(result == null)
+					result = caseIVarName(phpPackage);
+				if(result == null)
+					result = caseCapability(phpPackage);
+				if(result == null)
+					result = caseINamedValue(phpPackage);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PEAR: {
+				Pear pear = (Pear) theEObject;
+				T result = casePear(pear);
+				if(result == null)
+					result = casePHPPackage(pear);
+				if(result == null)
+					result = casePublishable(pear);
+				if(result == null)
+					result = caseBuildUnit(pear);
+				if(result == null)
+					result = caseVersionedCapability(pear);
+				if(result == null)
+					result = caseBFunctionContainer(pear);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(pear);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(pear);
+				if(result == null)
+					result = caseIVarName(pear);
+				if(result == null)
+					result = caseCapability(pear);
+				if(result == null)
+					result = caseINamedValue(pear);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.PECL: {
+				Pecl pecl = (Pecl) theEObject;
+				T result = casePecl(pecl);
+				if(result == null)
+					result = casePHPPackage(pecl);
+				if(result == null)
+					result = casePublishable(pecl);
+				if(result == null)
+					result = caseBuildUnit(pecl);
+				if(result == null)
+					result = caseVersionedCapability(pecl);
+				if(result == null)
+					result = caseBFunctionContainer(pecl);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(pecl);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(pecl);
+				if(result == null)
+					result = caseIVarName(pecl);
+				if(result == null)
+					result = caseCapability(pecl);
+				if(result == null)
+					result = caseINamedValue(pecl);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

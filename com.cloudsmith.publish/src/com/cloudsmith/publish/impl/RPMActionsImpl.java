@@ -39,16 +39,6 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return PublishPackage.Literals.RPM_ACTIONS;
-	}
-
 	@Override
 	public String getName() {
 		return NAME;
@@ -106,5 +96,15 @@ public class RPMActionsImpl extends ActionPackageImpl implements RPMActions {
 
 		a.setActionPackage(this);
 		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return PublishPackage.Literals.RPM_ACTIONS;
 	}
 } // RPMActionsImpl

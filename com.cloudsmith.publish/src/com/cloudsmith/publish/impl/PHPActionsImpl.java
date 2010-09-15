@@ -12,21 +12,20 @@ package com.cloudsmith.publish.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import com.cloudsmith.publish.ExtNativeActions;
-import com.cloudsmith.publish.PublishFactory;
+import com.cloudsmith.publish.PHPActions;
 import com.cloudsmith.publish.PublishPackage;
-import com.cloudsmith.publish.PublisherAction;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ext Native Actions</b></em>'.
+ * An implementation of the model object '<em><b>PHP Actions</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
  * @generated
  */
-public class ExtNativeActionsImpl extends ActionPackageImpl implements ExtNativeActions {
+public class PHPActionsImpl extends ActionPackageImpl implements PHPActions {
+	public static final String INTERNAL_NAME = "com.cloudsmith.touchpoint.php";
 
 	// http://bugzilla.cloudsmith.com/show_bug.cgi?id=904
 	public static final String NAME = "";
@@ -37,7 +36,7 @@ public class ExtNativeActionsImpl extends ActionPackageImpl implements ExtNative
 	 * 
 	 * @generated
 	 */
-	protected ExtNativeActionsImpl() {
+	protected PHPActionsImpl() {
 		super();
 	}
 
@@ -55,39 +54,11 @@ public class ExtNativeActionsImpl extends ActionPackageImpl implements ExtNative
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
-	 */
-	public PublisherAction installFromCSource() {
-		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("installFromCSource");
-
-		a.setActionPackage(this);
-		return a;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public PublisherAction uninstallFromCSource() {
-		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
-		a.setName("uninstallFromCSource");
-
-		a.setActionPackage(this);
-		return a;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PublishPackage.Literals.EXT_NATIVE_ACTIONS;
+		return PublishPackage.Literals.PHP_ACTIONS;
 	}
 
-} // ExtNativeActionsImpl
+} // PHPActionsImpl

@@ -106,6 +106,10 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 				return createExtNativeActions();
 			case PublishPackage.NATIVE_PUBLISHER:
 				return createNativePublisher();
+			case PublishPackage.PHP_ACTIONS:
+				return createPHPActions();
+			case PublishPackage.PHP_PUBLISHER:
+				return createPHPPublisher();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +179,28 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public NativePublisher createNativePublisher() {
 		NativePublisherImpl nativePublisher = new NativePublisherImpl();
 		return nativePublisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PHPActions createPHPActions() {
+		PHPActionsImpl phpActions = new PHPActionsImpl();
+		return phpActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public PHPPublisher createPHPPublisher() {
+		PHPPublisherImpl phpPublisher = new PHPPublisherImpl();
+		return phpPublisher;
 	}
 
 	/**

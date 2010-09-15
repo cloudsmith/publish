@@ -92,6 +92,26 @@ public interface PublishFactory extends EFactory {
 	NativePublisher createNativePublisher();
 
 	/**
+	 * Returns a new object of class '<em>PHP Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>PHP Actions</em>'.
+	 * @generated
+	 */
+	PHPActions createPHPActions();
+
+	/**
+	 * Returns a new object of class '<em>PHP Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>PHP Publisher</em>'.
+	 * @generated
+	 */
+	PHPPublisher createPHPPublisher();
+
+	/**
 	 * Returns a new object of class '<em>Publisher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
