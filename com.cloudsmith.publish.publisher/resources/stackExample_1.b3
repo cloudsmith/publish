@@ -145,7 +145,7 @@ default-properties {
      - Additional information on native units is available at http://HELP.
 »
 unit org.myorg.myComponent version 1.0.0.r12345 is Native {
-	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent,revision:12345,path:/opt/org.myorg.myComponent";
+	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent?revision=12345&path=/opt/org.myorg.myComponent";
 }
 
 
@@ -166,7 +166,7 @@ unit org.myorg.myComponent version 1.0.0.r12345 is Native {
   advanced scenarios.
 »
 unit org.myorg.myComponent.configuration version 1.0.0.r12345 is Native {
-	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent.configuration,revision:12345,path:/opt/org.myorg.myComponent.configuration";
+	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent.configuration?revision=12345&path=/opt/org.myorg.myComponent.configuration";
 	fragment-host : unit {
 		name : "org.myorg.myComponent";
 		version : 1.0.0.r12345; 
