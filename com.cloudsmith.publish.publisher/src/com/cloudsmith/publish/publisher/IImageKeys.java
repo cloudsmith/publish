@@ -22,4 +22,6 @@ public interface IImageKeys {
 	public static final String PUBLISH_32 = "icons/publish_32.gif";
 
 	public static final String SAVE_32 = "icons/save_32.gif";
+
+	public static final String README = "icons/file_obj.gif";
 }

@@ -28,6 +28,7 @@ import org.eclipse.ui.menus.CommandContributionItemParameter;
 import com.cloudsmith.publish.publisher.actions.NewB3ExampleFileAction;
 import com.cloudsmith.publish.publisher.actions.Newb3FileAction;
 import com.cloudsmith.publish.publisher.actions.OpenLocalb3FileAction;
+import com.cloudsmith.publish.publisher.actions.OpenReadmeAction;
 import com.cloudsmith.publish.publisher.actions.ReducedPreferencesAction;
 
 // NOTE: See org.eclipse.ui.internal.ide.WorkbenchActionBuilder for how the same is done in the IDE
@@ -115,6 +116,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private NewB3ExampleFileAction newExampleFileAction;
 
+	private OpenReadmeAction readmeAction;
+
 	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
 		super(configurer);
 		window = configurer.getWindowConfigurer().getWindow();
@@ -158,6 +161,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		findReplaceAction = null;
 		editMenu = null;
 		newExampleFileAction = null;
+		readmeAction = null;
 		super.dispose();
 	}
 
@@ -238,6 +242,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		// application specific actions
 		register(newFileAction = new Newb3FileAction(window));
 		register(newExampleFileAction = new NewB3ExampleFileAction(window));
+		register(readmeAction = new OpenReadmeAction(window));
 		register(newFileToolbarAction = new Newb3FileAction(window));
 
 		// newFileToolbarAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
@@ -360,6 +365,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		// TODO: ---Separator
 		menu.add(helpContentsAction);
 		menu.add(helpSearchAction);
+		menu.add(readmeAction);
 		menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		menu.add(newExampleFileAction);
 
