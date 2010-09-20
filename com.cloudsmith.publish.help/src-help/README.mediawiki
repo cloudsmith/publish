@@ -1,0 +1,55 @@
+=GETTING STARTED=
+You use the Repository Builder tool to prepare your components for uploading to the Cloudsmith Stack 
+Builder service. You do this by authoring a file describing a repository containing the components you plan to 
+upload. The actual repository (in an open format the Stack Builder understands) is automatically generated and saved 
+locally (as a .zip) when you publish the authored file using the Repository Builder. The generated repository will 
+include all the metadata needed for the Stack Builder to find and install the components in your stack.
+
+(More information on the open source technology in the Repository Builder and Stack Builder can be found
+via the 'Help' menu.)
+
+=REPOSITORIES AND UNITS=
+A repository is defined in terms of 'units', of which there are several types. The repository itself is defined as a 
+type of unit, as is each included component. Different component technologies (Ruby Gems or runtimes, RPMs, etc.) 
+have corresponding unit types. Each unit's type is declared with 'is'. A generated repository will contain all units
+declared in a given file.
+
+Currently supported unit types include:
+* '''RepositoryDefinition''' - used to define the repository
+* '''RPM''' - used to define a binary RPM, including its location
+* '''GEM''' - used to define a Ruby Gem
+* '''RubyRuntime''' - used to define a Ruby runtime environment (installed either from source or RPM), with support for configuration options (database choice, for example).
+* '''Native''' - generic unit type that can be used to define almost any component you'd like to install
+* '''CSource''' - used to define a unit that is installed from C source code (this unit is used in combination with RubyRuntime or Native units)
+
+=CUSTOMIZATION MECHANISMS=
+A few additional concepts are needed to get started:
+
+* '''Default properties''' - named global variables used in the publishing process to control system details such as platform, windowing system, VM, etc. that aren't automatically set by the unit type. We currently use properties only to declare for which web server a Ruby runtime will configured (i.e., by setting 'com.cloudsmith.stack.runtime.ruby.webserver' to either 'nginx', or 'apache'.)
+ 
+* '''Fragments''' - an extensibility mechanism that is useful in managing installation variability. Fragments are typically used for install-time variability where the installation content and install instructionsneeds to be different for different platforms. You can include a fragment defintion for each platform variation in a unit, and make the fragment's content the platform-specific files and install scripts. At install-time, the fragment content will be merged back in. This allows you to work with the unit as a single "thing", where convenient, while maintaining desired separations of concern with respect to platform specifics.
+
+* '''Requires''' - used to declare dependencies to other components that need to be installed. You can insert a 'Requires' into any unit. In some cases, a 'Requires' dependency is always needed and will be generated for you (''example'': a GEM automatically requires a RubyRuntime). In cases where it is not automatic, you can insert it yourself (''example'': RubyRuntime dependency on a database).
+
+* '''Builders''' - build tasks with declarartive properties for inputs, outputs and dependencies you can use to produce the installable form of a components. Some types of units inherit build logic from their type (for example, Gems and RPMs), When you're using a generic (Native) unit, however, you may need to add this yourself. Using builders gets complicated very quickly. The example given below is one of the simpler usage scenarios. To learn more, review documentation found via the 'help' menu.
+
+=USING THE EDITOR=
+Insertable template code is available for the different types of unit definitions. Use ''CTRL-<space>'' to select 
+the appropriate templates and tab to move between the template's variables (name, version, etc.). Code 
+completion is also available using CTRL-<space>. For example, move the cursor to after the declaration of 'version' and press CTRL-<space> to enter a version number. An outline view is automatically generated and linked with contents of
+the editor window.
+
+Additional notes:
+* Files are in UTF-8.
+* Documentation can be associated with various elements by enclosing text within '&#171;' and '&#187;' (guilmots), or by using java-doc style '/**'  and '*/' as an alternative to the guilmots.
+* Versions generally can be written without surrounding quotes (""), but quotes are required for some versioning schemes. To learn more, review documentation found under the 'Help' menu.
+* The default version scheme follows the OSGi standard (a bit obscure outside the Java world, but the most rational and well defined standard we could find!).
+
+=GETTING STARTED=
+A good way to start is to modify an example.
+* Select 'Help > New Example' to get a documented example in a new untitled file.
+* Edit the file to suite your needs and save it.
+* Click on 'Publish' to generate the repository
+
+=THIS DOCUMENT=
+This document can be reopened from the Help menu. 

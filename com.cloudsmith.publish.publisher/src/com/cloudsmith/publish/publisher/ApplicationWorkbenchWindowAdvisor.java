@@ -24,6 +24,8 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 
+import com.cloudsmith.publish.publisher.actions.OpenReadmeAction;
+
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 	private Boolean virginState = Boolean.TRUE;
@@ -49,7 +51,8 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		IEditorReference[] editorReferences = window.getActivePage().getEditorReferences();
 		if(editorReferences.length < 1) {
 			try {
-				openEmptyUntitled();
+				// openEmptyUntitled();
+				openReadme();
 			}
 			finally {
 
@@ -118,7 +121,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 				// IWorkbenchPage page = getWorkbenchConfigurer().getWorkbench().getActiveWorkbenchWindow().getActivePage();
 				// open the editor on the file
-				page.openEditor(new TmpFileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
+				page.openEditor(new TmpFileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID, true);
 			}
 			catch(PartInitException e) {
 				String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
@@ -126,5 +129,36 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 				return;
 			}
 		}
+	}
+
+	private void openReadme() {
+		if(!virginState)
+			return;
+		OpenReadmeAction.showReadmeInBrowser();
+		IWorkbenchWindow window = this.getWindowConfigurer().getWindow();
+		IEditorReference[] editorReferences = window.getActivePage().getEditorReferences();
+		for(IEditorReference ref : editorReferences) {
+			if("org.eclipse.ui.browser.editor".equals(ref.getId())) {
+				window.getActivePage().activate(ref.getPart(true));
+
+				// ref.getPart(true).getSite().getSelectionProvider().setSelection(
+				// new StructuredSelection(ref.getPart(true)));
+			}
+			// System.out.println("Editor is :" + ref.getId());
+		}
+
+		// IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		// IWorkbenchPage page = window.getActivePage();
+		// IStorage storage = new OpenReadmeAction.ResourceStorage("/resources/README.txt");
+		// IEditorInput input = new OpenReadmeAction.ResourceInput(storage);
+		// try {
+		// IEditorPart editor = page.openEditor(input, ActionConstants.TEXT_EDITOR_ID, true);
+		// }
+		// catch(CoreException e) {
+		// String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, storage.getName());
+		// IDEWorkbenchPlugin.log(msg, e.getStatus());
+		// MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open README file", msg, SWT.SHEET);
+		// }
+
 	}
 }

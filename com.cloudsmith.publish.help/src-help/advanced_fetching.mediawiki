@@ -51,4 +51,3 @@ And here with username and password:
  
 Note that special characters in the username or password have to be URL safe. Use URL escape mechanism for such characters.
 
-
