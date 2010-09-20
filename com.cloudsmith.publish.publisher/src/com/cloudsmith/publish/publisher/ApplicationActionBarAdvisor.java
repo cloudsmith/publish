@@ -178,7 +178,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		fileToolBar.add(newFileToolbarAction);
 		fileToolBar.add(openFileToolbarAction);
 		fileToolBar.add(saveToolbarAction);
-		fileToolBar.add(saveAsAction);
+		// fileToolBar.add(saveAsAction);
 		fileToolBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 
 		coolBar.add(actionBarConfigurer.createToolBarContributionItem(fileToolBar, "publisher.toolbar"));
