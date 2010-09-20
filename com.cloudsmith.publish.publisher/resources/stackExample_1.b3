@@ -1,84 +1,11 @@
-«
-  THIS TEMPLATE FILE PROVIDES INSTRUCTIONS AND SAMPLE CODE FOR AUTHORING A REPOSITORY.
-  YOU CAN EDIT IT AND 'SAVE AS' YOUR ACTUAL REPOSITORY, OR OPEN A NEW FILE AND WRITE YOUR REPOSITORY FROM SCRATCH.
+//
+//  THIS TEMPLATE FILE PROVIDES INSTRUCTIONS AND SAMPLE CODE FOR AUTHORING A REPOSITORY.
+//  YOU CAN EDIT IT AND 'SAVE' AS YOUR ACTUAL REPOSITORY, OR OPEN A NEW FILE AND WRITE YOUR REPOSITORY FROM SCRATCH.
+//  SEE 'HELP > SHOW README', OR 'HELP > HELP CONTENTS' FOR MORE DETAILS.
+//
 
-  OVERVIEW
-  
-  You use the Repository Builder tool to prepare your components for uploading to the Cloudsmith Stack 
-  Builder service. You do this by authoring a file describing a repository containing the components you plan to 
-  upload. The actual repository (in an open format the Stack Builder understands) is automatically generated and saved 
-  locally (as a .zip) when you publish the authored file using the Repository Builder. The generated repository will 
-  include all the metadata needed for the Stack Builder to find and install the components in your stack.
-  
-  (More information on the open source technology in the Repository Builder and Stack Builder can be found
-  via the 'help' menu.)
-
-  REPOSITORIES AND UNITS
-  
-  A repository is defined in terms of 'units', of which there are several types. The repository itself is defined as a 
-  type of unit, as is each included component. Different component technologies (Ruby Gems or runtimes, RPMs, etc.) 
-  have corresponding unit types. Each unit's type is declared with 'is'. A generated repository will contain all units
-  declared in a given file.
-
-  Currently supported unit types include:
-  
-  - RepositoryDefinition: used to define the repository
-  - RPM: used to define a binary RPM, including its location
-  - GEM: used to define a Ruby Gem
-  - RubyRuntime: used to define a Ruby runtime environment (installed either from source or RPM), with 
-    support for configuration options (database choice, for example).
-  - Native: generic unit type that can be used to define almost any component you'd like to install
-  - CSource: used to define a unit that is installed from C source code (this unit is used in combination with 
-    RubyRuntime or Native units)
-
-  CUSTOMIZATION MECHANISMS
-  
-  A few additional concepts are needed to get started:
-  
-  - Default properties: named global variables used in the publishing process to control system details such as 
-    platform, windowing system, VM, etc. that aren't automatically set by the unit type. We currently use properties 
-    only to declare for which web server a Ruby runtime will configured (i.e., by setting 
-    'com.cloudsmith.stack.runtime.ruby.webserver' to either 'nginx', or 'apache'.)
-     
-  - Fragments: an extensibility mechanism that is useful in managing installation variability. 
-    Fragments are typically used for install-time variability where the installation content and install instructions
-    needs to be different for different platforms. You can include a fragment defintion for each platform 
-    variation in a unit, and make the fragment's content the platform-specific files and install scripts. At install-time, 
-    the fragment content will be merged back in. This allows you to work with the unit as a single "thing", where 
-    convenient, while maintaining desired separations of concern with respect to platform specifics.
-  
-  - Requires: used to declare dependencies to other components that need to be installed. You can insert a 'Requires'
-    into any unit. In some cases, a 'Requires' dependency is always needed and will be generated for you
-    (example: a GEM automatically requires a RubyRuntime). In cases where it is not automatic, you can insert 
-    it yourself (example: RubyRuntime dependency on a database).
-
-  - Builders: build tasks with declarartive properties for inputs, outputs and dependencies you can 
-    use to produce the installable form of a components. Some types of units inherit build logic from their type 
-    (for example, Gems and RPMs), When you're using a generic (Native) unit, however, you may need to add
-    this yourself. Using builders gets complicated very quickly. The example given below is one of 
-    the simpler usage scenarios. To learn more, review documentation found via the 'help' menu.
-
-  USING THE EDITOR
-    
-  Insertable template code is available for the different types of unit definitions. Use CTRL-<space> to select 
-  the appropriate templates and tab to move between the template's variables (name, version, etc.). Code 
-  completion is also available using CTRL-<space>. For example, move the cursor to after 'version' and press 
-  CTRL-<space> to enter a version number. An outline view is automatically generated and linked with contents of
-  the editor window.
-
-  Additional notes:
-  
-     - Files are in UTF-8.
-     - Documentation can be written using java-doc style comments as an alternative to using guilmots.
-     - Versions generally can be written without surrounding quotes (""), but quotes are required for 
-       some versioning schemes. To learn more, review documentation found vid the 'help' menu.
-     - The default version scheme follows the OSGi standard (a bit obscure outside the Java world, but 
-       the most rational and well defined standard we could find!).
-
-  CODE SAMPLES
-  
-  The following is sample code for defining the repository. This is done simply by giving it a unique name 
-  and version number; all the other units in the file will be automartically included. Note that there can be 
+« The following is sample code for defining the repository. This is done simply by giving it a unique name 
+  and version number; all the other units in the file will be automatically included. Note that there can be 
   only one repository definition unit (RepositoryDefinition) in a given file.
 »
 unit org.myorg.MyRepository version 1.0.0 is RepositoryDefinition {
@@ -96,7 +23,7 @@ unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
 
 
 « The following is sample code for a Gem. Note that a Gem typically follows the 'gem:' version 
-  scheme (sometimes refered to as the 'gem rational version policy')
+  scheme (sometimes referred to as the 'gem rational version policy')
 »
 unit activemerchant version gem:1.5.1 is GEM;
 
@@ -110,7 +37,7 @@ unit activemerchant version gem:1.5.1 is GEM;
   - the sample includes a requirement on MySQL-devel-community.
   - a RubyRuntime where 'is CSource' is omitted is installed as an RPM
   
-  To learn more about RubyRuntime options, review documentation found vid the 'help' menu. 
+  To learn more about RubyRuntime options, review documentation found via the 'help' menu. 
 »
 unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
 	requires : unit { name : "MySQL-devel-community"; version : rpm:5.1.48-1.rhel5.i386; };
@@ -127,7 +54,7 @@ unit "MySQL-devel-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
 
 « The following is sample code for setting a default-property. 
   For example, you can declare that a Ruby runtime should be 
-  installed with support for 'nginx', unless this property is explicitly overriden 
+  installed with support for 'nginx', unless this property is explicitly overridden 
   in another unit.
 »
 default-properties {
@@ -137,12 +64,13 @@ default-properties {
 
 « The following is sample code for a native unit. In this case, it is installed from an SVN repository.
   The 'source' location specifies its location in SVN, as well as the location where the checked-out result 
-  will be placed when the unit is ultimately installed (path:).
+  will be placed when the unit is ultimately being installed (path=).
    
   Note that:
      - the sample includes an additional unit (org.myorg.myComponent.configuration) that installs a custom installer
        for this unit.
-     - Additional information on native units is available at http://HELP.
+       
+  To learn more about fetching options, and native units, review documentation found via the 'help' menu.
 »
 unit org.myorg.myComponent version 1.0.0.r12345 is Native {
 	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent?revision=12345&path=/opt/org.myorg.myComponent";
@@ -155,7 +83,7 @@ unit org.myorg.myComponent version 1.0.0.r12345 is Native {
 « The following is sample code for for a Native unit that creates an installation fragment for another unit. 
   This is used to separate an installer from the installable content. In this example, a special install script 
   is in a different SVN location than the installable content. Executing the script requires definition of a 
-  Builder called 'publish' to produce the publishing instructions. 
+  Builder called 'publish' to produce the instructions to execute during installation. 
     
   Using Native components and builders can be quite complex. A wide range of installation and configuration 
   instructions are available (executing a script or program, copying files, unzipping, setting permissions, etc.) 
@@ -173,8 +101,8 @@ unit org.myorg.myComponent.configuration version 1.0.0.r12345 is Native {
 		};
 		
 	« This Builder will be executed when the repository is published. The result is
-	that the 'NativePublisher' will contain an instruction that is executed
-	'when installing'. The example instruction here will simply copy a file.
+	  that the 'NativePublisher' will contain an instruction that is executed
+	  'when installing'. The example instruction here will simply copy a file.
 	»
 // TODO: the example copy does not seem correct
 	builder publish() {
