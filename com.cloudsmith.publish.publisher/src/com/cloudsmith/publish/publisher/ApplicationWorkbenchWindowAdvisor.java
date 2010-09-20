@@ -1,29 +1,17 @@
 package com.cloudsmith.publish.publisher;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.eclipse.b3.beelang.ui.xtext.linked.TmpFileStoreEditorInput;
-import org.eclipse.core.filesystem.EFS;
-import org.eclipse.core.filesystem.IFileInfo;
-import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
-import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 
+import com.cloudsmith.publish.publisher.actions.NewB3ExampleFileAction;
+import com.cloudsmith.publish.publisher.actions.Newb3FileAction;
 import com.cloudsmith.publish.publisher.actions.OpenReadmeAction;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
@@ -50,15 +38,10 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		IWorkbenchWindow window = this.getWindowConfigurer().getWindow();
 		IEditorReference[] editorReferences = window.getActivePage().getEditorReferences();
 		if(editorReferences.length < 1) {
-			try {
-				openEmptyUntitled();
-				openReadme();
-			}
-			finally {
-
-			}
+			openExample();
+			// openEmptyUntitled();
+			openReadme();
 		}
-
 	}
 
 	/*
@@ -76,10 +59,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		for(IEditorReference ref : editorReferences) {
 			if("org.eclipse.ui.browser.editor".equals(ref.getId())) {
 				window.getActivePage().bringToTop(ref.getPart(true));
-				// ref.getPart(true).getSite().getSelectionProvider().setSelection(
-				// new StructuredSelection(ref.getPart(true)));
 			}
-			// System.out.println("Editor is :" + ref.getId());
 		}
 	}
 
@@ -117,40 +97,23 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		return super.saveState(memento);
 	}
 
+	// CURRENTLY UNUSED: but we may want to switch back to opening an empty file..
+	// /**
+	// * Performs the creation of a new empty "untitled" .b3 file.
+	// */
+	// private void openEmptyUntitled() {
+	// if(!virginState)
+	// return;
+	// Newb3FileAction.newB3File(Newb3FileAction.RESOURCES_NEW_STACK_TEMPLATE_B3);
+	// }
+
 	/**
 	 * Performs the creation of a new empty "untitled" .b3 file.
 	 */
-	private void openEmptyUntitled() {
+	private void openExample() {
 		if(!virginState)
 			return;
-		File newFile = null;
-		try {
-			newFile = File.createTempFile("untitled", ".b3");
-		}
-		catch(IOException e) {
-			String msg = "Cannot create a temporary file";
-			IDEWorkbenchPlugin.log(msg, new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg, e));
-			return;
-		}
-
-		IFileStore fileStore = EFS.getLocalFileSystem().fromLocalFile(newFile);
-		IFileInfo fetchInfo = fileStore.fetchInfo();
-		if(fetchInfo.exists()) {
-			// IWorkbenchPage page = window.getActivePage();
-			try {
-				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				IWorkbenchPage page = window.getActivePage();
-
-				// IWorkbenchPage page = getWorkbenchConfigurer().getWorkbench().getActiveWorkbenchWindow().getActivePage();
-				// open the editor on the file
-				page.openEditor(new TmpFileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID, true);
-			}
-			catch(PartInitException e) {
-				String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, fileStore.getName());
-				IDEWorkbenchPlugin.log(msg, e.getStatus());
-				return;
-			}
-		}
+		Newb3FileAction.newB3File(NewB3ExampleFileAction.RESOURCES_STACK_EXAMPLE);
 	}
 
 	private void openReadme() {

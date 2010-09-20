@@ -23,6 +23,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -32,6 +33,8 @@ import com.cloudsmith.publish.publisher.Activator;
 import com.cloudsmith.publish.publisher.IImageKeys;
 
 public class Newb3FileAction extends Action implements IWorkbenchWindowActionDelegate {
+
+	public static final String RESOURCES_NEW_STACK_TEMPLATE_B3 = "/resources/newStackTemplate.b3";
 
 	public static final long copyStream(InputStream source, OutputStream dest, int bufferSize) throws IOException {
 		int bytes;
@@ -62,39 +65,10 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		return total;
 	}
 
-	private IWorkbenchWindow window;
+	// private IWorkbenchWindow window;
 
-	public Newb3FileAction(IWorkbenchWindow window) {
-		this(window, "New");
-	}
-
-	protected Newb3FileAction(IWorkbenchWindow window, String label) {
-		super(label);
-		this.window = window;
-		setEnabled(true);
-		setId("publisher.newb3File");
-
-		// This is wrong - the accelerators are platform specific
-		// setAccelerator(SWT.COMMAND | 'N');
-		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
-			"com.cloudsmith.publish.publisher", IImageKeys.NEW));
-
-	}
-
-	public void dispose() {
-		window = null;
-	}
-
-	public void init(IWorkbenchWindow window) {
-		this.window = window;
-	}
-
-	/**
-	 * Performs the creation of a new empty "untitled" .b3 file.
-	 */
-	@Override
-	public void run() {
-
+	public static void newB3File(String templateFileName) {
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		File newFile = null;
 		try {
 			// TODO: This strategy creates horrible temp names that are visible
@@ -107,7 +81,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 			return;
 		}
 
-		InputStream is = this.getClass().getResourceAsStream(getTemplateFileName());
+		InputStream is = Newb3FileAction.class.getResourceAsStream(templateFileName);
 
 		try {
 			FileOutputStream fos = new FileOutputStream(newFile);
@@ -158,6 +132,39 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 		}
 	}
 
+	public Newb3FileAction(IWorkbenchWindow window) {
+		this(window, "New");
+	}
+
+	protected Newb3FileAction(IWorkbenchWindow window, String label) {
+		super(label);
+		// this.window = window;
+		setEnabled(true);
+		setId("publisher.newb3File");
+
+		// This is wrong - the accelerators are platform specific
+		// setAccelerator(SWT.COMMAND | 'N');
+		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
+			"com.cloudsmith.publish.publisher", IImageKeys.NEW));
+
+	}
+
+	public void dispose() {
+		// window = null;
+	}
+
+	public void init(IWorkbenchWindow window) {
+		// this.window = window;
+	}
+
+	/**
+	 * Performs the creation of a new empty "untitled" .b3 file.
+	 */
+	@Override
+	public void run() {
+		newB3File(getTemplateFileName());
+	}
+
 	public void run(IAction action) {
 		run();
 	}
@@ -166,7 +173,7 @@ public class Newb3FileAction extends Action implements IWorkbenchWindowActionDel
 	}
 
 	protected String getTemplateFileName() {
-		return "/resources/newStackTemplate.b3";
+		return RESOURCES_NEW_STACK_TEMPLATE_B3;
 	}
 
 }

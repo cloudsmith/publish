@@ -1,9 +1,7 @@
 package com.cloudsmith.publish.publisher.actions;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -22,123 +20,39 @@ import com.cloudsmith.publish.publisher.IImageKeys;
  */
 public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDelegate {
 
-	// public static class ResourceInput implements IStorageEditorInput {
-	// private IStorage storage;
-	//
-	// public ResourceInput(IStorage storage) {
-	// this.storage = storage;
-	// }
-	//
-	// @Override
-	// public boolean equals(Object obj) {
-	// if(!(obj instanceof ResourceInput))
-	// return false;
-	// return ((ResourceInput) obj).storage.equals(storage);
-	// }
-	//
-	// public boolean exists() {
-	// return true;
-	// }
-	//
-	// public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
-	// return null;
-	// }
-	//
-	// public ImageDescriptor getImageDescriptor() {
-	// return null;
-	// }
-	//
-	// public String getName() {
-	// return storage.getName();
-	// }
-	//
-	// public IPersistableElement getPersistable() {
-	// return null;
-	// }
-	//
-	// public IStorage getStorage() {
-	// return storage;
-	// }
-	//
-	// public String getToolTipText() {
-	// return "Getting started instructions";
-	// }
-	// }
+	/**
+	 * The id of the browser instance used to show the readme.
+	 */
+	private static final String README_BROWSER_ID = "readmeBrowser";
 
-	// public static class ResourceStorage implements IStorage {
-	// private String resourcePath;
-	//
-	// public ResourceStorage(String resourcePath) {
-	// this.resourcePath = resourcePath;
-	// }
-	//
-	// @Override
-	// public boolean equals(Object obj) {
-	// if(!(obj instanceof ResourceStorage))
-	// return false;
-	// return resourcePath.equals(((ResourceStorage) obj).resourcePath);
-	// }
-	//
-	// @SuppressWarnings("rawtypes")
-	// @Override
-	// public Object getAdapter(Class adapter) {
-	// return null;
-	// }
-	//
-	// public InputStream getContents() throws CoreException {
-	// return this.getClass().getResourceAsStream(resourcePath);
-	// }
-	//
-	// public IPath getFullPath() {
-	// return null;
-	// }
-	//
-	// public String getName() {
-	// int firstCharIdx = resourcePath.lastIndexOf("/");
-	// return resourcePath.substring(firstCharIdx < 0
-	// ? 0
-	// : firstCharIdx + 1);
-	// }
-	//
-	// public boolean isReadOnly() {
-	// return true;
-	// }
-	// }
+	/**
+	 * Reference to the 'readme.html' delivered by the help plugin.
+	 */
+	private static final String README_TOPIC_CONTENT_REFERENCE = "/com.cloudsmith.publish.help/help/README.html";
 
 	public static void showReadmeInBrowser() {
-		URI uri = URI.createPlatformPluginURI("/com.cloudsmith.publish.publisher/resources/README.txt", true);
 		IWorkbenchHelpSystem hs = PlatformUI.getWorkbench().getHelpSystem();
-		// URI readmeURI = new URI("platform:/com.cloudsmith.publish.publisher/")
 		try {
-			URL url = new URL(uri.toString());
-			url = hs.resolve("/com.cloudsmith.publish.help/help/README.html", true);
-			// url = new URL("http://www.svd.se");
+			URL url = hs.resolve(README_TOPIC_CONTENT_REFERENCE, true);
 			IWorkbenchBrowserSupport bs = PlatformUI.getWorkbench().getBrowserSupport();
 
-			bs.createBrowser("readmeBrowser").openURL(url);
+			bs.createBrowser(README_BROWSER_ID).openURL(url);
 		}
 		catch(PartInitException e) {
 			e.printStackTrace();
 
 		}
-		catch(MalformedURLException e) {
-			e.printStackTrace();
-		}
 	}
-
-	// private IWorkbenchWindow window;
 
 	/**
 	 * Creates a new action for opening a local file.
 	 */
 	public OpenReadmeAction(IWorkbenchWindow window) {
 		super("Show README");
-		// this.window = window;
 		setEnabled(true);
 		setId("publisher.openReadme");
 		setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(
 			"com.cloudsmith.publish.publisher", IImageKeys.README));
-
 	}
 
 	/*
@@ -146,8 +60,9 @@ public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDe
 	 * 
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
+	@Override
 	public void dispose() {
-		// window = null;
+		// empty
 	}
 
 	/*
@@ -156,7 +71,7 @@ public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDe
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
 	 */
 	public void init(IWorkbenchWindow window) {
-		// this.window = window;
+		// empty - do not need the window
 	}
 
 	/*
@@ -167,22 +82,6 @@ public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDe
 	@Override
 	public void run() {
 		showReadmeInBrowser();
-		// IWorkbenchPage page = window.getActivePage();
-		// IStorage storage = new ResourceStorage("/resources/README.txt");
-		// IEditorInput input = new ResourceInput(storage);
-		// try {
-		// IEditorPart editor = page.openEditor(input, ActionConstants.TEXT_EDITOR_ID, true);
-		// editor.setFocus();
-		// if(editor instanceof TextEditor) {
-		// ((TextEditor) editor).isSaveAsAllowed();
-		// }
-		// }
-		// catch(CoreException e) {
-		// String msg = NLS.bind(IDEWorkbenchMessages.OpenLocalFileAction_message_errorOnOpen, storage.getName());
-		// IDEWorkbenchPlugin.log(msg, e.getStatus());
-		// MessageDialog.open(MessageDialog.ERROR, window.getShell(), "Open README file", msg, SWT.SHEET);
-		// }
-
 	}
 
 	/*

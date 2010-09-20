@@ -12,13 +12,15 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 public class NewB3ExampleFileAction extends Newb3FileAction {
 
+	public static final String RESOURCES_STACK_EXAMPLE = "/resources/stackExample_1.b3";
+
 	public NewB3ExampleFileAction(IWorkbenchWindow window) {
 		super(window, "New Example");
 	}
 
 	@Override
 	protected String getTemplateFileName() {
-		return "/resources/stackExample_1.b3";
+		return RESOURCES_STACK_EXAMPLE;
 
 	}
 }
