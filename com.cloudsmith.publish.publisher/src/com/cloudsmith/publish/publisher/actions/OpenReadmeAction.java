@@ -36,7 +36,9 @@ public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDe
 			URL url = hs.resolve(README_TOPIC_CONTENT_REFERENCE, true);
 			IWorkbenchBrowserSupport bs = PlatformUI.getWorkbench().getBrowserSupport();
 
-			bs.createBrowser(README_BROWSER_ID).openURL(url);
+			bs.createBrowser(
+				IWorkbenchBrowserSupport.AS_EDITOR, README_BROWSER_ID, "README", "Getting started instructions").openURL(
+				url);
 		}
 		catch(PartInitException e) {
 			e.printStackTrace();
