@@ -7,9 +7,9 @@
 
 	<locator pattern="^org\.eclipse\.xtext(?:\..+)?$" searchPathRef="tmf" />
 	<locator pattern="^com\.google(?:\..+)$" searchPathRef="tmf" />
+	<locator pattern="^org\.(?:aopalliance|antlr\.runtime|apache\.log4j)$" searchPathRef="tmf" />
 	<locator pattern="^org\.eclipse\.(?:emf|xsd)(?:\..+)?$" searchPathRef="emf" />
 	<locator pattern="^org\.eclipse\.mylyn(?:\..+)?$" searchPathRef="mylyn" />
-	<locator pattern="^org\.(?:aopalliance|antlr\.runtime)$" searchPathRef="orbit" />
 	<locator pattern="^org\.apache(?:\..+)$" searchPathRef="orbit" failOnError="false" />
 	<locator searchPathRef="platform" />
 
@@ -35,7 +35,7 @@
 		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
 			resolutionFilter="(resolve.target.platform=true)"
 		>
-			<uri format="{0}/modeling/tmf/updates/milestones">
+			<uri format="{0}/modeling/tmf/updates/releases">
 				<bc:propertyRef key="eclipse.download" />
 			</uri>
 		</provider>
@@ -75,7 +75,7 @@
 		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
 			resolutionFilter="(resolve.target.platform=true)"
 		>
-			<uri format="{0}/eclipse/updates/3.6milestones">
+			<uri format="{0}/eclipse/updates/3.6">
 				<bc:propertyRef key="eclipse.download" />
 			</uri>
 		</provider>
