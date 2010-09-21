@@ -2,7 +2,7 @@
 <rmap xmlns="http://www.eclipse.org/buckminster/RMap-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0"
 >
-	<locator pattern="^com\.cloudsmith\.publish(?:\..+)?$" searchPathRef="repobuilder" />
+	<locator pattern="^com\.cloudsmith\.publish(?:\..+)?$" searchPathRef="repobuilder.alternative" />
 	<locator pattern="^org\.eclipse\.b3(?:\..+)?$" searchPathRef="b3" />
 
 	<locator pattern="^org\.eclipse\.xtext(?:\..+)?$" searchPathRef="tmf" />
@@ -13,10 +13,10 @@
 	<locator pattern="^org\.apache(?:\..+)$" searchPathRef="orbit" failOnError="false" />
 	<locator searchPathRef="platform" />
 
-	<searchPath name="repobuilder">
+	<searchPath name="repobuilder.alternative">
 		<provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn" source="true">
 			<uri format="{0}/com.cloudsmith.publish/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
-				<bc:propertyRef key="cloudsmith.svn.repository" />
+				<bc:propertyRef key="alternative.source.repository.location" />
 				<bc:propertyRef key="buckminster.component" />
 			</uri>
 		</provider>
@@ -25,7 +25,7 @@
 	<searchPath name="b3">
 		<provider componentTypes="osgi.bundle,eclipse.feature" readerType="svn" source="true">
 			<uri format="{0}/org.eclipse.emft.b3/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
-				<bc:propertyRef key="eclipse.svn.repository" />
+				<bc:propertyRef key="source.repository.location" />
 				<bc:propertyRef key="buckminster.component" />
 			</uri>
 		</provider>
@@ -81,8 +81,8 @@
 		</provider>
 	</searchPath>
 
-	<property key="cloudsmith.svn.repository" value="https://svn.cloudsmith.com/repos" />
-	<property key="eclipse.svn.repository" value="http://dev.eclipse.org/svnroot/modeling" />
+	<property key="alternative.source.repository.location" value="https://svn.cloudsmith.com/repos" />
+	<property key="source.repository.location" value="http://dev.eclipse.org/svnroot/modeling" />
 
 	<property key="eclipse.download" value="http://download.eclipse.org" />
 

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="repobuilder.rmap">
 	<cq:rootRequest name="com.cloudsmith.publish.releng" componentType="buckminster"/>
+
+	<cq:advisorNode namePattern="^" useTargetPlatform="false"/>
+
+	<mspec:property key="target.ws" value="*"/>
+	<mspec:property key="target.os" value="*"/>
+	<mspec:property key="target.arch" value="*"/>
 </cq:componentQuery>
