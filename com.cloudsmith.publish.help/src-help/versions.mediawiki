@@ -10,6 +10,7 @@ The available formats are:
 * OSGi (the default format)
 * rpm
 * gem
+* php
 * triplet
 * tripletSnapshot
 * auto
@@ -36,6 +37,11 @@ A triplet snapshot is entered by using the prefix 'tripletSnapshot' e.g. triplet
 The ''rpm'' version format is quite complex, and contains additional information that is not needed for dependency calculations. The format does however allow these parts to be present in the version specification to make it easier to directly use the versions as they are shown.
 
 A rpm version is entered with the prefix 'rpm' e.g. rpm:33:1.2.3a-23/i386
+
+===The php version format===
+The php version format is currently a temporary format. It allows php versions to be entered, but does not yet
+fully comply with the PHP 'versionCompare' semantics when used in ranges. The current format will order versions
+as "a" < "alpha" < "b" < "beta" < "dev" < "RC" < "rc". This will be corrected in a later version of the Repository Builder.
 
 ===The auto version format===
 The ''auto'' version format is similar to the RPM format in that it allows for automatic detection of numerical and alpha numerical fields. This version format may be of use for some components that do not strictly comply with the rpm format.
