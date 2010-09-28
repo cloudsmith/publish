@@ -12,13 +12,13 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pear</b></em>'.
+ * A representation of the model object '<em><b>PHP Ext</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getPear()
+ * @see com.cloudsmith.publish.PublishPackage#getPHPExt()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Pear extends PHPPackage {
-} // Pear
+public interface PHPExt extends PHPPackage {
+} // PHPExt

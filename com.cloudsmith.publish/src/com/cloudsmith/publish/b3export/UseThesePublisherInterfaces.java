@@ -85,10 +85,10 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		o.setQualifiedName("com.cloudsmith.publish.PHPPackage");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Pear");
+		o.setQualifiedName("com.cloudsmith.publish.PHP");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Pecl");
+		o.setQualifiedName("com.cloudsmith.publish.PHPExt");
 
 		return result;
 	}

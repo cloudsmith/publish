@@ -13,7 +13,9 @@ package com.cloudsmith.publish.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import com.cloudsmith.publish.PHPActions;
+import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
+import com.cloudsmith.publish.PublisherAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +50,136 @@ public class PHPActionsImpl extends ActionPackageImpl implements PHPActions {
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction installPHP() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installPHP");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction installPHPExt() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installPHPExt");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction installPHPExtFromCSource() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installPHPExtFromCSource");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction installPHPRuntime() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installPHPRuntime");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction installPHPRuntimeFromCSource() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("installPHPRuntimeFromCSource");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction uninstallPHP() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallPHP");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction uninstallPHPExt() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallPHPExt");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction uninstallPHPExtFromCSource() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallPHPExtFromCSource");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction uninstallPHPRuntime() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallPHPRuntime");
+		a.setActionPackage(this);
+		return a;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PublisherAction uninstallPHPRuntimeFromCSource() {
+		PublisherAction a = PublishFactory.eINSTANCE.createPublisherAction();
+		a.setName("uninstallPHPRuntimeFromCSource");
+		a.setActionPackage(this);
+		return a;
 	}
 
 	/**

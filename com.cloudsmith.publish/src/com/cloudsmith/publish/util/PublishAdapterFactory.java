@@ -172,18 +172,18 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePear(Pear object) {
-			return createPearAdapter();
-		}
-
-		@Override
-		public Adapter casePecl(Pecl object) {
-			return createPeclAdapter();
+		public Adapter casePHP(PHP object) {
+			return createPHPAdapter();
 		}
 
 		@Override
 		public Adapter casePHPActions(PHPActions object) {
 			return createPHPActionsAdapter();
+		}
+
+		@Override
+		public Adapter casePHPExt(PHPExt object) {
+			return createPHPExtAdapter();
 		}
 
 		@Override
@@ -657,36 +657,6 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Pear <em>Pear</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.cloudsmith.publish.Pear
-	 * @generated
-	 */
-	public Adapter createPearAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.cloudsmith.publish.Pecl
-	 * @generated
-	 */
-	public Adapter createPeclAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPActions <em>PHP Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -698,6 +668,36 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPHPActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHP <em>PHP</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHP
+	 * @generated
+	 */
+	public Adapter createPHPAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.PHPExt <em>PHP Ext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.PHPExt
+	 * @generated
+	 */
+	public Adapter createPHPExtAdapter() {
 		return null;
 	}
 

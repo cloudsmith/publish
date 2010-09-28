@@ -23,4 +23,94 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface IPHPActions extends EObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction installPHP();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction installPHPExt();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction installPHPExtFromCSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction installPHPRuntime();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction installPHPRuntimeFromCSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPHP();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPHPExt();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPHPExtFromCSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPHPRuntime();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	PublisherAction uninstallPHPRuntimeFromCSource();
 } // IPHPActions

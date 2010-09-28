@@ -696,26 +696,26 @@ public interface PublishPackage extends EPackage {
 		EClass PHP_PACKAGE = eINSTANCE.getPHPPackage();
 
 		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.Pear <em>Pear</em>}' class.
+		 * The meta object literal for the '{@link com.cloudsmith.publish.PHP <em>PHP</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see com.cloudsmith.publish.Pear
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPear()
+		 * @see com.cloudsmith.publish.PHP
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHP()
 		 * @generated
 		 */
-		EClass PEAR = eINSTANCE.getPear();
+		EClass PHP = eINSTANCE.getPHP();
 
 		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}' class.
+		 * The meta object literal for the '{@link com.cloudsmith.publish.PHPExt <em>PHP Ext</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see com.cloudsmith.publish.Pecl
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPecl()
+		 * @see com.cloudsmith.publish.PHPExt
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPExt()
 		 * @generated
 		 */
-		EClass PECL = eINSTANCE.getPecl();
+		EClass PHP_EXT = eINSTANCE.getPHPExt();
 
 	}
 
@@ -5207,15 +5207,15 @@ public interface PublishPackage extends EPackage {
 	int PHP_PACKAGE_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.cloudsmith.publish.Pear <em>Pear</em>}' class.
+	 * The meta object id for the '{@link com.cloudsmith.publish.PHP <em>PHP</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see com.cloudsmith.publish.Pear
-	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPear()
+	 * @see com.cloudsmith.publish.PHP
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHP()
 	 * @generated
 	 */
-	int PEAR = 31;
+	int PHP = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5225,7 +5225,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__NAME = PHP_PACKAGE__NAME;
+	int PHP__NAME = PHP_PACKAGE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
@@ -5235,7 +5235,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
+	int PHP__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
 
 	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
@@ -5245,7 +5245,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__COND_EXPR = PHP_PACKAGE__COND_EXPR;
+	int PHP__COND_EXPR = PHP_PACKAGE__COND_EXPR;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -5255,7 +5255,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__VERSION = PHP_PACKAGE__VERSION;
+	int PHP__VERSION = PHP_PACKAGE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -5265,7 +5265,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
+	int PHP__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
@@ -5275,7 +5275,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
+	int PHP__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
@@ -5285,7 +5285,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
+	int PHP__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -5295,7 +5295,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
+	int PHP__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -5305,7 +5305,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__VAR_NAME = PHP_PACKAGE__VAR_NAME;
+	int PHP__VAR_NAME = PHP_PACKAGE__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -5315,7 +5315,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__BUILDERS = PHP_PACKAGE__BUILDERS;
+	int PHP__BUILDERS = PHP_PACKAGE__BUILDERS;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -5325,7 +5325,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
+	int PHP__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -5335,7 +5335,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
+	int PHP__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
@@ -5345,7 +5345,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
+	int PHP__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
@@ -5355,7 +5355,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
+	int PHP__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
@@ -5365,7 +5365,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__CONCERNS = PHP_PACKAGE__CONCERNS;
+	int PHP__CONCERNS = PHP_PACKAGE__CONCERNS;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
@@ -5375,7 +5375,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
+	int PHP__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
 
 	/**
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
@@ -5385,7 +5385,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
+	int PHP__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -5395,7 +5395,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
+	int PHP__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
 
 	/**
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
@@ -5405,7 +5405,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__CONTAINERS = PHP_PACKAGE__CONTAINERS;
+	int PHP__CONTAINERS = PHP_PACKAGE__CONTAINERS;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -5415,7 +5415,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
+	int PHP__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
 
 	/**
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
@@ -5425,7 +5425,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
+	int PHP__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
@@ -5435,7 +5435,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
+	int PHP__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
@@ -5445,7 +5445,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__PROVIDERS = PHP_PACKAGE__PROVIDERS;
+	int PHP__PROVIDERS = PHP_PACKAGE__PROVIDERS;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -5455,7 +5455,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__PARENT = PHP_PACKAGE__PARENT;
+	int PHP__PARENT = PHP_PACKAGE__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
@@ -5465,7 +5465,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
+	int PHP__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
 
 	/**
 	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
@@ -5475,28 +5475,28 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
+	int PHP__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
 
 	/**
-	 * The number of structural features of the '<em>Pear</em>' class.
+	 * The number of structural features of the '<em>PHP</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PEAR_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
+	int PHP_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}' class.
+	 * The meta object id for the '{@link com.cloudsmith.publish.PHPExt <em>PHP Ext</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see com.cloudsmith.publish.Pecl
-	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPecl()
+	 * @see com.cloudsmith.publish.PHPExt
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getPHPExt()
 	 * @generated
 	 */
-	int PECL = 32;
+	int PHP_EXT = 32;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5506,7 +5506,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__NAME = PHP_PACKAGE__NAME;
+	int PHP_EXT__NAME = PHP_PACKAGE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
@@ -5516,7 +5516,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
+	int PHP_EXT__NAME_SPACE = PHP_PACKAGE__NAME_SPACE;
 
 	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
@@ -5526,7 +5526,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__COND_EXPR = PHP_PACKAGE__COND_EXPR;
+	int PHP_EXT__COND_EXPR = PHP_PACKAGE__COND_EXPR;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -5536,7 +5536,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__VERSION = PHP_PACKAGE__VERSION;
+	int PHP_EXT__VERSION = PHP_PACKAGE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -5546,7 +5546,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
+	int PHP_EXT__FUNCTIONS = PHP_PACKAGE__FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
@@ -5556,7 +5556,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
+	int PHP_EXT__REQUIRED_CAPABILITIES = PHP_PACKAGE__REQUIRED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
@@ -5566,7 +5566,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
+	int PHP_EXT__REQUIRED_PREDICATES = PHP_PACKAGE__REQUIRED_PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -5576,7 +5576,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
+	int PHP_EXT__PROVIDED_CAPABILITIES = PHP_PACKAGE__PROVIDED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
@@ -5586,7 +5586,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__VAR_NAME = PHP_PACKAGE__VAR_NAME;
+	int PHP_EXT__VAR_NAME = PHP_PACKAGE__VAR_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -5596,7 +5596,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__BUILDERS = PHP_PACKAGE__BUILDERS;
+	int PHP_EXT__BUILDERS = PHP_PACKAGE__BUILDERS;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -5606,7 +5606,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
+	int PHP_EXT__DOCUMENTATION = PHP_PACKAGE__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -5616,7 +5616,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
+	int PHP_EXT__EXECUTION_MODE = PHP_PACKAGE__EXECUTION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
@@ -5626,7 +5626,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
+	int PHP_EXT__META_REQUIRED_CAPABILITIES = PHP_PACKAGE__META_REQUIRED_CAPABILITIES;
 
 	/**
 	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
@@ -5636,7 +5636,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
+	int PHP_EXT__IMPLEMENTS = PHP_PACKAGE__IMPLEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
@@ -5646,7 +5646,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__CONCERNS = PHP_PACKAGE__CONCERNS;
+	int PHP_EXT__CONCERNS = PHP_PACKAGE__CONCERNS;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
@@ -5656,7 +5656,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
+	int PHP_EXT__DEFAULT_PROPERTIES = PHP_PACKAGE__DEFAULT_PROPERTIES;
 
 	/**
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
@@ -5666,7 +5666,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
+	int PHP_EXT__SYNCHRONIZATIONS = PHP_PACKAGE__SYNCHRONIZATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -5676,7 +5676,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
+	int PHP_EXT__REPOSITORIES = PHP_PACKAGE__REPOSITORIES;
 
 	/**
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
@@ -5686,7 +5686,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__CONTAINERS = PHP_PACKAGE__CONTAINERS;
+	int PHP_EXT__CONTAINERS = PHP_PACKAGE__CONTAINERS;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -5696,7 +5696,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
+	int PHP_EXT__PROPERTY_SETS = PHP_PACKAGE__PROPERTY_SETS;
 
 	/**
 	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
@@ -5706,7 +5706,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
+	int PHP_EXT__SOURCE_LOCATION = PHP_PACKAGE__SOURCE_LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
@@ -5716,7 +5716,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
+	int PHP_EXT__OUTPUT_LOCATION = PHP_PACKAGE__OUTPUT_LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
@@ -5726,7 +5726,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__PROVIDERS = PHP_PACKAGE__PROVIDERS;
+	int PHP_EXT__PROVIDERS = PHP_PACKAGE__PROVIDERS;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -5736,7 +5736,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__PARENT = PHP_PACKAGE__PARENT;
+	int PHP_EXT__PARENT = PHP_PACKAGE__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
@@ -5746,7 +5746,7 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
+	int PHP_EXT__FRAGMENT_HOSTS = PHP_PACKAGE__FRAGMENT_HOSTS;
 
 	/**
 	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
@@ -5756,17 +5756,17 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PECL__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
+	int PHP_EXT__PLATFORM_FILTER = PHP_PACKAGE__PLATFORM_FILTER;
 
 	/**
-	 * The number of structural features of the '<em>Pecl</em>' class.
+	 * The number of structural features of the '<em>PHP Ext</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PECL_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
+	int PHP_EXT_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
@@ -6018,26 +6018,15 @@ public interface PublishPackage extends EPackage {
 	EReference getNativePublisher_ExtNativeActions();
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.Pear <em>Pear</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHP <em>PHP</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Pear</em>'.
-	 * @see com.cloudsmith.publish.Pear
+	 * @return the meta object for class '<em>PHP</em>'.
+	 * @see com.cloudsmith.publish.PHP
 	 * @generated
 	 */
-	EClass getPear();
-
-	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.Pecl <em>Pecl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Pecl</em>'.
-	 * @see com.cloudsmith.publish.Pecl
-	 * @generated
-	 */
-	EClass getPecl();
+	EClass getPHP();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPActions <em>PHP Actions</em>}'.
@@ -6049,6 +6038,17 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPHPActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPExt <em>PHP Ext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>PHP Ext</em>'.
+	 * @see com.cloudsmith.publish.PHPExt
+	 * @generated
+	 */
+	EClass getPHPExt();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.PHPPackage <em>PHP Package</em>}'.

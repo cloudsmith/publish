@@ -12,13 +12,13 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pecl</b></em>'.
+ * A representation of the model object '<em><b>PHP</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getPecl()
+ * @see com.cloudsmith.publish.PublishPackage#getPHP()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Pecl extends PHPPackage {
-} // Pecl
+public interface PHP extends PHPPackage {
+} // PHP

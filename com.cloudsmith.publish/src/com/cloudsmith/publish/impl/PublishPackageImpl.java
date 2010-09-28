@@ -10,6 +10,7 @@
  */
 package com.cloudsmith.publish.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.ecore.EAttribute;
@@ -36,11 +37,10 @@ import com.cloudsmith.publish.Native;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.NativePublisher;
 import com.cloudsmith.publish.PHPActions;
+import com.cloudsmith.publish.PHPExt;
 import com.cloudsmith.publish.PHPPackage;
 import com.cloudsmith.publish.PHPPublisher;
 import com.cloudsmith.publish.PHPRuntime;
-import com.cloudsmith.publish.Pear;
-import com.cloudsmith.publish.Pecl;
 import com.cloudsmith.publish.PublishFactory;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publishable;
@@ -53,7 +53,6 @@ import com.cloudsmith.publish.RepositoryPublisher;
 import com.cloudsmith.publish.RubyActions;
 import com.cloudsmith.publish.RubyPublisher;
 import com.cloudsmith.publish.RubyRuntime;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -317,7 +316,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	private EClass pearEClass = null;
+	private EClass phpEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,7 +324,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	private EClass peclEClass = null;
+	private EClass phpExtEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,9 +518,9 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 
 		phpPackageEClass = createEClass(PHP_PACKAGE);
 
-		pearEClass = createEClass(PEAR);
+		phpEClass = createEClass(PHP);
 
-		peclEClass = createEClass(PECL);
+		phpExtEClass = createEClass(PHP_EXT);
 	}
 
 	/**
@@ -750,18 +749,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	public EClass getPear() {
-		return pearEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getPecl() {
-		return peclEClass;
+	public EClass getPHP() {
+		return phpEClass;
 	}
 
 	/**
@@ -772,6 +761,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EClass getPHPActions() {
 		return phpActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getPHPExt() {
+		return phpExtEClass;
 	}
 
 	/**
@@ -1264,8 +1263,8 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		phpPublisherEClass.getESuperTypes().add(this.getIPHPActions());
 		phpRuntimeEClass.getESuperTypes().add(this.getPublishable());
 		phpPackageEClass.getESuperTypes().add(this.getPublishable());
-		pearEClass.getESuperTypes().add(this.getPHPPackage());
-		peclEClass.getESuperTypes().add(this.getPHPPackage());
+		phpEClass.getESuperTypes().add(this.getPHPPackage());
+		phpExtEClass.getESuperTypes().add(this.getPHPPackage());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1580,6 +1579,30 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			iphpActionsEClass, IPHPActions.class, "IPHPActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "installPHP", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "uninstallPHP", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "installPHPRuntime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "uninstallPHPRuntime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "installPHPExt", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iphpActionsEClass, this.getPublisherAction(), "uninstallPHPExt", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			iphpActionsEClass, this.getPublisherAction(), "installPHPRuntimeFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			iphpActionsEClass, this.getPublisherAction(), "uninstallPHPRuntimeFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			iphpActionsEClass, this.getPublisherAction(), "installPHPExtFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			iphpActionsEClass, this.getPublisherAction(), "uninstallPHPExtFromCSource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
 			phpActionsEClass, PHPActions.class, "PHPActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1597,9 +1620,10 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		initEClass(
 			phpPackageEClass, PHPPackage.class, "PHPPackage", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(pearEClass, Pear.class, "Pear", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			phpEClass, com.cloudsmith.publish.PHP.class, "PHP", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(peclEClass, Pecl.class, "Pecl", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(phpExtEClass, PHPExt.class, "PHPExt", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

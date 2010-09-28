@@ -455,7 +455,7 @@ public class PublishSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pear</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>PHP</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -463,28 +463,11 @@ public class PublishSwitch<T> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pear</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>PHP</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePear(Pear object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pecl</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pecl</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePecl(Pecl object) {
+	public T casePHP(PHP object) {
 		return null;
 	}
 
@@ -502,6 +485,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T casePHPActions(PHPActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PHP Ext</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PHP Ext</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePHPExt(PHPExt object) {
 		return null;
 	}
 
@@ -1250,56 +1250,56 @@ public class PublishSwitch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PublishPackage.PEAR: {
-				Pear pear = (Pear) theEObject;
-				T result = casePear(pear);
+			case PublishPackage.PHP: {
+				PHP php = (PHP) theEObject;
+				T result = casePHP(php);
 				if(result == null)
-					result = casePHPPackage(pear);
+					result = casePHPPackage(php);
 				if(result == null)
-					result = casePublishable(pear);
+					result = casePublishable(php);
 				if(result == null)
-					result = caseBuildUnit(pear);
+					result = caseBuildUnit(php);
 				if(result == null)
-					result = caseVersionedCapability(pear);
+					result = caseVersionedCapability(php);
 				if(result == null)
-					result = caseBFunctionContainer(pear);
+					result = caseBFunctionContainer(php);
 				if(result == null)
-					result = caseIRequiredCapabilityContainer(pear);
+					result = caseIRequiredCapabilityContainer(php);
 				if(result == null)
-					result = caseIProvidedCapabilityContainer(pear);
+					result = caseIProvidedCapabilityContainer(php);
 				if(result == null)
-					result = caseIVarName(pear);
+					result = caseIVarName(php);
 				if(result == null)
-					result = caseCapability(pear);
+					result = caseCapability(php);
 				if(result == null)
-					result = caseINamedValue(pear);
+					result = caseINamedValue(php);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PublishPackage.PECL: {
-				Pecl pecl = (Pecl) theEObject;
-				T result = casePecl(pecl);
+			case PublishPackage.PHP_EXT: {
+				PHPExt phpExt = (PHPExt) theEObject;
+				T result = casePHPExt(phpExt);
 				if(result == null)
-					result = casePHPPackage(pecl);
+					result = casePHPPackage(phpExt);
 				if(result == null)
-					result = casePublishable(pecl);
+					result = casePublishable(phpExt);
 				if(result == null)
-					result = caseBuildUnit(pecl);
+					result = caseBuildUnit(phpExt);
 				if(result == null)
-					result = caseVersionedCapability(pecl);
+					result = caseVersionedCapability(phpExt);
 				if(result == null)
-					result = caseBFunctionContainer(pecl);
+					result = caseBFunctionContainer(phpExt);
 				if(result == null)
-					result = caseIRequiredCapabilityContainer(pecl);
+					result = caseIRequiredCapabilityContainer(phpExt);
 				if(result == null)
-					result = caseIProvidedCapabilityContainer(pecl);
+					result = caseIProvidedCapabilityContainer(phpExt);
 				if(result == null)
-					result = caseIVarName(pecl);
+					result = caseIVarName(phpExt);
 				if(result == null)
-					result = caseCapability(pecl);
+					result = caseCapability(phpExt);
 				if(result == null)
-					result = caseINamedValue(pecl);
+					result = caseINamedValue(phpExt);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

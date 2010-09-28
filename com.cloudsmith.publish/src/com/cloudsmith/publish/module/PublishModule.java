@@ -7,6 +7,8 @@ import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.NativePublisher;
+import com.cloudsmith.publish.PHPActions;
+import com.cloudsmith.publish.PHPPublisher;
 import com.cloudsmith.publish.PublishPackage;
 import com.cloudsmith.publish.Publisher;
 import com.cloudsmith.publish.RPMActions;
@@ -38,6 +40,8 @@ public class PublishModule extends AbstractModule {
 		bindRubyPublisher();
 		bindRubyActions();
 
+		bindPHPPublisher();
+		bindPHPActions();
 	}
 
 	protected void bindExtNativeActions() {
@@ -62,6 +66,15 @@ public class PublishModule extends AbstractModule {
 	protected void bindNativePublisher() {
 		bind(NativePublisher.class).toProvider(
 			publishModelProvider(NativePublisher.class, PublishPackage.Literals.NATIVE_PUBLISHER));
+	}
+
+	protected void bindPHPActions() {
+		bind(PHPActions.class).toProvider(publishModelProvider(PHPActions.class, PublishPackage.Literals.PHP_ACTIONS));
+	}
+
+	protected void bindPHPPublisher() {
+		bind(PHPPublisher.class).toProvider(
+			publishModelProvider(PHPPublisher.class, PublishPackage.Literals.PHP_PUBLISHER));
 	}
 
 	protected void bindPublisher() {
