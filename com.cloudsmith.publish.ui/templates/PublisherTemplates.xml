@@ -6,6 +6,16 @@ ${cursor}</template>
 	source : "${sourceURI}" ;
 } 
 ${cursor}</template>
+<template id="PHPDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a PHP definition unit" enabled="true" name="PHPDefinition">unit ${phpName} version php:${phpVersion} is PHP {
+	source : "${phpURI}" ; // not needed if component is in known PHP repository 
+} 
+${cursor}</template>
+<template id="PHPExtDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a PHPExt definition unit" enabled="true" name="PHPExtDefinition">unit ${phpExtName} version php:${phpVersion} is PHPExt {
+	source : "${phpExtURI}" ; // not needed if component is in known PHP/Pecl repository 
+} 
+${cursor}</template>
+<template id="PHPRuntimeDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a PHPRuntime definition unit" enabled="true" name="PHPRuntimeDefinition">unit ${phpRuntimeName} version rpm:${rpmVersion} is PHPRuntime;
+${cursor}</template>
 <template id="RepositoryDefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a repository definition unit" enabled="true" name="RepositoryDefinition">unit ${repositoryName} version ${repositoryVersion} is RepositoryDefinition {
 }
 ${cursor}</template>
