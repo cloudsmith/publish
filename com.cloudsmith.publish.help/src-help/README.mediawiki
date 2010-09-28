@@ -10,17 +10,19 @@ via the 'Help' menu.)
 
 =REPOSITORIES AND UNITS=
 A repository is defined in terms of 'units', of which there are several types. The repository itself is defined as a 
-type of unit, as is each included component. Different component technologies (Ruby Gems or runtimes, RPMs, etc.) 
-have corresponding unit types. Each unit's type is declared with 'is'. A generated repository will contain all units
-declared in a given file.
+type of unit, as is each included component. Different component technologies (Ruby runtime and Gems, PHP runtime and
+extensions, RPMs, etc.) have corresponding unit types. Each unit's type is declared with 'is'. A generated repository will contain all units declared in a given file.
 
 Currently supported unit types include:
 * '''RepositoryDefinition''' - used to define the repository
 * '''RPM''' - used to define a binary RPM, including its location
 * '''GEM''' - used to define a Ruby Gem
 * '''RubyRuntime''' - used to define a Ruby runtime environment (installed either from source or RPM), with support for configuration options (database choice, for example).
+* '''PHPRuntime''' - used to define a PHP runtime environment (installed either from source or RPM).
+* '''PHP''' - used to define a PHP package installed using PHP Pear.
+* '''PHPExt''' - used to define a PHP Extension installed using PHP Pecl.
 * '''Native''' - generic unit type that can be used to define almost any component you'd like to install
-* '''CSource''' - used to define a unit that is installed from C source code (this unit is used in combination with RubyRuntime or Native units)
+* '''CSource''' - used to define a unit that is installed from C source code (this unit is used in combination with RubyRuntime, PHPRuntime, PHPExt or Native units)
 
 =CUSTOMIZATION MECHANISMS=
 A few additional concepts are needed to get started:
