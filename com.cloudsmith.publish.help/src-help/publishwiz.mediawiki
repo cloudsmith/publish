@@ -9,3 +9,6 @@ the location of the generated repository; it is found in a sub-directory under t
 The sub directory is named after the unit marked with 'is RepositoryDefinition' in the published file. The name of the sub-folder reflects both the name and the version, and special characters have been replaced.
 
 In case of errors, there are details that show the cause of the problems.
+
+===Unsatisfied Requirements===
+If the publishing process detects unsatisfied requirements a warning page with the details (requiring unit and requirement) are shown at the end of the process. The resulting repository is then not self contained, and needs to be combined with content from other repositories to enable installation. If the intent was to create a self contained repository please check and correct the requirement (name and/or version range) and republish.
