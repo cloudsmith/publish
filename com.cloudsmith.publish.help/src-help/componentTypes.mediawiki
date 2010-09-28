@@ -7,6 +7,7 @@ The Cloudsmith Repository Builder is configured to handle publishing of a variet
 * Component containing configuration of another component (called ''Fragment'')
 * Ruby Runtime
 * GEM
+* PHP, PHP Extension, and PHP Runtime
 
 ==Repository Definition==
 A Repository Definition defines the name and version of the resulting repository. The name of the repository is used when creating the produced files and folders as well as serving as a label in tools that can operate on the repository.
@@ -63,7 +64,7 @@ A fragment is defined by declaring a Native component, and including a ''fragmen
 
 
 ==A Ruby Runtime Component==
-A Ruby Runtime component is used to represent a Ruby runtime. This component type can be combined with CSource if the runtime should be built from source. A RubyRuntime component has support for configuration of the runtime such as integration with a web server.
+A Ruby Runtime unit is used to represent a Ruby runtime. This component type can be combined with CSource if the runtime should be built from source. A RubyRuntime component has support for configuration of the runtime such as integration with a web server.
 
 Here is an example:
  unit "ruby-enterprise" version rpm:1.8.7-2010.02 is RubyRuntime, CSource {
@@ -86,3 +87,44 @@ Note:
 * Since the GEM is very simple, it does not need to have a body enclosed in curly-braces, i.e. '{' and '}', and is instead terminated with a semi-colon, i.e. ';'.
 * A body, with requirements, etc. can be added if needed for advanced cases.
 
+==A PHP Runtime Component==
+A PHP Runtime component is used to represent a PHP runtime. This component type can be combined with CSource if the 
+runtime should be built from source. A PHPRuntime is installed as an RPM.
+
+Here is an example:
+ unit php5 is PHPRuntime;
+
+Which will install the latest 'php5' using RPM.
+
+==A PHP Component==
+A PHP unit is used to represent a PHP package installable via the PHP 'Pear' manager.
+
+Here is an example:
+ unit aPhpPackage version php:1.0.0 is PHP;
+
+The simple form using only the name (and version) of the component can be used for officially listed components (i.e., components known by the Pear manager).
+
+An unofficial component can be installed from a specified location by declaring its source location:
+ unit aPhpPackage version php:1.0.0 is PHP {
+     source : "http://somewhere.com/aPhpPackage.zip" ;
+ }
+
+Note:
+* the php: version scheme is used by PHP 'pear' packages
+* An automatic requirement on a PHPRuntime is added when publishing
+* As with other unit types, more advanced requirements etc. can be added.
+
+==A PHPExt Component==
+A PHPExt unit is used to represent a PHP Runtime Extension (written in C) installable with the PHP 'Pecl' system. 
+This component type can be combined with CSource if the extension is in a form requiring ''phpize'' before being installed.
+
+Here is an example:
+ unit aPhpExtPackage version php:1.0.0 is PHPExt;
+
+The simple form using only the name (and version) of the component can be used for officially listed components (i.e., components known by Pear/Pecl).
+
+An unofficial component can be installed from a specified location by declaring its source location:
+ unit aPhpExtPackage version php:1.0.0 is PHPExt {
+     source : "http://somewhere.com/aPhpExtPackage.zip" ;
+ }
+ 
