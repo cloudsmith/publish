@@ -77,10 +77,6 @@ unit org.myorg.myComponent version 1.0.0.r12345 is Native {
 	source : "svn://org.myorg/svnroot/trunk/org.myorg.mycomponent?revision=12345&path=/opt/org.myorg.myComponent";
 }
 
-
-///TODO: GIVE EXAMPLE OF NATIVE COMPONENT IN CSOURCE FORM
-
-
 « The following is sample code for for a Native unit that creates an installation fragment for another unit. 
   This is used to separate an installer from the installable content. In this example, a special install script 
   is in a different SVN location than the installable content. Executing the script requires definition of a 
@@ -103,12 +99,11 @@ unit org.myorg.myComponent.configuration version 1.0.0.r12345 is Native {
 		
 	« This Builder will be executed when the repository is published. The result is
 	  that the 'NativePublisher' will contain an instruction that is executed
-	  'when installing'. The example instruction here will simply copy a file.
+	  'when installing'. The example instruction here runs a shell script in posix mode.
 	»
-// TODO: the example copy does not seem correct
 	builder publish() {
 		result : new NativePublisher() as p {
-			whenInstalling : [p.exec("/tmp/svn/copy.bat", "/tmp/svn/content.xml", ".") ];
+			whenInstalling : [p.exec("/bin/sh", "--posix", "/opt/org.myorg.myComponent.configuration/myScript.sh") ];
 		}.write(unit);
 	}
 }
