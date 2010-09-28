@@ -212,6 +212,47 @@ Note that these actions should be executed in the configuration phase as they re
 |<code>'''uninstallRubyEnterpriseFromCSource'''()</code>
 | Cleans up what was installed earlier with a ''installRubyEnterpriseFromCSource'' operation, i.e., this is an "undo" of a ''installRubyEnterpriseFromCSource'' operation.
 |}
+===PHPPublisher===
+'PHPPublisher' is derived from Publisher and supports the following additional actions:
+{|
+|-valign="top" style="background-color:#eeeeee;color:#444444;"
+| '''action'''
+| '''description'''
+|-valign="top"
+| <code>'''installPHP'''(String server)</code>
+| Installs a PHP package using Pear. If no source is specified, the name and version of the published unit are
+used as arguments to Pear. If a source location is specified, the associated artifact which needs to
+be in 'pear shape' is downloaded using the specified URI scheme and then installed with Pear.
+|-valign="top"
+| <code>'''installPHPExt'''()</code>
+| Installs a PHP Extention package using 'Pecl'. If no source is specified, the name and version of the published unit are used as arguments to 'Pecl'. If a source location is specified, the associated artifact which needs
+to be in 'pecl shape' is downloaded using the specified URI scheme and then installed with Pear.
+|-valign="top"
+| <code>'''installPHPExtFromCSource'''()</code>
+| Installs a PHP Extension package using 'phpize'. The source location must be be specified. TODO: More detail needed.
+|-valign="top"
+| <code>'''installPHPRuntime'''()</code>
+| Installs a PHP Runtime package using RPM. If source location is not specified, the unit's name and version
+are used as arguments to RPM.
+|-valign="top"
+| <code>'''installPHPRuntimeFromCSource'''()</code>
+| Installs a PHP Runtime package from CSource. The source location must be specified.
+|- valign="top"
+|<code>'''uninstallPHP'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPHP'' operation, i.e., this is an "undo" of a ''installPHP'' operation. 
+|- valign="top"
+|<code>'''uninstallPHPExt'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPHP'' operation, i.e., this is an "undo" of a ''installPHP'' operation. 
+|- valign="top"
+|<code>'''uninstallPHPExtFromCSource'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPHPExtFromCSource'' operation, i.e., this is an "undo" of a ''installPHPExtFromCSource'' operation. 
+|- valign="top"
+|<code>'''uninstallPHPRuntime'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPHPExtFromCSource'' operation, i.e., this is an "undo" of a ''installPHPExtFromCSource'' operation. 
+|- valign="top"
+|<code>'''uninstallPHPRuntimeFromCSource'''(String server)</code>
+| Cleans up what was installed earlier with a ''installPHPRuntimeFromCSource'' operation, i.e., this is an "undo" of a ''installPHPRuntimeFromCSource'' operation.
+|}
 ===RepositoryPublisher===
 'RepositoryPublisher' is not derived from Publisher. The result of this publisher is a repository which is used during the installation process, but it is not installed as a component.
 
