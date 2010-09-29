@@ -37,9 +37,9 @@ The installer's support for the svn scheme supports the following URI format:
 
 Username and password requires no further explanation, but there are two ways of specifying these; as part of the URL or
 as separate parameters. (TODO: is it possible to specify them in the URL? the svn command says nothing about this in
-its man pages). When specifying them as parameters, they are passed as the parameters --username and --password respecitively to the system svn command. 
+its man pages). When specifying them as parameters, they are passed as the parameters --username and --password respectively to the system svn command. 
 
-The revision is passed to the system svn command using --revision which supports a revision number as well as symblical references (e.g. HEAD, or BASE - for a full list see the svn system command). If a revision is not specified, HEAD will be used to get the latest revision).
+The revision is passed to the system svn command using --revision which supports a revision number as well as symbolic references (e.g. HEAD, or BASE - for a full list see the svn system command). If a revision is not specified, HEAD will be used to get the latest revision).
 
 The targetPath is passed to the system svn command and is the location where the checked out content should be placed in the file system. If this path is not specified, the checkout will be made to a cache location, and this location is made available to actions (TODO: how is this made available?).
 
@@ -51,3 +51,4 @@ And here with username and password:
  
 Note that special characters in the username or password have to be URL safe. Use URL escape mechanism for such characters.
 
+When fetch has been used to get artifacts, the current working directory is set to the location of the fetched files. This means that actions like 'exec' can use relative references from the root of what was fetched.
