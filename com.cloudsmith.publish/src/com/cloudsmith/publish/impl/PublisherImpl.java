@@ -1691,7 +1691,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 						body.append(',');
 					body.append(param.getName());
 					body.append(':');
-					body.append(param.getValue());
+					body.append(p2InstructionSafeString(param.getValue()));
 				}
 			}
 			body.append(')');
@@ -1702,5 +1702,43 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			instr.setBody(body.toString());
 			tpdm.put(key, instr);
 		}
+	}
+
+	/**
+	 * Replaces all special characters: '$',',',':',';','{','}'
+	 * with a p2 character encoding of ${code} where code is a decimal unicode number for the character.
+	 * 
+	 * @param s
+	 * @return
+	 */
+	private String p2InstructionSafeString(String s) {
+		StringBuffer result = new StringBuffer();
+		int len = s.length();
+		for(int i = 0; i < len; i++) {
+			char c = s.charAt(i);
+			switch(c) {
+				case '$':
+					result.append("${#36}");
+					break;
+				case ',':
+					result.append("${#44}");
+					break;
+				case ':':
+					result.append("${#58}");
+					break;
+				case ';':
+					result.append("${#59}");
+					break;
+				case '{':
+					result.append("${#123}");
+					break;
+				case '}':
+					result.append("${#125}");
+					break;
+				default:
+					result.append(c);
+			}
+		}
+		return result.toString();
 	}
 } // PublisherImpl
