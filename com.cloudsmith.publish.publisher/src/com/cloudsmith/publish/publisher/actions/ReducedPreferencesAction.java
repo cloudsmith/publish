@@ -109,7 +109,6 @@ public class ReducedPreferencesAction extends Action implements IWorkbenchWindow
 	 * 
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// do nothing, this action is not related to current selection.
 	}

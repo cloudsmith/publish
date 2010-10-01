@@ -16,7 +16,6 @@ import org.eclipse.jface.action.MenuManager;
 public class PublishExtXtextEditorCustomizer implements
 		IExtXtextEditorCustomizer {
 
-	@Override
 	public void customizeEditorContextMenu(IMenuManager menuManager) {
 		// Is there a better way to hide "Show In" submenu in editor context menu?
 		// This submenu doesn't have its id set, so Activity can not be referenced.

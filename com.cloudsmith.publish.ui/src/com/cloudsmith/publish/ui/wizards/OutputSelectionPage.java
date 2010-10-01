@@ -59,7 +59,6 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 		setDescription("Specify directory location for repository publication output.");
 	}
 
-	@Override
 	public void createControl(Composite parent) {
 		initializeDialogUnits(parent);
 
@@ -131,7 +130,6 @@ public class OutputSelectionPage extends AbstractWizardPage implements Listener 
 	 * @param e
 	 *            Event
 	 */
-	@Override
 	public void handleEvent(Event e) {
 		Widget source = e.widget;
 

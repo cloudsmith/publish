@@ -62,7 +62,6 @@ public class OpenReadmeAction extends Action implements IWorkbenchWindowActionDe
 	 * 
 	 * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
 	 */
-	@Override
 	public void dispose() {
 		// empty
 	}

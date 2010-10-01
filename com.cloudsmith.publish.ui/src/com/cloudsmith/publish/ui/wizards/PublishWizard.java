@@ -40,7 +40,6 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 		addPage(outputSelectionPage);
 	}
 
-	@Override
 	public IStatus getResult() {
 		return result;
 	}
@@ -105,7 +104,6 @@ public class PublishWizard extends Wizard implements ICmdWizard {
 		return false;
 	}
 
-	@Override
 	public void setCmdWork(CmdUnitOfWork work) {
 		this.cmdUnitOfWork = work;
 	}
