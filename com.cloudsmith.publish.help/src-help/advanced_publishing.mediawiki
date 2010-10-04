@@ -219,7 +219,7 @@ Note that these actions should be executed in the configuration phase as they re
 | '''action'''
 | '''description'''
 |-valign="top"
-| <code>'''installPHP'''(String server)</code>
+| <code>'''installPHP'''()</code>
 | Installs a PHP package using Pear. If no source is specified, the name and version of the published unit are
 used as arguments to Pear. If a source location is specified, the associated artifact which needs to
 be in 'pear shape' is downloaded using the specified URI scheme and then installed with Pear.
@@ -238,19 +238,19 @@ are used as arguments to RPM.
 | <code>'''installPHPRuntimeFromCSource'''()</code>
 | Installs a PHP Runtime package from CSource. The source location must be specified.
 |- valign="top"
-|<code>'''uninstallPHP'''(String server)</code>
+|<code>'''uninstallPHP'''()</code>
 | Cleans up what was installed earlier with a ''installPHP'' operation, i.e., this is an "undo" of a ''installPHP'' operation. 
 |- valign="top"
-|<code>'''uninstallPHPExt'''(String server)</code>
+|<code>'''uninstallPHPExt'''()</code>
 | Cleans up what was installed earlier with a ''installPHP'' operation, i.e., this is an "undo" of a ''installPHP'' operation. 
 |- valign="top"
-|<code>'''uninstallPHPExtFromCSource'''(String server)</code>
+|<code>'''uninstallPHPExtFromCSource'''()</code>
 | Cleans up what was installed earlier with a ''installPHPExtFromCSource'' operation, i.e., this is an "undo" of a ''installPHPExtFromCSource'' operation. 
 |- valign="top"
-|<code>'''uninstallPHPRuntime'''(String server)</code>
+|<code>'''uninstallPHPRuntime'''()</code>
 | Cleans up what was installed earlier with a ''installPHPExtFromCSource'' operation, i.e., this is an "undo" of a ''installPHPExtFromCSource'' operation. 
 |- valign="top"
-|<code>'''uninstallPHPRuntimeFromCSource'''(String server)</code>
+|<code>'''uninstallPHPRuntimeFromCSource'''()</code>
 | Cleans up what was installed earlier with a ''installPHPRuntimeFromCSource'' operation, i.e., this is an "undo" of a ''installPHPRuntimeFromCSource'' operation.
 |}
 ===RepositoryPublisher===
