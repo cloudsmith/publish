@@ -104,11 +104,10 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 				if(!fetchInfo.isDirectory() && fetchInfo.exists()) {
 					IWorkbenchPage page = window.getActivePage();
 					try {
+						// make a link and then open it.
 						page.openEditor(
 							new FileEditorInput(ExtLinkedFileHelper.obtainLink(fileStore.toURI(), false)),
 							ActionConstants.BEELANG_EDITOR_ID);
-						// open the editor on the file
-						// page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
 					}
 					catch(PartInitException e) {
 						String msg = NLS.bind(
