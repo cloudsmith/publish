@@ -3,7 +3,7 @@ package com.cloudsmith.publish.publisher;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedXtextEditor;
+import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedFileHelper;
 import org.eclipse.b3.beelang.ui.xtext.linked.TmpFileStoreEditorInput;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -109,7 +109,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 			}
 		}
 		// get, or create project if non existing
-		IProject project = ws.getRoot().getProject(ExtLinkedXtextEditor.AUTOLINK_PROJECT_NAME);
+		IProject project = ws.getRoot().getProject(ExtLinkedFileHelper.AUTOLINK_PROJECT_NAME);
 		boolean newProject = false;
 		if(!project.exists()) {
 			project.create(null);
@@ -121,7 +121,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		}
 
 		if(newProject)
-			project.setDefaultCharset(ExtLinkedXtextEditor.ENCODING_UTF8, new NullProgressMonitor());
+			project.setDefaultCharset(ExtLinkedFileHelper.ENCODING_UTF8, new NullProgressMonitor());
 		IFolder untitledFolder = project.getFolder("untitled");
 		if(!untitledFolder.exists())
 			return; // nothing to clear

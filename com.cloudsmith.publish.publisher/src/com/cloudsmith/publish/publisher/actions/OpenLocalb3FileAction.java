@@ -1,5 +1,6 @@
 package com.cloudsmith.publish.publisher.actions;
 
+import org.eclipse.b3.beelang.ui.xtext.linked.ExtLinkedFileHelper;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
@@ -15,9 +16,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.cloudsmith.publish.publisher.ActionConstants;
@@ -103,8 +104,11 @@ public class OpenLocalb3FileAction extends Action implements IWorkbenchWindowAct
 				if(!fetchInfo.isDirectory() && fetchInfo.exists()) {
 					IWorkbenchPage page = window.getActivePage();
 					try {
+						page.openEditor(
+							new FileEditorInput(ExtLinkedFileHelper.obtainLink(fileStore.toURI(), false)),
+							ActionConstants.BEELANG_EDITOR_ID);
 						// open the editor on the file
-						page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
+						// page.openEditor(new FileStoreEditorInput(fileStore), ActionConstants.BEELANG_EDITOR_ID);
 					}
 					catch(PartInitException e) {
 						String msg = NLS.bind(
