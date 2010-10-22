@@ -35,7 +35,7 @@
 		<provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
 			resolutionFilter="(resolve.target.platform=true)"
 		>
-			<uri format="{0}/modeling/tmf/updates/nightly">
+			<uri format="{0}/modeling/tmf/updates/releases">
 				<bc:propertyRef key="eclipse.download" />
 			</uri>
 		</provider>
