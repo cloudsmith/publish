@@ -19,12 +19,12 @@ License - see http://www.cloudsmith.com/license_info.html
 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/com.cloudsmith.publish.publisher/icons/RPicon16.png" i32="/com.cloudsmith.publish.publisher/icons/RPicon32.png" i48="/com.cloudsmith.publish.publisher/icons/RPicon48.png" i64="/com.cloudsmith.publish.publisher/icons/RPicon64.png" i128="/com.cloudsmith.publish.publisher/icons/RPicon128.png"/>
+   <windowImages i16="/com.cloudsmith.publish.publisher/icons/RBIcon16.png" i32="/com.cloudsmith.publish.publisher/icons/RBIcon32.png" i48="/com.cloudsmith.publish.publisher/icons/RBIcon48.png" i64="/com.cloudsmith.publish.publisher/icons/RBIcon64.png" i128="/com.cloudsmith.publish.publisher/icons/RBIcon128.png"/>
 
    <splash
       location="com.cloudsmith.publish.publisher" />
    <launcher name="repobuilder">
-      <linux icon="/com.cloudsmith.publish.publisher/icons/RPDockIconLinux.xpm"/>
+      <linux icon="/com.cloudsmith.publish.publisher/icons/RBDockIconLinux.xpm"/>
       <macosx icon="/com.cloudsmith.publish.publisher/icons/RBDockIconMac.icns"/>
       <solaris/>
       <win useIco="true">
