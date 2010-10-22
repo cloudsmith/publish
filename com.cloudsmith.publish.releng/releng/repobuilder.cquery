@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="repobuilder.rmap">
-	<cq:rootRequest name="com.cloudsmith.publish.releng" componentType="buckminster"/>
+	<cq:rootRequest name="com.cloudsmith.publish.publisher.product" componentType="eclipse.feature"/>
 
-	<cq:advisorNode namePattern="^" filter="(resolve.target.platform=true)" useTargetPlatform="false"/>
+	<cq:advisorNode filter="(resolve.target.platform=true)" useTargetPlatform="false"/>
 
 	<cq:property key="target.ws" value="*"/>
 	<cq:property key="target.os" value="*"/>

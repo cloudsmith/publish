@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="0.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>
-         Repository Builder - version 0.1
+         Repository Builder - version 0.2
 © Cloudsmith Inc  - All rights reserved.
 License - see http://www.cloudsmith.com/license_info.html
       </text>
@@ -15,7 +15,7 @@ License - see http://www.cloudsmith.com/license_info.html
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-Xdock:icon=../Resources/RBDockIconMac.icns
+      <vmArgsMac>-Xdock:icon=../Resources/repobuilder.icns
 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
@@ -33,7 +33,6 @@ License - see http://www.cloudsmith.com/license_info.html
       </win>
    </launcher>
 
-
    <vm>
    </vm>
 
@@ -41,13 +40,15 @@ License - see http://www.cloudsmith.com/license_info.html
    </plugins>
 
    <features>
-      <feature id="com.cloudsmith.publish.publisher.product" version="1.0.0.qualifier"/>
+      <feature id="com.cloudsmith.publish.publisher.product" version="0.2.0.qualifier"/>
    </features>
 
    <configurations>
       <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="0" />
+
+      <property name="osgi.instance.area.default" value="@user.home/.repobuilder" />
    </configurations>
 
 </product>

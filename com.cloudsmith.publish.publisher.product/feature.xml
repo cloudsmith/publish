@@ -2,7 +2,7 @@
 <feature
       id="com.cloudsmith.publish.publisher.product"
       label="Repository Builder Product"
-      version="1.0.0.qualifier"
+      version="0.2.0.qualifier"
       provider-name="CLOUDSMITH">
 
    <description url="http://www.example.com/description">
