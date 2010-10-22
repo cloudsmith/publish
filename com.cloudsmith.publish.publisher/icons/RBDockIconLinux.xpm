@@ -1,5 +1,5 @@
 /* XPM */
-static char *RBDockIconMac[] = {
+static char *icon[] = {
 /* width height ncolors chars_per_pixel */
 "128 128 187 2",
 /* colors */
