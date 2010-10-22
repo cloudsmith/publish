@@ -123,7 +123,7 @@
          </property>
          <property
                name="aboutText"
-               value="Repository Builder - version 0.1&#x0A;© Cloudsmith Inc  - All rights reserved.&#x0A;License - see http://www.cloudsmith.com/license_info.html">
+               value="Repository Builder - version 0.2&#x0A;© Cloudsmith Inc  - All rights reserved.&#x0A;License - see http://www.cloudsmith.com/license_info.html">
          </property>
       </product>
    </extension>
