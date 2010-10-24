@@ -9,10 +9,6 @@
 	</target>
 
 	<target name="generate.eclipse.help" depends="-define.wikitext.tasks" description="Generate Eclipse help from MediaWiki sources">
-		<copy todir="${sp:output}">
-			<fileset dir="${sp:wikitext.sources}" />
-		</copy>
-
 		<fileset id="wikitext.sources" dir="${sp:output}">
 			<filename name="*.mediawiki" />
 		</fileset>
@@ -32,12 +28,51 @@
 		</delete>
 	</target>
 
-	<target name="-build.eclipse.help" depends="-clean.eclipse.help" description="Build Eclipse help (this target is invoked by a Buckminster action defined in the buckminster.cspex file)">
+	<target name="-build.eclipse.help" description="Build Eclipse help (this target is invoked by a Buckminster action defined in the buckminster.cspex file)">
 		<pathconvert property="wikitext.standalone.classpath">
 			<buckminster.valuepath value="${fs:wikitext.bundles}" />
 		</pathconvert>
 
-		<!-- run Eclipse help generation in a separate VM -->
+		<!-- delete derived resources for which there are no source resources (any longer) -->
+		<delete dir="${sp:output}" includeemptydirs="true">
+			<present targetdir="${sp:wikitext.sources}" present="srconly" />
+			<present targetdir="${sp:wikitext.sources}" present="srconly">
+				<mapper>
+					<filtermapper>
+						<replaceregex pattern="(?:-toc\.xml|\.html)$$" replace=".mediawiki" />
+					</filtermapper>
+				</mapper>
+			</present>
+		</delete>
+
+		<!-- copy the sources derived resources of which are either out of date or missing -->
+		<copy todir="${sp:output}">
+			<fileset dir="${sp:wikitext.sources}">
+				<or>
+					<and>
+						<filename name="**/*.mediawiki" />
+						<or>
+							<depend targetdir="${sp:output}">
+								<mapper>
+									<globmapper from="*.mediawiki" to="*-toc.xml" />
+								</mapper>
+							</depend>
+							<depend targetdir="${sp:output}">
+								<mapper>
+									<globmapper from="*.mediawiki" to="*.html" />
+								</mapper>
+							</depend>
+						</or>
+					</and>
+					<and>
+						<filename name="**/*.mediawiki" negate="true" />
+						<depend targetdir="${sp:output}" />
+					</and>
+				</or>
+			</fileset>
+		</copy>
+
+		<!-- run wikitext-to-eclipse-help conversion in a separate VM -->
 		<java jvm="${java.home}/bin/java" jar="${ant.library.dir}/ant-launcher.jar" dir="${basedir}" fork="true" failonerror="true">
 			<syspropertyset>
 				<propertyref name="basedir" />
