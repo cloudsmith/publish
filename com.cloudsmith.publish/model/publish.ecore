@@ -27,6 +27,8 @@
       <eParameters name="unit" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"/>
       <eParameters name="data" eType="ecore:EClass ../../org.eclipse.b3.build/model/B3Build.ecore#//BuildSet"/>
     </eOperations>
+    <eOperations name="getTouchpointType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getTouchpointVersion" eType="ecore:EDataType ../../org.eclipse.b3.build/model/B3Build.ecore#//Version"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.build/model/B3Build.ecore#//Version"/>
@@ -209,4 +211,20 @@
       eSuperTypes="#//PHPPackage"/>
   <eClassifiers xsi:type="ecore:EClass" name="PHPExt" abstract="true" interface="true"
       eSuperTypes="#//PHPPackage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IYumActions" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YumActions" eSuperTypes="#//ActionPackage #//IYumActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YumPublisher" eSuperTypes="#//Publisher #//IYumActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="yumActions" eType="#//YumActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IAptActions" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AptActions" eSuperTypes="#//ActionPackage #//IAptActions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AptPublisher" eSuperTypes="#//Publisher #//IAptActions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aptActions" eType="#//AptActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Yum" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Apt" abstract="true" interface="true"
+      eSuperTypes="#//Publishable"/>
 </ecore:EPackage>

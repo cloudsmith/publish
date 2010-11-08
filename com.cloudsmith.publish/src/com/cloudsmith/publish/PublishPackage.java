@@ -717,6 +717,112 @@ public interface PublishPackage extends EPackage {
 		 */
 		EClass PHP_EXT = eINSTANCE.getPHPExt();
 
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IYumActions <em>IYum Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IYumActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIYumActions()
+		 * @generated
+		 */
+		EClass IYUM_ACTIONS = eINSTANCE.getIYumActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.YumActionsImpl <em>Yum Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.YumActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYumActions()
+		 * @generated
+		 */
+		EClass YUM_ACTIONS = eINSTANCE.getYumActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.YumPublisherImpl <em>Yum Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.YumPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYumPublisher()
+		 * @generated
+		 */
+		EClass YUM_PUBLISHER = eINSTANCE.getYumPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Yum Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference YUM_PUBLISHER__YUM_ACTIONS = eINSTANCE.getYumPublisher_YumActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.IAptActions <em>IApt Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.IAptActions
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIAptActions()
+		 * @generated
+		 */
+		EClass IAPT_ACTIONS = eINSTANCE.getIAptActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.AptActionsImpl <em>Apt Actions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.AptActionsImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAptActions()
+		 * @generated
+		 */
+		EClass APT_ACTIONS = eINSTANCE.getAptActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.impl.AptPublisherImpl <em>Apt Publisher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.impl.AptPublisherImpl
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAptPublisher()
+		 * @generated
+		 */
+		EClass APT_PUBLISHER = eINSTANCE.getAptPublisher();
+
+		/**
+		 * The meta object literal for the '<em><b>Apt Actions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference APT_PUBLISHER__APT_ACTIONS = eINSTANCE.getAptPublisher_AptActions();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.Yum <em>Yum</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.Yum
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYum()
+		 * @generated
+		 */
+		EClass YUM = eINSTANCE.getYum();
+
+		/**
+		 * The meta object literal for the '{@link com.cloudsmith.publish.Apt <em>Apt</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see com.cloudsmith.publish.Apt
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getApt()
+		 * @generated
+		 */
+		EClass APT = eINSTANCE.getApt();
+
 	}
 
 	/**
@@ -5769,6 +5875,1154 @@ public interface PublishPackage extends EPackage {
 	int PHP_EXT_FEATURE_COUNT = PHP_PACKAGE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.IYumActions <em>IYum Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.IYumActions
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIYumActions()
+	 * @generated
+	 */
+	int IYUM_ACTIONS = 33;
+
+	/**
+	 * The number of structural features of the '<em>IYum Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IYUM_ACTIONS_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.YumActionsImpl <em>Yum Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.YumActionsImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYumActions()
+	 * @generated
+	 */
+	int YUM_ACTIONS = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
+
+	/**
+	 * The number of structural features of the '<em>Yum Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_ACTIONS_FEATURE_COUNT = ACTION_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.YumPublisherImpl <em>Yum Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.YumPublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYumPublisher()
+	 * @generated
+	 */
+	int YUM_PUBLISHER = 35;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__ID = PUBLISHER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__SINGLETON = PUBLISHER__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__VERSION = PUBLISHER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__COPYRIGHT_TEXT = PUBLISHER__COPYRIGHT_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__COPYRIGHT_URL = PUBLISHER__COPYRIGHT_URL;
+
+	/**
+	 * The feature id for the '<em><b>License Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__LICENSE_TEXT = PUBLISHER__LICENSE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>License URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__LICENSE_URL = PUBLISHER__LICENSE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__RUNTIME_FILTER = PUBLISHER__RUNTIME_FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__WHEN_UNCONFIGURING = PUBLISHER__WHEN_UNCONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__NAME = PUBLISHER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__UNIT = PUBLISHER__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Provides</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__PROVIDES = PUBLISHER__PROVIDES;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__REQUIRES = PUBLISHER__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Yum Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER__YUM_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Yum Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.IAptActions <em>IApt Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.IAptActions
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getIAptActions()
+	 * @generated
+	 */
+	int IAPT_ACTIONS = 36;
+
+	/**
+	 * The number of structural features of the '<em>IApt Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IAPT_ACTIONS_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.AptActionsImpl <em>Apt Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.AptActionsImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAptActions()
+	 * @generated
+	 */
+	int APT_ACTIONS = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_ACTIONS__NAME = ACTION_PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Touch Point</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_ACTIONS__TOUCH_POINT = ACTION_PACKAGE__TOUCH_POINT;
+
+	/**
+	 * The number of structural features of the '<em>Apt Actions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_ACTIONS_FEATURE_COUNT = ACTION_PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.impl.AptPublisherImpl <em>Apt Publisher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.impl.AptPublisherImpl
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAptPublisher()
+	 * @generated
+	 */
+	int APT_PUBLISHER = 38;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__ID = PUBLISHER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Singleton</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__SINGLETON = PUBLISHER__SINGLETON;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__VERSION = PUBLISHER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Copyright Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__COPYRIGHT_TEXT = PUBLISHER__COPYRIGHT_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Copyright URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__COPYRIGHT_URL = PUBLISHER__COPYRIGHT_URL;
+
+	/**
+	 * The feature id for the '<em><b>License Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__LICENSE_TEXT = PUBLISHER__LICENSE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>License URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__LICENSE_URL = PUBLISHER__LICENSE_URL;
+
+	/**
+	 * The feature id for the '<em><b>Runtime Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__RUNTIME_FILTER = PUBLISHER__RUNTIME_FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__PROPERTIES = PUBLISHER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>When Installing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__WHEN_INSTALLING = PUBLISHER__WHEN_INSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Uninstalling</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__WHEN_UNINSTALLING = PUBLISHER__WHEN_UNINSTALLING;
+
+	/**
+	 * The feature id for the '<em><b>When Configuring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__WHEN_CONFIGURING = PUBLISHER__WHEN_CONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>When Unconfiguring</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__WHEN_UNCONFIGURING = PUBLISHER__WHEN_UNCONFIGURING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__NAME = PUBLISHER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__UNIT = PUBLISHER__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Provides</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__PROVIDES = PUBLISHER__PROVIDES;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__REQUIRES = PUBLISHER__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Meta Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__META_REQUIRES = PUBLISHER__META_REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Used Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__USED_PACKAGES = PUBLISHER__USED_PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Native Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__NATIVE_ACTIONS = PUBLISHER__NATIVE_ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Apt Actions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER__APT_ACTIONS = PUBLISHER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Apt Publisher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.Yum <em>Yum</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.Yum
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYum()
+	 * @generated
+	 */
+	int YUM = 39;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__NAME = PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__NAME_SPACE = PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__COND_EXPR = PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__VERSION = PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__FUNCTIONS = PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__BUILDERS = PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__DOCUMENTATION = PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__EXECUTION_MODE = PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__META_REQUIRED_CAPABILITIES = PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__IMPLEMENTS = PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__CONCERNS = PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__DEFAULT_PROPERTIES = PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__SYNCHRONIZATIONS = PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__REPOSITORIES = PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__CONTAINERS = PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__PROPERTY_SETS = PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__SOURCE_LOCATION = PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__OUTPUT_LOCATION = PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>Yum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int YUM_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.cloudsmith.publish.Apt <em>Apt</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.cloudsmith.publish.Apt
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getApt()
+	 * @generated
+	 */
+	int APT = 40;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__NAME = PUBLISHABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__NAME_SPACE = PUBLISHABLE__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__COND_EXPR = PUBLISHABLE__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__VERSION = PUBLISHABLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__FUNCTIONS = PUBLISHABLE__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__REQUIRED_CAPABILITIES = PUBLISHABLE__REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Required Predicates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__REQUIRED_PREDICATES = PUBLISHABLE__REQUIRED_PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__PROVIDED_CAPABILITIES = PUBLISHABLE__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__VAR_NAME = PUBLISHABLE__VAR_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__BUILDERS = PUBLISHABLE__BUILDERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__DOCUMENTATION = PUBLISHABLE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__EXECUTION_MODE = PUBLISHABLE__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__META_REQUIRED_CAPABILITIES = PUBLISHABLE__META_REQUIRED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__IMPLEMENTS = PUBLISHABLE__IMPLEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__CONCERNS = PUBLISHABLE__CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__DEFAULT_PROPERTIES = PUBLISHABLE__DEFAULT_PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__SYNCHRONIZATIONS = PUBLISHABLE__SYNCHRONIZATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__REPOSITORIES = PUBLISHABLE__REPOSITORIES;
+
+	/**
+	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__CONTAINERS = PUBLISHABLE__CONTAINERS;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__PROPERTY_SETS = PUBLISHABLE__PROPERTY_SETS;
+
+	/**
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__SOURCE_LOCATION = PUBLISHABLE__SOURCE_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__OUTPUT_LOCATION = PUBLISHABLE__OUTPUT_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__PROVIDERS = PUBLISHABLE__PROVIDERS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__PARENT = PUBLISHABLE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Hosts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__FRAGMENT_HOSTS = PUBLISHABLE__FRAGMENT_HOSTS;
+
+	/**
+	 * The feature id for the '<em><b>Platform Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
+
+	/**
+	 * The number of structural features of the '<em>Apt</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int APT_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.ActionPackage <em>Action Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5839,6 +7093,51 @@ public interface PublishPackage extends EPackage {
 	EAttribute getActionParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Apt <em>Apt</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Apt</em>'.
+	 * @see com.cloudsmith.publish.Apt
+	 * @generated
+	 */
+	EClass getApt();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.AptActions <em>Apt Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Apt Actions</em>'.
+	 * @see com.cloudsmith.publish.AptActions
+	 * @generated
+	 */
+	EClass getAptActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.AptPublisher <em>Apt Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Apt Publisher</em>'.
+	 * @see com.cloudsmith.publish.AptPublisher
+	 * @generated
+	 */
+	EClass getAptPublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.AptPublisher#getAptActions <em>Apt Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Apt Actions</em>'.
+	 * @see com.cloudsmith.publish.AptPublisher#getAptActions()
+	 * @see #getAptPublisher()
+	 * @generated
+	 */
+	EReference getAptPublisher_AptActions();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.CSource <em>CSource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5906,6 +7205,17 @@ public interface PublishPackage extends EPackage {
 	EReference getGEMPublisher_GemActions();
 
 	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IAptActions <em>IApt Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IApt Actions</em>'.
+	 * @see com.cloudsmith.publish.IAptActions
+	 * @generated
+	 */
+	EClass getIAptActions();
+
+	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.IExtNativeActions <em>IExt Native Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5970,6 +7280,17 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIRubyActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.IYumActions <em>IYum Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IYum Actions</em>'.
+	 * @see com.cloudsmith.publish.IYumActions
+	 * @generated
+	 */
+	EClass getIYumActions();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.Native <em>Native</em>}'.
@@ -6553,5 +7874,50 @@ public interface PublishPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRubyRuntime();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.Yum <em>Yum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Yum</em>'.
+	 * @see com.cloudsmith.publish.Yum
+	 * @generated
+	 */
+	EClass getYum();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.YumActions <em>Yum Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Yum Actions</em>'.
+	 * @see com.cloudsmith.publish.YumActions
+	 * @generated
+	 */
+	EClass getYumActions();
+
+	/**
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.YumPublisher <em>Yum Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Yum Publisher</em>'.
+	 * @see com.cloudsmith.publish.YumPublisher
+	 * @generated
+	 */
+	EClass getYumPublisher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.cloudsmith.publish.YumPublisher#getYumActions <em>Yum Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Yum Actions</em>'.
+	 * @see com.cloudsmith.publish.YumPublisher#getYumActions()
+	 * @see #getYumPublisher()
+	 * @generated
+	 */
+	EReference getYumPublisher_YumActions();
 
 } // PublishPackage

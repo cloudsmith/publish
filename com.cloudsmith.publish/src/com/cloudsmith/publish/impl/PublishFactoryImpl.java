@@ -110,6 +110,14 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 				return createPHPActions();
 			case PublishPackage.PHP_PUBLISHER:
 				return createPHPPublisher();
+			case PublishPackage.YUM_ACTIONS:
+				return createYumActions();
+			case PublishPackage.YUM_PUBLISHER:
+				return createYumPublisher();
+			case PublishPackage.APT_ACTIONS:
+				return createAptActions();
+			case PublishPackage.APT_PUBLISHER:
+				return createAptPublisher();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +132,28 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public ActionParameter createActionParameter() {
 		ActionParameterImpl actionParameter = new ActionParameterImpl();
 		return actionParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public AptActions createAptActions() {
+		AptActionsImpl aptActions = new AptActionsImpl();
+		return aptActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public AptPublisher createAptPublisher() {
+		AptPublisherImpl aptPublisher = new AptPublisherImpl();
+		return aptPublisher;
 	}
 
 	/**
@@ -278,6 +308,28 @@ public class PublishFactoryImpl extends EFactoryImpl implements PublishFactory {
 	public RubyPublisher createRubyPublisher() {
 		RubyPublisherImpl rubyPublisher = new RubyPublisherImpl();
 		return rubyPublisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public YumActions createYumActions() {
+		YumActionsImpl yumActions = new YumActionsImpl();
+		return yumActions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public YumPublisher createYumPublisher() {
+		YumPublisherImpl yumPublisher = new YumPublisherImpl();
+		return yumPublisher;
 	}
 
 	/**

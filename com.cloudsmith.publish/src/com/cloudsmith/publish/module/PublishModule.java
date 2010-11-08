@@ -2,6 +2,8 @@ package com.cloudsmith.publish.module;
 
 import org.eclipse.emf.ecore.EClass;
 
+import com.cloudsmith.publish.AptActions;
+import com.cloudsmith.publish.AptPublisher;
 import com.cloudsmith.publish.ExtNativeActions;
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
@@ -16,6 +18,8 @@ import com.cloudsmith.publish.RPMPublisher;
 import com.cloudsmith.publish.RepositoryPublisher;
 import com.cloudsmith.publish.RubyActions;
 import com.cloudsmith.publish.RubyPublisher;
+import com.cloudsmith.publish.YumActions;
+import com.cloudsmith.publish.YumPublisher;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provider;
 
@@ -42,6 +46,22 @@ public class PublishModule extends AbstractModule {
 
 		bindPHPPublisher();
 		bindPHPActions();
+
+		bindYUMActions();
+		bindYUMPublisher();
+
+		bindAPTActions();
+		bindAPTPublisher();
+
+	}
+
+	protected void bindAPTActions() {
+		bind(AptActions.class).toProvider(publishModelProvider(AptActions.class, PublishPackage.Literals.APT_ACTIONS));
+	}
+
+	protected void bindAPTPublisher() {
+		bind(AptPublisher.class).toProvider(
+			publishModelProvider(AptPublisher.class, PublishPackage.Literals.APT_PUBLISHER));
 	}
 
 	protected void bindExtNativeActions() {
@@ -103,6 +123,15 @@ public class PublishModule extends AbstractModule {
 	protected void bindRubyPublisher() {
 		bind(RubyPublisher.class).toProvider(
 			publishModelProvider(RubyPublisher.class, PublishPackage.Literals.RUBY_PUBLISHER));
+	}
+
+	protected void bindYUMActions() {
+		bind(YumActions.class).toProvider(publishModelProvider(YumActions.class, PublishPackage.Literals.YUM_ACTIONS));
+	}
+
+	protected void bindYUMPublisher() {
+		bind(YumPublisher.class).toProvider(
+			publishModelProvider(YumPublisher.class, PublishPackage.Literals.YUM_PUBLISHER));
 	}
 
 	<T> Provider<T> publishModelProvider(Class<T> type, EClass eclass) {

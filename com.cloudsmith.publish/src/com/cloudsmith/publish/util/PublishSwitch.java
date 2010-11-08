@@ -98,6 +98,57 @@ public class PublishSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Apt</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Apt</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApt(Apt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Apt Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Apt Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAptActions(AptActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Apt Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Apt Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAptPublisher(AptPublisher object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -230,6 +281,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseGEMPublisher(GEMPublisher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IApt Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IApt Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIAptActions(IAptActions object) {
 		return null;
 	}
 
@@ -400,6 +468,23 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseIVarName(IVarName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IYum Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IYum Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIYumActions(IYumActions object) {
 		return null;
 	}
 
@@ -757,6 +842,57 @@ public class PublishSwitch<T> {
 	 * @generated
 	 */
 	public T caseVersionedCapability(VersionedCapability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Yum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Yum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYum(Yum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Yum Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Yum Actions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYumActions(YumActions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Yum Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Yum Publisher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYumPublisher(YumPublisher object) {
 		return null;
 	}
 
@@ -1300,6 +1436,118 @@ public class PublishSwitch<T> {
 					result = caseCapability(phpExt);
 				if(result == null)
 					result = caseINamedValue(phpExt);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.IYUM_ACTIONS: {
+				IYumActions iYumActions = (IYumActions) theEObject;
+				T result = caseIYumActions(iYumActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.YUM_ACTIONS: {
+				YumActions yumActions = (YumActions) theEObject;
+				T result = caseYumActions(yumActions);
+				if(result == null)
+					result = caseActionPackage(yumActions);
+				if(result == null)
+					result = caseIYumActions(yumActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.YUM_PUBLISHER: {
+				YumPublisher yumPublisher = (YumPublisher) theEObject;
+				T result = caseYumPublisher(yumPublisher);
+				if(result == null)
+					result = casePublisher(yumPublisher);
+				if(result == null)
+					result = caseIYumActions(yumPublisher);
+				if(result == null)
+					result = caseINativeActions(yumPublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.IAPT_ACTIONS: {
+				IAptActions iAptActions = (IAptActions) theEObject;
+				T result = caseIAptActions(iAptActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.APT_ACTIONS: {
+				AptActions aptActions = (AptActions) theEObject;
+				T result = caseAptActions(aptActions);
+				if(result == null)
+					result = caseActionPackage(aptActions);
+				if(result == null)
+					result = caseIAptActions(aptActions);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.APT_PUBLISHER: {
+				AptPublisher aptPublisher = (AptPublisher) theEObject;
+				T result = caseAptPublisher(aptPublisher);
+				if(result == null)
+					result = casePublisher(aptPublisher);
+				if(result == null)
+					result = caseIAptActions(aptPublisher);
+				if(result == null)
+					result = caseINativeActions(aptPublisher);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.YUM: {
+				Yum yum = (Yum) theEObject;
+				T result = caseYum(yum);
+				if(result == null)
+					result = casePublishable(yum);
+				if(result == null)
+					result = caseBuildUnit(yum);
+				if(result == null)
+					result = caseVersionedCapability(yum);
+				if(result == null)
+					result = caseBFunctionContainer(yum);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(yum);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(yum);
+				if(result == null)
+					result = caseIVarName(yum);
+				if(result == null)
+					result = caseCapability(yum);
+				if(result == null)
+					result = caseINamedValue(yum);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PublishPackage.APT: {
+				Apt apt = (Apt) theEObject;
+				T result = caseApt(apt);
+				if(result == null)
+					result = casePublishable(apt);
+				if(result == null)
+					result = caseBuildUnit(apt);
+				if(result == null)
+					result = caseVersionedCapability(apt);
+				if(result == null)
+					result = caseBFunctionContainer(apt);
+				if(result == null)
+					result = caseIRequiredCapabilityContainer(apt);
+				if(result == null)
+					result = caseIProvidedCapabilityContainer(apt);
+				if(result == null)
+					result = caseIVarName(apt);
+				if(result == null)
+					result = caseCapability(apt);
+				if(result == null)
+					result = caseINamedValue(apt);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

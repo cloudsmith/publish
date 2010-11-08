@@ -67,6 +67,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseApt(Apt object) {
+			return createAptAdapter();
+		}
+
+		@Override
+		public Adapter caseAptActions(AptActions object) {
+			return createAptActionsAdapter();
+		}
+
+		@Override
+		public Adapter caseAptPublisher(AptPublisher object) {
+			return createAptPublisherAdapter();
+		}
+
+		@Override
 		public Adapter caseBFunctionContainer(BFunctionContainer object) {
 			return createBFunctionContainerAdapter();
 		}
@@ -104,6 +119,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseGEMPublisher(GEMPublisher object) {
 			return createGEMPublisherAdapter();
+		}
+
+		@Override
+		public Adapter caseIAptActions(IAptActions object) {
+			return createIAptActionsAdapter();
 		}
 
 		@Override
@@ -154,6 +174,11 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIVarName(IVarName object) {
 			return createIVarNameAdapter();
+		}
+
+		@Override
+		public Adapter caseIYumActions(IYumActions object) {
+			return createIYumActionsAdapter();
 		}
 
 		@Override
@@ -262,6 +287,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseYum(Yum object) {
+			return createYumAdapter();
+		}
+
+		@Override
+		public Adapter caseYumActions(YumActions object) {
+			return createYumActionsAdapter();
+		}
+
+		@Override
+		public Adapter caseYumPublisher(YumPublisher object) {
+			return createYumPublisherAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -323,6 +363,51 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.AptActions <em>Apt Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.AptActions
+	 * @generated
+	 */
+	public Adapter createAptActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Apt <em>Apt</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Apt
+	 * @generated
+	 */
+	public Adapter createAptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.AptPublisher <em>Apt Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.AptPublisher
+	 * @generated
+	 */
+	public Adapter createAptPublisherAdapter() {
+		return null;
 	}
 
 	/**
@@ -456,6 +541,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGEMPublisherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IAptActions <em>IApt Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.IAptActions
+	 * @generated
+	 */
+	public Adapter createIAptActionsAdapter() {
 		return null;
 	}
 
@@ -608,6 +708,21 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIVarNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.IYumActions <em>IYum Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.IYumActions
+	 * @generated
+	 */
+	public Adapter createIYumActionsAdapter() {
 		return null;
 	}
 
@@ -923,6 +1038,51 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVersionedCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.YumActions <em>Yum Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.YumActions
+	 * @generated
+	 */
+	public Adapter createYumActionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Yum <em>Yum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.Yum
+	 * @generated
+	 */
+	public Adapter createYumAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.YumPublisher <em>Yum Publisher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.cloudsmith.publish.YumPublisher
+	 * @generated
+	 */
+	public Adapter createYumPublisherAdapter() {
 		return null;
 	}
 

@@ -36,33 +36,8 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		List<B3JavaImport> result = Lists.newArrayList();
 		B3JavaImport o = null;
 
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.RPM");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.GEM");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Publishable");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.CSource");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Native");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.GEMPublisher");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.RPMPublisher");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.RubyRuntime");
-
-		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.RubyPublisher");
-
+		// -- General
+		//
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.RepositoryDefinition");
 
@@ -75,6 +50,39 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.NativePublisher");
 
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.Publishable");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.CSource");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.Native");
+
+		// --RPM
+		//
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.RPM");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.RPMPublisher");
+
+		// --RUBY
+		//
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.GEM");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.GEMPublisher");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.RubyRuntime");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.RubyPublisher");
+
+		// --PHP
+		//
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.PHPPublisher");
 
@@ -89,6 +97,22 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.PHPExt");
+
+		// --YUM
+		//
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.Yum");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.YumPublisher");
+
+		// --APT
+		//
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.Apt");
+
+		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
+		o.setQualifiedName("com.cloudsmith.publish.AptPublisher");
 
 		return result;
 	}

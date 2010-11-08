@@ -247,6 +247,24 @@ public interface Publisher extends INativeActions {
 	String getRuntimeFilter();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getTouchpointType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" dataType="org.eclipse.b3.build.Version"
+	 * @generated
+	 */
+	Version getTouchpointVersion();
+
+	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

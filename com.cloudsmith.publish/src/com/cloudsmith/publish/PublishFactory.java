@@ -42,6 +42,26 @@ public interface PublishFactory extends EFactory {
 	ActionParameter createActionParameter();
 
 	/**
+	 * Returns a new object of class '<em>Apt Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Apt Actions</em>'.
+	 * @generated
+	 */
+	AptActions createAptActions();
+
+	/**
+	 * Returns a new object of class '<em>Apt Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Apt Publisher</em>'.
+	 * @generated
+	 */
+	AptPublisher createAptPublisher();
+
+	/**
 	 * Returns a new object of class '<em>Ext Native Actions</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,6 +200,26 @@ public interface PublishFactory extends EFactory {
 	 * @generated
 	 */
 	RubyPublisher createRubyPublisher();
+
+	/**
+	 * Returns a new object of class '<em>Yum Actions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Yum Actions</em>'.
+	 * @generated
+	 */
+	YumActions createYumActions();
+
+	/**
+	 * Returns a new object of class '<em>Yum Publisher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Yum Publisher</em>'.
+	 * @generated
+	 */
+	YumPublisher createYumPublisher();
 
 	/**
 	 * Returns the package supported by this factory.

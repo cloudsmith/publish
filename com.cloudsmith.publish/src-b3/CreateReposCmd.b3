@@ -48,6 +48,12 @@ concern DefaultPublishing
 	builder publish(PHPPackage unit) {
 		result : new PHPPublisher().write(unit);
 	}
+	builder publish(Yum unit) {
+		result : new YumPublisher().write(unit);
+	}
+	builder publish(Apt unit) {
+		result : new AptPublisher().write(unit);
+	}
 	builder publish(Publishable unit) {
 		input : [ select-required capability { name-space ~= _ ; name ~= _; }.publish() ];
 		result : new Publisher().write(unit);

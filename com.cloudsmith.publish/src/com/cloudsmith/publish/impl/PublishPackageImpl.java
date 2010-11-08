@@ -23,16 +23,21 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.cloudsmith.publish.ActionPackage;
 import com.cloudsmith.publish.ActionParameter;
+import com.cloudsmith.publish.Apt;
+import com.cloudsmith.publish.AptActions;
+import com.cloudsmith.publish.AptPublisher;
 import com.cloudsmith.publish.CSource;
 import com.cloudsmith.publish.ExtNativeActions;
 import com.cloudsmith.publish.GEMActions;
 import com.cloudsmith.publish.GEMPublisher;
+import com.cloudsmith.publish.IAptActions;
 import com.cloudsmith.publish.IExtNativeActions;
 import com.cloudsmith.publish.IGEMActions;
 import com.cloudsmith.publish.INativeActions;
 import com.cloudsmith.publish.IPHPActions;
 import com.cloudsmith.publish.IRPMActions;
 import com.cloudsmith.publish.IRubyActions;
+import com.cloudsmith.publish.IYumActions;
 import com.cloudsmith.publish.Native;
 import com.cloudsmith.publish.NativeActions;
 import com.cloudsmith.publish.NativePublisher;
@@ -53,6 +58,9 @@ import com.cloudsmith.publish.RepositoryPublisher;
 import com.cloudsmith.publish.RubyActions;
 import com.cloudsmith.publish.RubyPublisher;
 import com.cloudsmith.publish.RubyRuntime;
+import com.cloudsmith.publish.Yum;
+import com.cloudsmith.publish.YumActions;
+import com.cloudsmith.publish.YumPublisher;
 
 /**
  * <!-- begin-user-doc -->
@@ -332,6 +340,70 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	private EClass iYumActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass yumActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass yumPublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iAptActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass aptActionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass aptPublisherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass yumEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass aptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -521,6 +593,24 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		phpEClass = createEClass(PHP);
 
 		phpExtEClass = createEClass(PHP_EXT);
+
+		iYumActionsEClass = createEClass(IYUM_ACTIONS);
+
+		yumActionsEClass = createEClass(YUM_ACTIONS);
+
+		yumPublisherEClass = createEClass(YUM_PUBLISHER);
+		createEReference(yumPublisherEClass, YUM_PUBLISHER__YUM_ACTIONS);
+
+		iAptActionsEClass = createEClass(IAPT_ACTIONS);
+
+		aptActionsEClass = createEClass(APT_ACTIONS);
+
+		aptPublisherEClass = createEClass(APT_PUBLISHER);
+		createEReference(aptPublisherEClass, APT_PUBLISHER__APT_ACTIONS);
+
+		yumEClass = createEClass(YUM);
+
+		aptEClass = createEClass(APT);
 	}
 
 	/**
@@ -589,6 +679,46 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getApt() {
+		return aptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAptActions() {
+		return aptActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAptPublisher() {
+		return aptPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAptPublisher_AptActions() {
+		return (EReference) aptPublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getCSource() {
 		return cSourceEClass;
 	}
@@ -649,6 +779,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getIAptActions() {
+		return iAptActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIExtNativeActions() {
 		return iExtNativeActionsEClass;
 	}
@@ -701,6 +841,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 */
 	public EClass getIRubyActions() {
 		return iRubyActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getIYumActions() {
+		return iYumActionsEClass;
 	}
 
 	/**
@@ -1204,6 +1354,46 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getYum() {
+		return yumEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getYumActions() {
+		return yumActionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getYumPublisher() {
+		return yumPublisherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getYumPublisher_YumActions() {
+		return (EReference) yumPublisherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
@@ -1265,6 +1455,16 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		phpPackageEClass.getESuperTypes().add(this.getPublishable());
 		phpEClass.getESuperTypes().add(this.getPHPPackage());
 		phpExtEClass.getESuperTypes().add(this.getPHPPackage());
+		yumActionsEClass.getESuperTypes().add(this.getActionPackage());
+		yumActionsEClass.getESuperTypes().add(this.getIYumActions());
+		yumPublisherEClass.getESuperTypes().add(this.getPublisher());
+		yumPublisherEClass.getESuperTypes().add(this.getIYumActions());
+		aptActionsEClass.getESuperTypes().add(this.getActionPackage());
+		aptActionsEClass.getESuperTypes().add(this.getIAptActions());
+		aptPublisherEClass.getESuperTypes().add(this.getPublisher());
+		aptPublisherEClass.getESuperTypes().add(this.getIAptActions());
+		yumEClass.getESuperTypes().add(this.getPublishable());
+		aptEClass.getESuperTypes().add(this.getPublishable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1381,6 +1581,11 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 		op = addEOperation(publisherEClass, theB3BuildPackage.getBuildSet(), "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3BuildPackage.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3BuildPackage.getBuildSet(), "data", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(publisherEClass, ecorePackage.getEString(), "getTouchpointType", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			publisherEClass, theB3BuildPackage.getVersion(), "getTouchpointVersion", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			publisherActionEClass, PublisherAction.class, "PublisherAction", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1624,6 +1829,38 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			phpEClass, com.cloudsmith.publish.PHP.class, "PHP", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(phpExtEClass, PHPExt.class, "PHPExt", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			iYumActionsEClass, IYumActions.class, "IYumActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			yumActionsEClass, YumActions.class, "YumActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			yumPublisherEClass, YumPublisher.class, "YumPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getYumPublisher_YumActions(), this.getYumActions(), null, "yumActions", null, 0, 1, YumPublisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			iAptActionsEClass, IAptActions.class, "IAptActions", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			aptActionsEClass, AptActions.class, "AptActions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			aptPublisherEClass, AptPublisher.class, "AptPublisher", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAptPublisher_AptActions(), this.getAptActions(), null, "aptActions", null, 0, 1, AptPublisher.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(yumEClass, Yum.class, "Yum", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(aptEClass, Apt.class, "Apt", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

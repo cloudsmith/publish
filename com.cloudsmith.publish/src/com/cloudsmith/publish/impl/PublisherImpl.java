@@ -434,6 +434,10 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 
 	private static final String[] p2Schemes = new String[] { "http", "https", "file", "ftp", "ftps" };
 
+	private static final String TOUCHPOINT_TYPE = "com.cloudsmith.p2.native";
+
+	private static final Version TOUCHPOINT_VERSION = Version.create("1.0.0");
+
 	protected static boolean isP2ArtifactScheme(String scheme) {
 		for(int i = 0; i < p2Schemes.length; i++)
 			if(p2Schemes[i].equals(scheme))
@@ -989,6 +993,27 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	public String getTouchpointType() {
+		return TOUCHPOINT_TYPE;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Version getTouchpointVersion() {
+		return TOUCHPOINT_VERSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BuildUnit getUnit() {
@@ -1511,20 +1536,24 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			}
 		}
 
+		// TODO: This adds com.cloudsmith.p2.native to all IUs if there are any instructions
+		//
 		ITouchpointType tpt;
-		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
-				getWhenUnconfiguring().size() > 0) {
-			TouchpointTypeImpl tpti = (TouchpointTypeImpl) p2Factory.createTouchpointType();
-			tpti.setId("com.cloudsmith.p2.native");
-			tpti.setVersion(Version.create("1.0.0"));
-			tpt = tpti;
-		}
-		else
-			tpt = ITouchpointType.NONE;
+		// if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
+		// getWhenUnconfiguring().size() > 0) {
+		TouchpointTypeImpl tpti = (TouchpointTypeImpl) p2Factory.createTouchpointType();
+		tpti.setId(getTouchpointType());
+		tpti.setVersion(getTouchpointVersion());
+		tpt = tpti;
+		// }
+		// else
+		// tpt = ITouchpointType.NONE;
 
 		iu.setTouchpointType(tpt);
 
-		if(iu.getTouchpointType() != ITouchpointType.NONE) {
+		// if(iu.getTouchpointType() != ITouchpointType.NONE) {
+		if(getWhenInstalling().size() > 0 || getWhenUninstalling().size() > 0 || getWhenConfiguring().size() > 0 ||
+				getWhenUnconfiguring().size() > 0) {
 			List<ITouchpointData> tpd = iu.getTouchpointData();
 			TouchpointDataImpl tpdi = (TouchpointDataImpl) p2Factory.createTouchpointData();
 			tpd.add(tpdi);
