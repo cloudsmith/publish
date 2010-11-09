@@ -378,6 +378,7 @@ public interface Publisher extends INativeActions {
 
 	/**
 	 * Returns the value of the '<em><b>Singleton</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Singleton</em>' attribute isn't clear, there really should be more of a description here...
@@ -387,7 +388,7 @@ public interface Publisher extends INativeActions {
 	 * @return the value of the '<em>Singleton</em>' attribute.
 	 * @see #setSingleton(boolean)
 	 * @see com.cloudsmith.publish.PublishPackage#getPublisher_Singleton()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isSingleton();

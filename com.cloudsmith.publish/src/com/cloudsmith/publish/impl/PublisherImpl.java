@@ -144,7 +144,7 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SINGLETON_EDEFAULT = false;
+	protected static final boolean SINGLETON_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isSingleton() <em>Singleton</em>}' attribute.

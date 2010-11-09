@@ -1502,7 +1502,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			getPublisher_Id(), ecorePackage.getEString(), "id", null, 0, 1, Publisher.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getPublisher_Singleton(), ecorePackage.getEBoolean(), "singleton", null, 0, 1, Publisher.class,
+			getPublisher_Singleton(), ecorePackage.getEBoolean(), "singleton", "true", 0, 1, Publisher.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getPublisher_Version(), theB3BuildPackage.getVersion(), "version", null, 0, 1, Publisher.class,
