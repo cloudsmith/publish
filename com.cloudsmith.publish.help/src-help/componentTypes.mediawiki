@@ -2,6 +2,7 @@
 The Cloudsmith Repository Builder is configured to handle publishing of a variety of component types.
 * Repository Definition
 * RPM
+* YUM, APT
 * Native components
 * Component compiled from C-source
 * Component containing configuration of another component (called ''Fragment'')
@@ -38,6 +39,19 @@ Note that:
 * The unit is marked with "is RPM" to indicate what this unit represents
 * the "source" has a URI referencing the location from which the RPM can be downloaded when the unit is later being installed
 * As the RPM system will be used to install this component, specification of dependencies is not required, but may be used if so wanted.
+
+==YUM and APT Component Definitions==
+A YUM definition is a specification of a component that will be installed in binary form using the Linux YUM mechanism.
+The APT definition specifies installation of a binary component using the APT package manager.
+
+Examples:
+ unit theNameOfTheComponent version rpm:1.2.3 is YUM ;
+ unit theNameOfTheCompoentn version rpm:1.2.3 is APT ;
+ 
+Note that:
+* the name is the name defined in the respective package management system
+* the units are marked with YUM or APT to denote which package manager to use for the installation
+* specification of dependencies are not required - the dependencies declared for the underlying component are managed by the respective package manager. It is possible to add additional dependencies.
 
 ==Native Component Definition==
 A Native component is a specification of a component consisting of one or more files. By default, the publishing system does not understand more about these files. They will simply be delivered by the installation mechanism. A Native component can however be combined with other declarations for some typical use cases - as explained later.

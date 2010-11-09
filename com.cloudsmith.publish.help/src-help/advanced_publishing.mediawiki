@@ -253,6 +253,9 @@ are used as arguments to RPM.
 |<code>'''uninstallPHPRuntimeFromCSource'''()</code>
 | Cleans up what was installed earlier with a ''installPHPRuntimeFromCSource'' operation, i.e., this is an "undo" of a ''installPHPRuntimeFromCSource'' operation.
 |}
+===YumPublisher and AptPublisher===
+The Yum and Apt publishers are derived from Publisher but does not define any additional actions.
+
 ===RepositoryPublisher===
 'RepositoryPublisher' is not derived from Publisher. The result of this publisher is a repository which is used during the installation process, but it is not installed as a component.
 
