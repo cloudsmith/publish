@@ -12,7 +12,7 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Yum Publisher</b></em>'.
+ * A representation of the model object '<em><b>YUM Publisher</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <p>
@@ -31,7 +31,7 @@ public interface YumPublisher extends Publisher, IYumActions {
 	 * Returns the value of the '<em><b>Yum Actions</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Yum Actions</em>' containment reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>YUM Actions</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

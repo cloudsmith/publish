@@ -224,8 +224,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aptActions" eType="#//AptActions"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Yum" abstract="true" interface="true"
+  <eClassifiers xsi:type="ecore:EClass" name="YUM" abstract="true" interface="true"
       eSuperTypes="#//Publishable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Apt" abstract="true" interface="true"
+  <eClassifiers xsi:type="ecore:EClass" name="APT" abstract="true" interface="true"
       eSuperTypes="#//Publishable"/>
 </ecore:EPackage>

@@ -17,7 +17,7 @@ import com.cloudsmith.publish.YumActions;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Yum Actions</b></em>'.
+ * An implementation of the model object '<em><b>YUM Actions</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>

@@ -101,7 +101,7 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		// --YUM
 		//
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Yum");
+		o.setQualifiedName("com.cloudsmith.publish.YUM");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.YumPublisher");
@@ -109,7 +109,7 @@ public class UseThesePublisherInterfaces implements IKludgyImportProvider {
 		// --APT
 		//
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
-		o.setQualifiedName("com.cloudsmith.publish.Apt");
+		o.setQualifiedName("com.cloudsmith.publish.APT");
 
 		result.add(o = B3backendFactory.eINSTANCE.createB3JavaImport());
 		o.setQualifiedName("com.cloudsmith.publish.AptPublisher");

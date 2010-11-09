@@ -802,26 +802,26 @@ public interface PublishPackage extends EPackage {
 		EReference APT_PUBLISHER__APT_ACTIONS = eINSTANCE.getAptPublisher_AptActions();
 
 		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.Yum <em>Yum</em>}' class.
+		 * The meta object literal for the '{@link com.cloudsmith.publish.YUM <em>YUM</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see com.cloudsmith.publish.Yum
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYum()
+		 * @see com.cloudsmith.publish.YUM
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYUM()
 		 * @generated
 		 */
-		EClass YUM = eINSTANCE.getYum();
+		EClass YUM = eINSTANCE.getYUM();
 
 		/**
-		 * The meta object literal for the '{@link com.cloudsmith.publish.Apt <em>Apt</em>}' class.
+		 * The meta object literal for the '{@link com.cloudsmith.publish.APT <em>APT</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see com.cloudsmith.publish.Apt
-		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getApt()
+		 * @see com.cloudsmith.publish.APT
+		 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAPT()
 		 * @generated
 		 */
-		EClass APT = eINSTANCE.getApt();
+		EClass APT = eINSTANCE.getAPT();
 
 	}
 
@@ -6461,12 +6461,12 @@ public interface PublishPackage extends EPackage {
 	int APT_PUBLISHER_FEATURE_COUNT = PUBLISHER_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link com.cloudsmith.publish.Yum <em>Yum</em>}' class.
+	 * The meta object id for the '{@link com.cloudsmith.publish.YUM <em>YUM</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see com.cloudsmith.publish.Yum
-	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYum()
+	 * @see com.cloudsmith.publish.YUM
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getYUM()
 	 * @generated
 	 */
 	int YUM = 39;
@@ -6732,7 +6732,7 @@ public interface PublishPackage extends EPackage {
 	int YUM__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
 
 	/**
-	 * The number of structural features of the '<em>Yum</em>' class.
+	 * The number of structural features of the '<em>YUM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -6742,12 +6742,12 @@ public interface PublishPackage extends EPackage {
 	int YUM_FEATURE_COUNT = PUBLISHABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.cloudsmith.publish.Apt <em>Apt</em>}' class.
+	 * The meta object id for the '{@link com.cloudsmith.publish.APT <em>APT</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see com.cloudsmith.publish.Apt
-	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getApt()
+	 * @see com.cloudsmith.publish.APT
+	 * @see com.cloudsmith.publish.impl.PublishPackageImpl#getAPT()
 	 * @generated
 	 */
 	int APT = 40;
@@ -7013,7 +7013,7 @@ public interface PublishPackage extends EPackage {
 	int APT__PLATFORM_FILTER = PUBLISHABLE__PLATFORM_FILTER;
 
 	/**
-	 * The number of structural features of the '<em>Apt</em>' class.
+	 * The number of structural features of the '<em>APT</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -7093,15 +7093,15 @@ public interface PublishPackage extends EPackage {
 	EAttribute getActionParameter_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.Apt <em>Apt</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.APT <em>APT</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Apt</em>'.
-	 * @see com.cloudsmith.publish.Apt
+	 * @return the meta object for class '<em>APT</em>'.
+	 * @see com.cloudsmith.publish.APT
 	 * @generated
 	 */
-	EClass getApt();
+	EClass getAPT();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.AptActions <em>Apt Actions</em>}'.
@@ -7876,15 +7876,15 @@ public interface PublishPackage extends EPackage {
 	EClass getRubyRuntime();
 
 	/**
-	 * Returns the meta object for class '{@link com.cloudsmith.publish.Yum <em>Yum</em>}'.
+	 * Returns the meta object for class '{@link com.cloudsmith.publish.YUM <em>YUM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Yum</em>'.
-	 * @see com.cloudsmith.publish.Yum
+	 * @return the meta object for class '<em>YUM</em>'.
+	 * @see com.cloudsmith.publish.YUM
 	 * @generated
 	 */
-	EClass getYum();
+	EClass getYUM();
 
 	/**
 	 * Returns the meta object for class '{@link com.cloudsmith.publish.YumActions <em>Yum Actions</em>}'.

@@ -98,7 +98,7 @@ public class PublishSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Apt</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>APT</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -106,11 +106,11 @@ public class PublishSwitch<T> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Apt</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>APT</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseApt(Apt object) {
+	public T caseAPT(APT object) {
 		return null;
 	}
 
@@ -846,7 +846,7 @@ public class PublishSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Yum</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YUM</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -854,11 +854,11 @@ public class PublishSwitch<T> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Yum</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YUM</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYum(Yum object) {
+	public T caseYUM(YUM object) {
 		return null;
 	}
 
@@ -1503,8 +1503,8 @@ public class PublishSwitch<T> {
 				return result;
 			}
 			case PublishPackage.YUM: {
-				Yum yum = (Yum) theEObject;
-				T result = caseYum(yum);
+				YUM yum = (YUM) theEObject;
+				T result = caseYUM(yum);
 				if(result == null)
 					result = casePublishable(yum);
 				if(result == null)
@@ -1528,8 +1528,8 @@ public class PublishSwitch<T> {
 				return result;
 			}
 			case PublishPackage.APT: {
-				Apt apt = (Apt) theEObject;
-				T result = caseApt(apt);
+				APT apt = (APT) theEObject;
+				T result = caseAPT(apt);
 				if(result == null)
 					result = casePublishable(apt);
 				if(result == null)

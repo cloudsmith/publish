@@ -512,7 +512,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_qP0uQ-tQEd-kNMJ77vuBfA"/>
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_qPuAketQEd-kNMJ77vuBfA" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-      <element xmi:type="ecore:EClass" href="publish.ecore#//Yum"/>
+      <element xmi:type="ecore:EClass" href="publish.ecore#//YUM"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qPuAkutQEd-kNMJ77vuBfA" x="233" y="419"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_sTBVEOtQEd-kNMJ77vuBfA" type="1001">
@@ -528,7 +528,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_sTB8KOtQEd-kNMJ77vuBfA"/>
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_sTBVEetQEd-kNMJ77vuBfA" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-      <element xmi:type="ecore:EClass" href="publish.ecore#//Apt"/>
+      <element xmi:type="ecore:EClass" href="publish.ecore#//APT"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sTBVEutQEd-kNMJ77vuBfA" x="468" y="414"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_vmV64YbSEd-7tJc5lBlYTA"/>

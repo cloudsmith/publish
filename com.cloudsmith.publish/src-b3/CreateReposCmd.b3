@@ -48,10 +48,10 @@ concern DefaultPublishing
 	builder publish(PHPPackage unit) {
 		result : new PHPPublisher().write(unit);
 	}
-	builder publish(Yum unit) {
+	builder publish(YUM unit) {
 		result : new YumPublisher().write(unit);
 	}
-	builder publish(Apt unit) {
+	builder publish(APT unit) {
 		result : new AptPublisher().write(unit);
 	}
 	builder publish(Publishable unit) {

@@ -12,13 +12,13 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Yum</b></em>'.
+ * A representation of the model object '<em><b>YUM</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getYum()
+ * @see com.cloudsmith.publish.PublishPackage#getYUM()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Yum extends Publishable {
-} // Yum
+public interface YUM extends Publishable {
+} // YUM

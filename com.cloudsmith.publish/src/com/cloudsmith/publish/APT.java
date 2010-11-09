@@ -12,13 +12,13 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Apt</b></em>'.
+ * A representation of the model object '<em><b>APT</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 
- * @see com.cloudsmith.publish.PublishPackage#getApt()
+ * @see com.cloudsmith.publish.PublishPackage#getAPT()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Apt extends Publishable {
-} // Apt
+public interface APT extends Publishable {
+} // APT

@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.cloudsmith.publish.ActionPackage;
 import com.cloudsmith.publish.ActionParameter;
-import com.cloudsmith.publish.Apt;
 import com.cloudsmith.publish.AptActions;
 import com.cloudsmith.publish.AptPublisher;
 import com.cloudsmith.publish.CSource;
@@ -58,7 +57,6 @@ import com.cloudsmith.publish.RepositoryPublisher;
 import com.cloudsmith.publish.RubyActions;
 import com.cloudsmith.publish.RubyPublisher;
 import com.cloudsmith.publish.RubyRuntime;
-import com.cloudsmith.publish.Yum;
 import com.cloudsmith.publish.YumActions;
 import com.cloudsmith.publish.YumPublisher;
 
@@ -679,7 +677,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	public EClass getApt() {
+	public EClass getAPT() {
 		return aptEClass;
 	}
 
@@ -1359,7 +1357,7 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 	 * 
 	 * @generated
 	 */
-	public EClass getYum() {
+	public EClass getYUM() {
 		return yumEClass;
 	}
 
@@ -1858,9 +1856,11 @@ public class PublishPackageImpl extends EPackageImpl implements PublishPackage {
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(yumEClass, Yum.class, "Yum", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			yumEClass, com.cloudsmith.publish.YUM.class, "YUM", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(aptEClass, Apt.class, "Apt", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			aptEClass, com.cloudsmith.publish.APT.class, "APT", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

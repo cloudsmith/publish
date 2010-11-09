@@ -12,7 +12,7 @@ package com.cloudsmith.publish;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Yum Actions</b></em>'.
+ * A representation of the model object '<em><b>YUM Actions</b></em>'.
  * <!-- end-user-doc -->
  * 
  * 

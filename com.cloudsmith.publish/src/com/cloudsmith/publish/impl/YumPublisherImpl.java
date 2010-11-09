@@ -23,7 +23,7 @@ import com.cloudsmith.publish.YumPublisher;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Yum Publisher</b></em>'.
+ * An implementation of the model object '<em><b>YUM Publisher</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

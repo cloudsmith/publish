@@ -67,8 +67,8 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseApt(Apt object) {
-			return createAptAdapter();
+		public Adapter caseAPT(APT object) {
+			return createAPTAdapter();
 		}
 
 		@Override
@@ -287,8 +287,8 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseYum(Yum object) {
-			return createYumAdapter();
+		public Adapter caseYUM(YUM object) {
+			return createYUMAdapter();
 		}
 
 		@Override
@@ -381,17 +381,17 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Apt <em>Apt</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.APT <em>APT</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see com.cloudsmith.publish.Apt
+	 * @see com.cloudsmith.publish.APT
 	 * @generated
 	 */
-	public Adapter createAptAdapter() {
+	public Adapter createAPTAdapter() {
 		return null;
 	}
 
@@ -1057,17 +1057,17 @@ public class PublishAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.Yum <em>Yum</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.cloudsmith.publish.YUM <em>YUM</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see com.cloudsmith.publish.Yum
+	 * @see com.cloudsmith.publish.YUM
 	 * @generated
 	 */
-	public Adapter createYumAdapter() {
+	public Adapter createYUMAdapter() {
 		return null;
 	}
 
