@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="Repository Builder" uid="com.cloudsmith.publish.publisher.product" id="com.cloudsmith.publish.publisher.product" application="com.cloudsmith.publish.publisher.application" version="0.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>
@@ -15,16 +15,16 @@ License - see http://www.cloudsmith.com/license_info.html
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-Xdock:icon=../Resources/RBDockIconMac.icns
+      <vmArgsMac>-Xdock:icon=../Resources/RepositoryBuilder.icns
 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/com.cloudsmith.publish.publisher/icons/RPicon16.png" i32="/com.cloudsmith.publish.publisher/icons/RPicon32.png" i48="/com.cloudsmith.publish.publisher/icons/RPicon48.png" i64="/com.cloudsmith.publish.publisher/icons/RPicon64.png" i128="/com.cloudsmith.publish.publisher/icons/RPicon128.png"/>
+   <windowImages i16="/com.cloudsmith.publish.publisher/icons/RBIcon16.png" i32="/com.cloudsmith.publish.publisher/icons/RBIcon32.png" i48="/com.cloudsmith.publish.publisher/icons/RBIcon48.png" i64="/com.cloudsmith.publish.publisher/icons/RBIcon64.png" i128="/com.cloudsmith.publish.publisher/icons/RBIcon128.png"/>
 
    <splash
       location="com.cloudsmith.publish.publisher" />
    <launcher name="RepositoryBuilder">
-      <linux icon="/com.cloudsmith.publish.publisher/icons/RPDockIconLinux.xpm"/>
+      <linux icon="/com.cloudsmith.publish.publisher/icons/RBDockIconLinux.xpm"/>
       <macosx icon="/com.cloudsmith.publish.publisher/icons/RBDockIconMac.icns"/>
       <solaris/>
       <win useIco="true">
@@ -33,22 +33,22 @@ License - see http://www.cloudsmith.com/license_info.html
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
 
    <features>
-      <feature id="com.cloudsmith.publish.publisher.product" version="1.0.0.qualifier"/>
+      <feature id="com.cloudsmith.publish.publisher.product" version="0.2.0.qualifier"/>
    </features>
 
    <configurations>
       <plugin id="com.cloudsmith.publish.publisher" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="0" />
+
+      <property name="osgi.instance.area.default" value="@user.home/.repobuilder" />
    </configurations>
 
 </product>
