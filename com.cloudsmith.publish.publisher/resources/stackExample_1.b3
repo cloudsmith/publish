@@ -22,6 +22,16 @@ unit "MySQL-server-community" version rpm:5.1.48-1.rhel5.i386 is RPM {
 	source : "http://dev.mysql.com/get/Downloads/MySQL-5.1/MySQL-server-community-5.1.48-1.rhel5.i386.rpm/from/http://mirror.services.wisc.edu/mysql/";
 }
 
+« The following is sample code for a Linux package installed with YUM. 
+  Note that the 'rpm:' version scheme is used.
+»
+unit aYumPackage version rpm:1.2.32 is YUM;
+
+« The following is sample code for a Linux package installed with APT. 
+  Note that the 'rpm:' version scheme is used.
+»
+unit anAptPackage version rpm:1.2.32 is APT;
+
 
 « The following is sample code for a Gem. Note that a Gem typically follows the 'gem:' version 
   scheme (sometimes referred to as the 'gem rational version policy')
