@@ -16,6 +16,8 @@ extensions, RPMs, etc.) have corresponding unit types. Each unit's type is decla
 Currently supported unit types include:
 * '''RepositoryDefinition''' - used to define the repository
 * '''RPM''' - used to define a binary RPM, including its location
+* '''YUM''' - used to define a linux package installed with the Yum package manager
+* '''APT''' - used to define a linux package installed with the Apt package manager
 * '''GEM''' - used to define a Ruby Gem
 * '''RubyRuntime''' - used to define a Ruby runtime environment (installed either from source or RPM), with support for configuration options (database choice, for example).
 * '''PHPRuntime''' - used to define a PHP runtime environment (installed either from source or RPM).
