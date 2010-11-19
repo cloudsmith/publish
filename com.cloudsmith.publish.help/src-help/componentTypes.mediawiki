@@ -46,7 +46,7 @@ The APT definition specifies installation of a binary component using the APT pa
 
 Examples:
  unit theNameOfTheComponent version rpm:1.2.3 is YUM ;
- unit theNameOfTheCompoentn version rpm:1.2.3 is APT ;
+ unit theNameOfTheCompoentn version deb:1.2.3-1a is APT ;
  
 Note that:
 * the name is the name defined in the respective package management system

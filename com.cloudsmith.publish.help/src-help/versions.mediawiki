@@ -9,6 +9,7 @@ These formats can be quite complex. To overcome this problem, the Cloudsmith Rep
 The available formats are:
 * OSGi (the default format)
 * rpm
+* deb
 * gem
 * php
 * triplet
@@ -22,6 +23,11 @@ The OSGi version format has three mandatory period separated numerical fields fo
 Use of the OSGi version scheme is recommended whenever there is a choice.
 
 The OSGi version format is used by default - entering a version such as "1.0.0" creates an OSGi version.
+
+===The deb version format===
+The Debian (deb:) version format is similar to the rpm format, but with a more strict definition and support for some additional features.
+
+The deb: format has three main parts: [epoch:]upstream[-revision] where epoch and revision are optional. The epoch is a numeric field. The upstream version consists of one or more segments and must start with a digit. Each segment consists of a sequence of alphanumerical characters A-Za-z0-9~.: where numerical sequences compare as numbers. The optional revision may not include the ':' character. A revision is only significant if the rest of the version compares equal and a missing revision compares as < any revision.
 
 ===The triplet version format===
 The ''triplet'' version format is the same as the OSGi format, but the semantics are different. A triplet without a qualifier is always ''later'' than a version with a qualifier. The triplet version scheme is used by several open source technologies such as Maven.
