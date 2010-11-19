@@ -2,7 +2,7 @@
 <templates>
 <template id="GEMdefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create a GEM definition unit" enabled="true" name="GEMDefinition">unit ${gemName} version gem:${gemVersion} is GEM;
 ${cursor}</template>
-<template id="APTdefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create an APT definition unit" enabled="true" name="APTDefinition">unit ${aptName} version rpm:${rpmVersion} is APT;
+<template id="APTdefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create an APT definition unit" enabled="true" name="APTDefinition">unit ${aptName} version deb:${debVersion} is APT;
 ${cursor}</template>
 <template id="YUMdefinition" autoinsert="true" context="org.eclipse.b3.BeeLang.BuildUnit" deleted="false" description="Create an YUM definition unit" enabled="true" name="YUMDefinition">unit ${yumName} version rpm:${rpmVersion} is YUM;
 ${cursor}</template>
