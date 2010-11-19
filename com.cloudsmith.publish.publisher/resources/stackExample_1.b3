@@ -30,7 +30,7 @@ unit aYumPackage version rpm:1.2.32 is YUM;
 « The following is sample code for a Linux package installed with APT. 
   Note that the 'rpm:' version scheme is used.
 »
-unit anAptPackage version rpm:1.2.32 is APT;
+unit anAptPackage version deb:1.2.32-1a is APT;
 
 
 « The following is sample code for a Gem. Note that a Gem typically follows the 'gem:' version 
